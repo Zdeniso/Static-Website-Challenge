@@ -1,13 +1,12 @@
 :root {
     --font-color: white;
-    --background-color100: #737577;
-    --background-color200: #3e4042;  
-    --background-color300: #2F3133;
-    --background-color400: #1E2022;  
-    --background-colorblue200 : #2B65F1;
-    --background-color-green100: #017F09;
-    --background-color-green200: #33a53b; 
+    --background-colorblue100: #1e293b; /* Bleu foncé */
+    --background-colorblue200: rgb(37, 104, 211);
   }
+
+* {
+    font-family: 'Segoe UI', sans-serif;
+}
   
 .greyline_separator {
   border: none;

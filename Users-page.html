@@ -51,33 +51,55 @@
                 <span class="material-icons">apartment</span>
             </button>
         </div>
-        <div id="main__table-titles-area">
-            <div class="table-title-area__title">
-                <span class="material-icons">apartment</span>
-                <p>Name</p>
-                <span class="material-icons">apartment</span>
+
+        <!-- 🌐 TABLE AREA -->
+            <div class="main__table-area">
+
+            <!-- 🧩 En-tête du tableau -->
+                <div class="table-header">
+                    <div>👤 Name</div>
+                    <div>📧 Company</div>
+                    <div>📅 Role</div>
+                    <div>📅 Email</div>
+                    <div>⚙️ Modifications</div>
+                </div>
+
+            <!-- 👤 Première ligne d’un utilisateur -->
+                <div class="table-row">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/32?img=1" alt="Avatar">
+                        Evelyn Johnson
+                    </div>
+                    <div>Losinger-Marazzi</div>
+                    <div>Architect</div>
+                    <div>evelyn.johnson@example.com</div>
+                    <div class="actions">
+                        <button title="Edit">✏️</button>
+                        <button title="Delete">🗑️</button>
+                    </div>
+                </div>
+
+            <!-- 👤 Deuxième ligne -->
+                <div class="table-row">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/32?img=2" alt="Avatar">
+                        Logan Johnson
+                    </div>
+                    <div>Implenia</div>
+                    <div>Engineer</div>
+                    <div>logan.johnson@example.com</div>
+                    <div class="actions">
+                        <button title="Edit">✏️</button>
+                        <button title="Delete">🗑️</button>
+                    </div>
+                </div>
+
+                <!-- 💡 Tu peux ajouter ici d’autres utilisateurs -->
+
             </div>
-            <div class="table-title-area__title">
-                <span class="material-icons">apartment</span>
-                <p>Company</p>
-                <span class="material-icons">apartment</span>
-            </div>
-            <div class="table-title-area__title">
-                <span class="material-icons">apartment</span>
-                <p>Role</p>
-                <span class="material-icons">apartment</span>
-            </div>
-            <div class="table-title-area__title">
-                <span class="material-icons">apartment</span>
-                <p>Email</p>
-                <span class="material-icons">apartment</span>
-            </div>
-            <div class="table-title-area__title">
-                <span class="material-icons">apartment</span>
-                <p>Action</p>
-            </div>
-        </div>
-        <div id="main__list-of-users-area"></div>
+
+        <!-- ➕ Bouton pour ajouter un utilisateur (fonction JS à venir) -->
+        <button class="add-button">+ Ajouter un utilisateur</button>
     </main>
     <footer></footer>
 </body>

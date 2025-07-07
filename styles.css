@@ -8,7 +8,7 @@ body {
         "aside main"
         "aside footer";
     height: 100vh;
-    background-color: var(--background-color400) ;
+    background-color: #1e293b; /* Bleu foncé */ ;
 }
 
 /* HEADER */
@@ -37,7 +37,6 @@ header {
 /* ASIDE */
 aside {
     grid-area: aside;
-    background-color: var(--background-color400);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,7 +48,6 @@ aside {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    background-color: var(--background-color300);
     margin: 15px;
     padding: 20px;
     border-radius: 30px;
@@ -97,46 +95,102 @@ main {
     margin: 15px;
     border-radius: 25px;
     padding: 0 30px ;
-    font-size: 0.8rem;
+    font-size: 1rem;
     border-style: hidden;
 }
 
-/* MAIN - TABLE TITLE AREA */
-#main__table-titles-area {
+
+/* 🔹 TABLE AREA */
+.main__table-area {
+    overflow-x: auto; /* Active un scroll horizontal si le tableau dépasse la largeur de l’écran */
+    color: var(--font-color)
+}
+
+/* 🔹 Lignes du tableau (en-tête et contenu) en CSS Grid */
+.table-header, .table-row {
+    display: grid; /* Active le système de grille CSS */
+    grid-template-columns: 2fr 2fr 2fr 2.5fr 1fr;
+    /* Répartit les colonnes en proportions flexibles avec "fr" (fraction de l’espace disponible) :
+        - 1ère colonne (Nom avec avatar) : 2 parts
+        - 2e colonne (Email) : 3 parts
+        - 3e & 4e colonnes (Dates) : 2 parts chacune
+        - 5e colonne (Actions) : 1 part */
+    padding: 1rem; /* Espacement intérieur */
+    align-items: center; /* Aligne verticalement les contenus au centre */
+    justify-items: left;
+    min-width: 800px; /* Empêche le tableau de devenir trop étroit */
+}
+
+/* ✅ Nouveau style pour espacer légèrement les lignes */
+.table-row {
+    margin: 0.5rem; /* Espacement vertical + léger retrait horizontal */
+    border-radius: 8px;
+    background-color: var(--background-color300);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Effet de flottement doux */
+}
+
+.table-row:hover {
+    scale: 1.008;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* 🔹 Ligne d'en-tête spécifique */
+.table-header {
+    font-weight: bold;
+    border-bottom: 1px solid #334155; /* Ligne grise foncée en bas */
+}
+
+/* 🔹 Mise en forme de la cellule "Nom" */
+.user {
+    display: flex; /* Met le contenu (avatar + nom) sur une ligne */
+    align-items: center; /* Centre verticalement */
+    gap: 0.75rem; /* Espacement entre l'image et le nom */
+}
+
+/* 🔹 Style de l’avatar (cercle) */
+.user img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Cercle parfait */
+}
+
+/* 🔹 Actions (boutons éditer/supprimer) alignés horizontalement */
+.actions {
     display: flex;
-    justify-content: space-around;
-    height: 100px;
-    color: var(--font-color);
-    
+    gap: 0.75rem;
+    justify-content: center; /* Centre les boutons horizontalement */
 }
 
-.table-title-area__title {
-    display: flex;
-    align-items: center;
-    gap: 10px
+/* 🔹 Style des boutons d’action */
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 6px;
+    color: #cbd5e1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-#main__list-of-users-area {
-    background-color: rgb(112, 86, 53);
-    height: 100%;
+.actions button:hover {
+    scale: 2;
 }
 
+/* 🔹 Bouton global pour ajouter un utilisateur */
+.add-button {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    background-color: #2563eb; /* Bleu vif */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
-
-
-
+.add-button:hover {
+    background-color: #1d4ed8; /* Bleu plus foncé au survol */
+}
 
 
 
