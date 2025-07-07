@@ -1,0 +1,149 @@
+/* BODY */
+body {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 80px 1fr 100px;
+    grid-template-areas: 
+        "header header"
+        "aside main"
+        "aside footer";
+    height: 100vh;
+    background-color: var(--background-color400) ;
+}
+
+/* HEADER */
+header {
+    grid-area: header;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center ;
+}
+
+#header__main-title-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--font-color);
+}
+
+#header__account-button {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ASIDE */
+aside {
+    grid-area: aside;
+    background-color: var(--background-color400);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+#aside__navigation-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--background-color300);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 30px;
+    color: var(--font-color);
+}
+
+/* MAIN */
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+/* MAIN - TITLE AREA */
+#main__title-area {
+    display: flex;
+    align-items: center;
+    color: var(--font-color);
+    font-weight: normal;
+    height: 80px;
+}
+
+#main__title-area h1 {
+    align-items: center;
+    justify-items: center;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+/* MAIN - FILTERS AND EXTRACT AREA */
+#main__filters-and-extract-area {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters-and-extract-area__buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: var(--background-colorblue200);
+    color: var(--font-color);
+    margin: 15px;
+    border-radius: 25px;
+    padding: 0 30px ;
+    font-size: 0.8rem;
+    border-style: hidden;
+}
+
+/* MAIN - TABLE TITLE AREA */
+#main__table-titles-area {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    color: var(--font-color);
+    
+}
+
+.table-title-area__title {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#main__list-of-users-area {
+    background-color: rgb(112, 86, 53);
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
+    grid-area: footer;
+    background-color: greenyellow;
+}
