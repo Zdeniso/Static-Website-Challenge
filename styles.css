@@ -1,14 +1,15 @@
 /* BODY */
 body {
     display: grid;
+    height: 100vh;
     grid-template-columns: 100px 1fr;
     grid-template-rows: 80px 1fr 100px;
     grid-template-areas: 
         "header header"
         "aside main"
         "aside footer";
-    height: 100vh;
     background-color: #1e293b; /* Bleu foncé */ ;
+    overflow-y: hidden;
 }
 
 /* HEADER */
@@ -18,13 +19,22 @@ header {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center ;
-}
+    margin: 3rem;
+ }
 
 #header__main-title-area {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     color: var(--font-color);
+    border-bottom: 3px solid rgb(55, 55, 85); /* Ligne grise foncée en bas */
+}
+
+#header__main-title-area > p:first-child {
+    background-color: orangered;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 2rem;
 }
 
 #header__account-button {
@@ -34,24 +44,58 @@ header {
     align-items: center;
 }
 
+#header__account-button {
+    border-radius: 50px;
+    padding: 4px 8px;
+    background-color: var(--background-colorblue100);
+    border: 1px solid rgb(51, 50, 97);
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#header__account-button:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+#account-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.user img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; /* Cercle parfait */
+}
+
+
 /* ASIDE */
 aside {
     grid-area: aside;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
 }
 
 #aside__navigation-area {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     margin: 15px;
     padding: 20px;
+    border: 1px solid rgb(51, 50, 97);
     border-radius: 30px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);;
     color: var(--font-color);
+}
+
+#aside__navigation-area span:hover {
+    scale : 1.4;
+    color: var(--background-colorblue300);
+    cursor: pointer;
 }
 
 /* MAIN */
@@ -60,6 +104,8 @@ main {
     display: flex;
     flex-direction: column;
     margin: 15px;
+    min-height: 0;
+    height: 100%;
 }
 
 /* MAIN - TITLE AREA */
@@ -67,8 +113,10 @@ main {
     display: flex;
     align-items: center;
     color: var(--font-color);
+    font-size: 3.5rem;
     font-weight: normal;
     height: 80px;
+    padding: 30px 50px;
 }
 
 #main__title-area h1 {
@@ -80,25 +128,55 @@ main {
 }
 
 /* MAIN - FILTERS AND EXTRACT AREA */
-#main__filters-and-extract-area {
-    height: 100px;
+#main__filters-extract-add-area {
     display: flex;
+    height: 100px;
     justify-content: space-between;
 }
 
-.filters-and-extract-area__buttons {
+#filters-and-extract-area {
     display: flex;
+}
+
+#filters-and-extract-area button {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: var(--background-color300);
+    color: var(--font-color);
+    margin: 30px;
+    border-radius: 25px;
+    padding: 0 20px ;
+    font-size: 0.8rem;
+    border: 1px solid white;
+}
+
+#filters-and-extract-area button:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+
+/* 🔹 Bouton global pour ajouter un utilisateur */
+#add-user-button {
     gap: 15px;
     align-items: center;
     background-color: var(--background-colorblue200);
     color: var(--font-color);
-    margin: 15px;
+    margin: 25px;
     border-radius: 25px;
     padding: 0 30px ;
     font-size: 1rem;
     border-style: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
+#add-user-button:hover {
+    background-color: var(--background-colorblue300);
+    cursor: pointer;
+    scale: 1.05;
+    transition: 0.2s;
+}
 
 /* 🔹 TABLE AREA */
 .main__table-area {
@@ -123,7 +201,7 @@ main {
 
 /* ✅ Nouveau style pour espacer légèrement les lignes */
 .table-row {
-    margin: 0.5rem; /* Espacement vertical + léger retrait horizontal */
+    margin: 0.5rem 1rem; /* Espacement vertical + léger retrait horizontal */
     border-radius: 8px;
     background-color: var(--background-color300);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Effet de flottement doux */
@@ -176,28 +254,42 @@ main {
     scale: 2;
 }
 
-/* 🔹 Bouton global pour ajouter un utilisateur */
-.add-button {
-    margin-top: 1rem;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    background-color: #2563eb; /* Bleu vif */
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.add-button:hover {
-    background-color: #1d4ed8; /* Bleu plus foncé au survol */
-}
-
-
-
-
-
 /* FOOTER */
 footer {
     grid-area: footer;
-    background-color: greenyellow;
+    display: flex;
+    justify-content: space-between;
 }
+
+#footer__pages-navigation {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#footer__pages-navigation div {
+    padding: 10px;
+    border: 1px solid rgb(51, 50, 97);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    color: var(--font-color);
+}
+
+#footer__showing-choice {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#footer__showing-choice div {
+    padding: 10px;
+    border: 1px solid rgb(51, 50, 97);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    color: var(--font-color);
+}
+
+
+
+
+

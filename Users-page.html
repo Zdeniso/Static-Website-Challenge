@@ -14,42 +14,42 @@
             <p>PN</p>
             <h1>Project name</h1>
             <div>
-                <p>Started date : 25-11-2023</p>
-                <p>Past days : 450</p>
+                <p style="font-style: italic">Started date : 25-11-2023</p>
+                <p style="font-style: italic">Past days : 450</p>
             </div>
         </div>
-        <div id="header__account-area">
+        <div>
             <button id="header__account-button">
-            <span class="material-icons">apartment</span>
-            <p>Denis Pommier</p>
+            <img id="account-avatar" src="https://i.pravatar.cc/32?img=2" alt="Avatar">Denis Pommier
             </button>
         </div>
     </header>
     <aside>
         <div id="aside__navigation-area">
-            <span class="material-icons">apartment</span>
-            <span class="material-icons">apartment</span>
-            <span class="material-icons">apartment</span>
-            <span class="material-icons">apartment</span>
-            <span class="material-icons">apartment</span>
-            <span class="material-icons">apartment</span>
-            <span class="material-icons">apartment</span>
-            <span class="material-icons">apartment</span>
+            <span class="material-icons">home</span>
+            <span class="material-icons">visibility</span>
+            <span class="material-icons">perm_identity</span>
+            <span class="material-icons">description</span>
+            <span class="material-icons">schedule</span>
+            <span class="material-icons">event</span>
+            <span class="material-icons">help</span>
+            <span class="material-icons">settings</span>
         </div>
     </aside>
     <main>
         <section id="main__title-area">
-            <h1>Users</h1>
+            <p>Users</p>
         </section>
-        <div id="main__filters-and-extract-area">
-            <button class="filters-and-extract-area__buttons">
-                <p>Add Filter</p>
-                <span class="material-icons">apartment</span>
-            </button>
-            <button class="filters-and-extract-area__buttons">
-                <p>Extract</p>
-                <span class="material-icons">apartment</span>
-            </button>
+        <div id="main__filters-extract-add-area">
+            <div id="filters-and-extract-area">
+                <button>Add Filter
+                    <span class="material-icons">filter_alt</span>
+                </button>
+                <button>Extract
+                    <span class="material-icons">download</span>
+                </button>
+            </div>
+            <button id="add-user-button">+ Add user</button>
         </div>
 
         <!-- 🌐 TABLE AREA -->
@@ -93,14 +93,90 @@
                         <button title="Delete">🗑️</button>
                     </div>
                 </div>
-
+                <div class="table-row">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/32?img=2" alt="Avatar">
+                        Logan Johnson
+                    </div>
+                    <div>Implenia</div>
+                    <div>Engineer</div>
+                    <div>logan.johnson@example.com</div>
+                    <div class="actions">
+                        <button title="Edit">✏️</button>
+                        <button title="Delete">🗑️</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/32?img=2" alt="Avatar">
+                        Logan Johnson
+                    </div>
+                    <div>Implenia</div>
+                    <div>Engineer</div>
+                    <div>logan.johnson@example.com</div>
+                    <div class="actions">
+                        <button title="Edit">✏️</button>
+                        <button title="Delete">🗑️</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/32?img=2" alt="Avatar">
+                        Logan Johnson
+                    </div>
+                    <div>Implenia</div>
+                    <div>Engineer</div>
+                    <div>logan.johnson@example.com</div>
+                    <div class="actions">
+                        <button title="Edit">✏️</button>
+                        <button title="Delete">🗑️</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/32?img=2" alt="Avatar">
+                        Logan Johnson
+                    </div>
+                    <div>Implenia</div>
+                    <div>Engineer</div>
+                    <div>logan.johnson@example.com</div>
+                    <div class="actions">
+                        <button title="Edit">✏️</button>
+                        <button title="Delete">🗑️</button>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/32?img=2" alt="Avatar">
+                        Logan Johnson
+                    </div>
+                    <div>Implenia</div>
+                    <div>Engineer</div>
+                    <div>logan.johnson@example.com</div>
+                    <div class="actions">
+                        <button title="Edit">✏️</button>
+                        <button title="Delete">🗑️</button>
+                    </div>
+                </div>
                 <!-- 💡 Tu peux ajouter ici d’autres utilisateurs -->
 
             </div>
-
-        <!-- ➕ Bouton pour ajouter un utilisateur (fonction JS à venir) -->
-        <button class="add-button">+ Ajouter un utilisateur</button>
     </main>
-    <footer></footer>
+    <footer>
+        <div id="footer__pages-navigation">
+            <div>Prev</div>
+            <div>1</div>
+            <div>2</div>
+            <div>...</div>
+            <div>8</div>
+            <div>9</div>
+            <div>Next</div>
+        </div>
+        <div id="footer__showing-choice">
+            <div>Showing</div>
+            <div>5</div>
+            <div>of 120 entries</div>
+        </div>        
+    </footer>
 </body>
 </html>

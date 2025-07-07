@@ -1,15 +1,11 @@
 :root {
     --font-color: white;
-    --background-colorblue100: #1e293b; /* Bleu foncé */
+    --background-colorblue50: #121925;
+    --background-colorblue100: #1e293b; 
     --background-colorblue200: rgb(37, 104, 211);
+    --background-colorblue300: rgb(65, 123, 216);
   }
 
 * {
     font-family: 'Segoe UI', sans-serif;
-}
-  
-.greyline_separator {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* clair et discret */
-  margin: 5px 0px;
 }
