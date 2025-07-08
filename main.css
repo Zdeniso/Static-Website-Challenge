@@ -1,2 +1,7 @@
 @import url("variables.css");
-@import url("styles.css");
+@import url("user-page__body.css");
+@import url("user-page__main.css");
+@import url("user-page__header.css");
+@import url("user-page__footer.css");
+@import url("user-page__aside.css");
+@import url("user-page__form-add-user.css");

@@ -178,5 +178,31 @@
             <div>of 120 entries</div>
         </div>        
     </footer>
+
+    <!-- Add user form -->
+    <dialog id="add-user-form__page">
+        <form id="add-user-form__form">
+            <h1>New user</h1>
+            <div id="add-user-form__content">
+                <div class="add-user-form__content-information">Title 1</div>
+                <div class="add-user-form__content-information">Title 1</div>
+                <div class="add-user-form__content-information">Title 1</div>
+                <div class="add-user-form__content-information">Title 1</div>
+                <div class="add-user-form__content-information">Title 1</div>
+            </div>
+            <footer id="add-user-form__footer">
+                <button>Cancel</button>
+                <button>Accept</button>
+            </footer>
+        </form>
+    </dialog>
+
+
 </body>
 </html>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("add-user-form__page")?.showModal();
+  });
+</script>

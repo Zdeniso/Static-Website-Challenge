@@ -1,0 +1,40 @@
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer__pages-navigation {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#footer__pages-navigation div {
+    padding: 10px;
+    border: 1px solid rgb(51, 50, 97);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    color: var(--font-color);
+}
+
+#footer__showing-choice {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#footer__showing-choice div {
+    padding: 10px;
+    border: 1px solid rgb(51, 50, 97);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    color: var(--font-color);
+}
+
+#footer__pages-navigation div:hover, #footer__showing-choice div:hover {
+    scale: 1.1;
+    background-color: var(--background-colorblue200);
+    cursor: pointer;
+}
+

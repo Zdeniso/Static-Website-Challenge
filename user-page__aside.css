@@ -1,0 +1,25 @@
+aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#aside__navigation-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid rgb(51, 50, 97);
+    border-radius: 30px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);;
+    color: var(--font-color);
+}
+
+#aside__navigation-area span:hover {
+    scale : 1.4;
+    color: var(--background-colorblue300);
+    cursor: pointer;
+}
