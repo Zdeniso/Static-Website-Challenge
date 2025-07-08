@@ -1,7 +1,8 @@
 :root {
     --font-color: white;
     --background-colorblue50: #121925;
-    --background-colorblue100: #1e293b; 
+    --background-colorblue100: #1e293b;
+    --background-colorblue150: #33435c;
     --background-colorblue200: rgb(37, 104, 211);
     --background-colorblue300: rgb(65, 123, 216);
   }

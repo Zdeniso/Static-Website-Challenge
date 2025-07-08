@@ -1,47 +1,141 @@
-#add-user-form__page {
-    padding: 0;
+/* ========== MODALE CENTRÉE ========= */
+
+#project-dialog {
+  /* Positionne la boîte de dialogue en mode plein écran */
+  position: fixed;
+  inset: 0; /* équivaut à top: 0; right: 0; bottom: 0; left: 0 */
+  
+  /* Centre le formulaire horizontalement et verticalement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Pas de fond propre à la boîte */
+  background: transparent;
+  border: none;
+  padding: 1rem;
+
+  /* Assure que la modale est au-dessus des autres éléments */
+  z-index: 1000;
+}
+
+/* Arrière-plan flouté lors de l'ouverture du <dialog> */
+#project-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.3); /* voile semi-transparent noir */
+  backdrop-filter: blur(6px); /* flou sur l’arrière-plan */
 }
 
 
-#add-user-form__page::backdrop {
-	background-color : rgba(0, 0, 0, 0.3);
-	backdrop-filter: blur(5px);
-    padding: 0px;
+/* ========== FORMULAIRE PRINCIPAL ========= */
+
+#project-form {
+  /* Empile les éléments du formulaire verticalement */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* espace entre chaque champ */
+
+  /* Taille responsive avec min 320px, max 500px */
+  width: clamp(320px, 90vw, 500px);
+
+  /* Fond sombre du formulaire */
+  padding: 2rem;
+  background-color: var(--background-colorblue100); /* gris foncé */
+  color: #f0f0f0; /* texte clair */
+
+  border-radius: 8px; /* coins arrondis */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* ombre portée pour surélever */
+
+  font-family: 'Segoe UI', sans-serif; /* police moderne */
+
+  /* Limite la hauteur pour les petits écrans, avec scroll si nécessaire */
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-#add-user-form__form {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-colorblue100);
-    padding: 1rem;
-    height: 500px;
-    width: 300px;
-}
-
-#add-user-form__form h1 {
-    color: var(--font-color);
-    font-size: 1.5rem;
-    height: 50px;
-    margin: 0;
-    border-bottom: 1px solid #334155;
-    justify-content: center;
-}
-
-#add-user-form__content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.add-user-form__content-information {
-    margin: 10px;
-    background-color: burlywood;
+/* Titre du formulaire */
+#project-form h1 {
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 
+/* ========== CHAMPS DE FORMULAIRE ========= */
 
-#add-user-form__footer {
-    background-color: yellowgreen;
-    display: flex;
-    height: 50px;
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem; /* espace entre titre, input et description */
+}
+
+/* Titres des champs (ex: "Name", "Description") */
+.label-title {
+  font-weight: 500; /* semi-gras */
+}
+
+/* Zones de saisie : input, textarea, select */
+input,
+textarea,
+select {
+  background-color: var(--background-colorblue150); /* gris légèrement plus clair que le fond */
+  border: none;
+  padding: 0.7rem; /* espace intérieur confortable */
+  border-radius: 8px;
+  color: #f0f0f0; /* texte clair */
+  font-size: 1rem;
+}
+
+/* Bordure colorée lorsqu’un champ est actif */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #3f9eff; /* bleu clair en focus */
+}
+
+/* Petits textes d’aide (sous le champ "Name") */
+small {
+  font-size: 0.75rem;
+  color: #999; /* gris clair pour contraste discret */
+}
+
+
+/* ========== ZONE DES BOUTONS ========= */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* aligne à droite */
+  gap: 1rem; /* espace entre les boutons */
+  margin-top: 1rem;
+}
+
+
+/* ========== STYLE DES BOUTONS ========= */
+
+.btn {
+  padding: 0.7rem 1.4rem; /* hauteur et largeur du bouton */
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease; /* effet de survol fluide */
+}
+
+/* Bouton "Cancel" (neutre) */
+.btn.cancel {
+  background-color: transparent;
+  color: #999;
+}
+
+.btn.cancel:hover {
+  text-decoration: underline; /* effet visuel au survol */
+}
+
+/* Bouton "Accept" (action principale) */
+.btn.accept {
+  background-color: #1fb141; /* vert vif */
+  color: white;
+  font-weight: bold;
+}
+
+.btn.accept:hover {
+  background-color: #148b32; /* vert plus foncé au survol */
 }
