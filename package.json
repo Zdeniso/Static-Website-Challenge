@@ -1,0 +1,23 @@
+{
+  "name": "static-website-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zdeniso/Static-Website-Challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zdeniso/Static-Website-Challenge/issues"
+  },
+  "homepage": "https://github.com/Zdeniso/Static-Website-Challenge#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^7.0.4"
+  }
+}
