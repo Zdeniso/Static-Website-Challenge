@@ -1,7 +1,7 @@
-@import url("variables.css");
-@import url("user-page/body.css");
-@import url("user-page/main.css");
-@import url("user-page/header.css");
-@import url("user-page/footer.css");
-@import url("user-page/aside.css");
-@import url("user-page/components/form_add-user.css");
+@import url("./variables.css");
+@import url("./user-page/body.css");
+@import url("./user-page/main.css");
+@import url("./user-page/header.css");
+@import url("./user-page/footer.css");
+@import url("./user-page/aside.css");
+@import url("./user-page/components/form_add-user.css");
