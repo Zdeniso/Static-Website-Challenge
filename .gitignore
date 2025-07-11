@@ -1,20 +1,27 @@
-# Node
+# 📦 Dossier généré automatiquement contenant les modules installés par npm
 node_modules/
 
-# Build output
+# 🏗️ Dossier de sortie généré par Vite après le build
 dist/
 
-# Logs
-*.log
+# ⚙️ Cache interne utilisé par Vite (améliore les temps de build)
+.vite/
 
-# Environnement
+# 🔒 Fichier de verrouillage des dépendances (utile pour CI/CD, mais peut être ignoré si non versionné volontairement)
+# Tu peux enlever cette ligne si tu veux versionner package-lock.json
+package-lock.json
+
+# 🖥️ Fichiers de configuration spécifiques à l'éditeur/OS
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# 🔧 Fichiers d'environnement locaux (ex : variables d'API locales)
 .env
 .env.local
+.env.*.local
 
-# IDEs
-.vscode/
-.idea/
+# 🪵 Fichiers de log potentiels générés lors des erreurs
+*.log
 
-# OS files
-.DS_Store
-Thumbs.db
+# 📦 Build Vite preview en mode SSR ou SSG (facultatif selon usage)
+ssr-manifest.json
