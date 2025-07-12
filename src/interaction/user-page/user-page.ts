@@ -10,11 +10,11 @@ if (addUserButton instanceof HTMLButtonElement && addUserDialog instanceof HTMLD
   addUserButton.addEventListener("click", () => {
     addUserDialog.showModal();
   });
-} else {
+} else {    // Gestion des erreurs
   if (!(addUserButton instanceof HTMLButtonElement)) {
-    console.warn("L'ID du bouton est erroné ou l'élément n'est pas un HTMLButtonElement.");
+    console.warn("This is not a HTMLButtonElement or the ID is wrong.");
   }
   if (!(addUserDialog instanceof HTMLDialogElement)) {
-    console.warn("L'ID du dialog est erroné ou l'élément n'est pas un HTMLDialogElement.");
+    console.warn("This is not a HTMLDialogElement or the ID is wrong.")
   }
 }

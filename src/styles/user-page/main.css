@@ -79,7 +79,7 @@ main {
 }
 
 /* 🔹 TABLE AREA */
-.main__table-area {
+#main__table-area {
     overflow-x: auto; /* Active un scroll horizontal si le tableau dépasse la largeur de l’écran */
     color: var(--font-color)
 }
