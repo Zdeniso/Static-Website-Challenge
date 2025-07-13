@@ -28,7 +28,7 @@ export class User implements IUser{
 
     setUI() {
         if (this.ui) {
-            {return}
+            return
         } else {
             this.ui = document.createElement("div")
             this.ui.className = "table-row"
