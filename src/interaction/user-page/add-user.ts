@@ -1,61 +1,74 @@
-import { IUser, UserRole } from "../classes/User"
-import { UsersManager } from "../classes/UsersManager"
+import { Company, Role, IUser, User } from "../classes/User"
 
-// Liste des ID's nécessaires
-const ID_DIALOG: string = "new-user__dialog";
+// =================================================================
+// BOUTON "ADD USER" => OUVERTURE DU FORMULAIRE D'AJOUT D'UTILISATEUR
+// =================================================================
+
+
+
+// =================================================================
+// BOUTON "ACCEPT" => RECUPERATION DES INFORMATIONS DU FORMULAIRE
+// =================================================================
+
+// On déclare les variables des ID que l'on va utiliser
 const ID_FORM: string = "new-user__form";
-const ID_BUTTON: string = "add-user-button";
+const ID_CANCEL_BUTTON: string = "cancel-button";
 const ID_TABLE: string = "main__table-area";
+const ID_ADD_USER_BUTTON: string = "add-user-button";
+const ID_DIALOG: string = "new-user__dialog";
 
-// Ouvre le formulaire : .showModal
-const addUserButton = document.getElementById(ID_BUTTON);
-const addUserDialog = document.getElementById(ID_DIALOG);
-if (addUserButton instanceof HTMLButtonElement && addUserDialog instanceof HTMLDialogElement) {
-  addUserButton.addEventListener("click", () => {
-    addUserDialog.showModal();
-  });
-} else {    // Gestion des erreurs
-  if (!(addUserButton instanceof HTMLButtonElement)) {
-    console.warn("This is not a HTMLButtonElement or the ID is wrong.");
-  }
-  if (!(addUserDialog instanceof HTMLDialogElement)) {
-    console.warn("This is not a HTMLDialogElement or the ID is wrong.")
-  }
-}
+// Pointeurs éléments
+const addUserForm = document.getElementById(ID_FORM) as HTMLFormElement | null;
+const cancelButton = document.getElementById(ID_CANCEL_BUTTON) as HTMLButtonElement | null;
+const tableArea = document.getElementById(ID_TABLE) as HTMLElement | null;
+const addUserButton = document.getElementById(ID_ADD_USER_BUTTON) as HTMLButtonElement | null;
+const addUserDialog = document.getElementById(ID_DIALOG) as HTMLDialogElement | null;
 
-
-// Récupère les informations du formulaire et créé une instance de la classe User sous le contrat IUser
-const userForm = document.getElementById(ID_FORM)       // On pointe vers le formulaire <form>
-if (userForm instanceof HTMLFormElement) {              // 2) S'il existe, on créé une instance de FormData de ce formulaire <form>
-  userForm.addEventListener("submit", (e) => {  
-    e.preventDefault()
-    console.log("On récupère le form brut : ", userForm)
-
-    const formData = new FormData(userForm)             // 3) On transforme ce <form> en instance de FormData
-    console.log("On transforme le formulaire en objet FormData: ", formData)
-
-    const userData: IUser = {                           //4) On peux maintenant profiter de la méthode .get de FormData pour récupérer les infos es éléments html aux attributs "name=..."et les lier à des clefs, le tout dans un dictionnaire de paires {clef:value}
-      name: formData.get("name") as string,
-      company: formData.get("company") as string,
-      role: formData.get("role") as UserRole,
-      email: formData.get("email") as string
+// Ouvrir la modale au clic sur "Add User"
+addUserButton?.addEventListener("click", () => {
+    if (addUserDialog) {
+        addUserDialog.showModal();
+    } else {
+     console.warn("Dialog introuvable");
     }
-    console.log("On récupère et lit chaque information à une clef: ", userData)
+});
 
-    // Création d'un nouveau "User" dans le tableau
-    const usersListUI = document.getElementById(ID_TABLE) as HTMLElement
-    const usersManager = new UsersManager(usersListUI)
-    const newUser = usersManager.newUser(userData)
-    console.log("On a maintenant un instance de User :", newUser)
+// Fermer la modale au clic sur Cancel
+cancelButton?.addEventListener("click", () => {
+    addUserDialog?.close();
+});
 
-    // Reset et Fermeture du modal
-    if (addUserDialog instanceof HTMLDialogElement) {
-      userForm.reset()
-      addUserDialog.close()
+// Gérer la soumission du formulaire (écouteur unique)
+addUserForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!addUserForm.checkValidity()) {
+        addUserForm.reportValidity();  // Affiche erreurs HTML5 si invalide
+        return;
+  }
+
+    // Récupérer les données
+    const userRawData = new FormData(addUserForm);
+
+    const userData: IUser = {
+        name: userRawData.get("name") as string,
+        company: userRawData.get("company") as Company,
+        role: userRawData.get("role") as Role,
+        email: userRawData.get("email") as string,
+    };
+
+    const user = new User(userData);
+
+    // Ajouter l'ui de l'user dans la table
+    if (tableArea) {
+        tableArea.appendChild(user.ui);
+    } else {
+        console.warn(`Conteneur table introuvable`);
     }
-  })
-} else {
-  console.warn("This is not a HTMLFormElement or the ID is wrong.")
-}
 
-  
+    // Fermer la modale et reset le formulaire
+    addUserDialog?.close();
+    addUserForm.reset();
+});
+
+

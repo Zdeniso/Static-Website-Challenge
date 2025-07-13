@@ -1,29 +1,26 @@
-export type UserRole = "Architecte" | "Electrical Engineer" | 
-    "HVAC Engineer" | "Structural Engineer" | "BIM Manager" | "Client"
+export type Company = "Losinger-Marazzi" | "Implenia" | "Vinci-Construction"
+export type Role = "Architect" | "Electrical Engineer" | "HVAC Engineer" | 
+    "Structural Engineer" | "BIM Manager" | "Client"
 
 export interface IUser {
-    name: string
-    company: string
-    role: UserRole
-    email: string
+    name: string,
+    company: Company,
+    role: Role,
+    email: string    
 }
-
-export class User implements IUser{
-    // To satisfy IUser
+export class User implements IUser {
     name: string
-    company: string
-    role: UserRole
+    company: Company
+    role: Role
     email: string
-
-    // Class internals
-    ui: HTMLDivElement
+    ui: HTMLDivElement              // Intégration ui
 
     constructor(data: IUser) {
         this.name = data.name
         this.company = data.company
         this.role = data.role
         this.email = data.email
-        this.setUI()
+        this.setUI()                // Intégration ui
     }
 
     setUI() {
