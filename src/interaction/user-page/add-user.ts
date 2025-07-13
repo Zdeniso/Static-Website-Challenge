@@ -1,15 +1,5 @@
 import { Company, Role, IUser, User } from "../classes/User"
 
-// =================================================================
-// BOUTON "ADD USER" => OUVERTURE DU FORMULAIRE D'AJOUT D'UTILISATEUR
-// =================================================================
-
-
-
-// =================================================================
-// BOUTON "ACCEPT" => RECUPERATION DES INFORMATIONS DU FORMULAIRE
-// =================================================================
-
 // On déclare les variables des ID que l'on va utiliser
 const ID_FORM: string = "new-user__form";
 const ID_CANCEL_BUTTON: string = "cancel-button";
@@ -41,11 +31,15 @@ cancelButton?.addEventListener("click", () => {
 // Gérer la soumission du formulaire (écouteur unique)
 addUserForm?.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    // Vérifie si le formulaire est valide selon les règles HTML5 (ex: required, pattern, type, etc.)
     if (!addUserForm.checkValidity()) {
-        addUserForm.reportValidity();  // Affiche erreurs HTML5 si invalide
+        // Si le formulaire n'est pas valide,
+        // affiche automatiquement les messages d'erreur intégrés au navigateur pour chaque champ invalide
+        addUserForm.reportValidity();  
+        
+        // Stoppe l'exécution de la fonction pour empêcher la soumission ou autres actions
         return;
-  }
+    } else {
 
     // Récupérer les données
     const userRawData = new FormData(addUserForm);
@@ -69,6 +63,7 @@ addUserForm?.addEventListener("submit", (e) => {
     // Fermer la modale et reset le formulaire
     addUserDialog?.close();
     addUserForm.reset();
-});
+    }
+})
 
 
