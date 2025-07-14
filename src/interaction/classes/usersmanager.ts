@@ -1,4 +1,4 @@
-import { User, IUser } from "./user"
+import { User, IUser } from "./User"
 
 export class UsersManager {
     list: User[] = []
