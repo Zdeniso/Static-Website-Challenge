@@ -85,7 +85,7 @@ main {
 }
 
 /* 🔹 Lignes du tableau (en-tête et contenu) en CSS Grid */
-.table-header, .table-row {
+.table-header, .user-row {
     display: grid; /* Active le système de grille CSS */
     grid-template-columns: 2fr 2fr 2fr 2.5fr 1fr;
     /* Répartit les colonnes en proportions flexibles avec "fr" (fraction de l’espace disponible) :
@@ -100,14 +100,14 @@ main {
 }
 
 /* ✅ Nouveau style pour espacer légèrement les lignes */
-.table-row {
+.user-row {
     margin: 0.5rem 1rem; /* Espacement vertical + léger retrait horizontal */
     border-radius: 8px;
     background-color: var(--background-color300);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Effet de flottement doux */
 }
 
-.table-row:hover {
+.user-row:hover {
     scale: 1.008;
     transition: 0.5s;
     cursor: pointer;

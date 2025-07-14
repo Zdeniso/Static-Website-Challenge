@@ -1,3 +1,5 @@
+import {v4 as uuidv4 } from 'uuid'
+
 export type Company = "Losinger-Marazzi" | "Implenia" | "Vinci-Construction"
 export type Role = "Architect" | "Electrical Engineer" | "HVAC Engineer" | 
     "Structural Engineer" | "BIM Manager" | "Client"
@@ -13,6 +15,7 @@ export class User implements IUser {
     company: Company
     role: Role
     email: string
+    id: string      // Usefull method chapter
     ui: HTMLDivElement              // Intégration ui
 
     constructor(data: IUser) {
@@ -20,6 +23,7 @@ export class User implements IUser {
         this.company = data.company
         this.role = data.role
         this.email = data.email
+        this.id = uuidv4()  // Usefull method chapter
         this.setUI()                // Intégration ui
     }
 
@@ -28,7 +32,7 @@ export class User implements IUser {
             return
         } else {
             this.ui = document.createElement("div")
-            this.ui.className = "table-row"
+            this.ui.className = "user-row"
             this.ui.innerHTML = `
                 <div class="user">
                     <img src="https://i.pravatar.cc/32?img=1" alt="Avatar">
