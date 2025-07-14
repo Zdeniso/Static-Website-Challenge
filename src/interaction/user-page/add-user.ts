@@ -1,4 +1,5 @@
-import { Company, Role, IUser, User } from "../classes/User"
+import { Company, Role, IUser, User } from "../classes/user"
+import { UsersManager } from "../classes/usersmanager"
 
 // On déclare les variables des ID que l'on va utiliser
 const ID_FORM: string = "new-user__form";

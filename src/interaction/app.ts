@@ -1,2 +1,2 @@
 import "./user-page/add-user.ts";
-import "./classes/User.ts";
+import "./classes/user.ts";
