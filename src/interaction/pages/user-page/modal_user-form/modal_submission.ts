@@ -1,7 +1,7 @@
 import { addUserDialog, addUserForm, userListUI } from "../../../uiElements/uiElements.ts"
-import { IUser, Company, Role } from "../../../classes/User.ts"
-import { UsersManager } from "../../../classes/UsersManager.ts";
+import { IUser, Company, Role } from "../../../classes/user.ts"
 import { assertFormElement, assertDialogElement, assertContainerElement } from "../../../functions/domChecks.ts";
+import { UsersManager } from "../../../classes/usersmanager.ts";
 
 // ===============================================================
 // SOUMISSION DES INFORMATIONS LORSQU'ON APPUIE SUR LE BOUTTON "ACCEPT"
@@ -19,8 +19,9 @@ form.addEventListener("submit", (e) => {
         role: userRawData.get("role") as Role,
         email: userRawData.get("email") as string
     };
-    const userManager = new UsersManager(usersContainer);   // (A) Ensemble d'action à revoir
-    const newUser = userManager.newUser(userData);          // Ensemble d'action à revoir
+
+    const newUser = new UsersManager(userData, usersContainer)              // Création d'un nouvel utilisateur dans la base de donnée
+
     form.reset();                                           // Reset le formulaire
     dialog.close();                                         // Fermer la modale et reset le formulaire
 })

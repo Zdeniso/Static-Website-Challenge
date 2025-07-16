@@ -1,55 +1,58 @@
-import { User, IUser } from "./User"
+import { User, IUser } from "./user.ts"
+import { UUIDTypes } from 'uuid' ;
 
 export class UsersManager {
-    list: User[] = []
-    ui: HTMLElement // (C)
+    // PROPERTIES
+    static list: User[] = []
 
-    constructor (container: HTMLElement) {      // (C)
-        this.ui = container
-    }
 
-    newUser(data: IUser) {
-        const user = new User(data)
-        this.list.push(user)
-        this.ui.append(user.ui) // (C)
-        return user
-    }
-
-    // USEFULL METHOD
-    // npm i uuid
-    getUser(id: string) {
-        // 🔍 Recherche dans la liste l'utilisateur dont l'id correspond à celui passé en argument
-        const user = this.list.find((user) => {
-            // ✅ On compare l'id de chaque utilisateur à celui donné en paramètre
-            // Si la condition est vraie (valeur True), cet utilisateur est retourné par .find()
-            return user.id === id
-        })
-
-        // 🔁 Retourne l'utilisateur trouvé par .find() ou `undefined` si aucun ne correspond
-        return user
+    // CONSTRCUTOR
+    constructor(data: IUser, container: HTMLElement) {
+        UsersManager.newUser(data, container);
     }
 
 
-    deleteUser(id: string) {
-        // 🔍 Recherche de l'utilisateur à supprimer grâce à son identifiant
-        const user = this.getUser(id)
+    // METHODS
+    static newUser (dataUser: IUser, container: HTMLElement) {     
+        const newUser = new User(dataUser)          // (B) Créé une instances de User avec toutes les propriétés (infos + ui)
+        if (UsersManager.list.some((user) => user.__equals__(newUser))) {      // (C) Vérifie que le User n'existe pas dans sa liste
+            console.warn("Cet utilisateur existe déjà. Rien n'a été ajouté")
+            // Affiche une fenêtre d'erreur avec un message pour l'utilisateur
+            return
+        } else {
+            UsersManager.list.push(newUser);        // (1) Ajoute le User dans la liste (propriété "userList" de la classe                       
+            UsersManager.list.forEach((user) => container.appendChild(user.ui))
+        }
+        console.log("Utilisateur ajouté avec succès ! La nouvelle liste est : ", UsersManager.list)
+    }
 
-        // ❌ Si aucun utilisateur n’est trouvé, on arrête l’exécution de la méthode
-        if (!user) { return }
+    static getUser(id: UUIDTypes) {
+        const user = UsersManager.list.find((element) => element.id === id)
+        if (!(user))  {
+            console.warn("No element was found with this ID. Please verify the ID.")
+            return
+        } else {
+            return user
+        }
+    }
 
-        // 🧼 Suppression de l'élément HTML associé à l'utilisateur dans le DOM
-        user.ui.remove()
-
-        // 🧹 Création d'une nouvelle liste sans l'utilisateur à supprimer
-        const remaining = this.list.filter((user) => {
-            return user.id !== id
-        })
-
-        // 🔄 Remplacement de la liste actuelle par la version filtrée (sans l'utilisateur supprimé)
-        this.list = remaining
+    static deleteUser(id: UUIDTypes ) {
+        const user = UsersManager.list.find((element) => element.id === id)
+        if (!(user))  {
+            console.warn("No element was found with this ID. Nothing was deleted.")
+            return
+        } else {
+            const newList = UsersManager.list.filter((element) => element.id != id)
+            UsersManager.list = newList
+            user.ui.remove()
+            console.log("L'utilisateur : ", user.name, " a été effacé avec succès !")
+        }
     }
 
     export() {}
 
     importFromJSON() {}
+
 }
+
+(window as any).UsersManager = UsersManager;
