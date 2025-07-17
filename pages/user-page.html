@@ -41,12 +41,12 @@
         <section id="main__title-area">
             <p>Users</p>
         </section>
-        <div id="main__filters-extract-add-area">
-            <div id="filters-and-extract-area">
-                <button>Add Filter
-                    <span class="material-icons">filter_alt</span>
+        <div id="main__import-export-add-user-area">
+            <div id="import-export-area">
+                <button id="import-userlist-btn">Import
+                    <span class="material-icons">download</span>
                 </button>
-                <button>Extract
+                <button id="export-userlist-btn">Export
                     <span class="material-icons">download</span>
                 </button>
             </div>
@@ -171,15 +171,24 @@
             </div>
         </form>
     </dialog>
+
+    <!-- ERROR - USER ALREADY EXIST-->
+    <dialog id="dialog_error-user-already-exist">
+        <div id="window_error-user-already-exist">
+            <p>An user with this email already exist ! </p>
+            <button id="button_gotit">Got it !</button>
+        </div>
+        
+
+    </dialog>
 </body>
 </html>
 
 
-<!-- A utiliser pour voir la fenêtre modale 
+<!-- 
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("project-dialog")?.showModal();
+    document.getElementById("dialog_error-user-already-exist")?.showModal();
   });
 </script>
-
 -->

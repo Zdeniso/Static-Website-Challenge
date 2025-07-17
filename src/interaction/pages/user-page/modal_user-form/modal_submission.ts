@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
         email: userRawData.get("email") as string
     };
 
-    new UsersManager(userData, usersContainer)              // Création d'un nouvel utilisateur dans la base de donnée + ui dans le conteneur <div> principal
+    UsersManager.addUser(userData, usersContainer)          // Création d'un nouvel utilisateur dans la base de donnée + ui dans le conteneur <div> principal
 
     form.reset();                                           // Reset le formulaire
     dialog.close();                                         // Fermer la modale et reset le formulaire

@@ -5,3 +5,4 @@
 @import url("./user-page/footer.css");
 @import url("./user-page/aside.css");
 @import url("./user-page/components/form_add-user.css");
+@import url("./user-page/components/error_user-already-exist.css");

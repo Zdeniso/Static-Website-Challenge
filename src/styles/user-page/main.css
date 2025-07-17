@@ -28,17 +28,17 @@ main {
 }
 
 /* MAIN - FILTERS AND EXTRACT AREA */
-#main__filters-extract-add-area {
+#main__import-export-add-user-area {
     display: flex;
     height: 100px;
     justify-content: space-between;
 }
 
-#filters-and-extract-area {
+#import-export-area {
     display: flex;
 }
 
-#filters-and-extract-area button {
+#import-export-area button {
     display: flex;
     gap: 15px;
     align-items: center;
@@ -51,7 +51,7 @@ main {
     border: 1px solid white;
 }
 
-#filters-and-extract-area button:hover {
+#import-export-area button:hover {
     scale: 1.05;
     cursor: pointer;
 }
