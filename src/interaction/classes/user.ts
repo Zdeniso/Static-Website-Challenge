@@ -16,15 +16,15 @@ export class User implements IUser {
     role: Role
     email: string
     ui: HTMLDivElement              // Intégration ui
-    id: UUIDTypes                   // Intégration d'un ID généré automatiquement
+    id: UUIDTypes                   // Intégration d'un ID généré automatiquement par UUIDv4
 
     constructor(data: IUser) {
         this.name = data.name
         this.company = data.company
         this.role = data.role
         this.email = data.email
-        this.setUI()                // Intégration ui
-        this.setID()
+        this.setUI()                // Création du bloc HTML dans la propriété "ui"
+        this.setID()                // Création d'un ID généré automatiquement par UUIDv4
     }
 
     setUI() {
@@ -49,7 +49,7 @@ export class User implements IUser {
         this.id = uuidv4()
     }
 
-    __equals__(element: User) : boolean {
-        return this.email === element.email      
+    __equals__(element: User) : boolean {           // Méthode spéciale pour définir l'équivalence de 2 instances "User"
+        return this.email === element.email         // Ici on ne valide que par l'email 
     }
 }
