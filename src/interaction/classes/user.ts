@@ -19,10 +19,9 @@ export class User implements IUser {
     id: UUIDTypes                   // Intégration d'un ID généré automatiquement par UUIDv4
 
     constructor(data: IUser) {
-        this.name = data.name
-        this.company = data.company
-        this.role = data.role
-        this.email = data.email
+        for (const key in data) {
+            this[key] = data[key]
+        }
         this.setUI()                // Création du bloc HTML dans la propriété "ui"
         this.setID()                // Création d'un ID généré automatiquement par UUIDv4
     }
