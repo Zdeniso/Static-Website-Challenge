@@ -1,0 +1,92 @@
+#projects-page-dialog-area {
+    width: clamp(300px, 60%, 500px);
+    background-color: var(--background-color200);
+    border-radius: 10px;
+    border-style: hidden;   
+}
+
+#projects-page-dialog-area::backdrop {
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+}
+
+#form__content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.form__section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#form__main-title {
+    color: var(--font-color);
+    margin: 5px 0px;
+}
+
+label[for="form__title-section"] {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: grey;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.form__answers {
+    background-color: var(--background-color300);
+    border-radius: 5px;
+    border-style: hidden;
+    color:var(--font-color);
+    font-size: 0.9rem;
+    padding: 8px;
+    margin: 0;
+}
+
+#form__text-area {
+    resize: none;
+    min-height: 100px;
+}
+
+#form__footer {
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#cancel-button {
+    background-color: var(--background-color200);
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 1rem;
+    color: var(--font-color);
+    border-style: hidden;
+}
+
+#cancel-button:hover {
+    background-color: var(--background-color300);
+    cursor: pointer;
+}
+
+#accept-button {
+    background-color: var(--background-color-green100);
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 1rem;
+    color: var(--font-color);
+    border-style: hidden;
+}
+
+#accept-button:hover {
+    background-color: var(--background-color-green200);
+    cursor: pointer;
+}

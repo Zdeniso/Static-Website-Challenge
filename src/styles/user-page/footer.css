@@ -1,4 +1,4 @@
-footer {
+#footer-users-page-area {
     grid-area: footer;
     display: flex;
     justify-content: space-between;

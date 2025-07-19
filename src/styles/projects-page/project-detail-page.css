@@ -1,0 +1,254 @@
+#main-projects-page-area #project-detail-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* HEADER STYLE */
+#project-detail-page header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    height: 70px;
+    padding: 30px;
+}
+
+#project-detail-page header h1 {
+    color: var(--font-color);
+    font-size: var(--font-size-main-title);
+    margin-bottom: 0;
+    margin: 0px;
+}
+
+#project-detail-page header p {
+    color: grey;
+    font-style: italic;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+/* CONTENT STYLE */
+#project-detail-page__content-area {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    grid-template-rows: 250px 1fr;
+    grid-template-areas: 
+        "project-detail viewer3d"
+        "todo-list viewer3d";
+    flex: 1;
+    margin: 10px;
+}
+
+/* PROJECT INFORMATION */
+#project-detail {
+    grid-area: project-detail;
+    background-color: var(--background-color200);
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    margin-top: 0px;
+    border-radius: 15px;
+}
+
+#project-detail__edit-zone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 25%;
+    padding: 8px 20px;
+}
+
+#project-detail__edit-zone button {
+    font-size: 0.7rem;
+    color: var(--font-color);
+    padding: 10px 25px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    background: none;
+}
+
+#project-detail__edit-zone button:hover {
+    background-color: grey;
+    cursor: pointer;
+    scale: 1.2;
+}
+
+#project-detail__edit-zone p {
+    background-color: rgb(255, 123, 0);
+    padding: 10px;
+    border-radius: 50px;
+    border-style: hidden;
+    color: var(--font-color);
+}
+
+#project-detail__title-and-description {
+    display: flex;
+    flex-direction: column;
+}
+
+#project-detail__title-and-description h1 {
+    color: var(--font-color);
+    font-size: 0.8rem;
+    padding: 0px 20px;
+    margin: 0;
+}
+
+#project-detail__title-and-description p {
+    color: var(--font-color);
+    font-size: 0.8rem;
+    padding: 0px 20px;
+    margin: 0px;
+    font-style: italic;
+}
+
+#project-detail__informations {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+#project-detail__informations div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#project-detail__informations h2 {
+    color: grey;
+    font-weight: normal;
+    font-size: 0.8rem;
+    padding: 0px 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+}
+
+#project-detail__informations p {
+    color: var(--font-color);
+    font-size: 0.8rem;
+    margin: 0;
+
+}
+
+#project-detail__progress-bar {
+    padding: 20px;;
+}
+.progress-bar {
+  background-color: var(--background-color300);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 24px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.progress-fill {
+  background-color: #019e40; /* vert */
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  line-height: 24px;
+  transition: width 0.3s ease-in-out;
+}
+
+
+/* TODO LIST */
+#todo-list {
+    grid-area: todo-list;
+    background-color: var(--background-color200);
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    margin-bottom: 0;
+    border-radius: 15px;
+}
+
+#todo-list__adding-zone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--font-color);
+    height: 60px;
+}
+
+#todo-list__adding-zone p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+#todo-list__adding-zone div {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 20px;
+    gap: 5px;
+}
+
+#todo-list__adding-zone span:hover {
+    cursor: pointer;
+    scale: 1.2;
+}
+
+#todo-list p {
+    color: var(--font-color);
+    padding: 20px;
+}
+
+.search-bar-todo-list {
+    background-color: var(--background-color300);
+    border-style: hidden;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+#todo-list__listing-zone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.todo-event {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color300);
+    margin: 10px;
+    padding: 0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.todo-event:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.todo-event p {
+    margin: 0;
+}
+
+.todo-event span {
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--font-color);
+    background-color: var(--background-color400);
+}
+
+/* VIEWER 3D */
+#viewer3D {
+    grid-area: viewer3d;
+    background-color: var(--background-color200);
+    border-radius: 10px;
+    margin: 0 5px;
+    /* En dessous :a retirer quand on reprendra le viewer */
+    display: flex;
+    justify-content: center;
+    color: var(--font-color);
+    font-size: 50px;
+    padding: 100px;
+}

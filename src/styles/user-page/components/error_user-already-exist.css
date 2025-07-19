@@ -1,4 +1,4 @@
-#dialog_error-user-already-exist {
+#error-user-dialog-area {
     padding: 10px;
     border-style: none;
     background: none;
@@ -6,7 +6,7 @@
     min-width: 280px;
 }
 
-#dialog_error-user-already-exist::backdrop {
+#error-user-dialog-area::backdrop {
     background-color: rgba(0, 0, 0, 0.3); /* voile semi-transparent noir */
     backdrop-filter: blur(6px); /* flou sur l’arrière-plan */
 }

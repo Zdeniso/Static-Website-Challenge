@@ -1,4 +1,4 @@
-header {
+#header-users-page-area {
     grid-area: header;
     display: flex;
     flex-wrap: nowrap;

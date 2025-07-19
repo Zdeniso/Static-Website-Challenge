@@ -1,0 +1,23 @@
+#projects-page {
+    display: grid;
+    grid-template-columns: 250px 1fr; 
+    grid-template-rows: 1fr; 
+    height: 100vh;
+    grid-template-areas: "nav-area main-area";  
+    margin: 0;   
+}
+
+#main-projects-page-area {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--background-color100);
+}
+
+#aside-projects-page-area {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--background-color200);
+    color: var(--font-color);
+}

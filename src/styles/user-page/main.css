@@ -1,5 +1,5 @@
 /* MAIN */
-main {
+#main-users-page-area {
     grid-area: main;
     display: flex;
     flex-direction: column;

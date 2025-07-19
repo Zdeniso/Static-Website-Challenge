@@ -1,8 +1,23 @@
+/* Common ressource */
 @import url("./variables.css");
-@import url("./user-page/body.css");
+@import url("./body.css");
+
+/* Projects Page */
+@import url("./projects-page/projects-page-display.css");
+@import url("./projects-page/header-area.css");
+@import url("./projects-page/navigation-area.css");
+@import url("./projects-page/project-cards-area.css");
+@import url("./projects-page/project-detail-page.css");
+@import url("./projects-page/styles.css");
+
+@import url("./projects-page/components/new-project-form.css");
+
+/* Users Page */
+@import url("./user-page/users-page-display.css");
 @import url("./user-page/main.css");
 @import url("./user-page/header.css");
 @import url("./user-page/footer.css");
 @import url("./user-page/aside.css");
+
 @import url("./user-page/components/form_add-user.css");
 @import url("./user-page/components/error_user-already-exist.css");

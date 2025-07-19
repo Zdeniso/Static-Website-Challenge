@@ -1,5 +1,5 @@
 /* DIALOG */
-#new-user__dialog {
+#new-user-dialog-area {
     padding: 10px;
     border-style: none;
     background: none;
@@ -8,13 +8,13 @@
 }
 
 /* Arrière-plan flouté lors de l'ouverture du <dialog> */
-#new-user__dialog::backdrop {
+#new-user-dialog-area::backdrop {
     background-color: rgba(0, 0, 0, 0.3); /* voile semi-transparent noir */
     backdrop-filter: blur(6px); /* flou sur l’arrière-plan */
 }
 
 /* ========== FORMULAIRE PRINCIPAL ========= */
-#new-user__form {
+#new-user-form-area {
     display: flex;
     flex-direction: column;
     gap: 1.2rem; /* espace entre chaque champ */
@@ -26,21 +26,21 @@
   }
 
 /* Titre du formulaire */
-#new-user__form h1 {
+#new-user-form-area h1 {
     margin: 0;
     font-size: 1.5rem;
     padding-bottom: 10px;
     border-bottom: 1px solid grey;
 }
 
-#new-user__form > label {
+#new-user-form-area > label {
     display: flex;
     flex-direction: column;
     gap: 0.4rem; /* espace entre titre, input et description */
     margin-bottom: 0.8rem;
 }
 
-#new-user__form .title-zone {
+#new-user-form-area .title-zone {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -67,7 +67,7 @@ input:focus, select:focus {
 }
 
 /* Petits textes d’aide (sous le champ "Name") */
-#new-user__form small {
+#new-user-form-area small {
     font-size: 0.75rem;
     font-style: italic;
     color: #999; /* gris clair pour contraste discret */
