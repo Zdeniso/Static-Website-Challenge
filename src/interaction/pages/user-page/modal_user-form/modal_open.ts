@@ -1,4 +1,4 @@
-import { addUserButton, addUserDialog } from "../../../uiElements/uiElements"
+import { addUserButton, addUserDialog } from "../../../uiElements/uiElements";
 import { assertButtonElement, assertDialogElement } from "../../../functions/domChecks.ts";
 
 // ===============================================================

@@ -17,3 +17,6 @@ import "./uiElements/uiElements.ts";
 
 //Functions
 import "./functions/domChecks.ts";
+
+// Navigation
+import "./pages/pages-navigation.ts"

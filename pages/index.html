@@ -10,487 +10,513 @@
     <script type="module" src="../src/interaction/app.ts"></script>
 </head>
 <body>
-    <div class="page" id="projects-page" style="display: none">
-        <!-- ASIDE AREA -->
-        <aside id="aside-projects-page-area">
-            <img id="company-logo" src="../assets/company-logo.svg" alt="Company logo" />
-            <div>
-                <nav class="navigation-area__tabs"><span class="material-icons">apartment</span>Projects</nav>
-                <nav class="navigation-area__tabs"><span class="material-icons">group</span>Users</nav>
+    <!-- ===============================================--> 
+    <!-- ===============================================-->
+    <!-- ASIDE COMMON AREA -->
+    <!-- ===============================================-->
+    <!-- ===============================================-->     
+    <aside id="aside-common-area">
+        <img id="company-logo" src="../assets/company-logo.svg" alt="Company logo" />
+        <div>
+            <nav class="navigation-area__tabs" id="projects-nav"><span class="material-icons">apartment</span>Projects</nav>
+            <nav class="navigation-area__tabs" id="users-nav"><span class="material-icons">group</span>Users</nav>
+        </div>
+    </aside>    
+
+    <!-- ===============================================-->
+    <!-- ===============================================--> 
+    <!-- CONTENT- -->
+    <!-- ===============================================-->
+    <!-- ===============================================--> 
+    
+    
+    <!-- old : <main id="main-area"> -->
+    <main id="main-area"> 
+
+        <!-- ===============================================-->
+        <!-- PROJECTS - CARDS PAGE -->
+        <!-- ===============================================--> 
+         
+        
+        <!-- old : project-list-page -->
+        <div id="projects-cards-page" style="display:''">         
+            <!-- Header Area -->
+            <header>
+                <h1>Projects</h1>
+                <nav id="action-buttons">
+                    <span class="material-icons">download</span>
+                    <button id="new-project__button" onclick="document.getElementById('form__area').showModal()">+ New Project</button>
+                </nav>
+            </header>
+            <!-- Content Area - Project card -->
+            <div class="content-area">
+                <section class="project-card">
+                    <div class="project-card__header">
+                        <div class="project-card__acronym">DE</div>
+                        <div class="project-card__title-and-description">
+                            <h2>Default Project</h2>
+                            <p>This is just a default project. You may deleted if you want</p>                  
+                        </div>
+                    </div>
+                    <hr class="greyline_separator" />
+                    <div class="card__content">
+                        <div class="project-card__values">
+                                <p class="project-card__criteria">Status</p>
+                                <p>Active</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Cost</p>
+                            <p>CHF 0</p>
+                        </div>     
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>                             
+                    </div>
+                </section>
+                <section class="project-card">
+                    <div class="project-card__header">
+                        <div class="project-card__acronym">DE</div>
+                        <div class="project-card__title-and-description">
+                            <h2>Default Project</h2>
+                            <p>This is just a default project. You may deleted if you want</p>                  
+                        </div>
+                    </div>
+                    <hr class="greyline_separator" />
+                    <div class="card__content">
+                        <div class="project-card__values">
+                                <p class="project-card__criteria">Status</p>
+                                <p>Active</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Cost</p>
+                            <p>CHF 0</p>
+                        </div>     
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>                             
+                    </div>
+                </section>
+                <section class="project-card">
+                    <div class="project-card__header">
+                        <div class="project-card__acronym">DE</div>
+                        <div class="project-card__title-and-description">
+                            <h2>Default Project</h2>
+                            <p>This is just a default project. You may deleted if you want</p>                  
+                        </div>
+                    </div>
+                    <hr class="greyline_separator" />
+                    <div class="card__content">
+                        <div class="project-card__values">
+                                <p class="project-card__criteria">Status</p>
+                                <p>Active</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Cost</p>
+                            <p>CHF 0</p>
+                        </div>     
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>                             
+                    </div>
+                </section>
+                <section class="project-card">
+                    <div class="project-card__header">
+                        <div class="project-card__acronym">DE</div>
+                        <div class="project-card__title-and-description">
+                            <h2>Default Project</h2>
+                            <p>This is just a default project. You may deleted if you want</p>                  
+                        </div>
+                    </div>
+                    <hr class="greyline_separator" />
+                    <div class="card__content">
+                        <div class="project-card__values">
+                                <p class="project-card__criteria">Status</p>
+                                <p>Active</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Cost</p>
+                            <p>CHF 0</p>
+                        </div>     
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>                             
+                    </div>
+                </section>
+                <section class="project-card">
+                    <div class="project-card__header">
+                        <div class="project-card__acronym">DE</div>
+                        <div class="project-card__title-and-description">
+                            <h2>Default Project</h2>
+                            <p>This is just a default project. You may deleted if you want</p>                  
+                        </div>
+                    </div>
+                    <hr class="greyline_separator" />
+                    <div class="card__content">
+                        <div class="project-card__values">
+                                <p class="project-card__criteria">Status</p>
+                                <p>Active</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Cost</p>
+                            <p>CHF 0</p>
+                        </div>     
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>                             
+                    </div>
+                </section>
+                <section class="project-card">
+                    <div class="project-card__header">
+                        <div class="project-card__acronym">DE</div>
+                        <div class="project-card__title-and-description">
+                            <h2>Default Project</h2>
+                            <p>This is just a default project. You may deleted if you want</p>                  
+                        </div>
+                    </div>
+                    <hr class="greyline_separator" />
+                    <div class="card__content">
+                        <div class="project-card__values">
+                                <p class="project-card__criteria">Status</p>
+                                <p>Active</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Cost</p>
+                            <p>CHF 0</p>
+                        </div>     
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>                             
+                    </div>
+                </section>
+                <section class="project-card">
+                    <div class="project-card__header">
+                        <div class="project-card__acronym">DE</div>
+                        <div class="project-card__title-and-description">
+                            <h2>Default Project</h2>
+                            <p>This is just a default project. You may deleted if you want</p>                  
+                        </div>
+                    </div>
+                    <hr class="greyline_separator" />
+                    <div class="card__content">
+                        <div class="project-card__values">
+                                <p class="project-card__criteria">Status</p>
+                                <p>Active</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Role</p>
+                            <p>Architect</p>
+                        </div>
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Cost</p>
+                            <p>CHF 0</p>
+                        </div>     
+                        <div class="project-card__values">
+                            <p class="project-card__criteria">Estimated Progress</p>
+                            <p>0%</p>
+                        </div>                             
+                    </div>
+                </section>
             </div>
-        </aside>
-        <!-- MAIN AREA -->
-        <main id="main-projects-page-area">
-            <div id="project-list-page" style="display:none"> <!--display à retirer une fois le style des autres pages effectué-->
-                <!-- Header Area -->
-                <header>
-                    <h1>Projects</h1>
-                    <nav id="action-buttons">
-                        <span class="material-icons">download</span>
-                        <button id="new-project__button" onclick="document.getElementById('form__area').showModal()">+ New Project</button>
-                    </nav>
-                </header>
-                <!-- Content Area - Project card -->
-                <div class="content-area">
-                    <section class="project-card">
-                        <div class="project-card__header">
-                            <div class="project-card__acronym">DE</div>
-                            <div class="project-card__title-and-description">
-                                <h2>Default Project</h2>
-                                <p>This is just a default project. You may deleted if you want</p>                  
-                            </div>
-                        </div>
-                        <hr class="greyline_separator" />
-                        <div class="card__content">
-                            <div class="project-card__values">
-                                    <p class="project-card__criteria">Status</p>
-                                    <p>Active</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Role</p>
-                                <p>Architect</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Cost</p>
-                                <p>CHF 0</p>
-                            </div>     
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Estimated Progress</p>
-                                <p>0%</p>
-                            </div>                             
-                        </div>
-                    </section>
-                    <section class="project-card">
-                        <div class="project-card__header">
-                            <div class="project-card__acronym">DE</div>
-                            <div class="project-card__title-and-description">
-                                <h2>Default Project</h2>
-                                <p>This is just a default project. You may deleted if you want</p>                  
-                            </div>
-                        </div>
-                        <hr class="greyline_separator" />
-                        <div class="card__content">
-                            <div class="project-card__values">
-                                    <p class="project-card__criteria">Status</p>
-                                    <p>Active</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Role</p>
-                                <p>Architect</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Cost</p>
-                                <p>CHF 0</p>
-                            </div>     
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Estimated Progress</p>
-                                <p>0%</p>
-                            </div>                             
-                        </div>
-                    </section>
-                    <section class="project-card">
-                        <div class="project-card__header">
-                            <div class="project-card__acronym">DE</div>
-                            <div class="project-card__title-and-description">
-                                <h2>Default Project</h2>
-                                <p>This is just a default project. You may deleted if you want</p>                  
-                            </div>
-                        </div>
-                        <hr class="greyline_separator" />
-                        <div class="card__content">
-                            <div class="project-card__values">
-                                    <p class="project-card__criteria">Status</p>
-                                    <p>Active</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Role</p>
-                                <p>Architect</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Cost</p>
-                                <p>CHF 0</p>
-                            </div>     
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Estimated Progress</p>
-                                <p>0%</p>
-                            </div>                             
-                        </div>
-                    </section>
-                    <section class="project-card">
-                        <div class="project-card__header">
-                            <div class="project-card__acronym">DE</div>
-                            <div class="project-card__title-and-description">
-                                <h2>Default Project</h2>
-                                <p>This is just a default project. You may deleted if you want</p>                  
-                            </div>
-                        </div>
-                        <hr class="greyline_separator" />
-                        <div class="card__content">
-                            <div class="project-card__values">
-                                    <p class="project-card__criteria">Status</p>
-                                    <p>Active</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Role</p>
-                                <p>Architect</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Cost</p>
-                                <p>CHF 0</p>
-                            </div>     
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Estimated Progress</p>
-                                <p>0%</p>
-                            </div>                             
-                        </div>
-                    </section>
-                    <section class="project-card">
-                        <div class="project-card__header">
-                            <div class="project-card__acronym">DE</div>
-                            <div class="project-card__title-and-description">
-                                <h2>Default Project</h2>
-                                <p>This is just a default project. You may deleted if you want</p>                  
-                            </div>
-                        </div>
-                        <hr class="greyline_separator" />
-                        <div class="card__content">
-                            <div class="project-card__values">
-                                    <p class="project-card__criteria">Status</p>
-                                    <p>Active</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Role</p>
-                                <p>Architect</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Cost</p>
-                                <p>CHF 0</p>
-                            </div>     
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Estimated Progress</p>
-                                <p>0%</p>
-                            </div>                             
-                        </div>
-                    </section>
-                    <section class="project-card">
-                        <div class="project-card__header">
-                            <div class="project-card__acronym">DE</div>
-                            <div class="project-card__title-and-description">
-                                <h2>Default Project</h2>
-                                <p>This is just a default project. You may deleted if you want</p>                  
-                            </div>
-                        </div>
-                        <hr class="greyline_separator" />
-                        <div class="card__content">
-                            <div class="project-card__values">
-                                    <p class="project-card__criteria">Status</p>
-                                    <p>Active</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Role</p>
-                                <p>Architect</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Cost</p>
-                                <p>CHF 0</p>
-                            </div>     
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Estimated Progress</p>
-                                <p>0%</p>
-                            </div>                             
-                        </div>
-                    </section>
-                    <section class="project-card">
-                        <div class="project-card__header">
-                            <div class="project-card__acronym">DE</div>
-                            <div class="project-card__title-and-description">
-                                <h2>Default Project</h2>
-                                <p>This is just a default project. You may deleted if you want</p>                  
-                            </div>
-                        </div>
-                        <hr class="greyline_separator" />
-                        <div class="card__content">
-                            <div class="project-card__values">
-                                    <p class="project-card__criteria">Status</p>
-                                    <p>Active</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Role</p>
-                                <p>Architect</p>
-                            </div>
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Cost</p>
-                                <p>CHF 0</p>
-                            </div>     
-                            <div class="project-card__values">
-                                <p class="project-card__criteria">Estimated Progress</p>
-                                <p>0%</p>
-                            </div>                             
-                        </div>
-                    </section>
-                </div>
-            </div> 
+        </div>
 
     <!-- LE TRAVAIL COMMENCE ICI 
     OOOOOOOOOOOOOOOOOOOOO
     OOOOOOOOOOOOOOOOOOOOOO
     OOOOOOOOOOOOOOOOOOOOOOOOO -->
 
-            <div id="project-detail-page">
-                <header>
-                    <h1>Hospital Center</h1>
-                    <p>Community hospital located at downtown</p>
-                    <hr class="greyline_separator"/>
-                </header>
-                <div id="project-detail-page__content-area">
-                    <section id="project-detail">
-                        <div id="project-detail__edit-zone"><p>HC</p><button>Edit</button></div>
-                        <div id="project-detail__title-and-description">
-                            <h1>Hospital Center</h1>
-                            <p>Community hospital located at downtown</p>
+        <div id="project-detail-page" style = "display: none">
+            <header>
+                <h1>Hospital Center</h1>
+                <p>Community hospital located at downtown</p>
+                <hr class="greyline_separator"/>
+            </header>
+            <div id="project-detail-page__content-area">
+                <section id="project-detail">
+                    <div id="project-detail__edit-zone"><p>HC</p><button>Edit</button></div>
+                    <div id="project-detail__title-and-description">
+                        <h1>Hospital Center</h1>
+                        <p>Community hospital located at downtown</p>
+                    </div>
+                    <div id="project-detail__informations">
+                        <div>
+                            <h2>Status</h2>
+                            <p>Active</p>
                         </div>
-                        <div id="project-detail__informations">
-                            <div>
-                                <h2>Status</h2>
-                                <p>Active</p>
-                            </div>
-                            <div>
-                                <h2>Cost</h2>
-                                <p>$ 2'541.00</p>
-                            </div>
-                            <div>
-                                <h2>Role</h2>
-                                <p>Engineer</p>
-                            </div>   
-                            <div>
-                                <h2>Finish date</h2>
-                                <p>2023-05-01</p>
-                            </div>
+                        <div>
+                            <h2>Cost</h2>
+                            <p>$ 2'541.00</p>
                         </div>
-                        <div id="project-detail__progress-bar">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 80%;">80%</div>
-                            </div>               
+                        <div>
+                            <h2>Role</h2>
+                            <p>Engineer</p>
+                        </div>   
+                        <div>
+                            <h2>Finish date</h2>
+                            <p>2023-05-01</p>
                         </div>
-                    </section>
-                    <section id="todo-list">
-                        <div id="todo-list__adding-zone">
-                            <p>To-Do</p>
-                            <div>
-                                <span class="material-icons">search</span>
-                                <input class="search-bar-todo-list" type="text" maxlength="50" placeholder="Search To-Do's by name"/>
-                                <span class="material-icons">add</span>
-                            </div>
+                    </div>
+                    <div id="project-detail__progress-bar">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;">80%</div>
+                        </div>               
+                    </div>
+                </section>
+                <section id="todo-list">
+                    <div id="todo-list__adding-zone">
+                        <p>To-Do</p>
+                        <div>
+                            <span class="material-icons">search</span>
+                            <input class="search-bar-todo-list" type="text" maxlength="50" placeholder="Search To-Do's by name"/>
+                            <span class="material-icons">add</span>
                         </div>
-                        <div id="todo-list__listing-zone">
-                            <div class="todo-event">
-                                <span class="material-icons">construction</span>
-                                <p>Make anything here as you want, even something longer</p>
-                                <p>Fri, 20 sep</p>
-                            </div>
-                            <div class="todo-event">
-                                <span class="material-icons">construction</span>
-                                <p>Make anything here as you want, even something longer</p>
-                                <p>Fri, 20 sep</p>
-                            </div>
+                    </div>
+                    <div id="todo-list__listing-zone">
+                        <div class="todo-event">
+                            <span class="material-icons">construction</span>
+                            <p>Make anything here as you want, even something longer</p>
+                            <p>Fri, 20 sep</p>
                         </div>
-                    </section>    
-                    <section id="viewer3D">Viewer3D - WIP</section>              
-                </div>
+                        <div class="todo-event">
+                            <span class="material-icons">construction</span>
+                            <p>Make anything here as you want, even something longer</p>
+                            <p>Fri, 20 sep</p>
+                        </div>
+                    </div>
+                </section>    
+                <section id="viewer3D">Viewer3D - WIP</section>              
             </div>
-        </main>
-        <!-- FORM -->
-        <dialog id="new-project-dialog-area">
-            <form>
-                <h2 id="form__main-title">New Project</h2>
-                <hr class="greyline_separator" />
-                <div id="form__content">
-                    <section class="form__section">
-                        <label for="form__title-section"><span class="material-icons">apartment</span>Name</label>
-                        <input class="form__answers" type="text" maxlength="200"/>
-                    </section>
-                    <section class="form__section">
-                        <label for="form__title-section"><span class="material-icons">list</span>Description</label>
-                        <textarea id="form__text-area" class="form__answers" maxlength="400" 
-                        placeholder="Give your project a nice description so people are jealous about it"></textarea>
-                    </section>
-                    <section class="form__section">
-                        <label for="form__title-section"><span class="material-icons">manage_accounts</span>Role</label>
-                        <select class="form__answers">
+        </div>
+
+        <!-- ===============================================-->
+        <!-- USERS - TABLE OF ALL USERS -->
+        <!-- ===============================================-->
+        <div type="page" id="users-page" style="display: none">
+            <!-- HEADER AREA -->
+            <header id="header-users-page-area">
+                <div id="header__main-title-area">
+                    <p>PN</p>
+                    <h1>Project name</h1>
+                    <div>
+                        <p style="font-style: italic">Started date : 25-11-2023</p>
+                        <p style="font-style: italic">Past days : 450</p>
+                    </div>
+                </div>
+                <div>
+                    <button id="header__account-button">
+                    <img id="account-avatar" src="https://i.pravatar.cc/32?img=2" alt="Avatar">Denis Pommier
+                    </button>
+                </div>
+            </header>
+            <!-- ASIDE AREA -->
+            <aside id="aside-users-page-area">
+                <div id="aside__navigation-area">
+                    <span class="material-icons">home</span>
+                    <span class="material-icons">visibility</span>
+                    <span class="material-icons">perm_identity</span>
+                    <span class="material-icons">description</span>
+                    <span class="material-icons">schedule</span>
+                    <span class="material-icons">event</span>
+                    <span class="material-icons">help</span>
+                    <span class="material-icons">settings</span>
+                </div>
+            </aside>
+            <!-- MAIN AREA -->
+            <div id="main-users-page-area">
+                <section id="main__title-area">
+                    <p>Users</p>
+                </section>
+                <div id="main__import-export-add-user-area">
+                    <div id="import-export-area">
+                        <button id="import-userlist-btn">Import
+                            <span class="material-icons">download</span>
+                        </button>
+                        <button id="export-userlist-btn">Export
+                            <span class="material-icons">download</span>
+                        </button>
+                    </div>
+                    <button id="add-user-button">+ Add user</button>
+                </div>
+
+                <!-- 🌐 TABLE AREA -->
+                <div id="main__table-area">
+
+                <!-- 🧩 En-tête du tableau -->
+                    <div class="table-header">
+                        <div>👤 Name</div>
+                        <div>📧 Company</div>
+                        <div>📅 Role</div>
+                        <div>📅 Email</div>
+                        <div>⚙️ Modifications</div>
+                    </div>
+                    <div id="users-list">
+                        <!-- 👤 Lignes utilisateurs se rajoutant avec l'ui de la classe User -->
+
+                    </div>
+                </div>
+                <!-- 💡 Tu peux ajouter ici d’autres utilisateurs -->
+
+            </div>
+            <!-- FOOTER AREA-->
+            <footer id="footer-users-page-area">
+                <div id="footer__pages-navigation">
+                    <div>Prev</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>...</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>Next</div>
+                </div>
+                <div id="footer__showing-choice">
+                    <div>Showing</div>
+                    <div>5</div>
+                    <div>of 120 entries</div>
+                </div>        
+            </footer>
+            <!-- FORM - ADD USER -->
+            <dialog id="new-user-dialog-area">
+                <form id="new-user-form-area">
+                    <h1>New user</h1>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">account_circle</span>
+                            <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
+                        </div>
+                        <input name="name" type="text" placeholder="John DELAWARE" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Company</span>
+                        </div>
+                            <select name="company" >
+                                <option>Losinger-Marazzi</option>
+                                <option>Implenia</option>
+                                <option>Vinci-Construction</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Role</span>
+                        </div>
+                        <select name="role" >
                             <option>Architect</option>
-                            <option>CVCSE</option>
-                            <option>Structural</option>
                             <option>Electrical Engineer</option>
+                            <option>HVAC Engineer</option>
+                            <option>Structural Engineer</option>
+                            <option>BIM Manager</option>
                             <option>Client</option>
                         </select>
-                    </section>
-                    <section class="form__section">
-                        <label for="form__title-section"><span class="material-icons">contact_support</span>Status</label>
-                        <select class="form__answers">
-                            <option>Pending</option>
-                            <option>In Progress</option>
-                            <option>Completed</option>
-                            <option>Archived</option>
-                        </select>
-                    </section>
-                    <section class="form__section">
-                        <label for="form__title-section"><span class="material-icons">calendar_month</span>Finish Date</label>
-                        <input class="form__answers" placeholder="mm/dd/yyyy" type="datetime"/>
-                    </section>                
-                </div>
-                <div id="form__footer">
-                    <button id="cancel-button" onclick="document.getElementById('form__area').close()">Cancel</button>
-                    <button id="accept-button" onclick="document.getElementById('form__area').close()">Accept</button>
-                </div>
-            </form>
-        </dialog>
-    </div>
+                    </label>
 
-    <div type="page" id="users-page" style="display: grid">
-        <!-- HEADER AREA -->
-        <header id="header-users-page-area">
-            <div id="header__main-title-area">
-                <p>PN</p>
-                <h1>Project name</h1>
-                <div>
-                    <p style="font-style: italic">Started date : 25-11-2023</p>
-                    <p style="font-style: italic">Past days : 450</p>
-                </div>
-            </div>
-            <div>
-                <button id="header__account-button">
-                <img id="account-avatar" src="https://i.pravatar.cc/32?img=2" alt="Avatar">Denis Pommier
-                </button>
-            </div>
-        </header>
-        <!-- ASIDE AREA -->
-        <aside id="aside-users-page-area">
-            <div id="aside__navigation-area">
-                <span class="material-icons">home</span>
-                <span class="material-icons">visibility</span>
-                <span class="material-icons">perm_identity</span>
-                <span class="material-icons">description</span>
-                <span class="material-icons">schedule</span>
-                <span class="material-icons">event</span>
-                <span class="material-icons">help</span>
-                <span class="material-icons">settings</span>
-            </div>
-        </aside>
-        <!-- MAIN AREA -->
-        <main id="main-users-page-area">
-            <section id="main__title-area">
-                <p>Users</p>
-            </section>
-            <div id="main__import-export-add-user-area">
-                <div id="import-export-area">
-                    <button id="import-userlist-btn">Import
-                        <span class="material-icons">download</span>
-                    </button>
-                    <button id="export-userlist-btn">Export
-                        <span class="material-icons">download</span>
-                    </button>
-                </div>
-                <button id="add-user-button">+ Add user</button>
-            </div>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">alternate_email</span>
+                            <span class="label-title">Email</span>
+                        </div>
+                        <input name="email" type="text" placeholder="John.delaware@vinci-construction.com" required />
+                    </label>
 
-            <!-- 🌐 TABLE AREA -->
-            <div id="main__table-area">
-
-            <!-- 🧩 En-tête du tableau -->
-                <div class="table-header">
-                    <div>👤 Name</div>
-                    <div>📧 Company</div>
-                    <div>📅 Role</div>
-                    <div>📅 Email</div>
-                    <div>⚙️ Modifications</div>
-                </div>
-                <div id="users-list">
-                    <!-- 👤 Lignes utilisateurs se rajoutant avec l'ui de la classe User -->
-
-                </div>
-            </div>
-            <!-- 💡 Tu peux ajouter ici d’autres utilisateurs -->
-
-        </main>
-        <!-- FOOTER AREA-->
-        <footer id="footer-users-page-area">
-            <div id="footer__pages-navigation">
-                <div>Prev</div>
-                <div>1</div>
-                <div>2</div>
-                <div>...</div>
-                <div>8</div>
-                <div>9</div>
-                <div>Next</div>
-            </div>
-            <div id="footer__showing-choice">
-                <div>Showing</div>
-                <div>5</div>
-                <div>of 120 entries</div>
-            </div>        
-        </footer>
-        <!-- FORM - ADD USER -->
-        <dialog id="new-user-dialog-area">
-            <form id="new-user-form-area">
-                <h1>New user</h1>
-                <label>
-                    <div class="title-zone">
-                        <span class="material-icons">account_circle</span>
-                        <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
+                    <div class="form-actions">
+                        <button id="cancel-button" type="button" class="btn cancel">Cancel</button>
+                        <button id="accept-button" type="submit" class="btn accept">Accept</button>
                     </div>
-                    <input name="name" type="text" placeholder="John DELAWARE" required />
-                    <small>TIP: Give it a short name.</small>
-                </label>
+                </form>
+            </dialog>
+            <!-- ERROR - USER ALREADY EXIST-->
+            <dialog id="error-user-dialog-area">
+                <div id="window_error-user-already-exist">
+                    <p>An user with this email already exist ! </p>
+                    <button id="button_gotit">Got it !</button>
+                </div>          
+            </dialog>
+        </div>
+    
+    </main>
 
-                <label>
-                    <div class="title-zone">
-                        <span class="material-icons">apartment</span>
-                        <span class="label-title">Company</span>
-                    </div>
-                        <select name="company" >
-                            <option>Losinger-Marazzi</option>
-                            <option>Implenia</option>
-                            <option>Vinci-Construction</option>
-                    </select>
-                </label>
-
-                <label>
-                    <div class="title-zone">
-                        <span class="material-icons">assignment_ind</span>
-                        <span class="label-title">Role</span>
-                    </div>
-                    <select name="role" >
+    <!-- ===============================================--> 
+    <!-- ===============================================-->
+    <!-- MODAL - NEW PROJECT -->
+    <!-- ===============================================-->
+    <dialog id="new-project-dialog-area">
+        <form>
+            <h2 id="form__main-title">New Project</h2>
+            <hr class="greyline_separator" />
+            <div id="form__content">
+                <section class="form__section">
+                    <label for="form__title-section"><span class="material-icons">apartment</span>Name</label>
+                    <input class="form__answers" type="text" maxlength="200"/>
+                </section>
+                <section class="form__section">
+                    <label for="form__title-section"><span class="material-icons">list</span>Description</label>
+                    <textarea id="form__text-area" class="form__answers" maxlength="400" 
+                    placeholder="Give your project a nice description so people are jealous about it"></textarea>
+                </section>
+                <section class="form__section">
+                    <label for="form__title-section"><span class="material-icons">manage_accounts</span>Role</label>
+                    <select class="form__answers">
                         <option>Architect</option>
+                        <option>CVCSE</option>
+                        <option>Structural</option>
                         <option>Electrical Engineer</option>
-                        <option>HVAC Engineer</option>
-                        <option>Structural Engineer</option>
-                        <option>BIM Manager</option>
                         <option>Client</option>
                     </select>
-                </label>
+                </section>
+                <section class="form__section">
+                    <label for="form__title-section"><span class="material-icons">contact_support</span>Status</label>
+                    <select class="form__answers">
+                        <option>Pending</option>
+                        <option>In Progress</option>
+                        <option>Completed</option>
+                        <option>Archived</option>
+                    </select>
+                </section>
+                <section class="form__section">
+                    <label for="form__title-section"><span class="material-icons">calendar_month</span>Finish Date</label>
+                    <input class="form__answers" placeholder="mm/dd/yyyy" type="datetime"/>
+                </section>                
+            </div>
+            <div id="form__footer">
+                <button id="cancel-button" onclick="document.getElementById('form__area').close()">Cancel</button>
+                <button id="accept-button" onclick="document.getElementById('form__area').close()">Accept</button>
+            </div>
+        </form>
+    </dialog>    
 
-                <label>
-                    <div class="title-zone">
-                        <span class="material-icons">alternate_email</span>
-                        <span class="label-title">Email</span>
-                    </div>
-                    <input name="email" type="text" placeholder="John.delaware@vinci-construction.com" required />
-                </label>
-
-                <div class="form-actions">
-                    <button id="cancel-button" type="button" class="btn cancel">Cancel</button>
-                    <button id="accept-button" type="submit" class="btn accept">Accept</button>
-                </div>
-            </form>
-        </dialog>
-        <!-- ERROR - USER ALREADY EXIST-->
-        <dialog id="error-user-dialog-area">
-            <div id="window_error-user-already-exist">
-                <p>An user with this email already exist ! </p>
-                <button id="button_gotit">Got it !</button>
-            </div>          
-        </dialog>
-    </div>
 </body>
 </html>
 

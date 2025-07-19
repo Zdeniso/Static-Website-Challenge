@@ -1,23 +1,29 @@
 /* Common ressource */
 @import url("./variables.css");
-@import url("./body.css");
 
-/* Projects Page */
-@import url("./projects-page/projects-page-display.css");
-@import url("./projects-page/header-area.css");
-@import url("./projects-page/navigation-area.css");
-@import url("./projects-page/project-cards-area.css");
-@import url("./projects-page/project-detail-page.css");
-@import url("./projects-page/styles.css");
+/* Common Page */
+@import url("./pages/common/body.css");
+@import url("./pages/common/aside-navigation-area.css");
+@import url("./pages/common/main-area.css");
 
-@import url("./projects-page/components/new-project-form.css");
+/* Projects Cards Page */
+@import url("./pages/projects-cards-page/header-area.css");
+@import url("./pages/projects-cards-page/styles.css");
+@import url("./pages/projects-cards-page/cards.css");
+@import url("./pages/projects-cards-page/cards-area.css");
+@import url("./pages/projects-cards-page/projects-cards-page");
+
+@import url("./pages/projects-cards-page/components/new-project-form.css");
+
+/* Detailed Projects Page */
+@import url("./pages/project-details-page/project-details-page.css");
 
 /* Users Page */
-@import url("./user-page/users-page-display.css");
-@import url("./user-page/main.css");
-@import url("./user-page/header.css");
-@import url("./user-page/footer.css");
-@import url("./user-page/aside.css");
+@import url("./pages/users-page/users-page-display.css");
+@import url("./pages/users-page/main.css");
+@import url("./pages/users-page/header.css");
+@import url("./pages/users-page/footer.css");
+@import url("./pages/users-page/aside.css");
 
-@import url("./user-page/components/form_add-user.css");
-@import url("./user-page/components/error_user-already-exist.css");
+@import url("./pages/users-page/components/form_add-user.css");
+@import url("./pages/users-page/components/error_user-already-exist.css");

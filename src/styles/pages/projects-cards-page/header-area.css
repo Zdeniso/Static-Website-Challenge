@@ -1,11 +1,23 @@
-#project-list-page header {
+#projects-cards-page header {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin: 30px;
     font-size: var(--font-size-main-title);
     color: var(--font-color);
+    margin-left: 10px;
 
+}
+
+#action-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#action-buttons span:hover {
+    cursor: pointer;
+    scale:1.2;
 }
 
 #new-project__button {
@@ -24,14 +36,3 @@
     scale:1.2;
 }
 
-#action-buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-}
-
-#action-buttons span:hover {
-    cursor: pointer;
-    scale:1.2;
-}

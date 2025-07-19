@@ -1,5 +1,5 @@
-import { addUserDialog, addUserForm, userListUI } from "../../../uiElements/uiElements.ts"
-import { IUser, Company, Role } from "../../../classes/user.ts"
+import { addUserDialog, addUserForm, userListUI } from "../../../uiElements/uiElements.ts";
+import { IUser, Company, Role } from "../../../classes/user.ts";
 import { assertFormElement, assertDialogElement, assertContainerElement } from "../../../functions/domChecks.ts";
 import { UsersManager } from "../../../classes/usersmanager.ts";
 

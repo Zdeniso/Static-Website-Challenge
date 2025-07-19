@@ -1,7 +1,7 @@
-#main-projects-page-area #project-detail-page {
+#project-detail-page {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    height: 100%;
 }
 
 /* HEADER STYLE */
@@ -36,8 +36,8 @@
     grid-template-areas: 
         "project-detail viewer3d"
         "todo-list viewer3d";
-    flex: 1;
-    margin: 10px;
+    margin: 5px;
+    height: 100%;
 }
 
 /* PROJECT INFORMATION */
