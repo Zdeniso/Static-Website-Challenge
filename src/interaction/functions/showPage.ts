@@ -1,10 +1,8 @@
-import { assertContainerElement } from "./domChecks"
-
 export function showPage(verifiedElement: HTMLElement) : void {
-    verifiedElement.setAttribute("style", "display=''");
+    const pages = document.querySelectorAll('[type="page"]')
 
-    const hiddenPage = document.querySelectorAll('[type="page"]')
-    hiddenPage.forEach((element) => {
-        element.setAttribute("style", "display='none'");
+    pages.forEach((page) => {
+        page.setAttribute("style", "display: none");
     });
+    verifiedElement.setAttribute("style", "display=''");
 }

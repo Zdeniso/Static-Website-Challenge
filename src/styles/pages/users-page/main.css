@@ -1,61 +1,57 @@
 /* MAIN */
 #main-users-page-area {
-    grid-area: main;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     margin: 15px;
     min-height: 0;
     height: 100%;
 }
 
-/* MAIN - TITLE AREA */
+/* Titre User */
 #main__title-area {
     display: flex;
-    align-items: center;
-    color: var(--font-color);
-    font-size: 3.5rem;
-    font-weight: normal;
-    height: 80px;
-    padding: 30px 50px;
-}
-
-#main__title-area h1 {
-    align-items: center;
-    justify-items: center;
-    margin: 0;
-    border: 0;
-    padding: 0;
-}
-
-/* MAIN - FILTERS AND EXTRACT AREA */
-#main__import-export-add-user-area {
-    display: flex;
-    height: 100px;
+    flex-wrap: nowrap;
     justify-content: space-between;
-}
-
-#import-export-area {
-    display: flex;
-}
-
-#import-export-area button {
-    display: flex;
-    gap: 15px;
     align-items: center;
-    background-color: var(--background-color300);
     color: var(--font-color);
-    margin: 30px;
-    border-radius: 25px;
-    padding: 0 20px ;
-    font-size: 0.8rem;
-    border: 1px solid white;
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: italic;
+    height: 80px;
 }
 
-#import-export-area button:hover {
+#main__title-area button:hover {
     scale: 1.05;
+    transition: 0.2s;
     cursor: pointer;
 }
 
+#main__title-area button:active{
+    scale: 0.95;
+}
+
+
+#title-and-import-export-button {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 50px;
+}
+
+#title-and-import-export-button button {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    align-items: center;
+    background-color: var(--background-color300);
+    border-radius: 20px;
+    border-color: #cbd5e1;
+    color: var(--font-color);
+    font-size: 1rem;
+    padding: 20px;
+    height: 20px;
+}
 
 /* 🔹 Bouton global pour ajouter un utilisateur */
 #add-user-button {
@@ -65,17 +61,14 @@
     color: var(--font-color);
     margin: 25px;
     border-radius: 25px;
-    padding: 0 30px ;
-    font-size: 1rem;
+    padding: 10px 30px ;
+    font-size: 1.2rem;
     border-style: hidden;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 #add-user-button:hover {
     background-color: var(--background-colorblue300);
-    cursor: pointer;
-    scale: 1.05;
-    transition: 0.2s;
 }
 
 /* 🔹 TABLE AREA */

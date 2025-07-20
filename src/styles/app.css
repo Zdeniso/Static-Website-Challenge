@@ -23,7 +23,6 @@
 @import url("./pages/users-page/main.css");
 @import url("./pages/users-page/header.css");
 @import url("./pages/users-page/footer.css");
-@import url("./pages/users-page/aside.css");
 
 @import url("./pages/users-page/components/form_add-user.css");
 @import url("./pages/users-page/components/error_user-already-exist.css");

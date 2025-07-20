@@ -28,7 +28,7 @@
     margin: 5px 0px;
 }
 
-label[for="form__title-section"] {
+.form__title-section {
     display: flex;
     gap: 5px;
     align-items: center;
@@ -48,7 +48,7 @@ label[for="form__title-section"] {
     margin: 0;
 }
 
-#form__text-area {
+#project-description {
     resize: none;
     min-height: 100px;
 }
@@ -61,7 +61,7 @@ label[for="form__title-section"] {
     margin: 10px;
 }
 
-#cancel-button {
+#new-project-cancel-button {
     background-color: var(--background-color200);
     border-radius: 15px;
     padding: 10px;
@@ -71,12 +71,12 @@ label[for="form__title-section"] {
     border-style: hidden;
 }
 
-#cancel-button:hover {
+#new-project-cancel-button:hover {
     background-color: var(--background-color300);
     cursor: pointer;
 }
 
-#accept-button {
+#new-project-accept-button {
     background-color: var(--background-color-green100);
     border-radius: 15px;
     padding: 10px;
@@ -86,7 +86,7 @@ label[for="form__title-section"] {
     border-style: hidden;
 }
 
-#accept-button:hover {
+#new-project-accept-button:hover {
     background-color: var(--background-color-green200);
     cursor: pointer;
 }
