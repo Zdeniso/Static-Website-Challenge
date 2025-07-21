@@ -2,10 +2,9 @@ import { vNewProjectButton, vCancelNewProjectButton, vNewProjectDialog } from ".
 
 vNewProjectButton.addEventListener("click", () => {
     vNewProjectDialog.showModal()
-    console.log("Le formulaire s'est bien ouvert")
 })
 
-vCancelNewProjectButton.addEventListener("click", () => {
+vCancelNewProjectButton.addEventListener("click", (e) => {
+    e.preventDefault();
     vNewProjectDialog.close();
-    console.log("Le formulaire a bien été fermé")
 })

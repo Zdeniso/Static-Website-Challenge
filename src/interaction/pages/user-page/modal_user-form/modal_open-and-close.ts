@@ -1,9 +1,9 @@
-import { vAddUserButton, vCancelButton, vAddUserDialog } from "../../../assert-element.ts";
+import { vAddUserButton, vCancelNewUserButton, vAddUserDialog } from "../../../assert-element.ts";
 
 vAddUserButton.addEventListener("click", () => {
     vAddUserDialog.showModal()
 })
 
-vCancelButton.addEventListener("click", () => {
+vCancelNewUserButton.addEventListener("click", () => {
     vAddUserDialog.close();
 });

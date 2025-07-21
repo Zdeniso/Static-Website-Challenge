@@ -1,22 +1,22 @@
 import { UUIDTypes, v4 as uuidv4 } from 'uuid' ;
-import { Status, Role } from "./type.ts"
+import { Status } from "./type.ts"
 
 export class IProject {
     name: string;
     description: string;
     status: Status;
-    role: Role;
+    client: string;
     cost: number;
-    progress: number;
+    finishDate: Date;
 }
 
 export class Project implements IProject {
     name: string;
     description: string;
     status: Status;
-    role: Role;
+    client: string;
     cost: number;
-    progress: number;
+    finishDate: Date;
     ui: HTMLElement;
     id: UUIDTypes;
 
@@ -24,9 +24,9 @@ export class Project implements IProject {
         this.name = data.name;
         this.description = data.description;
         this.status = data.status;
-        this.role = data.role;
+        this.client = data.client;
         this.cost = data.cost;
-        this.progress = data.progress;
+        this.finishDate = data.finishDate;
         this.setUI();
         this.setID();
     }
@@ -50,15 +50,15 @@ export class Project implements IProject {
                 </div>
                 <div class="project-card__values">
                     <p class="project-card__criteria">Role</p>
-                    <p>${this.role}</p>
+                    <p>${this.client}</p>
                 </div>
                 <div class="project-card__values">
                     <p class="project-card__criteria">Cost</p>
                     <p>CHF ${this.cost}</p>
                 </div>     
                 <div class="project-card__values">
-                    <p class="project-card__criteria">Estimated Progress</p>
-                    <p>${this.progress}%</p>
+                    <p class="project-card__criteria">Finish Date</p>
+                    <p>${this.finishDate}</p>
                 </div>                             
             </div>
             `;                              

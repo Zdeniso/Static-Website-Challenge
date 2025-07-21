@@ -61,16 +61,16 @@
                                 <p>Active</p>
                         </div>
                         <div class="project-card__values">
-                            <p class="project-card__criteria">Role</p>
-                            <p>Architect</p>
+                            <p class="project-card__criteria">Client</p>
+                            <p>Losinger-Marazzi SA</p>
                         </div>
                         <div class="project-card__values">
                             <p class="project-card__criteria">Cost</p>
                             <p>CHF 0</p>
                         </div>     
                         <div class="project-card__values">
-                            <p class="project-card__criteria">Estimated Progress</p>
-                            <p>0%</p>
+                            <p class="project-card__criteria">Finish date</p>
+                            <p>02/02/2020</p>
                         </div>                             
                     </div>
                 </section>
@@ -228,57 +228,77 @@
     <!-- ===============================================-->
     <!-- MODAL - NEW PROJECT -->
     <!-- ===============================================-->
-    <dialog id="new-project-dialog-area">
-        <form id="new-project-form-area">
-            <h2 id="form__main-title">New Project</h2>
-            <hr class="greyline_separator" />
-            <div id="form__content">
-                <section class="form__section">
-                    <label class="form__title-section" for="description"><span class="material-icons">apartment</span>Name</label>
-                    <input class="form__answers" id="description" type="text" maxlength="200"/>
-                </section>
-                <section class="form__section">
-                    <label class="form__title-section" for="project-description"><span class="material-icons">list</span>Description</label>
-                    <textarea id="project-description" class="form__answers" maxlength="400" 
-                    placeholder="Give your project a nice description so people are jealous about it"></textarea>
-                </section>
-                <section class="form__section">
-                    <label class="form__title-section" for="project-role"><span class="material-icons">manage_accounts</span>Role</label>
-                    <select class="form__answers" id="project-role">
-                        <option>Architect</option>
-                        <option>CVCSE</option>
-                        <option>Structural</option>
-                        <option>Electrical Engineer</option>
-                        <option>Client</option>
-                    </select>
-                </section>
-                <section class="form__section">
-                    <label class="form__title-section" for="project-progress"><span class="material-icons">contact_support</span>Status</label>
-                    <select class="form__answers" id="project-progress">
-                        <option>Pending</option>
-                        <option>In Progress</option>
-                        <option>Completed</option>
-                        <option>Archived</option>
-                    </select>
-                </section>
-                <section class="form__section">
-                    <label class="form__title-section" for="project-finish-date"><span class="material-icons">calendar_month</span>Finish Date</label>
-                    <input class="form__answers" id="project-finish-date" placeholder="mm/dd/yyyy" type="datetime"/>
-                </section>                
-            </div>
-            <div id="form__footer">
-                <button id="new-project-cancel-button">Cancel</button>
-                <button id="new-project-accept-button">Accept</button>
+    <dialog class="dialog-for-forms" id="new-project-dialog-area">
+        <form class="common-form" id="new-project-form-area">
+            <h1>New project</h1>
+            <label for="project-name">
+                <div class="title-zone">
+                    <span class="material-icons">account_circle</span>
+                    <span class="label-title">Name</span>
+                </div>
+                <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                <small>TIP: Give it a short name.</small>
+            </label>
+
+            <label for="project-description">
+                <div class="title-zone">
+                    <span class="material-icons">apartment</span>
+                    <span class="label-title">Company</span>
+                </div>
+                    <textarea id="project-description" name="project-description" type="text" required></textarea>
+            </label>
+
+            <label for="project-status">
+                <div class="title-zone">
+                    <span class="material-icons">assignment_ind</span>
+                    <span class="label-title">Role</span>
+                </div>
+                <select id="project-status" name="project-status">
+                    <option>Draft</option>
+                    <option>On-hold</option>
+                    <option>Under review</option>
+                    <option>Completed</option>
+                    <option>Cancelled</option>
+                </select>
+            </label>
+
+            <label for="project-client">
+                <div class="title-zone">
+                    <span class="material-icons">alternate_email</span>
+                    <span class="label-title">Email</span>
+                </div>
+                <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+            </label>
+
+            <label for="project-cost">
+                <div class="title-zone">
+                    <span class="material-icons">alternate_email</span>
+                    <span class="label-title">Email</span>
+                </div>
+                <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+            </label>
+
+            <label for="project-finish-date">
+                <div class="title-zone">
+                    <span class="material-icons">alternate_email</span>
+                    <span class="label-title">Email</span>
+                </div>
+                <input id="project-finish-date" name="project-finish-date" type="date" required />
+            </label>
+
+            <div class="form-actions">
+                <button id="button_cancel-new-project" type="button" class="btn cancel">Cancel</button>
+                <button type="submit" class="btn accept">Accept</button>
             </div>
         </form>
-    </dialog>    
+    </dialog>
 
 
     <!-- ===============================================-->
     <!-- MODAL - NEW USERS -->
     <!-- ===============================================-->
-    <dialog id="new-user-dialog-area">
-        <form id="new-user-form-area">
+    <dialog class="dialog-for-forms" id="new-user-dialog-area">
+        <form class="common-form" id="new-user-form-area">
             <h1>New user</h1>
             <label>
                 <div class="title-zone">
@@ -325,8 +345,8 @@
             </label>
 
             <div class="form-actions">
-                <button id="cancel-button" type="button" class="btn cancel">Cancel</button>
-                <button id="accept-button" type="submit" class="btn accept">Accept</button>
+                <button id="button_cancel-new-user" type="button" class="btn cancel">Cancel</button>
+                <button type="submit" class="btn accept">Accept</button>
             </div>
         </form>
     </dialog>
@@ -335,10 +355,10 @@
 </html>
 
 
-<!-- 
+<!--
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("dialog_error-user-already-exist")?.showModal();
+    document.getElementById("new-project-dialog-area")?.showModal();
   });
-</script>
+</script> 
 -->

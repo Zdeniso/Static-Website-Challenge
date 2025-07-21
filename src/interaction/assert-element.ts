@@ -1,5 +1,5 @@
 import { assertContainerElement, assertFormElement, assertButtonElement, assertDialogElement } from "./functions/domChecks.ts"
-import { addUserForm, cancelButton, addUserButton, addUserDialog, userListUI, errorUserDialog, 
+import { addUserForm, cancelNewUserButton, addUserButton, addUserDialog, userListUI, errorUserDialog, 
     gotItButton, exportUsersListButton, importUsersListButton, usersNav, projectsNav, 
     projectsCardsPage, projectDetailsPage, usersPage, newProjectButton, newProjectDialog, 
     newProjectForm, cancelNewProjectButton } from "./getelement.ts"
@@ -23,7 +23,7 @@ export const vUsersPage = assertContainerElement(usersPage);
 export const vAddUserDialog = assertDialogElement(addUserDialog);
 export const vAddUserForm = assertFormElement(addUserForm);
 export const vAddUserButton = assertButtonElement(addUserButton);
-export const vCancelButton = assertButtonElement(cancelButton);
+export const vCancelNewUserButton = assertButtonElement(cancelNewUserButton);
 export const vUserListUI = assertContainerElement(userListUI);
 export const vExportUsersListButton = assertButtonElement(exportUsersListButton);
 export const vImportUsersListButton = assertButtonElement(importUsersListButton);

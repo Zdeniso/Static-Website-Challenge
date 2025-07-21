@@ -5,24 +5,22 @@
 @import url("./pages/common/body.css");
 @import url("./pages/common/aside-navigation-area.css");
 @import url("./pages/common/main-area.css");
+@import url("./pages/common/components/button_accept-cancel.css");
+@import url("./pages/common/components/form_add-element.css");
 
 /* Projects Cards Page */
 @import url("./pages/projects-cards-page/header-area.css");
-@import url("./pages/projects-cards-page/styles.css");
 @import url("./pages/projects-cards-page/cards.css");
 @import url("./pages/projects-cards-page/cards-area.css");
-@import url("./pages/projects-cards-page/projects-cards-page");
-
-@import url("./pages/projects-cards-page/components/new-project-form.css");
+@import url("./pages/projects-cards-page/page_projects-cards");
 
 /* Detailed Projects Page */
-@import url("./pages/project-details-page/project-details-page.css");
+@import url("./pages/project-details-page/page_project-details.css");
 
 /* Users Page */
-@import url("./pages/users-page/users-page-display.css");
+@import url("./pages/users-page/page_users-display.css");
 @import url("./pages/users-page/main.css");
 @import url("./pages/users-page/header.css");
 @import url("./pages/users-page/footer.css");
 
-@import url("./pages/users-page/components/form_add-user.css");
-@import url("./pages/users-page/components/error_user-already-exist.css");
+@import url("./pages/users-page/components/modal_error-user-already-exist.css");
