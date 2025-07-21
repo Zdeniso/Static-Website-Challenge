@@ -28,9 +28,6 @@
     <!-- CONTENT- -->
     <!-- ===============================================-->
     <!-- ===============================================--> 
-    
-    
-    <!-- old : <main id="main-area"> -->
     <main id="main-area"> 
 
         <!-- ===============================================-->
@@ -45,6 +42,7 @@
                     <button id="new-project__button">+ New Project</button>
                 </nav>
             </header>
+
             <!-- Content Area - Project card -->
             <div class="content-area">
                 <section class="project-card">
@@ -75,6 +73,80 @@
                     </div>
                 </section>
             </div>
+
+            <!-- Modal - NEw Project -->
+            <dialog class="dialog-for-forms" id="new-project-dialog-area">
+                <form class="common-form" id="new-project-form-area">
+                    <h1>New project</h1>
+                    <label for="project-name">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Name</span>
+                        </div>
+                        <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+
+                    <label for="project-description">
+                        <div class="title-zone">
+                            <span class="material-icons">drive_file_rename_outline</span>
+                            <span class="label-title">Description</span>
+                        </div>
+                            <textarea id="project-description" name="project-description" type="text" required></textarea>
+                    </label>
+
+                    <label for="project-status">
+                        <div class="title-zone">
+                            <span class="material-icons">keyboard_double_arrow_right</span>
+                            <span class="label-title">Status</span>
+                        </div>
+                        <select id="project-status" name="project-status">
+                            <option>Draft</option>
+                            <option>On-hold</option>
+                            <option>Under review</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </label>
+
+                    <label for="project-client">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Client</span>
+                        </div>
+                        <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+                    </label>
+
+                    <label for="project-cost">
+                        <div class="title-zone">
+                            <span class="material-icons">attach_money</span>
+                            <span class="label-title">Cost</span>
+                        </div>
+                        <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+                    </label>
+
+                    <label for="project-finish-date">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Finish date</span>
+                        </div>
+                        <input id="project-finish-date" name="project-finish-date" type="date" required />
+                    </label>
+
+                    <div class="form-actions">
+                        <button id="button_cancel-new-project" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>
+
+            <!-- Modal - error Project already exist-->
+            <dialog class="dialog_element-already-exist" id="error-project-dialog-area">
+                <div class="window_element-already-exist">
+                    <p>A project with this name already exist ! </p>
+                    <button class="btn accept">Got it !</button>
+                </div>          
+            </dialog>
         </div>
 
         <!-- ===============================================-->
@@ -147,6 +219,7 @@
         <!-- USERS - TABLE OF ALL USERS -->
         <!-- ===============================================-->
         <div type="page" id="users-page" style="display: none">
+            <!-- Header -->
             <header id="header-users-page-area">
                 <div id="header__main-title-area">
                     <p>PN</p>
@@ -163,7 +236,7 @@
                 </div>
             </header>
 
-            <!-- MAIN AREA -->
+            <!-- Main area -->
             <div id="main-users-page-area">
                 
                 <div id="main__title-area">
@@ -195,7 +268,8 @@
                 <!-- 💡 Tu peux ajouter ici d’autres utilisateurs -->
 
             </div>
-            <!-- FOOTER AREA-->
+
+            <!-- Footer area-->
             <footer id="footer-users-page-area">
                 <div id="footer__pages-navigation">
                     <div>Prev</div>
@@ -213,152 +287,67 @@
                 </div>        
             </footer>
 
-            <!-- ERROR - USER ALREADY EXIST-->
-            <dialog id="error-user-dialog-area">
-                <div id="window_error-user-already-exist">
+            <!-- Modal - New user -->
+            <dialog class="dialog-for-forms" id="new-user-dialog-area">
+                <form class="common-form" id="new-user-form-area">
+                    <h1>New user</h1>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">account_circle</span>
+                            <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
+                        </div>
+                        <input name="name" type="text" placeholder="John DELAWARE" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Company</span>
+                        </div>
+                            <select name="company" >
+                                <option>Losinger-Marazzi</option>
+                                <option>Implenia</option>
+                                <option>Vinci-Construction</option>
+                        </select>
+                    </label>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Role</span>
+                        </div>
+                        <select name="role" >
+                            <option>Architect</option>
+                            <option>Electrical Engineer</option>
+                            <option>HVAC Engineer</option>
+                            <option>Structural Engineer</option>
+                            <option>BIM Manager</option>
+                            <option>Client</option>
+                        </select>
+                    </label>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">alternate_email</span>
+                            <span class="label-title">Email</span>
+                        </div>
+                        <input name="email" type="text" placeholder="John.delaware@vinci-construction.com" required />
+                    </label>
+                    <div class="form-actions">
+                        <button id="button_cancel-new-user" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>            
+
+            <!-- Modal - error User already exist-->
+            <dialog class="dialog_element-already-exist" id="error-user-dialog-area">
+                <div class="window_element-already-exist">
                     <p>An user with this email already exist ! </p>
-                    <button id="button_gotit">Got it !</button>
+                    <button class="btn accept" id="button_gotit">Got it !</button>
                 </div>          
             </dialog>
         </div>
     
     </main>
 
-
-    <!-- ===============================================-->
-    <!-- MODAL - NEW PROJECT -->
-    <!-- ===============================================-->
-    <dialog class="dialog-for-forms" id="new-project-dialog-area">
-        <form class="common-form" id="new-project-form-area">
-            <h1>New project</h1>
-            <label for="project-name">
-                <div class="title-zone">
-                    <span class="material-icons">account_circle</span>
-                    <span class="label-title">Name</span>
-                </div>
-                <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
-                <small>TIP: Give it a short name.</small>
-            </label>
-
-            <label for="project-description">
-                <div class="title-zone">
-                    <span class="material-icons">apartment</span>
-                    <span class="label-title">Company</span>
-                </div>
-                    <textarea id="project-description" name="project-description" type="text" required></textarea>
-            </label>
-
-            <label for="project-status">
-                <div class="title-zone">
-                    <span class="material-icons">assignment_ind</span>
-                    <span class="label-title">Role</span>
-                </div>
-                <select id="project-status" name="project-status">
-                    <option>Draft</option>
-                    <option>On-hold</option>
-                    <option>Under review</option>
-                    <option>Completed</option>
-                    <option>Cancelled</option>
-                </select>
-            </label>
-
-            <label for="project-client">
-                <div class="title-zone">
-                    <span class="material-icons">alternate_email</span>
-                    <span class="label-title">Email</span>
-                </div>
-                <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
-            </label>
-
-            <label for="project-cost">
-                <div class="title-zone">
-                    <span class="material-icons">alternate_email</span>
-                    <span class="label-title">Email</span>
-                </div>
-                <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
-            </label>
-
-            <label for="project-finish-date">
-                <div class="title-zone">
-                    <span class="material-icons">alternate_email</span>
-                    <span class="label-title">Email</span>
-                </div>
-                <input id="project-finish-date" name="project-finish-date" type="date" required />
-            </label>
-
-            <div class="form-actions">
-                <button id="button_cancel-new-project" type="button" class="btn cancel">Cancel</button>
-                <button type="submit" class="btn accept">Accept</button>
-            </div>
-        </form>
-    </dialog>
-
-
-    <!-- ===============================================-->
-    <!-- MODAL - NEW USERS -->
-    <!-- ===============================================-->
-    <dialog class="dialog-for-forms" id="new-user-dialog-area">
-        <form class="common-form" id="new-user-form-area">
-            <h1>New user</h1>
-            <label>
-                <div class="title-zone">
-                    <span class="material-icons">account_circle</span>
-                    <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
-                </div>
-                <input name="name" type="text" placeholder="John DELAWARE" required />
-                <small>TIP: Give it a short name.</small>
-            </label>
-
-            <label>
-                <div class="title-zone">
-                    <span class="material-icons">apartment</span>
-                    <span class="label-title">Company</span>
-                </div>
-                    <select name="company" >
-                        <option>Losinger-Marazzi</option>
-                        <option>Implenia</option>
-                        <option>Vinci-Construction</option>
-                </select>
-            </label>
-
-            <label>
-                <div class="title-zone">
-                    <span class="material-icons">assignment_ind</span>
-                    <span class="label-title">Role</span>
-                </div>
-                <select name="role" >
-                    <option>Architect</option>
-                    <option>Electrical Engineer</option>
-                    <option>HVAC Engineer</option>
-                    <option>Structural Engineer</option>
-                    <option>BIM Manager</option>
-                    <option>Client</option>
-                </select>
-            </label>
-
-            <label>
-                <div class="title-zone">
-                    <span class="material-icons">alternate_email</span>
-                    <span class="label-title">Email</span>
-                </div>
-                <input name="email" type="text" placeholder="John.delaware@vinci-construction.com" required />
-            </label>
-
-            <div class="form-actions">
-                <button id="button_cancel-new-user" type="button" class="btn cancel">Cancel</button>
-                <button type="submit" class="btn accept">Accept</button>
-            </div>
-        </form>
-    </dialog>
-
 </body>
 </html>
-
-
-<!--
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("new-project-dialog-area")?.showModal();
-  });
-</script> 
--->

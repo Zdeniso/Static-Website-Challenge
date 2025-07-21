@@ -38,7 +38,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem; /* espace entre titre, input et description */
-    margin-bottom: 0.8rem;
 }
 
 .common-form .title-zone {
@@ -62,6 +61,11 @@
     border-radius: 8px;
     color: #f0f0f0; /* texte clair */
     font-size: 1rem;
+}
+
+.dialog-for-forms .common-form textarea {
+    resize: none;
+    height: 4rem;
 }
 
 /* Bordure colorée lorsqu’un champ est actif */
