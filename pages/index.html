@@ -44,34 +44,8 @@
             </header>
 
             <!-- Content Area - Project card -->
-            <div class="content-area">
-                <section class="project-card">
-                    <div class="project-card__header">
-                        <div class="project-card__acronym">DE</div>
-                        <div class="project-card__title-and-description">
-                            <h2>Default Project</h2>
-                            <p>This is just a default project. You may deleted if you want</p>                  
-                        </div>
-                    </div>
-                    <div class="card__content">
-                        <div class="project-card__values">
-                                <p class="project-card__criteria">Status</p>
-                                <p>Active</p>
-                        </div>
-                        <div class="project-card__values">
-                            <p class="project-card__criteria">Client</p>
-                            <p>Losinger-Marazzi SA</p>
-                        </div>
-                        <div class="project-card__values">
-                            <p class="project-card__criteria">Cost</p>
-                            <p>CHF 0</p>
-                        </div>     
-                        <div class="project-card__values">
-                            <p class="project-card__criteria">Finish date</p>
-                            <p>02/02/2020</p>
-                        </div>                             
-                    </div>
-                </section>
+            <div class="content-area" id="projects-cards-area">
+
             </div>
 
             <!-- Modal - NEw Project -->
@@ -144,7 +118,7 @@
             <dialog class="dialog_element-already-exist" id="error-project-dialog-area">
                 <div class="window_element-already-exist">
                     <p>A project with this name already exist ! </p>
-                    <button class="btn accept">Got it !</button>
+                    <button class="btn accept" id="error-project-gotit-button">Got it !</button>
                 </div>          
             </dialog>
         </div>
@@ -342,7 +316,7 @@
             <dialog class="dialog_element-already-exist" id="error-user-dialog-area">
                 <div class="window_element-already-exist">
                     <p>An user with this email already exist ! </p>
-                    <button class="btn accept" id="button_gotit">Got it !</button>
+                    <button class="btn accept" id="error-user-gotit-button">Got it !</button>
                 </div>          
             </dialog>
         </div>

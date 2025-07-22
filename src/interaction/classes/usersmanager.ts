@@ -22,14 +22,13 @@ export class UsersManager {
             return;
         } else {
             UsersManager.userList.push(newUser);                                    // Ajoute le User dans la liste (propriété "userList" de la classe UsersManager)                      
-            container.appendChild(newUser.ui);
-            console.log("Utilisateur ajouté avec succès ! La nouvelle liste est : ", UsersManager.userList)  
+            container.appendChild(newUser.ui); 
         }
     }
 
     static getUser(id: UUIDTypes): User | null {
         const user = UsersManager.userList.find((element) => element.id === id);
-        if (!(user))  {
+        if (!user)  {
             console.warn("getUser: aucun utilisateur trouvé avec cet ID :", id);
             return null
         } else {
@@ -39,7 +38,7 @@ export class UsersManager {
 
     static deleteUser(id: UUIDTypes): void {
         const user = UsersManager.userList.find((element) => element.id === id);
-        if (!(user))  {
+        if (!user)  {
             console.warn("deleteUser: aucun utilisateur trouvé avec l'ID :", id)
         } else {
             const newList = UsersManager.userList.filter((element) => element.id != id);

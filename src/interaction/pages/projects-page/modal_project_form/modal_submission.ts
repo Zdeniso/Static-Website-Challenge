@@ -1,7 +1,7 @@
-import { vNewProjectForm } from "../../../assert-element.ts";
 import { IProject } from "../../../classes/project.ts";
 import { ProjectsManager } from "../../../classes/projectsmanager.ts";
 import { Status } from "../../../classes/type.ts";
+import { vProjectsCardsArea, vNewProjectDialog, vNewProjectForm } from "../../../assert-element.ts"
 
 vNewProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -14,6 +14,8 @@ vNewProjectForm.addEventListener("submit", (e) => {
         cost: parseFloat(projectRawData.get("project-cost") as string),
         finishDate: new Date(projectRawData.get("project-finish-date") as string)
     }
-    console.log(data)
-    // const newProject = new ProjectsManager(data);
+
+    const newProject = ProjectsManager.addProject(data, vProjectsCardsArea)
+    vNewProjectDialog.close();
+    vNewProjectForm.reset()
 })
