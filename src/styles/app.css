@@ -6,13 +6,15 @@
 @import url("./pages/common/aside-navigation-area.css");
 @import url("./pages/common/main-area.css");
 @import url("./pages/common/components/button_accept-cancel.css");
+@import url("./pages/common/components/button_import-export.css");
+@import url("./pages/common/components/button_add-element.css");
 @import url("./pages/common/components/form_add-element.css");
 
 /* Projects Cards Page */
 @import url("./pages/projects-cards-page/header-area.css");
 @import url("./pages/projects-cards-page/cards.css");
-@import url("./pages/projects-cards-page/cards-area.css");
-@import url("./pages/projects-cards-page/page_projects-cards");
+@import url("./pages/projects-cards-page/page_projects-cards.css");
+@import url("./pages/projects-cards-page/actions-ui.css");
 
 /* Detailed Projects Page */
 @import url("./pages/project-details-page/page_project-details.css");

@@ -25,20 +25,3 @@
     cursor: pointer;
     scale:1.2;
 }
-
-#new-project__button {
-    background-color: #0091E6;
-    border-radius: 20px;
-    padding: 10px;
-    margin-left: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    color: var(--font-color);
-}
-
-#new-project__button:hover {
-    background-color: #00b0e6;
-    cursor:pointer;
-    scale:1.2;
-}
-

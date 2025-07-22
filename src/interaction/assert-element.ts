@@ -2,7 +2,8 @@ import { assertContainerElement, assertFormElement, assertButtonElement, assertD
 import { addUserForm, cancelNewUserButton, addUserButton, addUserDialog, userListUI, errorUserAlreadyExistDialog, 
     errorProjectAlreadyExistDialog, errorUserExistGotitButton, errorProjectExistGotitButton, exportUsersListButton, importUsersListButton, usersNav, projectsNav, 
     projectsCardsPage, projectDetailsPage, usersPage, newProjectButton, newProjectDialog, 
-    newProjectForm, cancelNewProjectButton, projectsCardsArea } from "./getelement.ts"
+    newProjectForm, cancelNewProjectButton, projectsCardsArea, projectListUI, exportProjectsListButton, 
+    importProjectsListButton} from "./getelement.ts"
 
 // Navigation
 export const vProjectsNav = assertContainerElement(projectsNav);
@@ -15,6 +16,9 @@ export const vNewProjectButton = assertButtonElement(newProjectButton);
 export const vNewProjectDialog = assertDialogElement(newProjectDialog);
 export const vNewProjectForm = assertFormElement(newProjectForm);
 export const vCancelNewProjectButton = assertButtonElement(cancelNewProjectButton);
+export const vProjectListUI = assertContainerElement(projectListUI);
+export const vExportProjectsListButton = assertButtonElement(exportProjectsListButton);
+export const vImportProjectsListButton = assertButtonElement(importProjectsListButton);
 // Project's Page Error
 export const vErrorProjectAlreadyExistDialog = assertDialogElement(errorProjectAlreadyExistDialog);
 export const vErrorProjectExistGotitButton = assertButtonElement(errorProjectExistGotitButton);

@@ -8,6 +8,7 @@ import "./classes/projectsmanager.ts";
 //Functions
 import "./functions/domChecks.ts";
 import "./functions/showPage.ts";
+import "./functions/setProjectInitials.ts";
 
 // PAGES
 import "./pages/pages-navigation.ts";
@@ -15,6 +16,8 @@ import "./pages/pages-navigation.ts";
 import "./pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import "./pages/projects-page/modal_project_form/modal_open-and-close.ts";
 import "./pages/projects-page/modal_project_form/modal_submission.ts";
+import "./pages/projects-page/button_export-projects-list.ts";
+import "./pages/projects-page/button_import-projects-list.ts";
 
 // Users Page
 import "./pages/user-page/button_export-users-list.ts";

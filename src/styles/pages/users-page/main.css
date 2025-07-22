@@ -2,7 +2,6 @@
 #main-users-page-area {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     margin: 15px;
     min-height: 0;
     height: 100%;
@@ -11,64 +10,19 @@
 /* Titre User */
 #main__title-area {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: center;
     color: var(--font-color);
     font-size: 2rem;
     font-weight: normal;
     font-style: italic;
     height: 80px;
-}
-
-#main__title-area button:hover {
-    scale: 1.05;
-    transition: 0.2s;
-    cursor: pointer;
-}
-
-#main__title-area button:active{
-    scale: 0.95;
-}
-
-
-#title-and-import-export-button {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
     gap: 50px;
 }
 
-#title-and-import-export-button button {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 15px;
-    align-items: center;
-    background-color: var(--background-color300);
-    border-radius: 20px;
-    border-color: #cbd5e1;
-    color: var(--font-color);
-    font-size: 1rem;
-    padding: 20px;
-    height: 20px;
-}
 
-/* 🔹 Bouton global pour ajouter un utilisateur */
-#add-user-button {
-    gap: 15px;
-    align-items: center;
-    background-color: var(--background-colorblue200);
-    color: var(--font-color);
-    margin: 25px;
-    border-radius: 25px;
-    padding: 10px 30px ;
-    font-size: 1.2rem;
-    border-style: hidden;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-}
-
-#add-user-button:hover {
-    background-color: var(--background-colorblue300);
+#main__title-area > :last-child {
+    margin-left: auto;
+    margin-right: 25px;
 }
 
 /* 🔹 TABLE AREA */

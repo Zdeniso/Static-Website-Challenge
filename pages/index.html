@@ -37,11 +37,12 @@
             <!-- Header Area -->
             <header>
                 <h1>Projects</h1>
-                <nav id="action-buttons">
-                    <span class="material-icons">download</span>
-                    <button id="new-project__button">+ New Project</button>
-                </nav>
             </header>
+            <div id="actions-ui">
+                <button class="import-export-btn" id="import-projectlist-btn">Import<span class="material-icons">download</span></button>
+                <button class="import-export-btn" id="export-projectlist-btn">Export<span class="material-icons">download</span></button>    
+                <button class="button_add-element" id="new-project__button">+ New Project</button>
+            </div>
 
             <!-- Content Area - Project card -->
             <div class="content-area" id="projects-cards-area">
@@ -214,12 +215,10 @@
             <div id="main-users-page-area">
                 
                 <div id="main__title-area">
-                    <div id="title-and-import-export-button">
-                        <p>Users</p>
-                        <button id="import-userlist-btn">Import<span class="material-icons">download</span></button>
-                        <button id="export-userlist-btn">Export<span class="material-icons">download</span></button>                   
-                    </div>
-                    <button id="add-user-button">+ Add user</button>  
+                    <p>Users</p>
+                    <button class="import-export-btn" id="import-userlist-btn">Import<span class="material-icons">download</span></button>
+                    <button class="import-export-btn" id="export-userlist-btn">Export<span class="material-icons">download</span></button>                   
+                    <button class="button_add-element" id="add-user-button">+ Add user</button>  
                 </div>
                 
 
