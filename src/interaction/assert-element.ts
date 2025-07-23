@@ -2,8 +2,8 @@ import { assertContainerElement, assertFormElement, assertButtonElement, assertD
 import { addUserForm, cancelNewUserButton, addUserButton, addUserDialog, userListUI, errorUserAlreadyExistDialog, 
     errorProjectAlreadyExistDialog, errorUserExistGotitButton, errorProjectExistGotitButton, exportUsersListButton, importUsersListButton, usersNav, projectsNav, 
     projectsCardsPage, projectDetailsPage, usersPage, newProjectButton, newProjectDialog, 
-    newProjectForm, cancelNewProjectButton, projectsCardsArea, projectListUI, exportProjectsListButton, 
-    importProjectsListButton} from "./getelement.ts"
+    newProjectForm, cancelNewProjectButton, projectsCardsArea, projectListUI, exportProjectsListButton, errorNoProjectToExportDialog, 
+    errorNoProjectToExportGotitButton, importProjectsListButton, errorNoUserToExportDialog, errorNoUserToExportGotitButton } from "./getelement.ts"
 
 // Navigation
 export const vProjectsNav = assertContainerElement(projectsNav);
@@ -22,6 +22,9 @@ export const vImportProjectsListButton = assertButtonElement(importProjectsListB
 // Project's Page Error
 export const vErrorProjectAlreadyExistDialog = assertDialogElement(errorProjectAlreadyExistDialog);
 export const vErrorProjectExistGotitButton = assertButtonElement(errorProjectExistGotitButton);
+export const vErrorNoProjectToExportDialog = assertDialogElement(errorNoProjectToExportDialog);
+export const vErrorNoProjectToExportGotitButton = assertButtonElement(errorNoProjectToExportGotitButton);
+
 // Project's Details Page
 export const vProjectDetailsPage = assertContainerElement(projectDetailsPage);
 
@@ -37,3 +40,5 @@ export const vImportUsersListButton = assertButtonElement(importUsersListButton)
 // User's Page Error
 export const vErrorUserAlreadyExistDialog = assertDialogElement(errorUserAlreadyExistDialog);
 export const vErrorUserExistGotitButton = assertButtonElement(errorUserExistGotitButton);
+export const vErrorNoUserToExportDialog = assertDialogElement(errorNoUserToExportDialog);
+export const vErrorNoUserToExportGotitButton = assertButtonElement(errorNoUserToExportGotitButton);

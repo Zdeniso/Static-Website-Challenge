@@ -1,6 +1,7 @@
 import { Project, IProject } from "./project.ts"
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import { UUIDTypes } from "uuid";
+import { showNoProjectError } from "../pages/projects-page/error_no-project-to-export.ts";
 
 export class ProjectsManager {
     static projectList: Project[] = [];
@@ -45,6 +46,7 @@ export class ProjectsManager {
     static exportToJSON(fileName: string = "TOC_project-list"): void {        // More explication on CheatSheets Github
         if (ProjectsManager.projectList.length === 0) {
             console.warn("Aucun projet à exporter.");
+            showNoProjectError();
             return
         } else {       
             const json = JSON.stringify(ProjectsManager.projectList, null, 2); // Sérialise la liste des utilisateurs avec indentation

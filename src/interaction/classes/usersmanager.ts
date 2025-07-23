@@ -1,6 +1,6 @@
 import { User, IUser } from "./user.ts"
 import { UUIDTypes } from 'uuid' ;
-import { showUserError } from "../pages/user-page/modal_user-form/error_user-already-exist.ts";
+import { showNoUserError } from "../../interaction/pages/user-page/error_no-user-to-export.ts";
 
 export class UsersManager {
     // N'a pas vocation à être instancié (pas de constructeur). Sert à stocker les éléments Users 
@@ -17,7 +17,7 @@ export class UsersManager {
         const newUser = new User(dataUser);
         const alreadyExists = UsersManager.userList.some((user) => user.__equals__(newUser));                                           // Créé une instances de User avec toutes les propriétés (infos + ui + id)
         if (alreadyExists) {       // Vérifie que le User n'existe pas dans sa liste
-            showUserError();
+            showNoUserError();
             console.warn("Attempted to add user that already exists:", newUser.email);                // Affiche une fenêtre d'erreur avec un message pour l'utilisateur
             return;
         } else {
@@ -51,6 +51,7 @@ export class UsersManager {
     static exportToJSON(fileName: string = "TOC_users-list"): void {        // More explication on CheatSheets Github
         if (UsersManager.userList.length === 0) {
             console.warn("Aucun utilisateur à exporter.");
+            showNoUserError();
             return
         } else {       
             const json = JSON.stringify(UsersManager.userList, null, 2); // Sérialise la liste des utilisateurs avec indentation

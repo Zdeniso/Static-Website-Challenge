@@ -116,10 +116,18 @@
             </dialog>
 
             <!-- Modal - error Project already exist-->
-            <dialog class="dialog_element-already-exist" id="error-project-dialog-area">
-                <div class="window_element-already-exist">
+            <dialog class="dialog_basic-error" id="error-project-dialog-area">
+                <div class="window_basic-error">
                     <p>A project with this name already exist ! </p>
                     <button class="btn accept" id="error-project-gotit-button">Got it !</button>
+                </div>          
+            </dialog>
+
+            <!-- Modal - error No project to export-->
+            <dialog class="dialog_basic-error" id="dialog_no-project-to-export">
+                <div class="window_basic-error">
+                    <p>There is no project to export ! </p>
+                    <button class="btn accept" id="error_no-project-to-export-gotit-button">Got it !</button>
                 </div>          
             </dialog>
         </div>
@@ -131,7 +139,6 @@
             <header>
                 <h1>Hospital Center</h1>
                 <p>Community hospital located at downtown</p>
-                <hr class="greyline_separator"/>
             </header>
             <div id="project-details-page__content-area">
                 <section id="project-details">
@@ -312,12 +319,21 @@
             </dialog>            
 
             <!-- Modal - error User already exist-->
-            <dialog class="dialog_element-already-exist" id="error-user-dialog-area">
-                <div class="window_element-already-exist">
+            <dialog class="dialog_basic-error" id="error-user-dialog-area">
+                <div class="window_basic-error">
                     <p>An user with this email already exist ! </p>
                     <button class="btn accept" id="error-user-gotit-button">Got it !</button>
                 </div>          
             </dialog>
+
+            <!-- Modal - error No user to export-->
+            <dialog class="dialog_basic-error" id="dialog_no-user-to-export">
+                <div class="window_basic-error">
+                    <p>There is no user to export ! </p>
+                    <button class="btn accept" id="error_no-user-to-export-gotit-button">Got it !</button>
+                </div>          
+            </dialog>
+
         </div>
     
     </main>
