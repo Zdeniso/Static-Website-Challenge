@@ -1,39 +1,44 @@
-header {
-    grid-area: header;
+#header-users-page-area {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center ;
-    margin: 3rem;
+    margin: 10px;
  }
 
 #header__main-title-area {
     display: flex;
     align-items: center;
-    margin-top: 30px;
-    gap: 50px;
+    gap: 30px;
+    margin-left: 10px;
     color: var(--font-color);
-    border-bottom: 3px solid rgb(55, 55, 85); /* Ligne grise foncée en bas */
+    border-bottom: 2px solid var(--background-color300); /* Ligne grise foncée en bas */
 }
 
 #header__main-title-area > p:first-child {
-    background-color: orangered;
-    padding: 20px;
+    background-color: rgb(255, 0, 140);
+    padding: 10px;
     border-radius: 10px;
     font-size: 2rem;
+    margin: 0;
+}
+
+#header__main-title-area > h1 {
+    font-weight: normal;
 }
 
 #header__account-button {
     display: flex;
     flex-wrap: nowrap;
-    gap: 10px;
+    gap: 20px;
+    margin-right: 20px;
     align-items: center;
 }
 
 #header__account-button {
     border-radius: 50px;
-    padding: 4px 8px;
-    background-color: var(--background-colorblue100);
+    padding: 6px 10px;
+    background-color: var(--background-color200);
     border: 1px solid rgb(51, 50, 97);
     color: white;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);

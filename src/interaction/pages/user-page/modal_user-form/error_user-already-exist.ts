@@ -1,18 +1,14 @@
-import { errorUserDialog, gotItButton } from "../../../uiElements/uiElements.ts"
-import { assertDialogElement, assertButtonElement } from "../../../functions/domChecks.ts";
+import { vErrorUserAlreadyExistDialog, vErrorUserExistGotitButton } from "../../../assert-element.ts";
 
-// ===============================================================
-// OUVRIR LA MODALE ERROR - USER ALREADY EXIST
-// ===============================================================
-const eDialog = assertDialogElement(errorUserDialog);   // Créé des constantes locales qui sont sûres d'être les bons dataType
+const dialog = vErrorUserAlreadyExistDialog;
+const btn = vErrorUserExistGotitButton;
+
 export function showUserError(): void {
-    eDialog.showModal()
+    dialog.showModal()
+    return
 }
 
-// ===============================================================
-// FERMER LA MODALE ERROR - USER ALREADY EXIST
-// ===============================================================
-const button = assertButtonElement(gotItButton)
-button.addEventListener("click", () => {
-    eDialog.close()
+// Go it button to leave this dialog
+btn.addEventListener("click", () => {
+   dialog.close()
 })

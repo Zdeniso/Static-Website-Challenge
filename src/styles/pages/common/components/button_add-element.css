@@ -1,0 +1,21 @@
+.button_add-element {    
+    background-color: var(--background-colorblue200);
+    color: var(--font-color);
+    border-radius: 25px;
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.2rem;
+    border-style: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3)
+}
+
+.button_add-element:hover {
+    background-color: var(--background-colorblue300);
+    cursor: pointer;
+    scale: 1.05;
+    transition: 0.2s;
+}
+
+#button_add-element:active{
+    scale: 0.95;
+}

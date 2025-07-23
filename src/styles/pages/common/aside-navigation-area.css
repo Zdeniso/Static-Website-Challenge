@@ -1,0 +1,27 @@
+#aside-common-area {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--background-color200);
+    color: var(--font-color);
+}
+
+#company-logo {
+    align-items: center;
+    padding: 30px; 
+    height: 50px;
+}
+
+.navigation-area__tabs {
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    gap: 20px;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;  
+}
+
+.navigation-area__tabs:hover {
+    background-color: #0091E6;
+}

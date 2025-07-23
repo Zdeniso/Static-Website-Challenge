@@ -1,7 +1,7 @@
-footer {
-    grid-area: footer;
+#footer-users-page-area {
     display: flex;
     justify-content: space-between;
+    margin: 40px;
 }
 
 #footer__pages-navigation {

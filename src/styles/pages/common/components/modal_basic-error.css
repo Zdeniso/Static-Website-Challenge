@@ -1,0 +1,34 @@
+.dialog_basic-error {
+    padding: 10px;
+    border-style: none;
+    background: none;
+    width: 500px;
+    min-width: 280px;
+}
+
+.dialog_basic-error::backdrop {
+    background-color: rgba(0, 0, 0, 0.3); /* voile semi-transparent noir */
+    backdrop-filter: blur(6px); /* flou sur l’arrière-plan */
+}
+
+.window_basic-error {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* espace entre chaque champ */
+    padding: 2rem;
+    background-color: var(--background-color100); /* gris foncé */
+    color: #f0f0f0; /* texte clair */
+    border-radius: 8px; /* coins arrondis */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* ombre portée pour surélever */
+}
+
+.window_basic-error button {
+    display: flex;
+    justify-content: center;
+    width: 8rem;
+}
+
+.window_basic-error p {
+    font-size: 1.2rem;
+}
+

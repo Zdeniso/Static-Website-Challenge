@@ -1,0 +1,11 @@
+#actions-ui {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 20px;
+}
+
+#new-project__button {
+    margin-left: auto;
+    margin-right: 25px;
+}

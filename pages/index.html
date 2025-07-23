@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Application</title>
+    <link rel="stylesheet" href="../src/styles/app.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="icon" href="../assets/favicon.ico"/>
+    <script type="module" src="../src/interaction/app.ts"></script>
+</head>
+<body>
+    <!-- ===============================================--> 
+    <!-- ===============================================-->
+    <!-- ASIDE COMMON AREA -->
+    <!-- ===============================================-->
+    <!-- ===============================================-->     
+    <aside id="aside-common-area">
+        <img id="company-logo" src="../assets/company-logo.svg" alt="Company logo" />
+        <div>
+            <nav class="navigation-area__tabs" id="projects-nav"><span class="material-icons">apartment</span>Projects</nav>
+            <nav class="navigation-area__tabs" id="users-nav"><span class="material-icons">group</span>Users</nav>
+        </div>
+    </aside>    
+
+    <!-- ===============================================-->
+    <!-- ===============================================--> 
+    <!-- CONTENT- -->
+    <!-- ===============================================-->
+    <!-- ===============================================--> 
+    <main id="main-area"> 
+
+        <!-- ===============================================-->
+        <!-- PROJECTS - CARDS PAGE -->
+        <!-- ===============================================--> 
+        <div type="page" id="projects-cards-page" style="display:''">         
+            <!-- Header Area -->
+            <header>
+                <h1>Projects</h1>
+            </header>
+            <div id="actions-ui">
+                <button class="import-export-btn" id="import-projectlist-btn">Import<span class="material-icons">download</span></button>
+                <button class="import-export-btn" id="export-projectlist-btn">Export<span class="material-icons">download</span></button>    
+                <button class="button_add-element" id="new-project__button">+ New Project</button>
+            </div>
+
+            <!-- Content Area - Project card -->
+            <div class="content-area" id="projects-cards-area">
+
+            </div>
+
+            <!-- Modal - NEw Project -->
+            <dialog class="dialog-for-forms" id="new-project-dialog-area">
+                <form class="common-form" id="new-project-form-area">
+                    <h1>New project</h1>
+                    <label for="project-name">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Name</span>
+                        </div>
+                        <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+
+                    <label for="project-description">
+                        <div class="title-zone">
+                            <span class="material-icons">drive_file_rename_outline</span>
+                            <span class="label-title">Description</span>
+                        </div>
+                            <textarea id="project-description" name="project-description" type="text" required></textarea>
+                    </label>
+
+                    <label for="project-status">
+                        <div class="title-zone">
+                            <span class="material-icons">keyboard_double_arrow_right</span>
+                            <span class="label-title">Status</span>
+                        </div>
+                        <select id="project-status" name="project-status">
+                            <option>Draft</option>
+                            <option>On-hold</option>
+                            <option>Under review</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </label>
+
+                    <label for="project-client">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Client</span>
+                        </div>
+                        <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+                    </label>
+
+                    <label for="project-cost">
+                        <div class="title-zone">
+                            <span class="material-icons">attach_money</span>
+                            <span class="label-title">Cost</span>
+                        </div>
+                        <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+                    </label>
+
+                    <label for="project-finish-date">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Finish date</span>
+                        </div>
+                        <input id="project-finish-date" name="project-finish-date" type="date" required />
+                    </label>
+
+                    <div class="form-actions">
+                        <button id="button_cancel-new-project" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>
+
+            <!-- Modal - error Project already exist-->
+            <dialog class="dialog_basic-error" id="error-project-dialog-area">
+                <div class="window_basic-error">
+                    <p>A project with this name already exist ! </p>
+                    <button class="btn accept" id="error-project-gotit-button">Got it !</button>
+                </div>          
+            </dialog>
+
+            <!-- Modal - error No project to export-->
+            <dialog class="dialog_basic-error" id="dialog_no-project-to-export">
+                <div class="window_basic-error">
+                    <p>There is no project to export ! </p>
+                    <button class="btn accept" id="error_no-project-to-export-gotit-button">Got it !</button>
+                </div>          
+            </dialog>
+        </div>
+
+        <!-- ===============================================-->
+        <!-- PROJECT - DETAILS PAGE -->
+        <!-- ===============================================--> 
+        <div type="page" id="project-details-page" style="display: none">
+            <header>
+                <h1>Hospital Center</h1>
+                <p>Community hospital located at downtown</p>
+            </header>
+            <div id="project-details-page__content-area">
+                <section id="project-details">
+                    <div id="project-details__edit-zone"><p>HC</p><button>Edit</button></div>
+                    <div id="project-details__title-and-description">
+                        <h1>Hospital Center</h1>
+                        <p>Community hospital located at downtown</p>
+                    </div>
+                    <div id="project-details__informations">
+                        <div id="project-details__status">
+                            <h2>Status</h2>
+                            <p>Active</p>
+                        </div>
+                        <div id="project-details__cost"> 
+                            <h2>Cost</h2>
+                            <p>CHF 2'541.00</p>
+                        </div>
+                        <div id="project-details__client">
+                            <h2>Client</h2>
+                            <p>Losinger-Marazzi SA</p>
+                        </div>   
+                        <div id="project-details__finishdate">
+                            <h2>Finish date</h2>
+                            <p>2023-05-01</p>
+                        </div>
+                    </div>
+                    <div id="project-details__progress-bar">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;">80%</div>
+                        </div>               
+                    </div>
+                </section>
+                <section id="todo-list">
+                    <div id="todo-list__adding-zone">
+                        <p>To-Do</p>
+                        <div>
+                            <span class="material-icons">search</span>
+                            <input class="search-bar-todo-list" type="text" maxlength="50" placeholder="Search To-Do's by name"/>
+                            <span class="material-icons">add</span>
+                        </div>
+                    </div>
+                    <div id="todo-list__listing-zone">
+                        <div class="todo-event">
+                            <span class="material-icons">construction</span>
+                            <p>Make anything here as you want, even something longer</p>
+                            <p>Fri, 20 sep</p>
+                        </div>
+                        <div class="todo-event">
+                            <span class="material-icons">construction</span>
+                            <p>Make anything here as you want, even something longer</p>
+                            <p>Fri, 20 sep</p>
+                        </div>
+                    </div>
+                </section>    
+                <section id="viewer3D">Viewer3D - WIP</section>              
+            </div>
+        </div>
+
+        <!-- ===============================================-->
+        <!-- USERS - TABLE OF ALL USERS -->
+        <!-- ===============================================-->
+        <div type="page" id="users-page" style="display: none">
+            <!-- Header -->
+            <header id="header-users-page-area">
+                <div id="header__main-title-area">
+                    <p>PN</p>
+                    <h1>Project name</h1>
+                    <div>
+                        <p style="font-style: italic">Started date : 25-11-2023</p>
+                        <p style="font-style: italic">Past days : 450</p>
+                    </div>
+                </div>
+                <div>
+                    <button id="header__account-button">
+                    <img id="account-avatar" src="https://i.pravatar.cc/32?img=2" alt="Avatar">Denis Pommier
+                    </button>
+                </div>
+            </header>
+
+            <!-- Main area -->
+            <div id="main-users-page-area">
+                
+                <div id="main__title-area">
+                    <p>Users</p>
+                    <button class="import-export-btn" id="import-userlist-btn">Import<span class="material-icons">download</span></button>
+                    <button class="import-export-btn" id="export-userlist-btn">Export<span class="material-icons">download</span></button>                   
+                    <button class="button_add-element" id="add-user-button">+ Add user</button>  
+                </div>
+                
+
+                <!-- 🌐 TABLE AREA -->
+                <div id="main__table-area">
+
+                <!-- 🧩 En-tête du tableau -->
+                    <div class="table-header">
+                        <div>👤 Name</div>
+                        <div>📧 Company</div>
+                        <div>📅 Role</div>
+                        <div>📅 Email</div>
+                        <div>⚙️ Modifications</div>
+                    </div>
+                    <div id="users-list">
+                        <!-- 👤 Lignes utilisateurs se rajoutant avec l'ui de la classe User -->
+
+                    </div>
+                </div>
+                <!-- 💡 Tu peux ajouter ici d’autres utilisateurs -->
+
+            </div>
+
+            <!-- Footer area-->
+            <footer id="footer-users-page-area">
+                <div id="footer__pages-navigation">
+                    <div>Prev</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>...</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>Next</div>
+                </div>
+                <div id="footer__showing-choice">
+                    <div>Showing</div>
+                    <div>5</div>
+                    <div>of 120 entries</div>
+                </div>        
+            </footer>
+
+            <!-- Modal - New user -->
+            <dialog class="dialog-for-forms" id="new-user-dialog-area">
+                <form class="common-form" id="new-user-form-area">
+                    <h1>New user</h1>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">account_circle</span>
+                            <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
+                        </div>
+                        <input name="name" type="text" placeholder="John DELAWARE" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Company</span>
+                        </div>
+                            <select name="company" >
+                                <option>Losinger-Marazzi</option>
+                                <option>Implenia</option>
+                                <option>Vinci-Construction</option>
+                        </select>
+                    </label>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Role</span>
+                        </div>
+                        <select name="role" >
+                            <option>Architect</option>
+                            <option>Electrical Engineer</option>
+                            <option>HVAC Engineer</option>
+                            <option>Structural Engineer</option>
+                            <option>BIM Manager</option>
+                            <option>Client</option>
+                        </select>
+                    </label>
+                    <label>
+                        <div class="title-zone">
+                            <span class="material-icons">alternate_email</span>
+                            <span class="label-title">Email</span>
+                        </div>
+                        <input name="email" type="text" placeholder="John.delaware@vinci-construction.com" required />
+                    </label>
+                    <div class="form-actions">
+                        <button id="button_cancel-new-user" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>            
+
+            <!-- Modal - error User already exist-->
+            <dialog class="dialog_basic-error" id="error-user-dialog-area">
+                <div class="window_basic-error">
+                    <p>An user with this email already exist ! </p>
+                    <button class="btn accept" id="error-user-gotit-button">Got it !</button>
+                </div>          
+            </dialog>
+
+            <!-- Modal - error No user to export-->
+            <dialog class="dialog_basic-error" id="dialog_no-user-to-export">
+                <div class="window_basic-error">
+                    <p>There is no user to export ! </p>
+                    <button class="btn accept" id="error_no-user-to-export-gotit-button">Got it !</button>
+                </div>          
+            </dialog>
+
+        </div>
+    
+    </main>
+
+</body>
+</html>

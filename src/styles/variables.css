@@ -1,11 +1,18 @@
 :root {
     --font-color: white;
+    --background-color100: #1E2022;
+    --background-color200: #2F3133;
+    --background-color300: #3e4042;
+    --background-color400: #737577;
+    --background-color-green100: #017F09;
+    --background-color-green200: #33a53b; 
+    --font-size-main-title: 1rem;
     --background-colorblue50: #121925;
     --background-colorblue100: #1e293b;
     --background-colorblue150: #33435c;
     --background-colorblue200: rgb(37, 104, 211);
     --background-colorblue300: rgb(65, 123, 216);
-  }
+}
 
 * {
     font-family: 'Segoe UI', sans-serif;

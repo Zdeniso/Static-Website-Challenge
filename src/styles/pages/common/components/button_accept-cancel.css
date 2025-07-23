@@ -1,0 +1,38 @@
+/* Utiliser en fin de formulaire par exemple
+<button class=btn cancel> et <button class=btn accept> */
+
+.btn {
+    padding: 0.7rem 1.4rem; /* hauteur et largeur du bouton */
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease; /* effet de survol fluide */
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Bouton "Cancel" (neutre) */
+.btn.cancel {
+    background-color: transparent;
+    color: #999;
+}
+
+.btn.cancel:hover {
+    text-decoration: underline; /* effet visuel au survol */
+    scale: 1.1;
+}
+
+/* Bouton "Accept" (action principale) */
+.btn.accept {
+    background-color: #1fb141; /* vert vif */
+    color: white;
+    font-weight: bold;
+}
+
+.btn.accept:hover {
+    background-color: #148b32; /* vert plus foncé au survol */
+    scale: 1.1;
+}
