@@ -1,4 +1,4 @@
-import { UUIDTypes, v4 as uuidv4 } from 'uuid' ;
+import { v4 as uuidv4 } from 'uuid' ;
 import { Company, Role } from "./type.ts"
 
 export interface IUser {
@@ -13,7 +13,7 @@ export class User implements IUser {
     role: Role;
     email: string;
     ui: HTMLDivElement ;             // Intégration ui
-    id: UUIDTypes ;                  // Intégration d'un ID généré automatiquement par UUIDv4
+    id: string ;                  // Intégration d'un ID généré automatiquement par UUIDv4
 
     constructor(data: IUser) {
         this.name = data.name;

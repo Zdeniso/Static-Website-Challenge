@@ -1,4 +1,4 @@
-import { UUIDTypes, v4 as uuidv4 } from 'uuid' ;
+import { v4 as uuidv4 } from 'uuid' ;
 import { Status } from "./type.ts";
 import { getInitials, getRandomColor } from '../functions/setProjectInitials.ts';
 import { vProjectDetailsPage } from '../assert-element.ts';
@@ -21,7 +21,7 @@ export class Project implements IProject {
     cost: number;
     finishDate: Date;
     ui: HTMLElement;
-    id: UUIDTypes;
+    id: string;
     private initials: string;
     private color: string;    
 
@@ -52,6 +52,7 @@ export class Project implements IProject {
         // Création Card UI
         this.ui = document.createElement("section");
         this.ui.className = "project-card";
+        this.ui.dataset.id = this.id;
         this.ui.innerHTML = 
             `
             <div class="project-card__header">

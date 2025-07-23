@@ -16,6 +16,7 @@ import "./pages/pages-navigation.ts";
 import "./pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import "./pages/projects-page/modal_project_form/modal_open-and-close.ts";
 import "./pages/projects-page/modal_project_form/modal_submission.ts";
+import "./pages/projects-page/modal_project_form/modal_edit.ts";
 import "./pages/projects-page/button_export-projects-list.ts";
 import "./pages/projects-page/button_import-projects-list.ts";
 import "./pages/projects-page/error_no-project-to-export.ts";

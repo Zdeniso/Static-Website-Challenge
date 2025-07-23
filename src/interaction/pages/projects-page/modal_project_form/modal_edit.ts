@@ -1,8 +1,17 @@
+/*
 import { IProject } from "../../../classes/project.ts";
 import { ProjectsManager } from "../../../classes/projectsmanager.ts";
 import { Status } from "../../../classes/type.ts";
 import { vNewProjectDialog, vNewProjectForm } from "../../../assert-element.ts"
 
+// modal_open-and-close.ts
+const editBtn = document.getElementById("button_edit-project") as HTMLButtonElement;
+
+editBtn.addEventListener("click", () => {
+    vNewProjectDialog.showModal()
+})
+
+// Modal_submission.ts
 vNewProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const projectRawData = new FormData(vNewProjectForm);
@@ -15,7 +24,8 @@ vNewProjectForm.addEventListener("submit", (e) => {
         finishDate: new Date(projectRawData.get("project-finish-date") as string)
     }
 
-    ProjectsManager.addProject(data)
+    ProjectsManager.editProject(projectID, data)       // Fonction à développer
     vNewProjectDialog.close();
     vNewProjectForm.reset()
 })
+    */
