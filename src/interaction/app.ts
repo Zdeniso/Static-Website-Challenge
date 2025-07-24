@@ -21,6 +21,10 @@ import "./pages/projects-page/button_export-projects-list.ts";
 import "./pages/projects-page/button_import-projects-list.ts";
 import "./pages/projects-page/error_no-project-to-export.ts";
 
+// Projects Detail Page
+import "./pages/project-details/modal_edit-open.ts";
+import "./pages/project-details/modal_edit-submission.ts";
+
 // Users Page
 import "./pages/user-page/button_export-users-list.ts";
 import "./pages/user-page/button_import-users-list.ts";

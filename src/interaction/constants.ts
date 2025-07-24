@@ -19,6 +19,10 @@ export const ID_ERROR_NO_PROJECT_DIALOG: string = "dialog_no-project-to-export";
 export const ID_ERROR_NO_PROJECT_GOTIT_BUTTON: string = "error_no-project-to-export-gotit-button";
 // Project's Details Page
 export const ID_PROJECT_DETAILS_PAGE: string = "project-details-page";
+export const ID_PROJECT_EDIT_BUTTON: string = "button_edit-project";
+export const ID_EDIT_PROJECT_DIALOG: string = "edit-project-dialog-area";
+export const ID_EDIT_PROJECT_FORM: string = "edit-project-form-area";
+export const ID_EDIT_PROJECT_EDIT_BUTTON: string = "button_edit-project";
 
 // Users' Page
 export const ID_USERS_PAGE: string = "users-page";
