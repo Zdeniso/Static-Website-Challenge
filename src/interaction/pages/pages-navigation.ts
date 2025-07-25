@@ -10,13 +10,3 @@ vProjectsNav.addEventListener("click", () => {
 vUsersNav.addEventListener("click", () => {
     showPage(vUsersPage)
 })
-
-// Project details by clicking a card from ProjectsManager list
-//vCard.addEventListener("click", () => {
-//    showPage(vProjectDetailsPage)
-//})
-
-
-
-
-

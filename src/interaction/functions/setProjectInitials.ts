@@ -1,17 +1,18 @@
-export function getInitials(element: string) : string {
-    const space = element.indexOf(" "); // number | null
+export function getInitials(element: string): string {
+    const space = element.indexOf(" ");
     let rawInit = "";
 
     if (element.length === 1) {
-        rawInit = element[0]
+        rawInit = element[0] ?? "";
     } else {
         if (space === -1) {
-            rawInit = element[0] + element[1]
+            rawInit = (element[0] ?? "") + (element[1] ?? "");
         } else {
-            rawInit = element[0] + element[space+1]
+            rawInit = (element[0] ?? "") + (element[space + 1] ?? "");
         }
     }
-    return rawInit.toUpperCase()  
+
+    return rawInit.toUpperCase()
 }
 
 export function getRandomColor(): string {

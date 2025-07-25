@@ -46,82 +46,10 @@
 
             <!-- Content Area - Project card -->
             <div class="content-area" id="projects-cards-area">
-
+                <!-- Project1.ui -->
+                <!-- Project2.ui -->
+                <!-- ... -->
             </div>
-
-            <!-- Modal - NEw Project -->
-            <dialog class="dialog-for-forms" id="new-project-dialog-area">
-                <form class="common-form" id="new-project-form-area">
-                    <h1>New project</h1>
-                    <label for="project-name">
-                        <div class="title-zone">
-                            <span class="material-icons">apartment</span>
-                            <span class="label-title">Name</span>
-                        </div>
-                        <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
-                        <small>TIP: Give it a short name.</small>
-                    </label>
-
-                    <label for="project-description">
-                        <div class="title-zone">
-                            <span class="material-icons">drive_file_rename_outline</span>
-                            <span class="label-title">Description</span>
-                        </div>
-                            <textarea id="project-description" name="project-description" type="text" required></textarea>
-                    </label>
-
-                    <label for="project-status">
-                        <div class="title-zone">
-                            <span class="material-icons">keyboard_double_arrow_right</span>
-                            <span class="label-title">Status</span>
-                        </div>
-                        <select id="project-status" name="project-status">
-                            <option>Draft</option>
-                            <option>On-hold</option>
-                            <option>Under review</option>
-                            <option>Completed</option>
-                            <option>Cancelled</option>
-                        </select>
-                    </label>
-
-                    <label for="project-client">
-                        <div class="title-zone">
-                            <span class="material-icons">assignment_ind</span>
-                            <span class="label-title">Client</span>
-                        </div>
-                        <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
-                    </label>
-
-                    <label for="project-cost">
-                        <div class="title-zone">
-                            <span class="material-icons">attach_money</span>
-                            <span class="label-title">Cost</span>
-                        </div>
-                        <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
-                    </label>
-
-                    <label for="project-finish-date">
-                        <div class="title-zone">
-                            <span class="material-icons">calendar_month</span>
-                            <span class="label-title">Finish date</span>
-                        </div>
-                        <input id="project-finish-date" name="project-finish-date" type="date" required />
-                    </label>
-
-                    <div class="form-actions">
-                        <button id="button_cancel-new-project" type="button" class="btn cancel">Cancel</button>
-                        <button type="submit" class="btn accept">Accept</button>
-                    </div>
-                </form>
-            </dialog>
-
-            <!-- Modal - error Project already exist-->
-            <dialog class="dialog_basic-error" id="error-project-dialog-area">
-                <div class="window_basic-error">
-                    <p>A project with this name already exist ! </p>
-                    <button class="btn accept" id="error-project-gotit-button">Got it !</button>
-                </div>          
-            </dialog>
 
             <!-- Modal - error No project to export-->
             <dialog class="dialog_basic-error" id="dialog_no-project-to-export">
@@ -131,6 +59,151 @@
                 </div>          
             </dialog>
         </div>
+
+        <!-- Modal - NEw Project -->
+        <dialog class="dialog-for-forms" id="new-project-dialog-area">
+            <form class="common-form" id="new-project-form-area">
+                <h1>New project</h1>
+                <label for="project-name">
+                    <div class="title-zone">
+                        <span class="material-icons">apartment</span>
+                        <span class="label-title">Name</span>
+                    </div>
+                    <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                    <small>TIP: Give it a short name.</small>
+                </label>
+
+                <label for="project-description">
+                    <div class="title-zone">
+                        <span class="material-icons">drive_file_rename_outline</span>
+                        <span class="label-title">Description</span>
+                    </div>
+                        <textarea id="project-description" name="project-description" type="text" required></textarea>
+                </label>
+
+                <label for="project-status">
+                    <div class="title-zone">
+                        <span class="material-icons">keyboard_double_arrow_right</span>
+                        <span class="label-title">Status</span>
+                    </div>
+                    <select id="project-status" name="project-status">
+                        <option>Draft</option>
+                        <option>On-hold</option>
+                        <option>Under review</option>
+                        <option>Completed</option>
+                        <option>Cancelled</option>
+                    </select>
+                </label>
+
+                <label for="project-client">
+                    <div class="title-zone">
+                        <span class="material-icons">assignment_ind</span>
+                        <span class="label-title">Client</span>
+                    </div>
+                    <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+                </label>
+
+                <label for="project-cost">
+                    <div class="title-zone">
+                        <span class="material-icons">attach_money</span>
+                        <span class="label-title">Cost</span>
+                    </div>
+                    <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+                </label>
+
+                <label for="project-finish-date">
+                    <div class="title-zone">
+                        <span class="material-icons">calendar_month</span>
+                        <span class="label-title">Finish date</span>
+                    </div>
+                    <input id="project-finish-date" name="project-finish-date" type="date"/>
+                </label>
+
+                <div class="form-actions">
+                    <button id="button_cancel-new-project" type="button" class="btn cancel">Cancel</button>
+                    <button type="submit" class="btn accept">Accept</button>
+                </div>
+            </form>
+        </dialog>
+
+
+        <!-- Modal - Edit project -->
+         <!-- ========================================================================================================================= -->
+        <dialog class="dialog-for-forms" id="edit-project-dialog-area">
+            <form class="common-form" id="edit-project-form-area">
+                <h1>New project</h1>
+                <label for="project-name">
+                    <div class="title-zone">
+                        <span class="material-icons">apartment</span>
+                        <span class="label-title">Name</span>
+                    </div>
+                    <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                    <small>TIP: Give it a short name.</small>
+                </label>
+
+                <label for="project-description">
+                    <div class="title-zone">
+                        <span class="material-icons">drive_file_rename_outline</span>
+                        <span class="label-title">Description</span>
+                    </div>
+                        <textarea id="project-description" name="project-description" type="text" required></textarea>
+                </label>
+
+                <label for="project-status">
+                    <div class="title-zone">
+                        <span class="material-icons">keyboard_double_arrow_right</span>
+                        <span class="label-title">Status</span>
+                    </div>
+                    <select id="project-status" name="project-status">
+                        <option>Draft</option>
+                        <option>On-hold</option>
+                        <option>Under review</option>
+                        <option>Completed</option>
+                        <option>Cancelled</option>
+                    </select>
+                </label>
+
+                <label for="project-client">
+                    <div class="title-zone">
+                        <span class="material-icons">assignment_ind</span>
+                        <span class="label-title">Client</span>
+                    </div>
+                    <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+                </label>
+
+                <label for="project-cost">
+                    <div class="title-zone">
+                        <span class="material-icons">attach_money</span>
+                        <span class="label-title">Cost</span>
+                    </div>
+                    <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+                </label>
+
+                <label for="project-finish-date">
+                    <div class="title-zone">
+                        <span class="material-icons">calendar_month</span>
+                        <span class="label-title">Finish date</span>
+                    </div>
+                    <input id="project-finish-date" name="project-finish-date" type="date" required />
+                </label>
+
+                <div class="form-actions">
+                    <button id="button_cancel-edit-project" type="button" class="btn cancel">Cancel</button>
+                    <button type="submit" class="btn accept">Edit</button>
+                </div>
+            </form>
+        </dialog>
+
+
+        <!-- Modal - error Project already exist-->
+        <dialog class="dialog_basic-error" id="error-project-dialog-area">
+            <div class="window_basic-error">
+                <p>A project with this name already exist ! </p>
+                <button class="btn accept" id="error-project-gotit-button">Got it !</button>
+            </div>          
+        </dialog>
+
+
 
         <!-- ===============================================-->
         <!-- PROJECT - DETAILS PAGE -->
@@ -142,7 +215,7 @@
             </header>
             <div id="project-details-page__content-area">
                 <section id="project-details">
-                    <div id="project-details__edit-zone"><p>HC</p><button>Edit</button></div>
+                    <div id="project-details__edit-zone"><p>HC</p><button id="button_edit-project">Edit</button></div>
                     <div id="project-details__title-and-description">
                         <h1>Hospital Center</h1>
                         <p>Community hospital located at downtown</p>

@@ -3,7 +3,8 @@ import { addUserForm, cancelNewUserButton, addUserButton, addUserDialog, userLis
     errorProjectAlreadyExistDialog, errorUserExistGotitButton, errorProjectExistGotitButton, exportUsersListButton, importUsersListButton, usersNav, projectsNav, 
     projectsCardsPage, projectDetailsPage, usersPage, newProjectButton, newProjectDialog, 
     newProjectForm, cancelNewProjectButton, projectsCardsArea, projectListUI, exportProjectsListButton, errorNoProjectToExportDialog, 
-    errorNoProjectToExportGotitButton, importProjectsListButton, errorNoUserToExportDialog, errorNoUserToExportGotitButton } from "./getelement.ts"
+    errorNoProjectToExportGotitButton, importProjectsListButton, errorNoUserToExportDialog, errorNoUserToExportGotitButton, projectEditButton, 
+    editProjectDialog, editProjectForm, editProjectEditButton, editProjectCancelButton } from "./getelement.ts"
 
 // Navigation
 export const vProjectsNav = assertContainerElement(projectsNav);
@@ -27,6 +28,11 @@ export const vErrorNoProjectToExportGotitButton = assertButtonElement(errorNoPro
 
 // Project's Details Page
 export const vProjectDetailsPage = assertContainerElement(projectDetailsPage);
+export const vProjectEditButton = assertButtonElement(projectEditButton);
+export const vEditProjectDialog = assertDialogElement(editProjectDialog);
+export const vEditProjectForm = assertFormElement(editProjectForm);
+export const vEditProjectEditButton = assertButtonElement(editProjectEditButton);
+export const vEditProjectCancelButton = assertButtonElement(editProjectCancelButton);
 
 // Users' Page
 export const vUsersPage = assertContainerElement(usersPage);

@@ -1,8 +1,9 @@
-import { UUIDTypes, v4 as uuidv4 } from 'uuid' ;
+import { v4 as uuidv4 } from 'uuid' ;
 import { Status } from "./type.ts";
 import { getInitials, getRandomColor } from '../functions/setProjectInitials.ts';
 import { vProjectDetailsPage } from '../assert-element.ts';
 import { showPage } from '../functions/showPage.ts';
+import { UsersManager } from './usersmanager.ts';
 
 export class IProject {
     name: string;
@@ -14,14 +15,14 @@ export class IProject {
 }
 
 export class Project implements IProject {
-    name: string;
-    description: string;
-    status: Status;
-    client: string;
-    cost: number;
-    finishDate: Date;
-    ui: HTMLElement;
-    id: UUIDTypes;
+    public name: string;
+    public description: string;
+    public status: Status;
+    public client: string;
+    public cost: number;
+    public finishDate: Date;
+    public ui: HTMLElement;
+    public id: string;
     private initials: string;
     private color: string;    
 
@@ -46,13 +47,14 @@ export class Project implements IProject {
         this.color = getRandomColor();
 
         // Reformatage des données spéciales     
-        const cost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(this.cost);  // Meilleur format
-        const finishDate = this.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
+        const formattedCost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(this.cost);  // Meilleur format
+        const formattedFinishDate = this.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
 
         // Création Card UI
         this.ui = document.createElement("section");
         this.ui.className = "project-card";
-        this.ui.innerHTML = 
+        this.ui.dataset.id = this.id;
+        this.ui.innerHTML =                 // data-id permettra de se faire pointer pour récupérer this.color et this initials dans le populate du detailsPage 
             `
             <div class="project-card__header">
                 <div class="project-card__acronym" style="background-color: ${this.color}">${this.initials}</div>
@@ -72,43 +74,61 @@ export class Project implements IProject {
                 </div>
                 <div class="project-card__values">
                     <p class="project-card__criteria">Cost</p>
-                    <p>CHF ${cost}</p>
+                    <p>${formattedCost}</p>
                 </div>     
                 <div class="project-card__values">
                     <p class="project-card__criteria">Finish Date</p>
-                    <p>${finishDate}</p>
+                    <p>${formattedFinishDate}</p>
                 </div>                             
             </div>
             `;  
 
+            console.log("La carte créé est : ", this.ui)
+
             // Création et affichage Project details page UI
             this.ui.addEventListener("click", () => {
-                this.populateDetailsPage(vProjectDetailsPage);
-                showPage(vProjectDetailsPage)
+                this.populateDetailsPage();
+                showPage(vProjectDetailsPage);
+                console.log("L'attribut data-id de cette page Details Page est : ", vProjectDetailsPage.getAttribute("data-id"))
             })
     }         
 
-    private populateDetailsPage(container: HTMLElement): void {
+    private populateDetailsPage(): void {
+        // Changement de variable moins longue
+        const dPage = vProjectDetailsPage;
+        // Donner à la page DetailsPage l'ID du projet grâce à l'attribut data-id = ""
+        dPage.setAttribute("data-id", `${this.id}`);
         // Reformatage des données spéciales  
         const cost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(this.cost);  // Meilleur format
         const finishDate = this.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
 
-        const mainTitle = container.querySelector("h1") as HTMLElement;
-        const mainDescription = container.querySelector("p") as HTMLElement;
-        const cardTitle = container.querySelector("#project-details__title-and-description > h1") as HTMLElement;
-        const cardDescription = container.querySelector("#project-details__title-and-description > p") as HTMLElement;
-        const cardInitials = container.querySelector("#project-details__edit-zone > p") as HTMLElement;
-        const cardStatus = container.querySelector("#project-details__status > p") as HTMLElement;
-        const cardCost = container.querySelector("#project-details__cost > p") as HTMLElement;
-        const cardClient = container.querySelector("#project-details__client > p") as HTMLElement;
-        const cardFinishDate = container.querySelector("#project-details__finishdate > p") as HTMLElement;
+        const mainTitle = dPage.querySelector("h1") as HTMLElement;
+        const mainDescription = dPage.querySelector("p") as HTMLElement;
+        const cardTitle = dPage.querySelector("#project-details__title-and-description > h1") as HTMLElement;
+        const cardDescription = dPage.querySelector("#project-details__title-and-description > p") as HTMLElement;
+        const cardInitials = dPage.querySelector("#project-details__edit-zone > p") as HTMLElement;
+        const cardStatus = dPage.querySelector("#project-details__status > p") as HTMLElement;
+        const cardCost = dPage.querySelector("#project-details__cost > p") as HTMLElement;
+        const cardClient = dPage.querySelector("#project-details__client > p") as HTMLElement;
+        const cardFinishDate = dPage.querySelector("#project-details__finishdate > p") as HTMLElement;
+
+        // On est obligé d'aller chercher les initiales et background color de la carte grâce à son ID
+        const card = document.querySelector(`.project-card[data-id="${this.id}"]`) as HTMLElement;
+        console.log("L'élément de la carte pointé est : ", card)
+        const initElement = card.querySelector(".project-card__acronym") as HTMLElement;
+        console.log("L'élément acronym de cette carte est : ", initElement)
+        const bColor = window.getComputedStyle(initElement).backgroundColor;
+        console.log("L'attribut style, background color a pour valeur : ", bColor)
+        const initials = initElement.textContent;
+        console.log("Le texte des initiales est  : ", initials)
+
+        cardInitials.textContent = initials;
+        cardInitials.style.backgroundColor = bColor; 
 
         mainTitle.textContent = this.name;
         mainDescription.textContent = this.description;
         cardTitle.textContent = this.name;
         cardDescription.textContent = this.description;
-        cardInitials.textContent = this.initials;
-        cardInitials.style.backgroundColor = this.color; 
         cardStatus.textContent = this.status;
         cardClient.textContent = this.client;
         cardCost.textContent = cost;
