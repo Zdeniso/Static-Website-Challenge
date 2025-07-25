@@ -23,6 +23,7 @@ export const ID_PROJECT_EDIT_BUTTON: string = "button_edit-project";
 export const ID_EDIT_PROJECT_DIALOG: string = "edit-project-dialog-area";
 export const ID_EDIT_PROJECT_FORM: string = "edit-project-form-area";
 export const ID_EDIT_PROJECT_EDIT_BUTTON: string = "button_edit-project";
+export const ID_EDIT_PROJECT_CANCEL_BUTTON: string = "button_cancel-edit-project";
 
 // Users' Page
 export const ID_USERS_PAGE: string = "users-page";

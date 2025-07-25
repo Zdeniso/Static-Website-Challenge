@@ -16,7 +16,6 @@ vEditProjectForm.addEventListener("submit", (e) => {
         finishDate: new Date(projectRawData.get("project-finish-date") as string)
     }
 
-
     ProjectsManager.editProject(data);
     vEditProjectDialog.close();
     vEditProjectForm.reset()

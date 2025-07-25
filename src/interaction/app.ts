@@ -22,7 +22,7 @@ import "./pages/projects-page/button_import-projects-list.ts";
 import "./pages/projects-page/error_no-project-to-export.ts";
 
 // Projects Detail Page
-import "./pages/project-details/modal_edit-open.ts";
+import "./pages/project-details/modal_edit-open-close.ts";
 import "./pages/project-details/modal_edit-submission.ts";
 
 // Users Page

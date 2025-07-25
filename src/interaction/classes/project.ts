@@ -47,14 +47,14 @@ export class Project implements IProject {
         this.color = getRandomColor();
 
         // Reformatage des données spéciales     
-        const cost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(this.cost);  // Meilleur format
-        const finishDate = this.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
+        const formattedCost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(this.cost);  // Meilleur format
+        const formattedFinishDate = this.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
 
         // Création Card UI
         this.ui = document.createElement("section");
         this.ui.className = "project-card";
-        this.ui.dataset.id = this.id;    // Création dans le but d'aller pointer cette card dans l'html et changer l'ui de la carte
-        this.ui.innerHTML = 
+        this.ui.dataset.id = this.id;
+        this.ui.innerHTML =                 // data-id permettra de se faire pointer pour récupérer this.color et this initials dans le populate du detailsPage 
             `
             <div class="project-card__header">
                 <div class="project-card__acronym" style="background-color: ${this.color}">${this.initials}</div>
@@ -74,14 +74,16 @@ export class Project implements IProject {
                 </div>
                 <div class="project-card__values">
                     <p class="project-card__criteria">Cost</p>
-                    <p>CHF ${cost}</p>
+                    <p>${formattedCost}</p>
                 </div>     
                 <div class="project-card__values">
                     <p class="project-card__criteria">Finish Date</p>
-                    <p>${finishDate}</p>
+                    <p>${formattedFinishDate}</p>
                 </div>                             
             </div>
             `;  
+
+            console.log("La carte créé est : ", this.ui)
 
             // Création et affichage Project details page UI
             this.ui.addEventListener("click", () => {
@@ -109,13 +111,24 @@ export class Project implements IProject {
         const cardCost = dPage.querySelector("#project-details__cost > p") as HTMLElement;
         const cardClient = dPage.querySelector("#project-details__client > p") as HTMLElement;
         const cardFinishDate = dPage.querySelector("#project-details__finishdate > p") as HTMLElement;
-        
+
+        // On est obligé d'aller chercher les initiales et background color de la carte grâce à son ID
+        const card = document.querySelector(`.project-card[data-id="${this.id}"]`) as HTMLElement;
+        console.log("L'élément de la carte pointé est : ", card)
+        const initElement = card.querySelector(".project-card__acronym") as HTMLElement;
+        console.log("L'élément acronym de cette carte est : ", initElement)
+        const bColor = window.getComputedStyle(initElement).backgroundColor;
+        console.log("L'attribut style, background color a pour valeur : ", bColor)
+        const initials = initElement.textContent;
+        console.log("Le texte des initiales est  : ", initials)
+
+        cardInitials.textContent = initials;
+        cardInitials.style.backgroundColor = bColor; 
+
         mainTitle.textContent = this.name;
         mainDescription.textContent = this.description;
         cardTitle.textContent = this.name;
         cardDescription.textContent = this.description;
-        cardInitials.textContent = this.initials;
-        cardInitials.style.backgroundColor = this.color; 
         cardStatus.textContent = this.status;
         cardClient.textContent = this.client;
         cardCost.textContent = cost;

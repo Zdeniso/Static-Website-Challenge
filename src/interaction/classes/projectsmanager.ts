@@ -1,11 +1,9 @@
-import { Status } from "./type.ts";
 import { Project, IProject } from "./project.ts";
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import { showNoProjectError } from "../pages/projects-page/error_no-project-to-export.ts";
 import { vProjectsCardsPage, vProjectsCardsArea, vEditProjectDialog, vEditProjectForm, vProjectDetailsPage } from "../assert-element.ts";
 import { getInitials, getRandomColor } from '../functions/setProjectInitials.ts';
 import { showPage } from "../functions/showPage.ts";
-import { UsersManager } from "./usersmanager.ts";
 
 export class ProjectsManager {
     static projectList: Project[] = [];
@@ -27,37 +25,27 @@ export class ProjectsManager {
     }
 
     static editProject(data: IProject) : void {
-        /* 
-        Le plan ici est le suivant :
-        Après avoir cliqué sur le bouton Edit de Project Details Page :
-        --> (1) Ouvre le formulaire d'origine (on incorperera les anciennes informations après)
-        --> (2) On récupère les informations et on remplace les anciennes infos du projet pointé par id , par les nouvelles infos 
-        --> (3) On remplace Project1.ui en recréant un objet from scratch (pas du tout opti)
-        --> (4) On efface l'ancien Project.ui pointé par data-id="" dans le DOM
-        --> (5) On ajoute dans le DOM , et le conteneur UI mère,  le nouveau objet newProject.ui
-        --> (6) Ca nous quitte la page Details Project et nous ramène sur la page des projets
-        */
+        const dPageID = vProjectDetailsPage.getAttribute("data-id");        // On récupère l'id du projet stocké dans l'attribut data-id du bloc HTML Details Page
+        const project = ProjectsManager.projectList.find((element) => element.id === dPageID) as Project;       // On pointe vers le projet de la liste projectList qui a cet ID
 
-        const dPageID = vProjectDetailsPage.getAttribute("data-id");
-
-        const project = ProjectsManager.projectList.find((element) => element.id === dPageID) as Project;
         if (!project) {
             console.warn("Projet non trouvé pour l'ID :", dPageID);
-            return;
-        }
+            return
+        };
 
-
-        let initials = getInitials(data.name);    // Si pas de changement de nom, on garde la couleur et les initiales plutôt que de tout refaire ? à revoir mais pas très important
+        const initials = getInitials(data.name);    // Si pas de changement de nom, on garde la couleur et les initiales plutôt que de tout refaire ? à revoir mais pas très important
         const color = getRandomColor();
 
         project.name = data.name;
         project.description = data.description;
         project.status = data.status;
         project.client = data.client;
-        project.cost = data.cost;
-        project.finishDate = data.finishDate;
 
-        // (3) On remplace l'innerHTML Project1.ui en recréant un objet from scratch (pas du tout opti)
+        project.cost = data.cost;
+        const formattedCost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(data.cost);  // Meilleur format
+        project.finishDate = data.finishDate
+        const formattedFinishDate = data.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
+
         project.ui.innerHTML = 
             `
             <div class="project-card__header">
@@ -78,27 +66,27 @@ export class ProjectsManager {
                 </div>
                 <div class="project-card__values">
                     <p class="project-card__criteria">Cost</p>
-                    <p>CHF ${project.cost}</p>
+                    <p>${formattedCost}</p>
                 </div>     
                 <div class="project-card__values">
                     <p class="project-card__criteria">Finish Date</p>
-                    <p>${project.finishDate}</p>
+                    <p>${formattedFinishDate}</p>
                 </div>                             
             </div>
             `;  
 
-        // (4) On efface l'ancien Project.ui pointé par data-id="" dans le DOM
+        // On efface l'ancien Project.ui pointé par data-id="" dans le DOM
         const oldCard = document.querySelector(`[data-id="${project.id}"]`) as HTMLElement;
         console.log("L'objet HTML a effacer est : ", oldCard);
         oldCard.remove();
 
-        // (5) On ajoute dans le DOM , et le conteneur UI mère,  le nouveau objet newProject.ui
+        // On ajoute dans le DOM , et le conteneur UI mère,  le nouveau objet newProject.ui
         vProjectsCardsArea.appendChild(project.ui);
         console.log("L'élément mère ressemble doréanvant à cela :", vProjectsCardsArea)
         
-        // (6) Ca nous quitte la page Details Project et nous ramène sur la page des projets
+        // (6) Ca nous quitte la page Details Project et nous ramène sur la page des projets. Important car le detail Page ne se populate qu'en cliquant sur la card
         showPage(vProjectsCardsPage)    
-    }   
+    };   
 
     getProject(id: string) : Project | null {
         const project = ProjectsManager.projectList.find((element) => element.id === id);

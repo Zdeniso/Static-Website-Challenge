@@ -5,7 +5,7 @@ import { ID_FORM, ID_CANCEL_NEW_USER_BUTTON, ID_ADD_USER_BUTTON, ID_DIALOG, ID_U
   ID_CANCEL_NEW_PROJECT_BUTTON, ID_PROJECTS_CARDS_AREA, ID_EXPORT_PROJECTS_BUTTON, ID_IMPORT_PROJECTS_BUTTON,
   ID_PROJECT_LIST, ID_ERROR_NO_USER_DIALOG, ID_ERROR_NO_USER_GOTIT_BUTTON, ID_ERROR_NO_PROJECT_DIALOG,
   ID_ERROR_NO_PROJECT_GOTIT_BUTTON, ID_PROJECT_EDIT_BUTTON, ID_EDIT_PROJECT_DIALOG, ID_EDIT_PROJECT_FORM, 
-  ID_EDIT_PROJECT_EDIT_BUTTON
+  ID_EDIT_PROJECT_EDIT_BUTTON, ID_EDIT_PROJECT_CANCEL_BUTTON
 } from "./constants"
 
 export const usersPage = document.getElementById(ID_USERS_PAGE) as HTMLElement | null;
@@ -33,6 +33,7 @@ export const projectEditButton = document.getElementById(ID_PROJECT_EDIT_BUTTON)
 export const editProjectDialog = document.getElementById(ID_EDIT_PROJECT_DIALOG) as HTMLDialogElement | null;
 export const editProjectForm = document.getElementById(ID_EDIT_PROJECT_FORM) as HTMLFormElement | null;
 export const editProjectEditButton = document.getElementById(ID_EDIT_PROJECT_EDIT_BUTTON) as HTMLButtonElement | null;
+export const editProjectCancelButton = document.getElementById(ID_EDIT_PROJECT_CANCEL_BUTTON) as HTMLButtonElement | null;
 
 export const newProjectButton = document.getElementById(ID_NEW_PROJECT_BUTTON) as HTMLButtonElement | null;
 export const newProjectDialog = document.getElementById(ID_NEW_PROJECT_DIALOG) as HTMLDialogElement | null;
