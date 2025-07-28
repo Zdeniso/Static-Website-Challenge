@@ -11,6 +11,10 @@ import "./classes/todomanager.ts";
 import "./functions/domChecks.ts";
 import "./functions/showPage.ts";
 import "./functions/setProjectInitials.ts";
+import "./functions/populateProjectDetailsPage.ts";
+import "./functions/populateProjectEditForm.ts";
+import "./functions/formattedCost.ts";
+import "./functions/formattedDate.ts";
 
 // PAGES
 import "./pages/pages-navigation.ts";
@@ -22,6 +26,7 @@ import "./pages/projects-page/modal_project_form/modal_edit.ts";
 import "./pages/projects-page/button_export-projects-list.ts";
 import "./pages/projects-page/button_import-projects-list.ts";
 import "./pages/projects-page/error_no-project-to-export.ts";
+import "./pages/projects-page/card-interaction_open-project-details-page.ts";
 
 // Projects Detail Page
 import "./pages/project-details/modal_edit_form/modal_edit-open-close.ts";

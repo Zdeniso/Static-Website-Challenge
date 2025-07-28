@@ -12,18 +12,37 @@ export class ProjectsManager {
 
     static addProject(data: IProject) : void {
         const newProject = new Project(data);
+
         const alreadExists = ProjectsManager.projectList.some((project) => project.__equal__(newProject))
         if (alreadExists) {
             showProjectError();
-            console.warn("Attempted to add project that already exists:", newProject.name);                // Affiche une fenêtre d'erreur avec un message pour l'utilisateur
+            console.warn("Attempted to add project that already exists:", newProject.name);
             return;
         } else {
-            ProjectsManager.projectList.push(newProject);
-            vProjectsCardsArea.appendChild(newProject.ui); 
-            console.log("La liste des projects est : ", ProjectsManager.projectList )       
+            ProjectsManager.projectList.push(newProject);       // Storage : Add the new project to projectList
+            vProjectsCardsArea.appendChild(newProject.ui);      // UI : Add the ui to the DOM   
         }
     }
 
+    static getProject(id: string) : Project | null {
+        const project = ProjectsManager.projectList.find((element) => element.id === id);
+        if (!project) {
+            console.warn("getProject: aucun projet trouvé avec cet ID :", id);
+            return null
+        } else {
+            return project
+        }
+    };
+
+
+
+
+
+
+
+
+
+    
     static editProject(data: IProject) : void {
         const dPageID = vProjectDetailsPage.getAttribute("data-id");        // On récupère l'id du projet stocké dans l'attribut data-id du bloc HTML Details Page
         const project = ProjectsManager.projectList.find((element) => element.id === dPageID) as Project;       // On pointe vers le projet de la liste projectList qui a cet ID
@@ -88,15 +107,7 @@ export class ProjectsManager {
         showPage(vProjectsCardsPage)    
     };   
 
-    getProject(id: string) : Project | null {
-        const project = ProjectsManager.projectList.find((element) => element.id === id);
-        if (!project) {
-            console.warn("getProject: aucun projet trouvé avec cet ID :", id);
-            return null
-        } else {
-            return project
-        }
-    };
+
 
     deleteProject(id: string) : void {
         const project = ProjectsManager.projectList.find((element) => element.id === id);
