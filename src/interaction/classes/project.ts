@@ -4,6 +4,8 @@ import { getInitials, getRandomColor } from '../functions/setProjectInitials.ts'
 import { vProjectDetailsPage } from '../assert-element.ts';
 import { showPage } from '../functions/showPage.ts';
 import { Todo } from "../classes/todo.ts";
+import { formattedCost } from '../functions/formattedCost.ts';
+import { formattedDate } from '../functions/formattedDate.ts';
 
 export class IProject {
     name: string;
@@ -35,31 +37,23 @@ export class Project implements IProject {
         this.client = data.client;
         this.cost = data.cost;
         this.finishDate = data.finishDate;
-        this.setID();        
-        this.setUI();
+        this.setNewID();        
+        this.setNewUI();
     }
 
-    private setID() : void {
+    private setNewID() : void {
         this.id = uuidv4();
     }    
 
-    private setUI() : void {
-        // Mise en forme des initiales et couleur
-        this.initials = getInitials(this.name);
-        this.color = getRandomColor();
-
-        // Reformatage des données spéciales     
-        const formattedCost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(this.cost);  // Meilleur format
-        const formattedFinishDate = this.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
-
+    private setNewUI() : void {
         // Création Card UI
         this.ui = document.createElement("section");
         this.ui.className = "project-card";
-        this.ui.dataset.id = this.id;
-        this.ui.innerHTML =                 // data-id permettra de se faire pointer pour récupérer this.color et this initials dans le populate du detailsPage 
+        this.ui.dataset.id = this.id;                   // Add the project.id as a new attribute of the card with data-id = "8a2d5a..."
+        this.ui.innerHTML =                  
             `
             <div class="project-card__header">
-                <div class="project-card__acronym" style="background-color: ${this.color}">${this.initials}</div>
+                <div class="project-card__acronym" style="background-color: ${getRandomColor()}">${getInitials(this.name)}</div>
                 <div class="project-card__title-and-description">
                     <h2>${this.name}</h2>
                     <p>${this.description}</p>                  
@@ -76,76 +70,15 @@ export class Project implements IProject {
                 </div>
                 <div class="project-card__values">
                     <p class="project-card__criteria">Cost</p>
-                    <p>${formattedCost}</p>
+                    <p>${formattedCost(this.cost)}</p>
                 </div>     
                 <div class="project-card__values">
                     <p class="project-card__criteria">Finish Date</p>
-                    <p>${formattedFinishDate}</p>
+                    <p>${formattedDate(this.finishDate)}</p>
                 </div>                             
             </div>
-            `;  
-
-            console.log("La carte créé est : ", this.ui)
-
-            // Création et affichage Project details page UI
-            this.ui.addEventListener("click", () => {
-                this.populateDetailsPage();
-                showPage(vProjectDetailsPage);
-                console.log("L'attribut data-id de cette page Details Page est : ", vProjectDetailsPage.getAttribute("data-id"))
-            })
+            `;   
     }         
-
-    private populateDetailsPage(): void {
-        // Changement de variable moins longue
-        const dPage = vProjectDetailsPage;
-        // Donner à la page DetailsPage l'ID du projet grâce à l'attribut data-id = ""
-        dPage.setAttribute("data-id", `${this.id}`);
-        // Reformatage des données spéciales  
-        const cost = new Intl.NumberFormat('fr-CH', { style: 'currency', currency: 'CHF' }).format(this.cost);  // Meilleur format
-        const finishDate = this.finishDate.toLocaleDateString('fr-CH'); // Meilleur format
-
-        const mainTitle = dPage.querySelector("h1") as HTMLElement;
-        const mainDescription = dPage.querySelector("p") as HTMLElement;
-        const cardTitle = dPage.querySelector("#project-details__title-and-description > h1") as HTMLElement;
-        const cardDescription = dPage.querySelector("#project-details__title-and-description > p") as HTMLElement;
-        const cardInitials = dPage.querySelector("#project-details__edit-zone > p") as HTMLElement;
-        const cardStatus = dPage.querySelector("#project-details__status > p") as HTMLElement;
-        const cardCost = dPage.querySelector("#project-details__cost > p") as HTMLElement;
-        const cardClient = dPage.querySelector("#project-details__client > p") as HTMLElement;
-        const cardFinishDate = dPage.querySelector("#project-details__finishdate > p") as HTMLElement;
-
-        // On est obligé d'aller chercher les initiales et background color de la carte grâce à son ID
-        const card = document.querySelector(`.project-card[data-id="${this.id}"]`) as HTMLElement;
-        const initElement = card.querySelector(".project-card__acronym") as HTMLElement;
-        const bColor = window.getComputedStyle(initElement).backgroundColor;
-        const initials = initElement.textContent;
-
-        cardInitials.textContent = initials;
-        cardInitials.style.backgroundColor = bColor; 
-
-        mainTitle.textContent = this.name;
-        mainDescription.textContent = this.description;
-        cardTitle.textContent = this.name;
-        cardDescription.textContent = this.description;
-        cardStatus.textContent = this.status;
-        cardClient.textContent = this.client;
-        cardCost.textContent = cost;
-        cardFinishDate.textContent = finishDate
-
-        // Todos list
-        if (this.todos) {
-            this.todos.forEach((element) => {
-                const formattedCreationDate = element.creationDate.toLocaleDateString('fr-CH'); // Meilleur format
-                element.ui = document.createElement("div");
-                element.ui.className = "todo-event";
-                element.ui.innerHTML = `
-                    <span class="material-icons">construction</span>
-                    <p>${element.name}</p>
-                    <p>${formattedCreationDate}</p>        
-                `;
-            })
-        }
-    }
     
     __equal__(data: IProject) : boolean {
         return (this.name === data.name)
