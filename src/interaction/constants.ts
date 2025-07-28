@@ -24,6 +24,11 @@ export const ID_EDIT_PROJECT_DIALOG: string = "edit-project-dialog-area";
 export const ID_EDIT_PROJECT_FORM: string = "edit-project-form-area";
 export const ID_EDIT_PROJECT_EDIT_BUTTON: string = "button_edit-project";
 export const ID_EDIT_PROJECT_CANCEL_BUTTON: string = "button_cancel-edit-project";
+export const ID_ADD_TODO_BUTTON: string = "button_add-todo-item";
+export const ID_ADD_TODO_DIALOG: string = "add-todo-dialog-area";
+export const ID_ADD_TODO_FORM: string = "add-todo-form-area";
+export const ID_ADD_TODO_CANCEL_BUTTON: string = "button_cancel-new-todo-item";
+export const ID_TODO_LIST: string = "todo-list__listing-zone";
 
 // Users' Page
 export const ID_USERS_PAGE: string = "users-page";

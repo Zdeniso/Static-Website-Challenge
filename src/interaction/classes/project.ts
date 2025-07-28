@@ -3,7 +3,7 @@ import { Status } from "./type.ts";
 import { getInitials, getRandomColor } from '../functions/setProjectInitials.ts';
 import { vProjectDetailsPage } from '../assert-element.ts';
 import { showPage } from '../functions/showPage.ts';
-import { UsersManager } from './usersmanager.ts';
+import { Todo } from "../classes/todo.ts";
 
 export class IProject {
     name: string;
@@ -21,8 +21,10 @@ export class Project implements IProject {
     public client: string;
     public cost: number;
     public finishDate: Date;
-    public ui: HTMLElement;
     public id: string;
+    public ui: HTMLElement;
+    public todos: Todo[] = [];
+    
     private initials: string;
     private color: string;    
 
@@ -114,13 +116,9 @@ export class Project implements IProject {
 
         // On est obligé d'aller chercher les initiales et background color de la carte grâce à son ID
         const card = document.querySelector(`.project-card[data-id="${this.id}"]`) as HTMLElement;
-        console.log("L'élément de la carte pointé est : ", card)
         const initElement = card.querySelector(".project-card__acronym") as HTMLElement;
-        console.log("L'élément acronym de cette carte est : ", initElement)
         const bColor = window.getComputedStyle(initElement).backgroundColor;
-        console.log("L'attribut style, background color a pour valeur : ", bColor)
         const initials = initElement.textContent;
-        console.log("Le texte des initiales est  : ", initials)
 
         cardInitials.textContent = initials;
         cardInitials.style.backgroundColor = bColor; 
@@ -133,6 +131,20 @@ export class Project implements IProject {
         cardClient.textContent = this.client;
         cardCost.textContent = cost;
         cardFinishDate.textContent = finishDate
+
+        // Todos list
+        if (this.todos) {
+            this.todos.forEach((element) => {
+                const formattedCreationDate = element.creationDate.toLocaleDateString('fr-CH'); // Meilleur format
+                element.ui = document.createElement("div");
+                element.ui.className = "todo-event";
+                element.ui.innerHTML = `
+                    <span class="material-icons">construction</span>
+                    <p>${element.name}</p>
+                    <p>${formattedCreationDate}</p>        
+                `;
+            })
+        }
     }
     
     __equal__(data: IProject) : boolean {

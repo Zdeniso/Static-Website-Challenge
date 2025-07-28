@@ -1,7 +1,7 @@
-import { vEditProjectDialog, vEditProjectForm } from "../../assert-element";
-import { IProject } from "../../classes/project";
-import { ProjectsManager } from "../../classes/projectsmanager";
-import { Status } from "../../classes/type";
+import { vEditProjectDialog, vEditProjectForm } from "../../../assert-element";
+import { IProject } from "../../../classes/project";
+import { ProjectsManager } from "../../../classes/projectsmanager";
+import { Status } from "../../../classes/type";
          
 vEditProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();

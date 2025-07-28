@@ -4,6 +4,8 @@ import "./classes/user.ts";
 import "./classes/usersmanager.ts";
 import "./classes/project.ts";
 import "./classes/projectsmanager.ts";
+import "./classes/todo.ts";
+import "./classes/todomanager.ts";
 
 //Functions
 import "./functions/domChecks.ts";
@@ -22,8 +24,10 @@ import "./pages/projects-page/button_import-projects-list.ts";
 import "./pages/projects-page/error_no-project-to-export.ts";
 
 // Projects Detail Page
-import "./pages/project-details/modal_edit-open-close.ts";
-import "./pages/project-details/modal_edit-submission.ts";
+import "./pages/project-details/modal_edit_form/modal_edit-open-close.ts";
+import "./pages/project-details/modal_edit_form/modal_edit-open-close.ts";
+import "./pages/project-details/modal_todo_form/modal_todo-open-close.ts";
+import "./pages/project-details/modal_todo_form/modal_todo-submission.ts";
 
 // Users Page
 import "./pages/user-page/button_export-users-list.ts";

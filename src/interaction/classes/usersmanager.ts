@@ -22,7 +22,7 @@ export class UsersManager {
             return;
         } else {
             UsersManager.userList.push(newUser);                                    // Ajoute le User dans la liste (propriété "userList" de la classe UsersManager)                      
-            container.appendChild(newUser.ui); 
+            container.appendChild(newUser.ui)
         }
     }
 

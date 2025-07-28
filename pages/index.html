@@ -128,8 +128,7 @@
 
 
         <!-- Modal - Edit project -->
-         <!-- ========================================================================================================================= -->
-        <dialog class="dialog-for-forms" id="edit-project-dialog-area">
+         <dialog class="dialog-for-forms" id="edit-project-dialog-area">
             <form class="common-form" id="edit-project-form-area">
                 <h1>New project</h1>
                 <label for="project-name">
@@ -244,28 +243,128 @@
                         </div>               
                     </div>
                 </section>
+
+
+                <!-- ============================================ -->
+                <!-- TODO ZONE - start -->
+                <!-- ============================================ -->
                 <section id="todo-list">
                     <div id="todo-list__adding-zone">
                         <p>To-Do</p>
                         <div>
                             <span class="material-icons">search</span>
                             <input class="search-bar-todo-list" type="text" maxlength="50" placeholder="Search To-Do's by name"/>
-                            <span class="material-icons">add</span>
+                            <span class="material-icons" id="button_add-todo-item">add</span>
                         </div>
                     </div>
                     <div id="todo-list__listing-zone">
-                        <div class="todo-event">
-                            <span class="material-icons">construction</span>
-                            <p>Make anything here as you want, even something longer</p>
-                            <p>Fri, 20 sep</p>
-                        </div>
-                        <div class="todo-event">
-                            <span class="material-icons">construction</span>
-                            <p>Make anything here as you want, even something longer</p>
-                            <p>Fri, 20 sep</p>
-                        </div>
+                        <!-- Todo item 1 -->
+                        <!-- Todo item 2 -->
+                        <!-- ... -->
                     </div>
-                </section>    
+                </section>
+
+                <!-- Modal - Add Todo -->
+                <dialog class="dialog-for-forms" id="add-todo-dialog-area">
+                    <form class="common-form" id="add-todo-form-area">
+                        <h1>New Todo Item</h1>
+                        <label for="todo-name">
+                            <div class="title-zone">
+                                <span class="material-icons">apartment</span>
+                                <span class="label-title">Name</span>
+                            </div>
+                            <input id="todo-name" name="todo-name" type="text" placeholder="At least 5 characters" required />
+                            <small>TIP: Give it a short name.</small>
+                        </label>
+
+                        <label for="todo-description">
+                            <div class="title-zone">
+                                <span class="material-icons">drive_file_rename_outline</span>
+                                <span class="label-title">Description</span>
+                            </div>
+                                <textarea id="todo-description" name="todo-description" type="text" required></textarea>
+                        </label>
+
+                        <label for="todo-status">
+                            <div class="title-zone">
+                                <span class="material-icons">keyboard_double_arrow_right</span>
+                                <span class="label-title">Status</span>
+                            </div>
+                            <select id="todo-status" name="todo-status">
+                                <option>Open</option>
+                                <option>Close</option>
+                            </select>
+                        </label>
+
+                        <label for="todo-priority">
+                            <div class="title-zone">
+                                <span class="material-icons">assignment_ind</span>
+                                <span class="label-title">Priority</span>
+                            </div>
+                            <select id="todo-priority" name="todo-priority" required>
+                                <option>High</option>
+                                <option>Medium</option>
+                                <option>Low</option>
+                            </select>
+                        </label>
+
+                        <label for="todo-type">
+                            <div class="title-zone">
+                                <span class="material-icons">assignment_ind</span>
+                                <span class="label-title">Type</span>
+                            </div>
+                            <select id="todo-type" name="todo-type" required>
+                                <option>Clash</option>
+                                <option>Information</option>
+                                <option>Question</option>
+                                <option>Error</option>
+                                <option>Suggestion</option>
+                            </select>
+                        </label>
+
+                        <label for="todo-creation-date">
+                            <div class="title-zone">
+                                <span class="material-icons">calendar_month</span>
+                                <span class="label-title">Creation</span>
+                            </div>
+                            <input id="todo-creation-date" name="todo-creation-date" type="date" required />
+                        </label>
+
+                        <label for="todo-open-by">
+                            <div class="title-zone">
+                                <span class="material-icons">calendar_month</span>
+                                <span class="label-title">Open by</span>
+                            </div>
+                            <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
+                            <select id="todo-open-by" name="todo-open-by" required>
+                                <option>User 1</option>
+                                <option>User 2</option>
+                            </select>
+                        </label>
+
+                        <label for="todo-intended-to">
+                            <div class="title-zone">
+                                <span class="material-icons">calendar_month</span>
+                                <span class="label-title">Intended to</span>
+                            </div>
+                            <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
+                            <select id="todo-intended-to" name="todo-intended-to" required>
+                                <option>User 1</option>
+                                <option>User 2</option>
+                            </select>
+                        </label>
+                        <div class="form-actions">
+                            <button id="button_cancel-new-todo-item" type="button" class="btn cancel">Cancel</button>
+                            <button type="submit" class="btn accept">Accept</button>
+                        </div>
+                    </form>
+                </dialog>                
+                <!-- ============================================ -->
+                <!-- TODO ZONE - end -->
+                <!-- ============================================ -->                
+
+
+
                 <section id="viewer3D">Viewer3D - WIP</section>              
             </div>
         </div>

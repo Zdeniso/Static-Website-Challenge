@@ -4,7 +4,8 @@ import { addUserForm, cancelNewUserButton, addUserButton, addUserDialog, userLis
     projectsCardsPage, projectDetailsPage, usersPage, newProjectButton, newProjectDialog, 
     newProjectForm, cancelNewProjectButton, projectsCardsArea, projectListUI, exportProjectsListButton, errorNoProjectToExportDialog, 
     errorNoProjectToExportGotitButton, importProjectsListButton, errorNoUserToExportDialog, errorNoUserToExportGotitButton, projectEditButton, 
-    editProjectDialog, editProjectForm, editProjectEditButton, editProjectCancelButton } from "./getelement.ts"
+    editProjectDialog, editProjectForm, editProjectEditButton, editProjectCancelButton, addTodoItemButton, addTodoItemForm, 
+    addTodoItemDialog, addTodoItemCancelButton, todosArea } from "./getelement.ts"
 
 // Navigation
 export const vProjectsNav = assertContainerElement(projectsNav);
@@ -33,6 +34,11 @@ export const vEditProjectDialog = assertDialogElement(editProjectDialog);
 export const vEditProjectForm = assertFormElement(editProjectForm);
 export const vEditProjectEditButton = assertButtonElement(editProjectEditButton);
 export const vEditProjectCancelButton = assertButtonElement(editProjectCancelButton);
+export const vAddTodoItemButton = assertContainerElement(addTodoItemButton);
+export const vAddTodoItemForm = assertFormElement(addTodoItemForm);
+export const vAddTodoItemDialog = assertDialogElement(addTodoItemDialog);
+export const vAddTodoItemCancelButton = assertButtonElement(addTodoItemCancelButton);
+export const vTodosArea = assertContainerElement(todosArea);
 
 // Users' Page
 export const vUsersPage = assertContainerElement(usersPage);

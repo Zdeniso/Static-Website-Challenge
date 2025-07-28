@@ -8,14 +8,14 @@ export interface IUser {
     email: string    
 }
 export class User implements IUser {
-    name: string;
-    company: Company;
-    role: Role;
-    email: string;
-    ui: HTMLDivElement ;             // Intégration ui
-    id: string ;                  // Intégration d'un ID généré automatiquement par UUIDv4
+    public name: string;
+    public company: Company;
+    public role: Role;
+    public email: string;
+    public id: string ;                  // Intégration d'un ID généré automatiquement par UUIDv4  
+    public ui: HTMLDivElement ;         // Intégration ui
 
-    constructor(data: IUser) {
+    public constructor(data: IUser) {
         this.name = data.name;
         this.company = data.company;
         this.role = data.role;
@@ -24,9 +24,9 @@ export class User implements IUser {
         this.setID();                // Création d'un ID généré automatiquement par UUIDv4
     };
 
-    setUI() : void {
-        this.ui = document.createElement("div")
-        this.ui.className = "user-row"
+    private setUI() : void {
+        this.ui = document.createElement("div");
+        this.ui.className = "user-row";
         this.ui.innerHTML = `
             <div class="user">
                 <img src="https://i.pravatar.cc/32?img=1" alt="Avatar">
@@ -39,14 +39,14 @@ export class User implements IUser {
                 <button title="Edit">✏️</button>
                 <button title="Delete">🗑️</button>
             </div>
-        `
-    }
+        `;
+    };
 
-    setID() {
+    private setID() : void {
         this.id = uuidv4()
     }
 
-    __equals__(element: User) : boolean {           // Méthode spéciale pour définir l'équivalence de 2 instances "User"
+    public __equals__(element: User) : boolean {           // Méthode spéciale pour définir l'équivalence de 2 instances "User"
         return this.email === element.email         // Ici on ne valide que par l'email 
     }
 }

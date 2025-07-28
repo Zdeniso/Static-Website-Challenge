@@ -228,6 +228,10 @@
     margin: 0;
 }
 
+.todo-event :last-child {
+    margin-left: auto;
+}
+
 .todo-event span {
     margin-left: 20px;
     padding: 10px;
