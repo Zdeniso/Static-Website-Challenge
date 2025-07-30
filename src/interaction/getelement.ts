@@ -1,6 +1,6 @@
 import { ID_FORM, ID_CANCEL_NEW_USER_BUTTON, ID_ADD_USER_BUTTON, ID_DIALOG, ID_USER_LIST, 
   ID_ERROR_USER_DIALOG, ID_ERROR_USER_GOTIT_BUTTON, ID_ERROR_PROJECT_DIALOG, ID_ERROR_PROJECT_GOTIT_BUTTON,
-  ID_EXPORT_USERS_BUTTON, ID_IMPORT_USERS_BUTTON, ID_USERS_NAV, ID_PROJECTS_NAV, ID_PROJECTS_CARDS_PAGE, 
+  ID_EXPORT_USERS_BUTTON, ID_IMPORT_USERS_BUTTON, ID_USERS_PAGE_BUTTON, ID_PROJECTS_NAV, ID_PROJECTS_CARDS_PAGE, 
   ID_PROJECT_DETAILS_PAGE, ID_USERS_PAGE, ID_NEW_PROJECT_BUTTON, ID_NEW_PROJECT_DIALOG, ID_NEW_PROJECT_FORM, 
   ID_CANCEL_NEW_PROJECT_BUTTON, ID_PROJECTS_CARDS_AREA, ID_EXPORT_PROJECTS_BUTTON, ID_IMPORT_PROJECTS_BUTTON,
   ID_PROJECT_LIST, ID_ERROR_NO_USER_DIALOG, ID_ERROR_NO_USER_GOTIT_BUTTON, ID_ERROR_NO_PROJECT_DIALOG,
@@ -24,11 +24,11 @@ export const errorNoUserToExportGotitButton = document.getElementById(ID_ERROR_N
 export const exportUsersListButton = document.getElementById(ID_EXPORT_USERS_BUTTON) as HTMLButtonElement | null;
 export const importUsersListButton = document.getElementById(ID_IMPORT_USERS_BUTTON) as HTMLButtonElement | null;
 
-export const usersNav = document.getElementById(ID_USERS_NAV) as HTMLElement | null;
 export const projectsNav = document.getElementById(ID_PROJECTS_NAV) as HTMLElement | null;
 
 export const projectsCardsPage = document.getElementById(ID_PROJECTS_CARDS_PAGE) as HTMLElement | null;
 export const projectsCardsArea = document.getElementById(ID_PROJECTS_CARDS_AREA) as HTMLElement | null;
+export const usersPageButton = document.getElementById(ID_USERS_PAGE_BUTTON) as HTMLButtonElement | null;
 export const projectDetailsPage = document.getElementById(ID_PROJECT_DETAILS_PAGE) as HTMLElement | null;
 export const projectEditButton = document.getElementById(ID_PROJECT_EDIT_BUTTON) as HTMLButtonElement | null;
 export const editProjectDialog = document.getElementById(ID_EDIT_PROJECT_DIALOG) as HTMLDialogElement | null;

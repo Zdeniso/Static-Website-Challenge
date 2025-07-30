@@ -1,5 +1,5 @@
-import { vProjectsNav, vUsersNav, vProjectsCardsPage, vUsersPage, vTodosArea } from "../assert-element.ts";
-import { showPage } from "../functions/showPage";
+import { vProjectsNav, vProjectsCardsPage } from "../assert-element.ts";
+import { showPage } from "../functions/showPage.ts";
 
 // Project page by clicking Projects in Navigation area
 vProjectsNav.addEventListener("click", () => {
@@ -9,8 +9,3 @@ vProjectsNav.addEventListener("click", () => {
     const todosItem = document.querySelectorAll(".todo-event");
     todosItem.forEach((element) => element.remove())
 });
-
-// User page by clicking Users in Navigation area
-vUsersNav.addEventListener("click", () => {
-    showPage(vUsersPage)
-})

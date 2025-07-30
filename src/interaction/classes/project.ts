@@ -1,11 +1,8 @@
 import { v4 as uuidv4 } from 'uuid' ;
 import { Status } from "./type.ts";
-import { getInitials, getRandomColor } from '../functions/setProjectInitials.ts';
-import { vProjectDetailsPage } from '../assert-element.ts';
-import { showPage } from '../functions/showPage.ts';
 import { Todo } from "../classes/todo.ts";
-import { formattedCost } from '../functions/formattedCost.ts';
-import { formattedDate } from '../functions/formattedDate.ts';
+import { ProjectCard } from './projectcard.ts';
+import { User } from "./user.ts";
 
 export class IProject {
     name: string;
@@ -23,12 +20,11 @@ export class Project implements IProject {
     public client: string;
     public cost: number;
     public finishDate: Date;
+
+    public users: User[];
     public id: string;
-    public ui: HTMLElement;
-    public todos: Todo[] = [];
-    
-    private initials: string;
-    private color: string;    
+    public ui!: ProjectCard;    // avec le bang `!` pour dire "je promets que ce sera défini plus tard"
+    public todos: Todo[] = []; 
 
     constructor(data: IProject) {
         this.name = data.name;
@@ -37,50 +33,11 @@ export class Project implements IProject {
         this.client = data.client;
         this.cost = data.cost;
         this.finishDate = data.finishDate;
-        this.setNewID();        
-        this.setNewUI();
+
+        this.id = uuidv4();   
     }
-
-    private setNewID() : void {
-        this.id = uuidv4();
-    }    
-
-    private setNewUI() : void {
-        // Création Card UI
-        this.ui = document.createElement("section");
-        this.ui.className = "project-card";
-        this.ui.dataset.id = this.id;                   // Add the project.id as a new attribute of the card with data-id = "8a2d5a..."
-        this.ui.innerHTML =                  
-            `
-            <div class="project-card__header">
-                <div class="project-card__acronym" style="background-color: ${getRandomColor()}">${getInitials(this.name)}</div>
-                <div class="project-card__title-and-description">
-                    <h2>${this.name}</h2>
-                    <p>${this.description}</p>                  
-                </div>
-            </div>
-            <div class="card__content">
-                <div class="project-card__values">
-                        <p class="project-card__criteria">Status</p>
-                        <p>${this.status}</p>
-                </div>
-                <div class="project-card__values">
-                    <p class="project-card__criteria">Role</p>
-                    <p>${this.client}</p>
-                </div>
-                <div class="project-card__values">
-                    <p class="project-card__criteria">Cost</p>
-                    <p>${formattedCost(this.cost)}</p>
-                </div>     
-                <div class="project-card__values">
-                    <p class="project-card__criteria">Finish Date</p>
-                    <p>${formattedDate(this.finishDate)}</p>
-                </div>                             
-            </div>
-            `;   
-    }         
-    
+   
     __equal__(data: IProject) : boolean {
-        return (this.name === data.name)
+        return (this.name.toLowerCase() === data.name.toLowerCase())
     }
 }

@@ -1,6 +1,6 @@
 import { assertContainerElement, assertFormElement, assertButtonElement, assertDialogElement } from "./functions/domChecks.ts"
 import { addUserForm, cancelNewUserButton, addUserButton, addUserDialog, userListUI, errorUserAlreadyExistDialog, 
-    errorProjectAlreadyExistDialog, errorUserExistGotitButton, errorProjectExistGotitButton, exportUsersListButton, importUsersListButton, usersNav, projectsNav, 
+    errorProjectAlreadyExistDialog, errorUserExistGotitButton, errorProjectExistGotitButton, exportUsersListButton, importUsersListButton, usersPageButton, projectsNav, 
     projectsCardsPage, projectDetailsPage, usersPage, newProjectButton, newProjectDialog, 
     newProjectForm, cancelNewProjectButton, projectsCardsArea, projectListUI, exportProjectsListButton, errorNoProjectToExportDialog, 
     errorNoProjectToExportGotitButton, importProjectsListButton, errorNoUserToExportDialog, errorNoUserToExportGotitButton, projectEditButton, 
@@ -9,7 +9,7 @@ import { addUserForm, cancelNewUserButton, addUserButton, addUserDialog, userLis
 
 // Navigation
 export const vProjectsNav = assertContainerElement(projectsNav);
-export const vUsersNav = assertContainerElement(usersNav);
+export const vUsersPageButton = assertButtonElement(usersPageButton);
 
 // Projects' Cards Page
 export const vProjectsCardsPage = assertContainerElement(projectsCardsPage);

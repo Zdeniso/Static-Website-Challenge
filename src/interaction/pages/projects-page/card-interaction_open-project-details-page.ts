@@ -12,14 +12,10 @@ import { vProjectsCardsArea } from "../../assert-element";
 vProjectsCardsArea.addEventListener('click', (event) => {
     // Target les premiers enfants du conteneur mère
     const targetedElement = event.target as HTMLElement;
-    const cards = targetedElement.closest(".project-card") as HTMLElement;       
+    const card = targetedElement.closest(".project-card") as HTMLElement;
 
-    const cardDataID = cards.getAttribute('data-id') as string;
-    const projectSelected = ProjectsManager.getProject(cardDataID) as Project;
-    const projectDetailsPageDataID = vProjectDetailsPage.getAttribute("data-id");
+    const projectSelected = ProjectsManager.getProject(card.getAttribute("data-id") as string) as Project;
 
-    if (projectSelected.id != projectDetailsPageDataID) {
-        populateProjectDetailsPage(projectSelected)
-    };
+    populateProjectDetailsPage(projectSelected);
     showPage(vProjectDetailsPage)
 })

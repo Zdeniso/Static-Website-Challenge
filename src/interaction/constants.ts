@@ -1,6 +1,5 @@
 // Navigation
 export const ID_PROJECTS_NAV: string = "projects-nav";
-export const ID_USERS_NAV: string = "users-nav";
 
 // Projects' Cards Page
 export const ID_PROJECTS_CARDS_PAGE: string = "projects-cards-page";
@@ -29,6 +28,7 @@ export const ID_ADD_TODO_DIALOG: string = "add-todo-dialog-area";
 export const ID_ADD_TODO_FORM: string = "add-todo-form-area";
 export const ID_ADD_TODO_CANCEL_BUTTON: string = "button_cancel-new-todo-item";
 export const ID_TODO_LIST: string = "todo-list__listing-zone";
+export const ID_USERS_PAGE_BUTTON: string = "button_users-page";
 
 // Users' Page
 export const ID_USERS_PAGE: string = "users-page";

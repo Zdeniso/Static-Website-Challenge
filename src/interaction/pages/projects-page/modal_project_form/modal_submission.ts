@@ -23,10 +23,12 @@ vNewProjectForm.addEventListener("submit", (e) => {
 
     // TOC assignment , When creating the project based on the form information, give a default date in case user doesn’t specify one
     if (!projectRawData.get("project-finish-date") ) {
-        data.finishDate = new Date("1999-01-01")
+        data.finishDate = new Date("01/01/1999")
     }
 
     ProjectsManager.addProject(data)
     vNewProjectDialog.close();
     vNewProjectForm.reset()
+
+    console.log("La liste des projets est maintenant :", ProjectsManager.projectsList )
 })

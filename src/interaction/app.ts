@@ -30,9 +30,10 @@ import "./pages/projects-page/card-interaction_open-project-details-page.ts";
 
 // Projects Detail Page
 import "./pages/project-details/modal_edit_form/modal_edit-open-close.ts";
-import "./pages/project-details/modal_edit_form/modal_edit-open-close.ts";
+import "./pages/project-details/modal_edit_form/modal_edit-submission.ts";
 import "./pages/project-details/modal_todo_form/modal_todo-open-close.ts";
 import "./pages/project-details/modal_todo_form/modal_todo-submission.ts";
+import "./pages/project-details/open_users-page.ts"
 
 // Users Page
 import "./pages/user-page/button_export-users-list.ts";

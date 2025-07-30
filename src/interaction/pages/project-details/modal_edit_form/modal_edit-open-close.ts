@@ -5,11 +5,10 @@ import { Project } from "../../../classes/project.ts";
 
 // Aim to open and populate with existing infos
 vEditProjectEditButton.addEventListener("click", () => {
-    const projectDetailsPageDataID = vProjectDetailsPage.getAttribute("data-id") as string;
-    const project = ProjectsManager.getProject(projectDetailsPageDataID) as Project;
-
+    const project = ProjectsManager.getProject(vProjectDetailsPage.getAttribute("data-id") as string) as Project;
+    
     populateProjectEditForm(project);
-    vEditProjectDialog.showModal()
+    vEditProjectDialog.showModal();
 });
 
 // Close dialog
