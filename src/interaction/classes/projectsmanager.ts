@@ -3,6 +3,7 @@ import { showProjectError } from "../pages/projects-page/modal_project_form/erro
 import { showNoProjectError } from "../pages/projects-page/error_no-project-to-export.ts";
 import { vProjectsCardsArea } from "../assert-element.ts";
 import { ProjectCard } from "./projectcard.ts";
+import { User } from "./user.ts";
 
 export class ProjectsManager {
     static projectsList: Project[] = [];

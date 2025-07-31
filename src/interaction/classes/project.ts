@@ -35,8 +35,17 @@ export class Project implements IProject {
         this.finishDate = data.finishDate;
 
         this.id = uuidv4();   
-    }
+    };
    
+    addUser(user: User): void {
+    const alreadyExists = this.users.some((u) => u.id === user.id);
+    if (alreadyExists) {
+        console.warn(`L'utilisateur ${user.name} est déjà associé à ce projet.`);
+    } else {
+        this.users.push(user);
+        // éventuellement mettre à jour l’UI du projet ici si besoin
+    }};
+
     __equal__(data: IProject) : boolean {
         return (this.name.toLowerCase() === data.name.toLowerCase())
     }
