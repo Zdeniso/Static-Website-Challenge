@@ -3,6 +3,7 @@ import { formattedCost } from "./formattedCost";
 import { formattedDate } from "./formattedDate"; 
 import { getInitials } from "./setProjectInitials";
 import { vProjectDetailsPage, vUsersPage } from "../assert-element";
+import { getEl } from "./helperQuerySelector";
 
 export function populateSecondaryPage(page: HTMLElement, project: Project): void {
     const id = page.getAttribute("id");
@@ -21,14 +22,6 @@ export function populateSecondaryPage(page: HTMLElement, project: Project): void
         default:
             console.warn("Unknown page passed to populateSecondaryPage");
     }
-}
-
-function getEl<T extends HTMLElement>(selector: string): T {
-    const el = document.querySelector(selector);
-    if (!el) {
-        throw new Error(`Element not found: ${selector}`);
-    }
-    return el as T;
 }
 
 function populatePageHeader(id: string, project: Project) {

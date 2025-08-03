@@ -14,13 +14,13 @@ vAddUserForm.addEventListener("submit", (e) => {
         email: userRawData.get("email") as string
     };
 
-    const projectID = vProjectDetailsPage.getAttribute("data-id");
+    const projectID = sessionStorage.getItem("projectID")
     if (!projectID) {
-        console.warn("C'est n'importe quoi cette façon de choper l'ID, faut vraiment faire du localStorage")
+        throw new Error("Cannot find the project ID in the session storage")
     } else {
         const project = ProjectsManager.getProject(projectID);
         if (!project) {
-            console.warn("C'est toujours autant n'importe quoi")
+            console.warn("No project exists with this ID")
         } else { 
             project.addNewUser(userData) 
         }          

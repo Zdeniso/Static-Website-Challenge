@@ -91,3 +91,11 @@
     gap: 1rem; /* espace entre les boutons */
     margin-top: 1rem;
 }
+
+/* ========== TRANSITION ========= */
+#form_transition {
+    display: flex;
+    font-size: 1.5rem;
+    border-bottom: 1px solid grey;
+    justify-content: center;
+}

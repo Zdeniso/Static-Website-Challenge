@@ -87,6 +87,7 @@
                         <span class="label-title">Status</span>
                     </div>
                     <select id="project-status" name="project-status">
+                        <option value="" disabled selected>-- Choose an option --</option>
                         <option>Draft</option>
                         <option>On-hold</option>
                         <option>Under review</option>
@@ -100,7 +101,7 @@
                         <span class="material-icons">assignment_ind</span>
                         <span class="label-title">Client</span>
                     </div>
-                    <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+                    <input id="project-client" name="project-client" type="text" required />
                 </label>
 
                 <label for="project-cost">
@@ -380,7 +381,7 @@
         <!-- ===============================================-->
         <!-- USERS - TABLE OF ALL USERS -->
         <!-- ===============================================-->
-        <div type="page" class="main_secondary-page" id="users-page" style="display: none">
+        <div type="page" class="main_secondary-page" id="users-page" style="display:''">
             <!-- Header -->
             <header class="header__secondary-page">
                 <div class="header__main-title-area">
@@ -396,10 +397,8 @@
             </header>
 
             <!-- Main area -->
-            <div id="main-users-page-area">
-                
+            <div id="main-users-page-area">     
                 <div id="main__title-area">
-                    <p>Users</p>
                     <button class="import-export-btn" id="import-userlist-btn">Import<span class="material-icons">download</span></button>
                     <button class="import-export-btn" id="export-userlist-btn">Export<span class="material-icons">download</span></button>                   
                     <button class="button_add-element" id="add-user-button">+ Add user</button>  
@@ -445,32 +444,45 @@
             <!-- Modal - New user -->
             <dialog class="dialog-for-forms" id="new-user-dialog-area">
                 <form class="common-form" id="new-user-form-area">
-                    <h1>New user</h1>
-                    <label>
+                    <h1>Add user to the project</h1>
+                    <label for="existing-user">
+                        <div class="title-zone">
+                            <span class="material-icons">verified_user</span>
+                            <span class="label-title">Existing user</span>
+                        </div>
+                        <select name="existing-user" id="existing-user">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <!-- Populated by every User in UsersManager.userList-->>
+                        </select>
+                    </label>
+                    <span id="form_transition">OR</span>
+                    <label for="user-name">
                         <div class="title-zone">
                             <span class="material-icons">account_circle</span>
                             <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
                         </div>
-                        <input name="name" type="text" placeholder="John DELAWARE" required />
+                        <input name="user-name" id="user-name" type="text" required />
                         <small>TIP: Give it a short name.</small>
                     </label>
-                    <label>
+                    <label for="user-company">
                         <div class="title-zone">
                             <span class="material-icons">apartment</span>
                             <span class="label-title">Company</span>
                         </div>
-                            <select name="company" >
-                                <option>Losinger-Marazzi</option>
-                                <option>Implenia</option>
-                                <option>Vinci-Construction</option>
+                        <select name="user-company" id="user-company">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Losinger-Marazzi</option>
+                            <option>Implenia</option>
+                            <option>Vinci-Construction</option>
                         </select>
                     </label>
-                    <label>
+                    <label for="user-role">
                         <div class="title-zone">
                             <span class="material-icons">assignment_ind</span>
                             <span class="label-title">Role</span>
                         </div>
-                        <select name="role" >
+                        <select name="user-role" id="user-role">
+                            <option value="" disabled selected>-- Choose an option --</option>
                             <option>Architect</option>
                             <option>Electrical Engineer</option>
                             <option>HVAC Engineer</option>
@@ -479,12 +491,12 @@
                             <option>Client</option>
                         </select>
                     </label>
-                    <label>
+                    <label for="user-email">
                         <div class="title-zone">
                             <span class="material-icons">alternate_email</span>
                             <span class="label-title">Email</span>
                         </div>
-                        <input name="email" type="text" placeholder="John.delaware@vinci-construction.com" required />
+                        <input name="user-email" id="user-email" type="text" placeholder="John.delaware@vinci-construction.com" required />
                     </label>
                     <div class="form-actions">
                         <button id="button_cancel-new-user" type="button" class="btn cancel">Cancel</button>
@@ -512,6 +524,11 @@
         </div>
     
     </main>
-
 </body>
 </html>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("new-user-dialog-area")?.showModal();
+  });
+</script>

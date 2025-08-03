@@ -13,6 +13,7 @@ import "./functions/showPage.ts";
 import "./functions/setProjectInitials.ts";
 import "./functions/populateSecondaryPage.ts";
 import "./functions/populateProjectEditForm.ts";
+import "./functions/populateAddUserForm.ts";
 import "./functions/formattedCost.ts";
 import "./functions/formattedDate.ts";
 import "./functions/sessionStorage.ts";
