@@ -1,68 +1,107 @@
 import { Project, IProject } from "./project.ts";
+import { ProjectCard } from "./projectcard.ts";
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import { showNoProjectError } from "../pages/projects-page/error_no-project-to-export.ts";
-import { vProjectsCardsArea } from "../assert-element.ts";
-import { ProjectCard } from "./projectcard.ts";
-import { User } from "./user.ts";
 
+/**
+ * Represent the container of all Project referenced in the application
+ * Not instanciable
+ */
 export class ProjectsManager {
     static projectsList: Project[] = [];
 
     private constructor() {};
 
+    /**
+     * Method which try to point a project with its ID property
+     * @param id ID of the wanted Project
+     * @returns Return the Project if found, null if not
+     */
+    static getProject(id: string) : Project | null {
+        return this.projectsList.find((e) => e.id === id) || null
+    };
+
+    /**
+     * Method which try to point a project with its UI property
+     * @param ui UI (ProjectCard) of the wanted Project
+     * @returns Return the Project if found, null if not
+     */
+    static getProjectByUI(ui: ProjectCard ) : Project | null {
+        return this.projectsList.find((e) => e.ui === ui) || null
+    };
+
+    /**
+     * Method which try to point a ProjectCard with its UI.element property (HTMLElement)
+     * @param element HTMLElement of the ProjectCard
+     * @returns Return the ProjectCard if found, null if not
+     */
+    static getUIByHTMLElement(element: HTMLElement ) : ProjectCard | null {
+        const project = this.projectsList.find((e) => e.ui.element === element)
+        return project ? project.ui : null      // Ternary operator ( compact if-else statement)
+    };   
+
+    /**
+     * Method for add a Project to the ProjectsManager projectsList
+     * @param data Project data tested for potential instantiation as a Project
+     * @returns No return.
+     */
     static addProject(data: IProject) : void {
-        const alreadExists = this.projectsList.some((project) => project.__equal__(data));     
-        if (alreadExists) {
+        const existingProject = this.projectsList.some((project) => project.hasSameName(data));     
+        if (existingProject) {
             showProjectError();
             console.warn("Attempted to add project that already exists:", data.name);
             return;
         } else {
-            const newProject = new Project(data);                       // Project : Create Project instance "newProject" with data
-            newProject.ui = new ProjectCard(newProject);                // ProjectCard : Create ProjectCard instance with "newProject" and fill Project.ui property with it
-            this.projectsList.push(newProject);                         // Storage : Add the new project with all its properties to projectList
-
-            // DOM 
-            vProjectsCardsArea.appendChild(newProject.ui.htmlElement);  // Add ProjectCard.htmlElement to the DOM
-            console.log("Projet ajouté avec succès :", newProject)
+            const newProject = new Project(data);
+            this.projectsList.push(newProject);
+            newProject.ui.addToDOM();
+            console.log("Project added successfuly")
         }
     };
 
-    static getProject(id: string) : Project | null {
-        const project = this.projectsList.find((element) => element.id === id);
+    /**
+     * Method for edit or update an existing Project instance
+     * @param id ID of the Project which will be update
+     * @param data Data with which the project will be update
+    */   
+    static editProject(id: string, data: IProject) : void {
+        const project = this.getProject(id);
         if (!project) {
-            console.warn("getProject: aucun projet trouvé avec cet ID :", id);
-            return null
+            console.warn("getProject: aucun projet trouvé avec cet ID :", id); 
+            return
         } else {
-            return project
+            project.update(data);
+            console.log("Project has been update successfuly") 
         }
     };
-   
-    static editProject(project: Project, data: IProject) : void {
-        // Properties
-        project.name = data.name;
-        project.description = data.description; 
-        project.status = data.status;
-        project.client = data.client;
-        project.cost = data.cost;
-        project.finishDate = data.finishDate;
-        project.ui = project.ui.updateProjectCard(data)
-        
-        // DOM
-        vProjectsCardsArea.appendChild(project.ui.htmlElement);
-    };
- 
+
+    /**
+     * Method which try to delete an existing Project
+     * @param id ID of the wanted Project
+     */
     static deleteProject(id: string) : void {
-        const project = this.projectsList.find((element) => element.id === id);
+        const project = this.getProject(id);
         if (!project) {
             console.warn("getProject: aucun projet trouvé avec cet ID :", id);
         } else {
-            const newProjectList = this.projectsList.filter((element) =>
-            element.id != id);
+            const newProjectList = this.projectsList.filter((element) => element.id != id);
             this.projectsList = newProjectList;
-            project.ui.htmlElement.remove();
+            project.ui.deleteFromDOM();
+            console.log("Project has been removed successfuly")
         }
     };
 
+    /*
+     * ==========================================================================================================
+     * METHOD TO FILTER ELEMENT AND GIVE BACK A NEW LIST
+     * ==========================================================================================================
+     */
+
+    /**
+     * Method to export projectsList to a JSON file
+     * @param fileName We can give a custom fileName if wanted
+     * @returns Void
+     */
     static exportToJSON(fileName: string = "TOC_project-list"): void {        // More explication on CheatSheets Github
         if (ProjectsManager.projectsList.length === 0) {
             console.warn("Aucun projet à exporter.");
@@ -83,8 +122,14 @@ export class ProjectsManager {
 
             URL.revokeObjectURL(url); // Libère l'URL blob pour éviter les fuites mémoire
         }
-    }
-    
+    };
+
+    /**
+     * Method to import a list of Project from a JSON file to projectsList of ProjectsManager
+     * @param container We can give a custom fileName if wanted
+     * @returns Void
+     */
+     
     static importFromJSON(container: HTMLElement): void {
         const input = document.createElement("input"); // Crée dynamiquement un élément <input type="file">
         input.type = "file"; // Définit le type comme fichier
@@ -109,10 +154,9 @@ export class ProjectsManager {
                     console.error("Erreur d'importation JSON :", error); // Gestion d’erreur si le JSON est invalide
                 }
             });
-
             reader.readAsText(filesList[0]); // Lit le premier fichier comme du texte
         });
-
         input.click(); // Déclenche l’ouverture de la boîte de dialogue de sélection de fichier
-    }  
-};
+    }   
+}
+(window as any).ProjectsManager = ProjectsManager;

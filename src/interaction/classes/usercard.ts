@@ -1,28 +1,52 @@
-import { User } from "./user.ts";
+import { vUserListUI } from "../assert-element.ts";
+import { IUser, User } from "./user.ts";
  
 export class UserCard {
-    public htmlElement: HTMLElement
+    private element: HTMLElement;
+    private data: IUser;
 
-    constructor(public user: User) {
-        this.htmlElement = this.createUserCard()
+    constructor(data: IUser) {
+        this.data = data;
+        this.element = this.createElementContainer();
+        this.addInnerHTML();
     }
 
-    private createUserCard(): HTMLElement {
-        const userCard = document.createElement("div");
-        userCard.className = "user-row";
-        userCard.innerHTML = `
+    private createElementContainer(): HTMLElement {
+        const cardContainer = document.createElement('div');
+        cardContainer.className = "user-row";
+        return cardContainer;
+    }
+
+    private addInnerHTML(): void {
+        this.element.innerHTML = `
             <div class="user">
                 <img src="https://i.pravatar.cc/32?img=1" alt="Avatar">
-                ${this.user.name}
+                ${this.data.name}
             </div>
-            <div>${this.user.company}</div>
-            <div>${this.user.role}</div>
-            <div>${this.user.email}</div>
+            <div>${this.data.company}</div>
+            <div>${this.data.role}</div>
+            <div>${this.data.email}</div>
             <div class="actions">
                 <button title="Edit">✏️</button>
                 <button title="Delete">🗑️</button>
             </div>
         `;
-        return userCard
+    };
+
+    public addToDOM(): void {
+        vUserListUI.appendChild(this.element);
+    };
+
+    public deleteFromDOM(): void {
+        this.element.remove()
+    };
+
+    public updateContent(newData: IUser): void {
+        this.data = newData;
+        this.addInnerHTML();
+    };
+
+    public getElement(): HTMLElement {
+        return this.element;
     }
 }

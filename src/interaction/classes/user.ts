@@ -14,9 +14,8 @@ export class User implements IUser {
     public company: Company;
     public role: Role;
     public email: string;
-
     public id: string ;
-    public ui!: UserCard ;
+    public ui: UserCard ;
 
     constructor(data: IUser) {
         this.name = data.name;
@@ -24,9 +23,15 @@ export class User implements IUser {
         this.role = data.role;
         this.email = data.email;
         this.id = uuidv4();
+        this.ui = new UserCard(data)
     };
 
-    __equals__(element: IUser) : boolean {          
-        return this.email.toLowerCase() === element.email.toLowerCase()
-    }
+    hasSameEmail(element: IUser): boolean {          
+        return (this.email.toLowerCase() === element.email.toLowerCase())
+    };
+
+
+
 }
+
+

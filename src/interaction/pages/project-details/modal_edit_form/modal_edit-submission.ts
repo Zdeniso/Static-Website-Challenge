@@ -31,7 +31,7 @@ vEditProjectForm.addEventListener("submit", (e) => {
 
     const project = ProjectsManager.getProject(vProjectDetailsPage.getAttribute("data-id") as string) as Project;
 
-    ProjectsManager.editProject(project, data);
+    ProjectsManager.editProject(project.id, data);
     vEditProjectForm.reset();
     vEditProjectDialog.close();
 

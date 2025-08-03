@@ -1,69 +1,70 @@
-import { IProject, Project } from "./project";
+import { IProject } from "./project";
 import { formattedCost } from "../functions/formattedCost";
 import { formattedDate } from "../functions/formattedDate";
 import { getRandomColor } from "../functions/setProjectInitials";
 import { getInitials } from "../functions/setProjectInitials";
+import { vProjectsCardsArea } from "../assert-element";
 
+/**
+ * Represent and define ProjectCard with Project.ui property and add the element to the DOM for UI.
+ * Should be instanciated
+ */
 export class ProjectCard {
-    public htmlElement: HTMLElement;
+    public element: HTMLElement;
+    private data: IProject;
 
-    constructor(public project: Project) {
-        this.htmlElement = this.createProjectCard();
+    constructor(data: IProject) {
+        this.data = data;
+        this.element = this.createElementContainer();
+        this.addInnerHTML();
     }
 
-    private createProjectCard(): HTMLElement {
-        const cardElement = document.createElement("section");
-        cardElement.className = "project-card";
-        cardElement.dataset.id = this.project.id;        // Add the project.id as a new attribute of the card with data-id = "8a2d5a..."
-        cardElement.innerHTML =                  
-            `
+    private createElementContainer(): HTMLElement {
+        const cardContainer = document.createElement('section');
+        cardContainer.className = "project-card";
+        return cardContainer;
+    }
+
+    private addInnerHTML(): void {
+        this.element.innerHTML = `
             <div class="project-card__header">
-                <div class="project-card__acronym" style="background-color: ${getRandomColor()}">${getInitials(this.project.name)}</div>
+                <div class="project-card__acronym" style="background-color: ${getRandomColor()}">${getInitials(this.data.name)}</div>
                 <div class="project-card__title-and-description " id="pcard-name-and-description">
-                    <h2>${this.project.name}</h2>
-                    <p>${this.project.description}</p>                  
+                    <h2>${this.data.name}</h2>
+                    <p>${this.data.description}</p>                  
                 </div>
             </div>
             <div class="card__content">
                 <div class="project-card__values" id="pcard-status">
                         <p class="project-card__criteria">Status</p>
-                        <p>${this.project.status}</p>
+                        <p>${this.data.status}</p>
                 </div>
                 <div class="project-card__values" id="pcard-client">
-                    <p class="project-card__criteria">Role</p>
-                    <p>${this.project.client}</p>
+                    <p class="project-card__criteria">Client</p>
+                    <p>${this.data.client}</p>
                 </div>
                 <div class="project-card__values" id="pcard-cost">
                     <p class="project-card__criteria">Cost</p>
-                    <p>${formattedCost(this.project.cost)}</p>
+                    <p>${formattedCost(this.data.cost)}</p>
                 </div>     
                 <div class="project-card__values" id="pcard-finish-date">
                     <p class="project-card__criteria">Finish Date</p>
-                    <p>${formattedDate(this.project.finishDate)}</p>
+                    <p>${formattedDate(this.data.finishDate)}</p>
                 </div>                             
             </div>
-            `;
-        return cardElement  
+        `;
     };
-   
-    public updateProjectCard(data: IProject): ProjectCard {
-        // Update Storage
-        const nameElement = this.htmlElement.querySelector("#pcard-name-and-description > h2") as HTMLElement;
-        const accroElement = this.htmlElement.querySelector(".project-card__acronym") as HTMLElement;
-        const descriptionElement = this.htmlElement.querySelector("#pcard-name-and-description > p") as HTMLElement;
-        const statusElement = this.htmlElement.querySelector("#pcard-status p:nth-of-type(2)") as HTMLElement;
-        const clientElement = this.htmlElement.querySelector("#pcard-client p:nth-of-type(2)") as HTMLElement;        
-        const costElement = this.htmlElement.querySelector("#pcard-cost p:nth-of-type(2)") as HTMLElement;
-        const finishDateElement = this.htmlElement.querySelector("#pcard-finish-date p:nth-of-type(2)") as HTMLElement;
 
-        nameElement.textContent = data.name;
-        accroElement.textContent = getInitials(data.name);
-        descriptionElement.textContent = data.description; 
-        statusElement.textContent = data.status;
-        clientElement.textContent = data.client;
-        costElement.textContent = formattedCost(data.cost);
-        finishDateElement.textContent = formattedDate(data.finishDate);
+    public addToDOM(): void {
+        vProjectsCardsArea.appendChild(this.element);
+    };
 
-        return this
-    }
+    public deleteFromDOM(): void {
+        this.element.remove()
+    };
+
+    public updateContent(newData: IProject): void {
+        this.data = newData;
+        this.addInnerHTML();
+    };
 }

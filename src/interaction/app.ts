@@ -11,10 +11,11 @@ import "./classes/todomanager.ts";
 import "./functions/domChecks.ts";
 import "./functions/showPage.ts";
 import "./functions/setProjectInitials.ts";
-import "./functions/populateProjectDetailsPage.ts";
+import "./functions/populateSecondaryPage.ts";
 import "./functions/populateProjectEditForm.ts";
 import "./functions/formattedCost.ts";
 import "./functions/formattedDate.ts";
+import "./functions/sessionStorage.ts";
 
 // PAGES
 import "./pages/pages-navigation.ts";

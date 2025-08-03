@@ -2,17 +2,21 @@ import { v4 as uuidv4 } from 'uuid' ;
 import { Status } from "./type.ts";
 import { Todo } from "../classes/todo.ts";
 import { ProjectCard } from './projectcard.ts';
-import { User } from "./user.ts";
+import { User, IUser } from "./user.ts";
 
-export class IProject {
+export interface IProject {
     name: string;
     description: string;
     status: Status;
     client: string;
     cost: number;
     finishDate: Date;
-}
+};
 
+/**
+ * Represent and define Projects with method like update(), addUser(), deleteUser(), etc.
+ * Should be instanciated
+ */
 export class Project implements IProject {
     public name: string;
     public description: string;
@@ -20,12 +24,14 @@ export class Project implements IProject {
     public client: string;
     public cost: number;
     public finishDate: Date;
-
-    public users: User[];
     public id: string;
-    public ui!: ProjectCard;    // avec le bang `!` pour dire "je promets que ce sera défini plus tard"
-    public todos: Todo[] = []; 
+    public ui: ProjectCard;
+    public users: User[];    
+    public todos: Todo[]; 
 
+    /**
+     * @param data Data with which the project will be create
+     */
     constructor(data: IProject) {
         this.name = data.name;
         this.description = data.description;
@@ -33,20 +39,35 @@ export class Project implements IProject {
         this.client = data.client;
         this.cost = data.cost;
         this.finishDate = data.finishDate;
-
-        this.id = uuidv4();   
+        this.id = uuidv4();
+        this.ui = new ProjectCard(data);
+        this.users = [];
+        this.todos = []
     };
-   
-    addUser(user: User): void {
-    const alreadyExists = this.users.some((u) => u.id === user.id);
-    if (alreadyExists) {
-        console.warn(`L'utilisateur ${user.name} est déjà associé à ce projet.`);
-    } else {
-        this.users.push(user);
-        // éventuellement mettre à jour l’UI du projet ici si besoin
-    }};
 
-    __equal__(data: IProject) : boolean {
+    update(data: IProject) {
+        this.name = data.name;
+        this.description = data.description;
+        this.status = data.status;
+        this.client = data.client;
+        this.cost = data.cost;
+        this.finishDate = data.finishDate;
+        this.ui.updateContent(data)
+    };
+
+    hasSameName(data: IProject) : boolean {
         return (this.name.toLowerCase() === data.name.toLowerCase())
-    }
+    };
+
+    addNewUser(userData: IUser): void {
+        const alreadyExists = this.users.some(u => u.hasSameEmail(userData));
+        if (alreadyExists) {
+            console.warn(`L'adresse email ${userData.email} est déjà associé à ce projet.`);
+        } else {
+            const newUser = new User(userData);
+            this.users.push(newUser);
+            newUser.ui.addToDOM();
+            console.log(`User ${newUser.name} has been added successfuly to the project`)            
+        }
+    };
 }

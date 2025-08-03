@@ -10,30 +10,20 @@ export class UsersManager {
     private constructor() {}
 
    static addUser(data: IUser) : void {
-        const alreadExists = this.usersList.some((user) => user.__equals__(data));     
+        const alreadExists = this.usersList.some((user) => user.hasSameEmail(data));     
         if (alreadExists) {
             showProjectError();
             console.warn("Attempted to add user that already exists:", data.name);
             return;
         } else {
-            const newUser = new User(data);                      // User : Create User instance "newUser" with data
-            newUser.ui = new UserCard(newUser);                  // UserCard : Create UserCard instance with "newUser" and fill User.ui property with it
-            this.usersList.push(newUser);                        // Storage : Add the new user with all its properties to usersList
-
-            // DOM 
-            vUserListUI.appendChild(newUser.ui.htmlElement);     // Add UserCard.htmlElement to the DOM
-            console.log("Projet ajouté avec succès :", newUser)
+            const newUser = new User(data);
+            this.usersList.push(newUser);
+            console.log(`User ${newUser.name} added successfuly"`)
         }
     };
 
     static getUser(id: string): User | null {
-        const user = this.usersList.find((element) => element.id === id);
-        if (!user)  {
-            console.warn("getUser: aucun utilisateur trouvé avec cet ID :", id);
-            return null
-        } else {
-            return user
-        }
+        return this.usersList.find((element) => element.id === id) || null
     };
 
     static deleteUser(id: string): void {

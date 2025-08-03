@@ -4,35 +4,11 @@
     height: 100%;
 }
 
-/* HEADER STYLE */
-#project-details-page header {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    height: 70px;
-    padding: 30px;
-}
-
-#project-details-page header h1 {
-    color: var(--font-color);
-    font-size: var(--font-size-main-title);
-    margin-bottom: 0;
-    margin: 0px;
-}
-
-#project-details-page header p {
-    color: grey;
-    font-style: italic;
-    margin: 0;
-    margin-bottom: 10px;
-}
-
 /* CONTENT STYLE */
 #project-details-page__content-area {
     display: grid;
     grid-template-columns: 450px 1fr;
-    grid-template-rows: 250px 1fr;
+    grid-template-rows: 200px 1fr;
     grid-template-areas: 
         "project-detail viewer3d"
         "todo-list viewer3d";
@@ -45,18 +21,29 @@
     background-color: var(--background-color200);
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    margin-top: 0px;
+    margin: 5px;
     border-radius: 15px;
 }
 
 #project-details__edit-zone {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 10px;
     align-items: center;
     height: 25%;
     padding: 8px 20px;
+}
+
+#project-details__edit-zone :last-child {
+    margin-left: auto;
+}
+
+#project-details__edit-zone p {
+    background-color: rgb(255, 123, 0);
+    padding: 10px;
+    border-radius: 50px;
+    border-style: hidden;
+    color: var(--font-color);
 }
 
 #project-details__edit-zone button {
@@ -74,38 +61,29 @@
     scale: 1.2;
 }
 
-#project-details__edit-zone p {
-    background-color: rgb(255, 123, 0);
-    padding: 10px;
-    border-radius: 50px;
-    border-style: hidden;
-    color: var(--font-color);
+#button_delete-project {
+    padding: 1px;
+    border-radius: 8px;
+    border: 1px solid white;
+    color: white;
+    background-color: red;
 }
 
-#project-details__title-and-description {
-    display: flex;
-    flex-direction: column;
+#button_delete-project:hover {
+    scale: 1.1;
+    cursor: pointer;
 }
 
-#project-details__title-and-description h1 {
-    color: var(--font-color);
-    font-size: 0.8rem;
-    padding: 0px 20px;
-    margin: 0;
-}
-
-#project-details__title-and-description p {
-    color: var(--font-color);
-    font-size: 0.8rem;
-    padding: 0px 20px;
-    margin: 0px;
-    font-style: italic;
+#button_delete-project:active {
+    scale: 0.9;
 }
 
 #project-details__informations {
     display: flex;
     justify-content: space-between;
     padding: 5px 0px;
+    flex: 1;
+    align-items: center;
 }
 
 #project-details__informations div{
@@ -133,8 +111,10 @@
 }
 
 #project-details__progress-bar {
-    padding: 20px;;
+    padding: 20px;
+    margin-top: auto;
 }
+
 .progress-bar {
   background-color: var(--background-color300);
   border-radius: 20px;
@@ -160,7 +140,7 @@
     background-color: var(--background-color200);
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 5px;
     margin-bottom: 0;
     border-radius: 15px;
 }
@@ -245,7 +225,7 @@
     grid-area: viewer3d;
     background-color: var(--background-color200);
     border-radius: 10px;
-    margin: 0 5px;
+    margin: 5px;
     /* En dessous :a retirer quand on reprendra le viewer */
     display: flex;
     justify-content: center;

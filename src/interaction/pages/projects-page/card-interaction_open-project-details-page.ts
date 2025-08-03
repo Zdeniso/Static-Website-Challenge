@@ -1,9 +1,10 @@
 import { vProjectDetailsPage } from "../../assert-element";
 import { showPage } from "../../functions/showPage";
-import { populateProjectDetailsPage } from "../../functions/populateProjectDetailsPage.ts";
+import { populateSecondaryPage } from "../../functions/populateSecondaryPage.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
 import { Project } from "../../classes/project.ts";
 import { vProjectsCardsArea } from "../../assert-element";
+import { storeData } from "../../functions/sessionStorage.ts";
 
 // Solution : Event Delegation
 // Plutôt que d’attacher un click sur chaque élément, tu mets un seul click sur le parent commun, 
@@ -12,10 +13,14 @@ import { vProjectsCardsArea } from "../../assert-element";
 vProjectsCardsArea.addEventListener('click', (event) => {
     // Target les premiers enfants du conteneur mère
     const targetedElement = event.target as HTMLElement;
-    const card = targetedElement.closest(".project-card") as HTMLElement;
-
-    const projectSelected = ProjectsManager.getProject(card.getAttribute("data-id") as string) as Project;
-
-    populateProjectDetailsPage(projectSelected);
+    const elementSelected = targetedElement.closest(".project-card") as HTMLElement;
+    const cardSelected = ProjectsManager.getUIByHTMLElement(elementSelected);
+    
+    if (!cardSelected) {
+    } else {
+        const project = ProjectsManager.getProjectByUI(cardSelected) as Project;
+        populateSecondaryPage(vProjectDetailsPage, project);
+        storeData("projectID", project.id)  // Store the projectID for further action (populate detailPage, getUsers from this project etc..)
+    };
     showPage(vProjectDetailsPage)
 })

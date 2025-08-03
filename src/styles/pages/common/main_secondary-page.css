@@ -1,4 +1,4 @@
-#users-page {
+.main_secondary-page {
     display: flex;
     flex-direction: column;    
     height: 100vh;
