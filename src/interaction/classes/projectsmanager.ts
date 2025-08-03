@@ -2,6 +2,9 @@ import { Project, IProject } from "./project.ts";
 import { ProjectCard } from "./projectcard.ts";
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import { showNoProjectError } from "../pages/projects-page/error_no-project-to-export.ts";
+import { removeFromDOM } from "../functions/removeElementFromDOM.ts"
+import { addToDOM } from "../functions/addElementToDOM.ts";
+import { vProjectsCardsArea } from "../assert-element.ts";
 
 /**
  * Represent the container of all Project referenced in the application
@@ -46,7 +49,7 @@ export class ProjectsManager {
      * @returns No return.
      */
     static addProject(data: IProject) : void {
-        const existingProject = this.projectsList.some((project) => project.hasSameName(data));     
+        const existingProject = this.projectsList.some((p) => p.hasSameName(data));     
         if (existingProject) {
             showProjectError();
             console.warn("Attempted to add project that already exists:", data.name);
@@ -54,8 +57,8 @@ export class ProjectsManager {
         } else {
             const newProject = new Project(data);
             this.projectsList.push(newProject);
-            newProject.ui.addToDOM();
-            console.log("Project added successfuly")
+            addToDOM(vProjectsCardsArea, newProject.ui.element);
+            console.log(`Project ${newProject.name} added successfuly`)
         }
     };
 
@@ -86,7 +89,7 @@ export class ProjectsManager {
         } else {
             const newProjectList = this.projectsList.filter((element) => element.id != id);
             this.projectsList = newProjectList;
-            project.ui.deleteFromDOM();
+            removeFromDOM(project.ui.element);
             console.log("Project has been removed successfuly")
         }
     };

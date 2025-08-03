@@ -17,6 +17,8 @@ import "./functions/populateAddUserForm.ts";
 import "./functions/formattedCost.ts";
 import "./functions/formattedDate.ts";
 import "./functions/sessionStorage.ts";
+import "./functions/addElementToDOM.ts";
+import "./functions/removeElementFromDOM.ts";
 
 // PAGES
 import "./pages/pages-navigation.ts";

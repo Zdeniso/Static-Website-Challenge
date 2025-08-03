@@ -2,7 +2,6 @@ import { vAddUserButton, vCancelNewUserButton, vAddUserDialog } from "../../../a
 import { populateAddUserForm } from "../../../functions/populateAddUserForm.ts";
 
 vAddUserButton.addEventListener("click", () => {
-    populateAddUserForm()
     vAddUserDialog.showModal()
 })
 

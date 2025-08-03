@@ -3,7 +3,6 @@ import { formattedCost } from "../functions/formattedCost";
 import { formattedDate } from "../functions/formattedDate";
 import { getRandomColor } from "../functions/setProjectInitials";
 import { getInitials } from "../functions/setProjectInitials";
-import { vProjectsCardsArea } from "../assert-element";
 
 /**
  * Represent and define ProjectCard with Project.ui property and add the element to the DOM for UI.
@@ -55,15 +54,7 @@ export class ProjectCard {
         `;
     };
 
-    public addToDOM(): void {
-        vProjectsCardsArea.appendChild(this.element);
-    };
-
-    public deleteFromDOM(): void {
-        this.element.remove()
-    };
-
-    public updateContent(newData: IProject): void {
+    public updateProjectContent(newData: IProject): void {
         this.data = newData;
         this.addInnerHTML();
     };

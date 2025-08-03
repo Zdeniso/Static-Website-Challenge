@@ -3,6 +3,7 @@ import { Status } from "./type.ts";
 import { Todo } from "../classes/todo.ts";
 import { ProjectCard } from './projectcard.ts';
 import { User, IUser } from "./user.ts";
+import { addToDOM } from '../functions/addElementToDOM.ts';
 
 export interface IProject {
     name: string;
@@ -52,13 +53,14 @@ export class Project implements IProject {
         this.client = data.client;
         this.cost = data.cost;
         this.finishDate = data.finishDate;
-        this.ui.updateContent(data)
+        this.ui.updateProjectContent(data)
     };
 
     hasSameName(data: IProject) : boolean {
         return (this.name.toLowerCase() === data.name.toLowerCase())
     };
 
+/*
     addNewUser(userData: IUser): void {
         const alreadyExists = this.users.some(u => u.hasSameEmail(userData));
         if (alreadyExists) {
@@ -66,8 +68,9 @@ export class Project implements IProject {
         } else {
             const newUser = new User(userData);
             this.users.push(newUser);
-            newUser.ui.addToDOM();
+            addToDOM(newUser.ui.element);
             console.log(`User ${newUser.name} has been added successfuly to the project`)            
         }
     };
+*/
 }

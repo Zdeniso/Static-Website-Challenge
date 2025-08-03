@@ -95,7 +95,7 @@
 /* ========== TRANSITION ========= */
 #form_transition {
     display: flex;
+    justify-content: center;
     font-size: 1.5rem;
     border-bottom: 1px solid grey;
-    justify-content: center;
 }

@@ -3,41 +3,88 @@ import { showNoUserError } from "../../interaction/pages/user-page/error_no-user
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import { UserCard } from "./usercard.ts";
 import { vUserListUI } from "../assert-element.ts";
+import { removeFromDOM } from "../functions/removeElementFromDOM.ts";
+import { addToDOM } from "../functions/addElementToDOM.ts";
 
+/**
+ * Represent the container of all User referenced in the application
+ * Not instanciable
+ */
 export class UsersManager {
     static usersList: User[] = [];
 
     private constructor() {}
+    /**
+     * Method which try to point an User with its ID property
+     * @param id ID of the wanted User
+     * @returns Return the User if found, null if not
+     */
+    static getUser(id: string): User | null {
+        return this.usersList.find((e) => e.id === id) || null
+    };
 
-   static addUser(data: IUser) : void {
-        const alreadExists = this.usersList.some((user) => user.hasSameEmail(data));     
-        if (alreadExists) {
+    /**
+     * Method for add an User to the UsersManager usersList
+     * @param data User data tested for potential instantiation as an User
+     * @returns No return.
+     */
+    static addUser(data: IUser) : void {
+        const existingUser = this.usersList.some((u) => u.hasSameEmail(data));     
+        if (existingUser) {
             showProjectError();
             console.warn("Attempted to add user that already exists:", data.name);
             return;
         } else {
             const newUser = new User(data);
             this.usersList.push(newUser);
-            console.log(`User ${newUser.name} added successfuly"`)
+            addToDOM(vUserListUI, newUser.ui.element);
+            console.log(`User ${newUser.name} added successfuly`)
         }
     };
 
-    static getUser(id: string): User | null {
-        return this.usersList.find((element) => element.id === id) || null
-    };
-
-    static deleteUser(id: string): void {
-        const user = this.usersList.find((element) => element.id === id);
-        if (!user)  {
-            console.warn("deleteUser: aucun utilisateur trouvé avec l'ID :", id)
+    /**
+     * Method for edit or update an existing User instance
+     * @param id ID of the User which will be update
+     * @param data Data with which the User will be update
+    */   
+    static editUser(id: string, data: IUser) : void {
+        const user = this.getUser(id);
+        if (!user) {
+            console.warn("getUser: aucun user trouvé avec cet ID :", id); 
+            return
         } else {
-            const newList = this.usersList.filter((element) => element.id != id);
-            this.usersList = newList;
-            user.ui.htmlElement.remove();
-            console.log("L'utilisateur : ", user.name, " a été effacé avec succès !")
+            user.update(data);
+            console.log("User has been update successfuly") 
+        }
+    };    
+
+    /**
+     * Method which try to delete an existing User
+     * @param id ID of the wanted User
+     */
+    static deleteUser(id: string) : void {
+        const user = this.getUser(id);
+        if (!user) {
+            console.warn("getUser: aucun user trouvé avec cet ID :", id);
+        } else {
+            const newUsersList = this.usersList.filter((e) => e.id != id);
+            this.usersList = newUsersList;
+            removeFromDOM(user.ui.element);
+            console.log("User has been removed successfuly")
         }
     };
 
+    /*
+     * ==========================================================================================================
+     * METHOD TO FILTER ELEMENT AND GIVE BACK A NEW LIST
+     * ==========================================================================================================
+     */
+
+    /**
+     * Method to export usersList to a JSON file
+     * @param fileName We can give a custom fileName if wanted
+     * @returns Void
+     */
     static exportToJSON(fileName: string = "TOC_users-list"): void {        // More explication on CheatSheets Github
         if (this.usersList.length === 0) {
             console.warn("Aucun utilisateur à exporter.");
@@ -59,7 +106,12 @@ export class UsersManager {
             URL.revokeObjectURL(url); // Libère l'URL blob pour éviter les fuites mémoire
         }
     };
-    
+
+    /**
+     * Method to import a list of User from a JSON file to usersList of UsersManager
+     * @param container We can give a custom fileName if wanted
+     * @returns Void
+     */
     static importFromJSON(container: HTMLElement): void {
         const input = document.createElement("input"); // Crée dynamiquement un élément <input type="file">
         input.type = "file"; // Définit le type comme fichier

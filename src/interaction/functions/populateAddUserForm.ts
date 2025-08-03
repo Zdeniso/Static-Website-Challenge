@@ -6,6 +6,8 @@ export function populateAddUserForm() {
         const child = document.createElement("option");
         child.textContent = `${e.name} - ${e.email}`
 
+        console.log(child)
+
         const motherContainer = getEl("#existing-user");
         motherContainer.appendChild(child)
     })

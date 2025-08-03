@@ -19,16 +19,16 @@ vNewProjectForm.addEventListener("submit", (e) => {
     if (data.name.length < 5) {
         console.error("Project name has less than 5 chars.");
         return
-    } 
+    }; 
 
     // TOC assignment , When creating the project based on the form information, give a default date in case user doesn’t specify one
     if (!projectRawData.get("project-finish-date") ) {
         data.finishDate = new Date("01/01/1999")
-    }
+    };
 
     ProjectsManager.addProject(data)
-    vNewProjectDialog.close();
     vNewProjectForm.reset()
-
+    vNewProjectDialog.close();
+    
     console.log("La liste des projets est maintenant :", ProjectsManager.projectsList )
 })

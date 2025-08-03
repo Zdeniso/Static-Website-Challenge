@@ -1,8 +1,12 @@
 import { vUserListUI } from "../assert-element.ts";
 import { IUser, User } from "./user.ts";
- 
+
+/**
+ * Represent and define UserCard with User.ui property and add the element to the DOM for UI.
+ * Should be instanciated
+ */
 export class UserCard {
-    private element: HTMLElement;
+    public element: HTMLElement;
     private data: IUser;
 
     constructor(data: IUser) {
@@ -33,20 +37,8 @@ export class UserCard {
         `;
     };
 
-    public addToDOM(): void {
-        vUserListUI.appendChild(this.element);
-    };
-
-    public deleteFromDOM(): void {
-        this.element.remove()
-    };
-
-    public updateContent(newData: IUser): void {
+    public updateUserContent(newData: IUser): void {
         this.data = newData;
         this.addInnerHTML();
     };
-
-    public getElement(): HTMLElement {
-        return this.element;
-    }
 }

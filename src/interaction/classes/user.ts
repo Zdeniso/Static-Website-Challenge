@@ -7,8 +7,12 @@ export interface IUser {
     company: Company,
     role: Role,
     email: string, 
-}
+};
 
+/**
+ * Represent and define Users with method like update() etc.
+ * Should be instanciated
+ */
 export class User implements IUser {
     public name: string;
     public company: Company;
@@ -17,6 +21,9 @@ export class User implements IUser {
     public id: string ;
     public ui: UserCard ;
 
+    /**
+    * @param data Data with which the User will be create
+    */
     constructor(data: IUser) {
         this.name = data.name;
         this.company = data.company;
@@ -26,12 +33,17 @@ export class User implements IUser {
         this.ui = new UserCard(data)
     };
 
+    update(data: IUser) {
+        this.name = data.name;
+        this.company = data.company;
+        this.role = data.role;
+        this.email = data.email;
+        this.ui.updateUserContent(data)
+    };   
+
     hasSameEmail(element: IUser): boolean {          
         return (this.email.toLowerCase() === element.email.toLowerCase())
     };
-
-
-
 }
 
 
