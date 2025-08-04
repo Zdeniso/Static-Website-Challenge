@@ -1,5 +1,4 @@
-import { vUserListUI } from "../assert-element.ts";
-import { IUser, User } from "./user.ts";
+import { IUser } from "./user.ts";
 
 /**
  * Represent and define UserCard with User.ui property and add the element to the DOM for UI.

@@ -1,7 +1,7 @@
-import { vErrorUserAlreadyExistDialog, vErrorUserExistGotitButton } from "../../../assert-element.ts";
+import { vErrorUserExistDialog, vErrorUserExistButton } from "../../../assert-element.ts";
 
-const dialog = vErrorUserAlreadyExistDialog;
-const btn = vErrorUserExistGotitButton;
+const dialog = vErrorUserExistDialog;
+const btn = vErrorUserExistButton;
 
 export function showUserError(): void {
     dialog.showModal()

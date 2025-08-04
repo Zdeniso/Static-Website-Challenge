@@ -1,10 +1,10 @@
-import { vAddTodoItemButton, vAddTodoItemCancelButton, vAddTodoItemDialog, vAddTodoItemForm } from "../../../assert-element";
+import { vProjectDetailsTodoAddButton, vAddTodoCancelButton, vAddTodoDialog, vAddTodoForm } from "../../../assert-element";
 
-vAddTodoItemButton.addEventListener("click", () => {
-    vAddTodoItemDialog.showModal()
+vProjectDetailsTodoAddButton.addEventListener("click", () => {
+    vAddTodoDialog.showModal()
 })
 
-vAddTodoItemCancelButton.addEventListener("click", () => {
-    vAddTodoItemForm.reset();
-    vAddTodoItemDialog.close()
+vAddTodoCancelButton.addEventListener("click", () => {
+    vAddTodoForm.reset();
+    vAddTodoDialog.close()
 })

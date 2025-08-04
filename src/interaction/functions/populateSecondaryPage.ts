@@ -2,7 +2,7 @@ import { Project } from "../classes/project";
 import { formattedCost } from "./formattedCost";
 import { formattedDate } from "./formattedDate"; 
 import { getInitials } from "./setProjectInitials";
-import { vProjectDetailsPage, vUsersPage } from "../assert-element";
+import { vProjectDetailsPage, vProjectUsersPage } from "../assert-element";
 import { getEl } from "./helperQuerySelector";
 
 export function populateSecondaryPage(page: HTMLElement, project: Project): void {
@@ -16,7 +16,7 @@ export function populateSecondaryPage(page: HTMLElement, project: Project): void
             populatePageHeader(id, project);
             populateCardDetails(project);
             break;
-        case vUsersPage:
+        case vProjectUsersPage:
             populatePageHeader(id, project);
             break;
         default:

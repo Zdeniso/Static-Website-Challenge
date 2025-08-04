@@ -1,31 +1,5 @@
-/* MAIN */
-#main-users-page-area {
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
-    min-height: 0;
-    height: 100%;
-}
-
-/* Titre User */
-#main__title-area {
-    display: flex;
-    align-items: center;
-    color: var(--font-color);
-    font-size: 2rem;
-    font-weight: normal;
-    font-style: italic;
-    height: 80px;
-    gap: 50px;
-}
-
-#main__title-area > :last-child {
-    margin-left: auto;
-    margin-right: 25px;
-}
-
 /* 🔹 TABLE AREA */
-#main__table-area {
+.main__table-area {
     overflow-x: auto; /* Active un scroll horizontal si le tableau dépasse la largeur de l’écran */
     color: var(--font-color)
 }

@@ -2,8 +2,7 @@ import { v4 as uuidv4 } from 'uuid' ;
 import { Status } from "./type.ts";
 import { Todo } from "../classes/todo.ts";
 import { ProjectCard } from './projectcard.ts';
-import { User, IUser } from "./user.ts";
-import { addToDOM } from '../functions/addElementToDOM.ts';
+import { User } from "./user.ts";
 
 export interface IProject {
     name: string;

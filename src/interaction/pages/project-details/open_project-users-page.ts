@@ -1,9 +1,9 @@
-import { vUsersPageButton, vUsersPage } from "../../assert-element.ts";
+import { vProjectDetailsUsersButton, vProjectUsersPage } from "../../assert-element.ts";
 import { populateSecondaryPage } from "../../functions/populateSecondaryPage.ts";
 import { showPage } from "../../functions/showPage.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
 
-vUsersPageButton.addEventListener("click", () => {
+vProjectDetailsUsersButton.addEventListener("click", () => {
     const id = sessionStorage.getItem("projectID");
     if (!id) {
         throw new Error("Cannot reach the ID value in session storage");
@@ -14,6 +14,6 @@ vUsersPageButton.addEventListener("click", () => {
         throw new Error("No project was found with the ID given")
     };
     
-    populateSecondaryPage(vUsersPage, project)
-    showPage(vUsersPage)
+    populateSecondaryPage(vProjectUsersPage, project)
+    showPage(vProjectUsersPage)
 })

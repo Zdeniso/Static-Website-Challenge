@@ -1,12 +1,12 @@
-import { vAddTodoItemDialog, vAddTodoItemForm } from "../../../assert-element";
+import { vAddTodoDialog, vAddTodoForm } from "../../../assert-element";
 import { ITodo, Todo } from "../../../classes/todo.ts";
 import { TodoManager } from "../../../classes/todomanager.ts";
 import { Priority, TodoStatus, TodoType } from "../../../classes/type";
 import { User, IUser } from "../../../classes/user.ts"
 
-vAddTodoItemForm.addEventListener("submit", (e) => {
+vAddTodoForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const rawData = new FormData(vAddTodoItemForm);
+    const rawData = new FormData(vAddTodoForm);
     const data: ITodo = {
         name: rawData.get("todo-name") as string,
         description: rawData.get("todo-description") as string,
@@ -20,6 +20,6 @@ vAddTodoItemForm.addEventListener("submit", (e) => {
 
     TodoManager.addTodo(data);
 
-    vAddTodoItemForm.reset();
-    vAddTodoItemDialog.close()    
+    vAddTodoForm.reset();
+    vAddTodoDialog.close()    
 })

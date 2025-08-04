@@ -1,46 +1,84 @@
+// ==========================================================================================
 // Navigation
+// ==========================================================================================
 export const ID_PROJECTS_NAV: string = "projects-nav";
+export const ID_USERS_NAV: string = "users-nav";
 
+
+// ==========================================================================================
 // Projects' Cards Page
+// ==========================================================================================
 export const ID_PROJECTS_CARDS_PAGE: string = "projects-cards-page";
-export const ID_PROJECTS_CARDS_AREA: string = "projects-cards-area"
-export const ID_NEW_PROJECT_BUTTON : string = "new-project__button";
-export const ID_NEW_PROJECT_DIALOG : string = "new-project-dialog-area";
-export const ID_NEW_PROJECT_FORM : string = "new-project-form-area";
-export const ID_CANCEL_NEW_PROJECT_BUTTON : string = "button_cancel-new-project";
-export const ID_PROJECT_LIST: string = "projects-cards-area";
-export const ID_EXPORT_PROJECTS_BUTTON: string = "export-projectlist-btn";
-export const ID_IMPORT_PROJECTS_BUTTON: string = "import-projectlist-btn";
-// Project's Page Error
-export const ID_ERROR_PROJECT_DIALOG: string = "error-project-dialog-area";
-export const ID_ERROR_PROJECT_GOTIT_BUTTON: string = "error-project-gotit-button";
-export const ID_ERROR_NO_PROJECT_DIALOG: string = "dialog_no-project-to-export";
-export const ID_ERROR_NO_PROJECT_GOTIT_BUTTON: string = "error_no-project-to-export-gotit-button";
-// Project's Details Page
-export const ID_PROJECT_DETAILS_PAGE: string = "project-details-page";
-export const ID_PROJECT_EDIT_BUTTON: string = "button_edit-project";
-export const ID_EDIT_PROJECT_DIALOG: string = "edit-project-dialog-area";
-export const ID_EDIT_PROJECT_FORM: string = "edit-project-form-area";
-export const ID_EDIT_PROJECT_EDIT_BUTTON: string = "button_edit-project";
-export const ID_EDIT_PROJECT_CANCEL_BUTTON: string = "button_cancel-edit-project";
-export const ID_ADD_TODO_BUTTON: string = "button_add-todo-item";
-export const ID_ADD_TODO_DIALOG: string = "add-todo-dialog-area";
-export const ID_ADD_TODO_FORM: string = "add-todo-form-area";
-export const ID_ADD_TODO_CANCEL_BUTTON: string = "button_cancel-new-todo-item";
-export const ID_TODO_LIST: string = "todo-list__listing-zone";
-export const ID_USERS_PAGE_BUTTON: string = "button_users-page";
+export const ID_PROJECTS_CARDS_TABLE: string = "projects-cards-table"
+export const ID_PROJECTS_CARDS_NEW_PROJECT_BUTTON : string = "projects-cards-new-project-button";
+export const ID_PROJECTS_CARDS_EXPORT_BUTTON: string = "projects-cards-export-button";
+export const ID_PROJECTS_CARDS_IMPORT_BUTTON: string = "projects-cards-import-button";
 
-// Users' Page
-export const ID_USERS_PAGE: string = "users-page";
-export const ID_DIALOG: string = "new-user-dialog-area";
-export const ID_FORM: string = "new-user-form-area";
-export const ID_ADD_USER_BUTTON: string = "add-user-button";
-export const ID_CANCEL_NEW_USER_BUTTON: string = "button_cancel-new-user";
-export const ID_USER_LIST: string = "users-list";
-export const ID_EXPORT_USERS_BUTTON: string = "export-userlist-btn";
-export const ID_IMPORT_USERS_BUTTON: string = "import-userlist-btn";
-// User's Page Error
-export const ID_ERROR_USER_DIALOG: string = "error-user-dialog-area";
-export const ID_ERROR_USER_GOTIT_BUTTON: string = "error-user-gotit-button";
-export const ID_ERROR_NO_USER_DIALOG: string = "dialog_no-user-to-export";
-export const ID_ERROR_NO_USER_GOTIT_BUTTON: string = "error_no-user-to-export-gotit-button";
+// Modal - New Project
+export const ID_NEW_PROJECT_DIALOG : string = "new-project-dialog";
+export const ID_NEW_PROJECT_FORM : string = "new-project-form";
+export const ID_NEW_PROJECT_CANCEL_BUTTON : string = "new-project-cancel-button";
+
+// Modal - Error
+export const ID_ERROR_PROJECT_EXIST_DIALOG: string = "error-project-exist-dialog";
+export const ID_ERROR_PROJECT_EXIST_BUTTON: string = "error-project-exist-button";
+export const ID_ERROR_NO_PROJECT_TO_EXPORT_DIALOG: string = "error-no-project-to-export-dialog";
+export const ID_ERROR_NO_PROJECT_TO_EXPORT_BUTTON: string = "error-no-project-to-export-button";
+
+
+// ==========================================================================================
+// Project's Details Page
+// ==========================================================================================
+export const ID_PROJECT_DETAILS_PAGE: string = "project-details-page";
+export const ID_PROJECT_DETAILS_USERS_BUTTON: string = "project-details-project-users-button";
+export const ID_PROJECT_DETAILS_EDIT_BUTTON: string = "project-details-edit-button";
+export const ID_PROJECT_DETAILS_DELETE_BUTTON: string = "project-details-delete-button";
+export const ID_PROJECT_DETAILS_TODO_TABLE: string = "project-details-todo-table";
+export const ID_PROJECT_DETAILS_TODO_ADD_BUTTON: string = "project-details-todo-add-button";
+
+// Modal - Edit Project
+export const ID_EDIT_PROJECT_DIALOG: string = "edit-project-dialog";
+export const ID_EDIT_PROJECT_FORM: string = "edit-project-form";
+export const ID_EDIT_PROJECT_CANCEL_BUTTON: string = "edit-project-cancel-button";
+
+// Modal - Add Todo
+export const ID_ADD_TODO_DIALOG: string = "add-todo-dialog";
+export const ID_ADD_TODO_FORM: string = "add-todo-form";
+export const ID_ADD_TODO_CANCEL_BUTTON: string = "add-todo-cancel-button";
+
+
+// ==========================================================================================
+// Project's Users Page
+// ==========================================================================================
+export const ID_PROJECT_USERS_PAGE: string = "project-users-page";
+export const ID_PROJECT_USERS_TABLE: string = "project-users-table";
+export const ID_PROJECT_USERS_ADD_BUTTON: string = "project-users-add-button";
+export const ID_PROJECT_USERS_IMPORT_BUTTON: string = "project-users-import-button";
+export const ID_PROJECT_USERS_EXPORT_BUTTON: string = "project-users-export-button";
+
+// Modal - Add User
+export const ID_ADD_USER_DIALOG: string = "add-user-dialog";
+export const ID_ADD_USER_FORM: string = "add-user-form";
+export const ID_ADD_USER_CANCEL_BUTTON: string = "add-user-cancel-button";
+
+// Modal - Error
+export const ID_ERROR_USER_EXIST_DIALOG: string = "error-user-exist-dialog";
+export const ID_ERROR_USER_EXIST_BUTTON: string = "error-user-exist-button";
+export const ID_ERROR_NO_USER_TO_EXPORT_DIALOG: string = "error-no-user-to-export-dialog";
+export const ID_ERROR_NO_USER_TO_EXPORT_BUTTON: string = "error-no-user-to-export-button";
+
+
+// ==========================================================================================
+// All Users' Page
+// ==========================================================================================
+export const ID_ALL_USERS_PAGE: string = "all-users-page";
+export const ID_ALL_USERS_TABLE: string = "all-users-table";
+export const ID_ALL_USERS_NEW_USER_BUTTON: string = "all-users-new-user-button";
+export const ID_ALL_USERS_IMPORT_BUTTON: string = "all-users-import-button";
+export const ID_ALL_USERS_EXPORT_BUTTON: string = "all-users-export-button";
+
+
+// Modal - New User
+export const ID_NEW_USER_DIALOG: string = "new-user-dialog";
+export const ID_NEW_USER_FORM: string = "new-user-form";
+export const ID_NEW_USER_CANCEL_BUTTON: string = "new-user-cancel-button"

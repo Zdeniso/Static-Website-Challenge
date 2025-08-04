@@ -1,8 +1,6 @@
 import { User, IUser } from "./user.ts"
-import { showNoUserError } from "../../interaction/pages/user-page/error_no-user-to-export.ts";
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
-import { UserCard } from "./usercard.ts";
-import { vUserListUI } from "../assert-element.ts";
+import { vAllUsersTable } from "../assert-element.ts";
 import { removeFromDOM } from "../functions/removeElementFromDOM.ts";
 import { addToDOM } from "../functions/addElementToDOM.ts";
 
@@ -37,7 +35,7 @@ export class UsersManager {
         } else {
             const newUser = new User(data);
             this.usersList.push(newUser);
-            addToDOM(vUserListUI, newUser.ui.element);
+            addToDOM(vAllUsersTable, newUser.ui.element);
             console.log(`User ${newUser.name} added successfuly`)
         }
     };
@@ -80,11 +78,12 @@ export class UsersManager {
      * ==========================================================================================================
      */
 
+/*
     /**
      * Method to export usersList to a JSON file
      * @param fileName We can give a custom fileName if wanted
      * @returns Void
-     */
+     
     static exportToJSON(fileName: string = "TOC_users-list"): void {        // More explication on CheatSheets Github
         if (this.usersList.length === 0) {
             console.warn("Aucun utilisateur à exporter.");
@@ -106,6 +105,7 @@ export class UsersManager {
             URL.revokeObjectURL(url); // Libère l'URL blob pour éviter les fuites mémoire
         }
     };
+*/
 
     /**
      * Method to import a list of User from a JSON file to usersList of UsersManager

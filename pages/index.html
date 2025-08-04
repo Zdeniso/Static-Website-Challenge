@@ -25,7 +25,7 @@
 
     <!-- ===============================================-->
     <!-- ===============================================--> 
-    <!-- CONTENT- -->
+    <!-- MAIN -->
     <!-- ===============================================-->
     <!-- ===============================================--> 
     <main id="main-area"> 
@@ -33,176 +33,218 @@
         <!-- ===============================================-->
         <!-- PROJECTS - CARDS PAGE -->
         <!-- ===============================================--> 
-        <div type="page" id="projects-cards-page" style="display:''">         
+        <div type="page" class="main_primary-page" id="projects-cards-page" style="display:''">         
             <!-- Header Area -->
-            <header>
+            <header class="header_primary-page">
                 <h1>Projects</h1>
             </header>
-            <div id="actions-ui">
-                <button class="import-export-btn" id="import-projectlist-btn">Import<span class="material-icons">download</span></button>
-                <button class="import-export-btn" id="export-projectlist-btn">Export<span class="material-icons">download</span></button>    
-                <button class="button_add-element" id="new-project__button">+ New Project</button>
+            <div class="subheader_primary-page" id="actions-ui">
+                <button class="import-export-btn" id="projects-cards-import-button">Import<span class="material-icons">download</span></button>
+                <button class="import-export-btn" id="projects-cards-export-button">Export<span class="material-icons">download</span></button>    
+                <button class="button_add-element" id="projects-cards-new-project-button">+ New Project</button>
             </div>
 
             <!-- Content Area - Project card -->
-            <div class="content-area" id="projects-cards-area">
+            <div class="content-area" id="projects-cards-table">
                 <!-- Project1.ui -->
                 <!-- Project2.ui -->
                 <!-- ... -->
             </div>
 
             <!-- Modal - error No project to export-->
-            <dialog class="dialog_basic-error" id="dialog_no-project-to-export">
+            <dialog class="dialog_basic-error" id="error-no-project-to-export-dialog">
                 <div class="window_basic-error">
                     <p>There is no project to export ! </p>
-                    <button class="btn accept" id="error_no-project-to-export-gotit-button">Got it !</button>
+                    <button class="btn accept" id="error-no-project-to-export-button">Got it !</button>
+                </div>          
+            </dialog>
+
+
+            <!-- Modal - NEw Project -->
+            <dialog class="dialog-for-forms" id="new-project-dialog">
+                <form class="common-form" id="new-project-form">
+                    <h1>New project</h1>
+                    <label for="project-name">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Name</span>
+                        </div>
+                        <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+
+                    <label for="project-description">
+                        <div class="title-zone">
+                            <span class="material-icons">drive_file_rename_outline</span>
+                            <span class="label-title">Description</span>
+                        </div>
+                            <textarea id="project-description" name="project-description" type="text" required></textarea>
+                    </label>
+
+                    <label for="project-status">
+                        <div class="title-zone">
+                            <span class="material-icons">keyboard_double_arrow_right</span>
+                            <span class="label-title">Status</span>
+                        </div>
+                        <select id="project-status" name="project-status">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Draft</option>
+                            <option>On-hold</option>
+                            <option>Under review</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </label>
+
+                    <label for="project-client">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Client</span>
+                        </div>
+                        <input id="project-client" name="project-client" type="text" required />
+                    </label>
+
+                    <label for="project-cost">
+                        <div class="title-zone">
+                            <span class="material-icons">attach_money</span>
+                            <span class="label-title">Cost</span>
+                        </div>
+                        <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+                    </label>
+
+                    <label for="project-finish-date">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Finish date</span>
+                        </div>
+                        <input id="project-finish-date" name="project-finish-date" type="date"/>
+                    </label>
+
+                    <div class="form-actions">
+                        <button id="new-project-cancel-button" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>
+
+
+
+
+
+            <!-- Modal - error Project already exist-->
+            <dialog class="dialog_basic-error" id="error-project-exist-dialog">
+                <div class="window_basic-error">
+                    <p>A project with this name already exist ! </p>
+                    <button class="btn accept" id="error-project-exist-button">Got it !</button>
                 </div>          
             </dialog>
         </div>
 
-        <!-- Modal - NEw Project -->
-        <dialog class="dialog-for-forms" id="new-project-dialog-area">
-            <form class="common-form" id="new-project-form-area">
-                <h1>New project</h1>
-                <label for="project-name">
-                    <div class="title-zone">
-                        <span class="material-icons">apartment</span>
-                        <span class="label-title">Name</span>
-                    </div>
-                    <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
-                    <small>TIP: Give it a short name.</small>
-                </label>
+        <!-- ===============================================-->
+        <!-- USERS - ALL USERS -->
+        <!-- ===============================================--> 
+        <div type="page" class="main_primary-page" id="all-users-page" style="display: none">         
+            <!-- Header Area -->
+            <header class="header_primary-page">
+                <h1>All Users</h1>
+            </header>
+            <div class="subheader_primary-page" id="actions-ui">
+                <button class="import-export-btn" id="all-users-import-button">Import<span class="material-icons">download</span></button>
+                <button class="import-export-btn" id="all-users-export-button">Export<span class="material-icons">download</span></button>    
+                <button class="button_add-element" id="all-users-new-user-button">+ New User</button>
+            </div>
+                 
+            <!-- 🌐 TABLE AREA -->
+            <div class="main__table-area">
 
-                <label for="project-description">
-                    <div class="title-zone">
-                        <span class="material-icons">drive_file_rename_outline</span>
-                        <span class="label-title">Description</span>
-                    </div>
-                        <textarea id="project-description" name="project-description" type="text" required></textarea>
-                </label>
-
-                <label for="project-status">
-                    <div class="title-zone">
-                        <span class="material-icons">keyboard_double_arrow_right</span>
-                        <span class="label-title">Status</span>
-                    </div>
-                    <select id="project-status" name="project-status">
-                        <option value="" disabled selected>-- Choose an option --</option>
-                        <option>Draft</option>
-                        <option>On-hold</option>
-                        <option>Under review</option>
-                        <option>Completed</option>
-                        <option>Cancelled</option>
-                    </select>
-                </label>
-
-                <label for="project-client">
-                    <div class="title-zone">
-                        <span class="material-icons">assignment_ind</span>
-                        <span class="label-title">Client</span>
-                    </div>
-                    <input id="project-client" name="project-client" type="text" required />
-                </label>
-
-                <label for="project-cost">
-                    <div class="title-zone">
-                        <span class="material-icons">attach_money</span>
-                        <span class="label-title">Cost</span>
-                    </div>
-                    <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
-                </label>
-
-                <label for="project-finish-date">
-                    <div class="title-zone">
-                        <span class="material-icons">calendar_month</span>
-                        <span class="label-title">Finish date</span>
-                    </div>
-                    <input id="project-finish-date" name="project-finish-date" type="date"/>
-                </label>
-
-                <div class="form-actions">
-                    <button id="button_cancel-new-project" type="button" class="btn cancel">Cancel</button>
-                    <button type="submit" class="btn accept">Accept</button>
+            <!-- 🧩 En-tête du tableau -->
+                <div class="table-header">
+                    <div>👤 Name</div>
+                    <div>📧 Company</div>
+                    <div>📅 Role</div>
+                    <div>📅 Email</div>
+                    <div>⚙️ Modifications</div>
                 </div>
-            </form>
-        </dialog>
-
-
-        <!-- Modal - Edit project -->
-        <dialog class="dialog-for-forms" id="edit-project-dialog-area">
-            <form class="common-form" id="edit-project-form-area">
-                <h1>Edit project</h1>
-                <label for="project-name">
-                    <div class="title-zone">
-                        <span class="material-icons">apartment</span>
-                        <span class="label-title">Name</span>
-                    </div>
-                    <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
-                    <small>TIP: Give it a short name.</small>
-                </label>
-
-                <label for="project-description">
-                    <div class="title-zone">
-                        <span class="material-icons">drive_file_rename_outline</span>
-                        <span class="label-title">Description</span>
-                    </div>
-                        <textarea id="project-description" name="project-description" type="text" required></textarea>
-                </label>
-
-                <label for="project-status">
-                    <div class="title-zone">
-                        <span class="material-icons">keyboard_double_arrow_right</span>
-                        <span class="label-title">Status</span>
-                    </div>
-                    <select id="project-status" name="project-status">
-                        <option>Draft</option>
-                        <option>On-hold</option>
-                        <option>Under review</option>
-                        <option>Completed</option>
-                        <option>Cancelled</option>
-                    </select>
-                </label>
-
-                <label for="project-client">
-                    <div class="title-zone">
-                        <span class="material-icons">assignment_ind</span>
-                        <span class="label-title">Client</span>
-                    </div>
-                    <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
-                </label>
-
-                <label for="project-cost">
-                    <div class="title-zone">
-                        <span class="material-icons">attach_money</span>
-                        <span class="label-title">Cost</span>
-                    </div>
-                    <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
-                </label>
-
-                <label for="project-finish-date">
-                    <div class="title-zone">
-                        <span class="material-icons">calendar_month</span>
-                        <span class="label-title">Finish date</span>
-                    </div>
-                    <input id="project-finish-date" name="project-finish-date" type="date"/>
-                </label>
-
-                <div class="form-actions">
-                    <button id="button_cancel-edit-project" type="button" class="btn cancel">Cancel</button>
-                    <button type="submit" class="btn accept">Edit</button>
+                <div id="all-users-table">
+                    <!-- 👤 Lignes utilisateurs se rajoutant avec l'ui de la classe User -->
                 </div>
-            </form>
-        </dialog>
+            </div>
 
 
-        <!-- Modal - error Project already exist-->
-        <dialog class="dialog_basic-error" id="error-project-dialog-area">
-            <div class="window_basic-error">
-                <p>A project with this name already exist ! </p>
-                <button class="btn accept" id="error-project-gotit-button">Got it !</button>
-            </div>          
-        </dialog>
+            <!-- Footer area-->
+            <footer id="footer-users-page-area">
+                <div id="footer__pages-navigation">
+                    <div>Prev</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>...</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>Next</div>
+                </div>
+                <div id="footer__showing-choice">
+                    <div>Showing</div>
+                    <div>5</div>
+                    <div>of 120 entries</div>
+                </div>        
+            </footer>
 
+            <!-- Modal - New user -->
+            <dialog class="dialog-for-forms" id="new-user-dialog">
+                <form class="common-form" id="new-user-form">
+                    <h1>Add user to the project</h1>
+                    <label for="new-user-name">
+                        <div class="title-zone">
+                            <span class="material-icons">account_circle</span>
+                            <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
+                        </div>
+                        <input name="new-user-name" id="new-user-name" type="text" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+                    <label for="new-user-company">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Company</span>
+                        </div>
+                        <select name="new-user-company" id="new-user-company">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Losinger-Marazzi</option>
+                            <option>Implenia</option>
+                            <option>Vinci-Construction</option>
+                        </select>
+                    </label>
+                    <label for="new-user-role">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Role</span>
+                        </div>
+                        <select name="new-user-role" id="new-user-role">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Architect</option>
+                            <option>Electrical Engineer</option>
+                            <option>HVAC Engineer</option>
+                            <option>Structural Engineer</option>
+                            <option>BIM Manager</option>
+                            <option>Client</option>
+                        </select>
+                    </label>
+                    <label for="new-user-email">
+                        <div class="title-zone">
+                            <span class="material-icons">alternate_email</span>
+                            <span class="label-title">Email</span>
+                        </div>
+                        <input name="new-user-email" id="new-user-email" type="text" placeholder="John.delaware@vinci-construction.com" required />
+                    </label>
+                    <div class="form-actions">
+                        <button type="button" class="btn cancel" id="new-user-cancel-button"  >Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>  
+
+
+            
+        </div>  
 
         <!-- ===============================================-->
         <!-- PROJECT - DETAILS PAGE -->
@@ -224,9 +266,9 @@
             <div id="project-details-page__content-area">
                 <section id="project-details">
                     <div id="project-details__edit-zone">
-                        <button id="button_users-page">Users</button>
-                        <button id="button_edit-project">Edit</button>
-                        <span id="button_delete-project" class="material-icons">close</span>
+                        <button id="project-details-project-users-button">Users</button>
+                        <button id="project-details-edit-button">Edit</button>
+                        <span id="project-details-delete-button" class="material-icons">close</span>
                     </div>
                     <div id="project-details__informations">
                         <div id="project-details__status">
@@ -253,135 +295,195 @@
                     </div>
                 </section>
 
-
-                <!-- ============================================ -->
-                <!-- TODO ZONE - start -->
-                <!-- ============================================ -->
                 <section id="todo-list">
                     <div id="todo-list__adding-zone">
                         <p>To-Do</p>
                         <div>
                             <span class="material-icons">search</span>
-                            <input class="search-bar-todo-list" type="text" maxlength="50" placeholder="Search To-Do's by name"/>
-                            <span class="material-icons" id="button_add-todo-item">add</span>
+                            <input class="search-bar-todo-list" id="WAITING" type="text" maxlength="50" placeholder="Search To-Do's by name"/>
+                            <span class="material-icons" id="project-details-todo-add-button">add</span>
                         </div>
                     </div>
-                    <div id="todo-list__listing-zone">
+                    <div id="project-details-todo-table">
                         <!-- Todo item 1 -->
                         <!-- Todo item 2 -->
                         <!-- ... -->
                     </div>
                 </section>
 
-                <!-- Modal - Add Todo -->
-                <dialog class="dialog-for-forms" id="add-todo-dialog-area">
-                    <form class="common-form" id="add-todo-form-area">
-                        <h1>New Todo Item</h1>
-                        <label for="todo-name">
-                            <div class="title-zone">
-                                <span class="material-icons">apartment</span>
-                                <span class="label-title">Name</span>
-                            </div>
-                            <input id="todo-name" name="todo-name" type="text" placeholder="At least 5 characters" required />
-                            <small>TIP: Give it a short name.</small>
-                        </label>
-
-                        <label for="todo-description">
-                            <div class="title-zone">
-                                <span class="material-icons">drive_file_rename_outline</span>
-                                <span class="label-title">Description</span>
-                            </div>
-                                <textarea id="todo-description" name="todo-description" type="text" required></textarea>
-                        </label>
-
-                        <label for="todo-status">
-                            <div class="title-zone">
-                                <span class="material-icons">keyboard_double_arrow_right</span>
-                                <span class="label-title">Status</span>
-                            </div>
-                            <select id="todo-status" name="todo-status">
-                                <option>Open</option>
-                                <option>Close</option>
-                            </select>
-                        </label>
-
-                        <label for="todo-priority">
-                            <div class="title-zone">
-                                <span class="material-icons">assignment_ind</span>
-                                <span class="label-title">Priority</span>
-                            </div>
-                            <select id="todo-priority" name="todo-priority" required>
-                                <option>High</option>
-                                <option>Medium</option>
-                                <option>Low</option>
-                            </select>
-                        </label>
-
-                        <label for="todo-type">
-                            <div class="title-zone">
-                                <span class="material-icons">assignment_ind</span>
-                                <span class="label-title">Type</span>
-                            </div>
-                            <select id="todo-type" name="todo-type" required>
-                                <option>Clash</option>
-                                <option>Information</option>
-                                <option>Question</option>
-                                <option>Error</option>
-                                <option>Suggestion</option>
-                            </select>
-                        </label>
-
-                        <label for="todo-creation-date">
-                            <div class="title-zone">
-                                <span class="material-icons">calendar_month</span>
-                                <span class="label-title">Creation</span>
-                            </div>
-                            <input id="todo-creation-date" name="todo-creation-date" type="date" required />
-                        </label>
-
-                        <label for="todo-open-by">
-                            <div class="title-zone">
-                                <span class="material-icons">calendar_month</span>
-                                <span class="label-title">Open by</span>
-                            </div>
-                            <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
-                            <select id="todo-open-by" name="todo-open-by" required>
-                                <option>User 1</option>
-                                <option>User 2</option>
-                            </select>
-                        </label>
-
-                        <label for="todo-intended-to">
-                            <div class="title-zone">
-                                <span class="material-icons">calendar_month</span>
-                                <span class="label-title">Intended to</span>
-                            </div>
-                            <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
-                            <select id="todo-intended-to" name="todo-intended-to" required>
-                                <option>User 1</option>
-                                <option>User 2</option>
-                            </select>
-                        </label>
-                        <div class="form-actions">
-                            <button id="button_cancel-new-todo-item" type="button" class="btn cancel">Cancel</button>
-                            <button type="submit" class="btn accept">Accept</button>
-                        </div>
-                    </form>
-                </dialog>                
-                <!-- ============================================ -->
-                <!-- TODO ZONE - end -->
-                <!-- ============================================ -->                
 
 
 
                 <section id="viewer3D">Viewer3D - WIP</section>              
             </div>
+            <!-- Modal - Add Todo -->
+            <dialog class="dialog-for-forms" id="add-todo-dialog">
+                <form class="common-form" id="add-todo-form">
+                    <h1>New Todo Item</h1>
+                    <label for="todo-name">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Name</span>
+                        </div>
+                        <input id="todo-name" name="todo-name" type="text" placeholder="At least 5 characters" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+
+                    <label for="todo-description">
+                        <div class="title-zone">
+                            <span class="material-icons">drive_file_rename_outline</span>
+                            <span class="label-title">Description</span>
+                        </div>
+                            <textarea id="todo-description" name="todo-description" type="text" required></textarea>
+                    </label>
+
+                    <label for="todo-status">
+                        <div class="title-zone">
+                            <span class="material-icons">keyboard_double_arrow_right</span>
+                            <span class="label-title">Status</span>
+                        </div>
+                        <select id="todo-status" name="todo-status">
+                            <option>Open</option>
+                            <option>Close</option>
+                        </select>
+                    </label>
+
+                    <label for="todo-priority">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Priority</span>
+                        </div>
+                        <select id="todo-priority" name="todo-priority" required>
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </label>
+
+                    <label for="todo-type">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Type</span>
+                        </div>
+                        <select id="todo-type" name="todo-type" required>
+                            <option>Clash</option>
+                            <option>Information</option>
+                            <option>Question</option>
+                            <option>Error</option>
+                            <option>Suggestion</option>
+                        </select>
+                    </label>
+
+                    <label for="todo-creation-date">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Creation</span>
+                        </div>
+                        <input id="todo-creation-date" name="todo-creation-date" type="date" required />
+                    </label>
+
+                    <label for="todo-open-by">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Open by</span>
+                        </div>
+                        <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
+                        <select id="todo-open-by" name="todo-open-by" required>
+                            <option>User 1</option>
+                            <option>User 2</option>
+                        </select>
+                    </label>
+
+                    <label for="todo-intended-to">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Intended to</span>
+                        </div>
+                        <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
+                        <select id="todo-intended-to" name="todo-intended-to" required>
+                            <option>User 1</option>
+                            <option>User 2</option>
+                        </select>
+                    </label>
+                    <div class="form-actions">
+                        <button id="add-todo-cancel-button" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>                
+            
+            <!-- Modal - Edit project -->
+            <dialog class="dialog-for-forms" id="edit-project-dialog">
+                <form class="common-form" id="edit-project-form">
+                    <h1>Edit project</h1>
+                    <label for="project-name">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Name</span>
+                        </div>
+                        <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+
+                    <label for="project-description">
+                        <div class="title-zone">
+                            <span class="material-icons">drive_file_rename_outline</span>
+                            <span class="label-title">Description</span>
+                        </div>
+                            <textarea id="project-description" name="project-description" type="text" required></textarea>
+                    </label>
+
+                    <label for="project-status">
+                        <div class="title-zone">
+                            <span class="material-icons">keyboard_double_arrow_right</span>
+                            <span class="label-title">Status</span>
+                        </div>
+                        <select id="project-status" name="project-status">
+                            <option>Draft</option>
+                            <option>On-hold</option>
+                            <option>Under review</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </label>
+
+                    <label for="project-client">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Client</span>
+                        </div>
+                        <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+                    </label>
+
+                    <label for="project-cost">
+                        <div class="title-zone">
+                            <span class="material-icons">attach_money</span>
+                            <span class="label-title">Cost</span>
+                        </div>
+                        <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+                    </label>
+
+                    <label for="project-finish-date">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Finish date</span>
+                        </div>
+                        <input id="project-finish-date" name="project-finish-date" type="date"/>
+                    </label>
+
+                    <div class="form-actions">
+                        <button id="edit-project-cancel-button" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Edit</button>
+                    </div>
+                </form>
+            </dialog>
+
         </div>
 
         <!-- ===============================================-->
-        <!-- USERS - TABLE OF ALL USERS -->
+        <!-- USERS - PROJECT USERS -->
         <!-- ===============================================-->
-        <div type="page" class="main_secondary-page" id="users-page" style="display:''">
+        <div type="page" class="main_secondary-page" id="project-users-page" style="display: none">
             <!-- Header -->
             <header class="header__secondary-page">
                 <div class="header__main-title-area">
@@ -396,32 +498,30 @@
                 </div>
             </header>
 
-            <!-- Main area -->
-            <div id="main-users-page-area">     
-                <div id="main__title-area">
-                    <button class="import-export-btn" id="import-userlist-btn">Import<span class="material-icons">download</span></button>
-                    <button class="import-export-btn" id="export-userlist-btn">Export<span class="material-icons">download</span></button>                   
-                    <button class="button_add-element" id="add-user-button">+ Add user</button>  
+            <!-- Main area -->  
+            <div class="subheader_primary-page">
+                <button class="import-export-btn" id="project-users-import-button">Import<span class="material-icons">download</span></button>
+                <button class="import-export-btn" id="project-users-export-button">Export<span class="material-icons">download</span></button>                   
+                <button class="button_add-element" id="project-users-add-button">+ Add user</button>  
+            </div>
+            
+            <!-- 🌐 TABLE AREA -->
+            <div class="main__table-area">
+
+            <!-- 🧩 En-tête du tableau -->
+                <div class="table-header">
+                    <div>👤 Name</div>
+                    <div>📧 Company</div>
+                    <div>📅 Role</div>
+                    <div>📅 Email</div>
+                    <div>⚙️ Modifications</div>
                 </div>
-                
+                <div id="project-users-table">
+                    <!-- 👤 Lignes utilisateurs se rajoutant avec l'ui de la classe User -->
 
-                <!-- 🌐 TABLE AREA -->
-                <div id="main__table-area">
-
-                <!-- 🧩 En-tête du tableau -->
-                    <div class="table-header">
-                        <div>👤 Name</div>
-                        <div>📧 Company</div>
-                        <div>📅 Role</div>
-                        <div>📅 Email</div>
-                        <div>⚙️ Modifications</div>
-                    </div>
-                    <div id="users-list">
-                        <!-- 👤 Lignes utilisateurs se rajoutant avec l'ui de la classe User -->
-
-                    </div>
                 </div>
             </div>
+
 
             <!-- Footer area-->
             <footer id="footer-users-page-area">
@@ -441,9 +541,9 @@
                 </div>        
             </footer>
 
-            <!-- Modal - New user -->
-            <dialog class="dialog-for-forms" id="new-user-dialog-area">
-                <form class="common-form" id="new-user-form-area">
+            <!-- Modal - Add user -->
+            <dialog class="dialog-for-forms" id="add-user-dialog">
+                <form class="common-form" id="add-user-form">
                     <h1>Add user to the project</h1>
                     <label for="existing-user">
                         <div class="title-zone">
@@ -455,74 +555,35 @@
                             <!-- Populated by every User in UsersManager.userList-->>
                         </select>
                     </label>
-                    <span id="form_transition">OR</span>
-                    <label for="user-name">
-                        <div class="title-zone">
-                            <span class="material-icons">account_circle</span>
-                            <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
-                        </div>
-                        <input name="user-name" id="user-name" type="text" required />
-                        <small>TIP: Give it a short name.</small>
-                    </label>
-                    <label for="user-company">
-                        <div class="title-zone">
-                            <span class="material-icons">apartment</span>
-                            <span class="label-title">Company</span>
-                        </div>
-                        <select name="user-company" id="user-company">
-                            <option value="" disabled selected>-- Choose an option --</option>
-                            <option>Losinger-Marazzi</option>
-                            <option>Implenia</option>
-                            <option>Vinci-Construction</option>
-                        </select>
-                    </label>
-                    <label for="user-role">
-                        <div class="title-zone">
-                            <span class="material-icons">assignment_ind</span>
-                            <span class="label-title">Role</span>
-                        </div>
-                        <select name="user-role" id="user-role">
-                            <option value="" disabled selected>-- Choose an option --</option>
-                            <option>Architect</option>
-                            <option>Electrical Engineer</option>
-                            <option>HVAC Engineer</option>
-                            <option>Structural Engineer</option>
-                            <option>BIM Manager</option>
-                            <option>Client</option>
-                        </select>
-                    </label>
-                    <label for="user-email">
-                        <div class="title-zone">
-                            <span class="material-icons">alternate_email</span>
-                            <span class="label-title">Email</span>
-                        </div>
-                        <input name="user-email" id="user-email" type="text" placeholder="John.delaware@vinci-construction.com" required />
-                    </label>
+                    <p>If you don't find user you wanted to add, please add it in the general Users list</p>              
                     <div class="form-actions">
-                        <button id="button_cancel-new-user" type="button" class="btn cancel">Cancel</button>
+                        <button type="button" class="btn cancel" id="add-user-cancel-button">Cancel</button>
                         <button type="submit" class="btn accept">Accept</button>
                     </div>
                 </form>
-            </dialog>            
+            </dialog>    
+                  
 
             <!-- Modal - error User already exist-->
-            <dialog class="dialog_basic-error" id="error-user-dialog-area">
+            <dialog class="dialog_basic-error" id="error-user-exist-dialog">
                 <div class="window_basic-error">
                     <p>An user with this email already exist ! </p>
-                    <button class="btn accept" id="error-user-gotit-button">Got it !</button>
+                    <button class="btn accept" id="error-user-exist-button">Got it !</button>
                 </div>          
             </dialog>
 
             <!-- Modal - error No user to export-->
-            <dialog class="dialog_basic-error" id="dialog_no-user-to-export">
+            <dialog class="dialog_basic-error" id="error-no-user-to-export-dialog">
                 <div class="window_basic-error">
                     <p>There is no user to export ! </p>
-                    <button class="btn accept" id="error_no-user-to-export-gotit-button">Got it !</button>
+                    <button class="btn accept" id="error-no-user-to-export-button">Got it !</button>
                 </div>          
             </dialog>
 
         </div>
-    
+
+      
+
     </main>
 </body>
 </html>

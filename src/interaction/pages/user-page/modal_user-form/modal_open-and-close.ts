@@ -1,10 +1,13 @@
-import { vAddUserButton, vCancelNewUserButton, vAddUserDialog } from "../../../assert-element.ts";
+import { vProjectUsersAddButton, vAddUserCancelButton, vAddUserDialog } from "../../../assert-element.ts";
+import { UsersManager } from "../../../classes/usersmanager.ts";
 import { populateAddUserForm } from "../../../functions/populateAddUserForm.ts";
 
-vAddUserButton.addEventListener("click", () => {
+vProjectUsersAddButton.addEventListener("click", () => {
+    console.log(UsersManager.usersList)
+    populateAddUserForm();
     vAddUserDialog.showModal()
 })
 
-vCancelNewUserButton.addEventListener("click", () => {
+vAddUserCancelButton.addEventListener("click", () => {
     vAddUserDialog.close();
 });

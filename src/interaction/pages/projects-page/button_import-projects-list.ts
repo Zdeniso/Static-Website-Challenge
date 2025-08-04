@@ -1,8 +1,10 @@
-import { vImportProjectsListButton, vProjectListUI } from "../../assert-element.ts";
+import { vProjectsCardsImportButton, vProjectsCardsTable } from "../../assert-element.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
+import { Project } from "../../classes/project.ts";
+import { importAndConvertFromJSON } from "../../functions/importFromJSON.ts";
 
-const btn = vImportProjectsListButton
+const btn = vProjectsCardsImportButton
 
 btn.addEventListener("click", () => {
-    ProjectsManager.importFromJSON(vProjectListUI)
+    importAndConvertFromJSON(ProjectsManager.projectsList, Project)
 })

@@ -1,8 +1,7 @@
-import { vExportProjectsListButton } from "../../assert-element.ts";
+import { vProjectsCardsExportButton } from "../../assert-element.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
+import { exportToJSON } from "../../functions/exportToJSON.ts";
 
-const btn = vExportProjectsListButton;
-
-btn.addEventListener("click", () => {
-    ProjectsManager.exportToJSON()
+vProjectsCardsExportButton.addEventListener("click", () => {
+    exportToJSON(ProjectsManager.projectsList)
 })

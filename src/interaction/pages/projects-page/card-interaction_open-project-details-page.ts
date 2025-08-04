@@ -3,14 +3,14 @@ import { showPage } from "../../functions/showPage";
 import { populateSecondaryPage } from "../../functions/populateSecondaryPage.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
 import { Project } from "../../classes/project.ts";
-import { vProjectsCardsArea } from "../../assert-element";
+import { vProjectsCardsTable } from "../../assert-element";
 import { storeData } from "../../functions/sessionStorage.ts";
 
 // Solution : Event Delegation
 // Plutôt que d’attacher un click sur chaque élément, tu mets un seul click sur le parent commun, 
 // et tu détectes l’élément réellement cliqué avec event.target.
   
-vProjectsCardsArea.addEventListener('click', (event) => {
+vProjectsCardsTable.addEventListener('click', (event) => {
     // Target les premiers enfants du conteneur mère
     const targetedElement = event.target as HTMLElement;
     const elementSelected = targetedElement.closest(".project-card") as HTMLElement;

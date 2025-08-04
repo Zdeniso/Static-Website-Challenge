@@ -1,0 +1,13 @@
+.header_primary-page {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: var(--font-size-main-title);
+    color: var(--font-color);
+    margin: 10px;
+
+};
+
+.header_primary-page h1 {
+    margin-left: 10px;
+}

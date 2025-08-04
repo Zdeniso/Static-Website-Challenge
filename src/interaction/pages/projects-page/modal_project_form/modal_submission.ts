@@ -26,9 +26,9 @@ vNewProjectForm.addEventListener("submit", (e) => {
         data.finishDate = new Date("01/01/1999")
     };
 
-    ProjectsManager.addProject(data)
-    vNewProjectForm.reset()
-    vNewProjectDialog.close();
+    ProjectsManager.addProject(data);
+    vNewProjectForm.reset();
+    vNewProjectDialog.close()
     
     console.log("La liste des projets est maintenant :", ProjectsManager.projectsList )
 })

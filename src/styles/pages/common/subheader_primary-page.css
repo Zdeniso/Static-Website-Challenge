@@ -1,11 +1,11 @@
-#actions-ui {
+.subheader_primary-page {
     display: flex;
     align-items: center;
     gap: 30px;
     margin-left: 20px;
 }
 
-#new-project__button {
+.subheader_primary-page button:last-child {
     margin-left: auto;
     margin-right: 25px;
 }
