@@ -3,8 +3,8 @@
 
 /* Common Page */
 @import url("./pages/Common/body.css");
-@import url("./pages/Common/aside_navigation-area.css");
-@import url("./pages/Common/main-area.css");
+@import url("./pages/Common/aside.css");
+@import url("./pages/Common/main.css");
 @import url("./pages/Common/header_secondary-page.css");
 @import url("./pages/Common/main_secondary-page.css");
 @import url("./pages/Common/header_primary-page.css");
