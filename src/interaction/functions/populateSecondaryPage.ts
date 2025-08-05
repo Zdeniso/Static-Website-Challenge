@@ -1,10 +1,9 @@
 import { Project } from "../classes/project";
-import { formattedCost } from "./formattedCost";
-import { formattedDate } from "./formattedDate"; 
+import { formattingCost, formattingDate } from "./formattingValues";
 import { getInitials } from "./setProjectInitials";
 import { vProjectDetailsPage, vProjectDetailsTodoTable, vProjectUsersPage, vProjectUsersTable } from "../assert-element";
 import { getEl } from "./helperQuerySelector";
-import { addToDOM } from "./addElementToDOM";
+import { addToDOM } from "./add-removeFromDOM";
 
 export function populateSecondaryPage(page: HTMLElement, project: Project): void {
     const id = page.getAttribute("id");
@@ -13,6 +12,7 @@ export function populateSecondaryPage(page: HTMLElement, project: Project): void
     };
 
     populatePageHeader(id, project);
+
     switch (page) {
         case vProjectDetailsPage:
             populateCardDetails(project);
@@ -51,8 +51,8 @@ function populateCardDetails(project: Project): void {
    
     cardStatus.textContent = project.status;
     cardClient.textContent = project.client;
-    cardCost.textContent = formattedCost(project.cost);
-    cardFinishDate.textContent = formattedDate(project.finishDate)
+    cardCost.textContent = formattingCost(project.cost);
+    cardFinishDate.textContent = formattingDate(project.finishDate)
 };
 
 function populateTodo(project: Project): void {

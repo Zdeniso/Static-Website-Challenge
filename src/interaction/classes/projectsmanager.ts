@@ -1,9 +1,7 @@
 import { Project, IProject } from "./project.ts";
 import { ProjectCard } from "./projectcard.ts";
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
-import { showNoProjectError } from "../pages/projects-page/error_no-project-to-export.ts";
-import { removeFromDOM } from "../functions/removeElementFromDOM.ts"
-import { addToDOM } from "../functions/addElementToDOM.ts";
+import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
 import { vProjectsCardsTable } from "../assert-element.ts";
 
 /**

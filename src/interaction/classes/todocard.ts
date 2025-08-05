@@ -1,4 +1,4 @@
-import { formattedDate } from "../functions/formattedDate.ts";
+import { formattingDate } from "../functions/formattingValues.ts";
 import { ITodo } from "./todo.ts";
 
 /**
@@ -25,7 +25,7 @@ export class TodoCard {
         this.element.innerHTML = `
             <span class="material-icons">construction</span>
             <p>${this.data.name}</p>
-            <p>${formattedDate(this.data.creationDate)}</p> 
+            <p>${formattingDate(this.data.creationDate)}</p> 
         `;
     };
 

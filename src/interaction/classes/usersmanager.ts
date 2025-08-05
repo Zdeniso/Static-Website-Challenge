@@ -1,8 +1,7 @@
 import { User, IUser } from "./user.ts"
 import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
 import { vAllUsersTable } from "../assert-element.ts";
-import { removeFromDOM } from "../functions/removeElementFromDOM.ts";
-import { addToDOM } from "../functions/addElementToDOM.ts";
+import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
 
 /**
  * Represent the container of all User referenced in the application

@@ -1,7 +1,7 @@
-import { vProjectDetailsTodoAddButton, vAddTodoCancelButton, vAddTodoDialog, vAddTodoForm } from "../../../assert-element";
-import { ProjectsManager } from "../../../classes/projectsmanager";
-import { populateHTMLSelectElementFromUsersList } from "../../../functions/populateSelectElementFromUsersList";
-import { getEl } from "../../../functions/helperQuerySelector";
+import { vProjectDetailsTodoAddButton, vAddTodoDialog } from "../../assert-element.ts";
+import { getEl } from "../../functions/helperQuerySelector.ts";
+import { ProjectsManager } from "../../classes/projectsmanager.ts";
+import { populateHTMLSelectElementWithUsersList } from "../../functions/populateHTMLSelectElementWithUsersList.ts";
 
 vProjectDetailsTodoAddButton.addEventListener("click", () => {
     const openByContainer = getEl<HTMLSelectElement>("#todo-open-by");
@@ -18,16 +18,11 @@ vProjectDetailsTodoAddButton.addEventListener("click", () => {
     };
 
     try {
-        populateHTMLSelectElementFromUsersList(project.users, openByContainer);
-        populateHTMLSelectElementFromUsersList(project.users, intendedToContainer);
+        populateHTMLSelectElementWithUsersList(project.users, openByContainer);
+        populateHTMLSelectElementWithUsersList(project.users, intendedToContainer);
         vAddTodoDialog.showModal()
     } catch (error) {
         console.error("An error occured : ", error);
         throw new Error("An unexpected error occured while trying to populate Select Element with Users")
     }
 });
-
-vAddTodoCancelButton.addEventListener("click", () => {
-    vAddTodoForm.reset();
-    vAddTodoDialog.close()
-})

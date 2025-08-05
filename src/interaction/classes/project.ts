@@ -4,7 +4,7 @@ import { Todo } from "../classes/todo.ts";
 import { ProjectCard } from './projectcard.ts';
 import { User } from "./user.ts";
 import { vProjectDetailsTodoTable, vProjectUsersTable } from "./../assert-element.ts";
-import { addToDOM } from '../functions/addElementToDOM.ts';
+import { addToDOM } from '../functions/add-removeFromDOM.ts';
 
 export interface IProject {
     name: string;

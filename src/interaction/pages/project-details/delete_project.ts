@@ -1,7 +1,7 @@
 import { vProjectDetailsDeleteButton, vProjectsCardsPage } from "../../assert-element";
-import { ProjectsManager } from "../../classes/projectsmanager";
-import { removeFromDOM } from "../../functions/removeElementFromDOM";
-import { showPage } from "../../functions/showPage";
+import { ProjectsManager } from "../../classes/projectsmanager.ts";
+import { removeFromDOM } from "../../functions/add-removeFromDOM.ts";
+import { showPage } from "../../functions/showPage.ts";
 
 vProjectDetailsDeleteButton.addEventListener("click", () => {
     const projectID = sessionStorage.getItem("projectID");

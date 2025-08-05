@@ -1,6 +1,5 @@
 import { IProject } from "./project";
-import { formattedCost } from "../functions/formattedCost";
-import { formattedDate } from "../functions/formattedDate";
+import { formattingCost, formattingDate } from "../functions/formattingValues";
 import { getRandomColor } from "../functions/setProjectInitials";
 import { getInitials } from "../functions/setProjectInitials";
 
@@ -44,11 +43,11 @@ export class ProjectCard {
                 </div>
                 <div class="project-card__values" id="pcard-cost">
                     <p class="project-card__criteria">Cost</p>
-                    <p>${formattedCost(this.data.cost)}</p>
+                    <p>${formattingCost(this.data.cost)}</p>
                 </div>     
                 <div class="project-card__values" id="pcard-finish-date">
                     <p class="project-card__criteria">Finish Date</p>
-                    <p>${formattedDate(this.data.finishDate)}</p>
+                    <p>${formattingDate(this.data.finishDate)}</p>
                 </div>                             
             </div>
         `;

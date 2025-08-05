@@ -1,6 +1,6 @@
 import { User } from "../classes/user.ts";
 
-export function populateHTMLSelectElementFromUsersList(list: Array<User>, container: HTMLSelectElement ) {
+export function populateHTMLSelectElementWithUsersList(list: Array<User>, container: HTMLSelectElement ) {
    const existingChildren = Array.from(container.children)
    existingChildren.forEach((e) => {
         if (e.getAttribute("data-class") === "temporary") {
