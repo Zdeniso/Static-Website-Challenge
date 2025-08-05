@@ -1,4 +1,4 @@
-import { vEditProjectDialog, vEditProjectForm, vProjectsCardsPage } from "../../../assert-element";
+import { vEditProjectDialog, vEditProjectForm, vProjectsCardsPage } from "../../../assert-element.ts";
 import { IProject } from "../../../classes/project";
 import { ProjectsManager } from "../../../classes/projectsmanager";
 import { Status } from "../../../classes/type";

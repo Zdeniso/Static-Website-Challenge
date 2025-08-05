@@ -2,6 +2,7 @@ import { IProject } from "../../../classes/project.ts";
 import { ProjectsManager } from "../../../classes/projectsmanager.ts";
 import { Status } from "../../../classes/type.ts";
 import { vNewProjectDialog, vNewProjectForm } from "../../../assert-element.ts"
+import { showCommonModal } from "../../../functions/showCommonModal.ts"
 
 vNewProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -26,7 +27,13 @@ vNewProjectForm.addEventListener("submit", (e) => {
         data.finishDate = new Date("01/01/1999")
     };
 
-    ProjectsManager.addProject(data);
-    vNewProjectForm.reset();
-    vNewProjectDialog.close()
+    try {
+        ProjectsManager.addProject(data);
+        vNewProjectForm.reset();
+        vNewProjectDialog.close();
+        showCommonModal("Success", "Project has been added successfuly !")        
+    } catch (error) {
+        console.error("An error occured : ", error)
+        showCommonModal("Error", "An error occured. Project has not been added ")
+    }
 })

@@ -1,4 +1,4 @@
-import { vProjectDetailsDeleteButton, vProjectsCardsPage } from "../../assert-element";
+import { vProjectDetailsDeleteButton, vProjectsCardsPage } from "../../assert-element.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
 import { removeFromDOM } from "../../functions/add-removeFromDOM.ts";
 import { showPage } from "../../functions/showPage.ts";

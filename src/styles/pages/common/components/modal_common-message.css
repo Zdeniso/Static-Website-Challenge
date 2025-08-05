@@ -1,4 +1,4 @@
-.dialog_basic-error {
+.common-message {
     padding: 10px;
     border-style: none;
     background: none;
@@ -6,12 +6,12 @@
     min-width: 280px;
 }
 
-.dialog_basic-error::backdrop {
+.common-message::backdrop {
     background-color: rgba(0, 0, 0, 0.3); /* voile semi-transparent noir */
     backdrop-filter: blur(6px); /* flou sur l’arrière-plan */
 }
 
-.window_basic-error {
+.common-message > div {
     display: flex;
     flex-direction: column;
     gap: 1.2rem; /* espace entre chaque champ */
@@ -22,13 +22,13 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* ombre portée pour surélever */
 }
 
-.window_basic-error button {
+.common-message > div button {
     display: flex;
     justify-content: center;
     width: 8rem;
 }
 
-.window_basic-error p {
+.common-message > div p {
     font-size: 1.2rem;
 }
 

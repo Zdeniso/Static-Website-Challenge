@@ -31,6 +31,7 @@ import "./functions/storeDataToSessionStorage.ts";
 import "./functions/getProjectIDFromSessionStorage.ts";
 import "./functions/setProjectInitials.ts";
 import "./functions/showPage.ts";
+import "./functions/showCommonModal.ts";
 
 // =========================
 // PAGES
@@ -42,10 +43,8 @@ import "./pages/open_all-users-page.ts";
 import "./pages/Projects/export_projects-list.ts";
 import "./pages/Projects/import_projects-list.ts";
 import "./pages/Projects/open_project-details-page.ts";
-import "./pages/Projects/error_no-project-to-export.ts";
 import "./pages/Projects/open_new-project-form.ts";
 // Modal_Project_Form
-import "./pages/Projects/modal_project_form/error_project-already-exist.ts";
 import "./pages/Projects/modal_project_form/close.ts";
 import "./pages/Projects/modal_project_form/submission.ts";
 
@@ -68,12 +67,10 @@ import "./pages/Project_details/modal_todo-form/submission.ts";
 // =========================
 import "./pages/Project_users/export_users-list.ts";
 import "./pages/Project_users/import_users-list.ts";
-import "./pages/Project_users/error_no-user-to-export.ts";
 
 //  Modal User Form
 import "./pages/Project_users/open_new-user-form.ts";
 import "./pages/Project_users/modal_user-form/submission.ts";
-import "./pages/Project_users/modal_user-form/error_user-already-exist.ts";
 
 
 // All Users Page

@@ -1,20 +1,14 @@
 import { assertContainerElement, assertFormElement, assertButtonElement, assertDialogElement } from "./functions/assertHTMLElement.ts"
-import { addUserForm, addUserCancelButton, projectUsersAddButton, addUserDialog, projectUsersTable, errorUserExistDialog, 
-    errorProjectExistDialog, errorUserExistButton, errorProjectExistButton, projectUsersExportButton, 
-    projectUsersImportButton, projectDetailsUsersButton, projectsNav, projectsCardsPage, projectDetailsPage, projectUsersPage, projectsCardsNewProjectButton, 
-    newProjectDialog, newProjectForm, newProjectCancelButton, projectsCardsTable, projectsCardsExportButton, 
-    errorNoProjectToExportDialog, errorNoProjectToExportButton, projectsCardsImportButton, errorNoUserToExportDialog, 
-    errorNoUserToExportButton, projectDetailsEditButton, editProjectDialog, editProjectForm, editProjectCancelButton, 
+import { addUserForm, addUserCancelButton, projectUsersAddButton, addUserDialog, projectUsersTable, projectUsersExportButton, 
+    projectUsersImportButton, projectDetailsUsersButton, projectsNav, projectsCardsPage, projectDetailsPage, projectUsersPage, 
+    projectsCardsNewProjectButton, newProjectDialog, newProjectForm, newProjectCancelButton, projectsCardsTable, projectsCardsExportButton, 
+    projectsCardsImportButton, projectDetailsEditButton, editProjectDialog, editProjectForm, editProjectCancelButton, 
     projectDetailsTodoAddButton, addTodoForm, addTodoDialog, addTodoCancelButton, projectDetailsTodoTable, 
     allUsersPage, usersNav, allUsersNewUserButton, newUserDialog, newUserForm, allUsersTable, projectDetailsDeleteButton, 
     allUsersImportButton, allUsersExportButton, newUserCancelButton
 
 } from "./getelement.ts"
 
-/*
-projectListUI
-export const vProjectListUI = assertContainerElement(projectListUI);
-*/
 
 // ==========================================================================================
 // Navigation
@@ -36,12 +30,6 @@ export const vProjectsCardsExportButton = assertButtonElement(projectsCardsExpor
 export const vNewProjectDialog = assertDialogElement(newProjectDialog);
 export const vNewProjectForm = assertFormElement(newProjectForm);
 export const vNewProjectCancelButton = assertButtonElement(newProjectCancelButton);
-
-// Modal - Error
-export const vErrorProjectExistDialog = assertDialogElement(errorProjectExistDialog);
-export const vErrorProjectExistButton = assertButtonElement(errorProjectExistButton);
-export const vErrorNoProjectToExportDialog = assertDialogElement(errorNoProjectToExportDialog);
-export const vErrorNoProjectToExportButton = assertButtonElement(errorNoProjectToExportButton);
 
 
 // ==========================================================================================
@@ -78,12 +66,6 @@ export const vImportUsersListButton = assertButtonElement(projectUsersImportButt
 export const vAddUserDialog = assertDialogElement(addUserDialog);
 export const vAddUserForm = assertFormElement(addUserForm);
 export const vAddUserCancelButton = assertButtonElement(addUserCancelButton);
-
-// Modal - Error
-export const vErrorUserExistDialog = assertDialogElement(errorUserExistDialog);
-export const vErrorUserExistButton = assertButtonElement(errorUserExistButton);
-export const vErrorNoUserToExportDialog = assertDialogElement(errorNoUserToExportDialog);
-export const vErrorNoUserToExportGotitButton = assertButtonElement(errorNoUserToExportButton);
 
 
 // ==========================================================================================

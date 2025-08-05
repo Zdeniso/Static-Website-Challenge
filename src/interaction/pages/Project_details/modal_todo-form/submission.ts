@@ -1,4 +1,4 @@
-import { vAddTodoDialog, vAddTodoForm } from "../../../assert-element";
+import { vAddTodoDialog, vAddTodoForm } from "../../../assert-element.ts";
 import { ProjectsManager } from "../../../classes/projectsmanager.ts";
 import { ITodo, Todo } from "../../../classes/todo.ts";
 import { Priority, TodoStatus, TodoType } from "../../../classes/type";

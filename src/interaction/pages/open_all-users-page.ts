@@ -1,5 +1,5 @@
-import { vAllUsersPage, vUsersNav } from "../assert-element";
-import { showPage } from "../functions/showPage";
+import { vAllUsersPage, vUsersNav } from "../assert-element.ts";
+import { showPage } from "../functions/showPage.ts";
 
 vUsersNav.addEventListener("click", () => {
     showPage(vAllUsersPage)

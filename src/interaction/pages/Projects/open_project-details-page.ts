@@ -1,8 +1,7 @@
-import { vProjectDetailsPage } from "../../assert-element";
+import { vProjectDetailsPage, vProjectsCardsTable } from "../../assert-element.ts";
 import { showPage } from "../../functions/showPage";
 import { populateSecondaryPage } from "../../functions/populateSecondaryPage.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
-import { vProjectsCardsTable } from "../../assert-element";
 import { storeDataToSessionStorage } from "../../functions/storeDataToSessionStorage.ts";
 
 // Solution : Event Delegation

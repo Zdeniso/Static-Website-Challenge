@@ -7,3 +7,4 @@ export type TodoStatus = "Open" | "Close";
 export type TodoType = "Clash" | "Information" | "Question" | "Error" |
     "Suggestion";
 export type Priority = "High" | "Medium" | "Low";
+export type MessageType = "Success" | "Error";

@@ -19,12 +19,6 @@ export const ID_NEW_PROJECT_DIALOG : string = "new-project-dialog";
 export const ID_NEW_PROJECT_FORM : string = "new-project-form";
 export const ID_NEW_PROJECT_CANCEL_BUTTON : string = "new-project-cancel-button";
 
-// Modal - Error
-export const ID_ERROR_PROJECT_EXIST_DIALOG: string = "error-project-exist-dialog";
-export const ID_ERROR_PROJECT_EXIST_BUTTON: string = "error-project-exist-button";
-export const ID_ERROR_NO_PROJECT_TO_EXPORT_DIALOG: string = "error-no-project-to-export-dialog";
-export const ID_ERROR_NO_PROJECT_TO_EXPORT_BUTTON: string = "error-no-project-to-export-button";
-
 
 // ==========================================================================================
 // Project's Details Page
@@ -60,12 +54,6 @@ export const ID_PROJECT_USERS_EXPORT_BUTTON: string = "project-users-export-butt
 export const ID_ADD_USER_DIALOG: string = "add-user-dialog";
 export const ID_ADD_USER_FORM: string = "add-user-form";
 export const ID_ADD_USER_CANCEL_BUTTON: string = "add-user-cancel-button";
-
-// Modal - Error
-export const ID_ERROR_USER_EXIST_DIALOG: string = "error-user-exist-dialog";
-export const ID_ERROR_USER_EXIST_BUTTON: string = "error-user-exist-button";
-export const ID_ERROR_NO_USER_TO_EXPORT_DIALOG: string = "error-no-user-to-export-dialog";
-export const ID_ERROR_NO_USER_TO_EXPORT_BUTTON: string = "error-no-user-to-export-button";
 
 
 // ==========================================================================================

@@ -1,11 +1,8 @@
 import { ID_ADD_USER_FORM, ID_ADD_USER_CANCEL_BUTTON, ID_PROJECT_USERS_ADD_BUTTON, ID_ADD_USER_DIALOG, ID_PROJECT_USERS_TABLE, 
-  ID_ERROR_USER_EXIST_DIALOG, ID_ERROR_USER_EXIST_BUTTON, ID_ERROR_PROJECT_EXIST_DIALOG, ID_ERROR_PROJECT_EXIST_BUTTON,
   ID_PROJECT_USERS_EXPORT_BUTTON, ID_PROJECT_USERS_IMPORT_BUTTON, ID_PROJECTS_NAV, ID_PROJECTS_CARDS_PAGE, 
   ID_PROJECT_DETAILS_PAGE, ID_PROJECT_USERS_PAGE, ID_PROJECTS_CARDS_NEW_PROJECT_BUTTON, ID_NEW_PROJECT_DIALOG, ID_NEW_PROJECT_FORM, 
-  ID_NEW_PROJECT_CANCEL_BUTTON, ID_PROJECTS_CARDS_TABLE, ID_PROJECTS_CARDS_EXPORT_BUTTON, ID_PROJECTS_CARDS_IMPORT_BUTTON, 
-  ID_ERROR_NO_USER_TO_EXPORT_DIALOG, ID_ERROR_NO_USER_TO_EXPORT_BUTTON, ID_ERROR_NO_PROJECT_TO_EXPORT_DIALOG,
-  ID_ERROR_NO_PROJECT_TO_EXPORT_BUTTON, ID_EDIT_PROJECT_DIALOG, ID_EDIT_PROJECT_FORM, 
-  ID_EDIT_PROJECT_CANCEL_BUTTON, ID_ADD_TODO_FORM, ID_ADD_TODO_DIALOG, ID_ADD_TODO_CANCEL_BUTTON, 
+  ID_NEW_PROJECT_CANCEL_BUTTON, ID_PROJECTS_CARDS_TABLE, ID_PROJECTS_CARDS_EXPORT_BUTTON, ID_PROJECTS_CARDS_IMPORT_BUTTON,ID_EDIT_PROJECT_DIALOG, 
+  ID_EDIT_PROJECT_FORM, ID_EDIT_PROJECT_CANCEL_BUTTON, ID_ADD_TODO_FORM, ID_ADD_TODO_DIALOG, ID_ADD_TODO_CANCEL_BUTTON, 
   ID_ALL_USERS_PAGE, ID_USERS_NAV, ID_ALL_USERS_NEW_USER_BUTTON, ID_NEW_USER_DIALOG, ID_NEW_USER_FORM, 
   ID_ALL_USERS_TABLE, ID_PROJECT_DETAILS_USERS_BUTTON, ID_PROJECT_DETAILS_EDIT_BUTTON, ID_PROJECT_DETAILS_DELETE_BUTTON, 
   ID_PROJECT_DETAILS_TODO_TABLE, ID_PROJECT_DETAILS_TODO_ADD_BUTTON, ID_ALL_USERS_IMPORT_BUTTON, ID_ALL_USERS_EXPORT_BUTTON,
@@ -33,12 +30,6 @@ export const projectsCardsImportButton = document.getElementById(ID_PROJECTS_CAR
 export const newProjectDialog = document.getElementById(ID_NEW_PROJECT_DIALOG) as HTMLDialogElement | null;
 export const newProjectForm = document.getElementById(ID_NEW_PROJECT_FORM) as HTMLFormElement | null;
 export const newProjectCancelButton = document.getElementById(ID_NEW_PROJECT_CANCEL_BUTTON) as HTMLButtonElement | null;
-
-// Modal - Error
-export const errorProjectExistDialog = document.getElementById(ID_ERROR_PROJECT_EXIST_DIALOG) as HTMLDialogElement | null;
-export const errorProjectExistButton = document.getElementById(ID_ERROR_PROJECT_EXIST_BUTTON) as HTMLButtonElement | null;
-export const errorNoProjectToExportDialog = document.getElementById(ID_ERROR_NO_PROJECT_TO_EXPORT_DIALOG) as HTMLDialogElement | null;
-export const errorNoProjectToExportButton = document.getElementById(ID_ERROR_NO_PROJECT_TO_EXPORT_BUTTON) as HTMLButtonElement | null;
 
 /// ==========================================================================================
 // Project's Details Page
@@ -73,12 +64,6 @@ export const projectUsersExportButton = document.getElementById(ID_PROJECT_USERS
 export const addUserDialog = document.getElementById(ID_ADD_USER_DIALOG) as HTMLDialogElement | null;
 export const addUserForm = document.getElementById(ID_ADD_USER_FORM) as HTMLFormElement | null;
 export const addUserCancelButton = document.getElementById(ID_ADD_USER_CANCEL_BUTTON) as HTMLButtonElement | null;
-
-// Modal - Error
-export const errorUserExistDialog = document.getElementById(ID_ERROR_USER_EXIST_DIALOG)as HTMLDialogElement | null;
-export const errorUserExistButton = document.getElementById(ID_ERROR_USER_EXIST_BUTTON) as HTMLButtonElement | null;
-export const errorNoUserToExportDialog = document.getElementById(ID_ERROR_NO_USER_TO_EXPORT_DIALOG)as HTMLDialogElement | null;
-export const errorNoUserToExportButton = document.getElementById(ID_ERROR_NO_USER_TO_EXPORT_BUTTON) as HTMLButtonElement | null;
 
 
 // ==========================================================================================

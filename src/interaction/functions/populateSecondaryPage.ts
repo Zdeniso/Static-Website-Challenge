@@ -1,7 +1,7 @@
 import { Project } from "../classes/project";
 import { formattingCost, formattingDate } from "./formattingValues";
 import { getInitials } from "./setProjectInitials";
-import { vProjectDetailsPage, vProjectDetailsTodoTable, vProjectUsersPage, vProjectUsersTable } from "../assert-element";
+import { vProjectDetailsPage, vProjectDetailsTodoTable, vProjectUsersPage, vProjectUsersTable } from "../assert-element.ts";
 import { getEl } from "./helperQuerySelector";
 import { addToDOM } from "./add-removeFromDOM";
 

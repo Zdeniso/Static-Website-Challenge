@@ -1,5 +1,4 @@
 import { User, IUser } from "./user.ts"
-import { showProjectError } from "../pages/Projects/modal_project_form/error_project-already-exist.ts";
 import { vAllUsersTable } from "../assert-element.ts";
 import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
 
@@ -28,7 +27,6 @@ export class UsersManager {
     static newUser(data: IUser) : void {
         const existingUser = this.usersList.some((u) => u.hasSameEmail(data));     
         if (existingUser) {
-            showProjectError();
             console.warn("Attempted to add user that already exists:", data.name);
             return;
         } else {

@@ -15,7 +15,7 @@
 @import url("./pages/Common/components/button_import-export.css");
 @import url("./pages/Common/components/button_add-element.css");
 @import url("./pages/Common/components/form_add-element.css");
-@import url("./pages/Common/components/modal_basic-error.css");
+@import url("./pages/Common/components/modal_common-message.css");
 
 /* Projects Cards Page */
 @import url("./pages/Projects/cards.css");
