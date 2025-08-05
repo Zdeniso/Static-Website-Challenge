@@ -26,7 +26,7 @@ export class UsersManager {
      * @param data User data tested for potential instantiation as an User
      * @returns No return.
      */
-    static addUser(data: IUser) : void {
+    static newUser(data: IUser) : void {
         const existingUser = this.usersList.some((u) => u.hasSameEmail(data));     
         if (existingUser) {
             showProjectError();
@@ -36,7 +36,6 @@ export class UsersManager {
             const newUser = new User(data);
             this.usersList.push(newUser);
             addToDOM(vAllUsersTable, newUser.ui.element);
-            console.log(`User ${newUser.name} added successfuly`)
         }
     };
 
@@ -105,13 +104,13 @@ export class UsersManager {
             URL.revokeObjectURL(url); // Libère l'URL blob pour éviter les fuites mémoire
         }
     };
-*/
+
 
     /**
      * Method to import a list of User from a JSON file to usersList of UsersManager
      * @param container We can give a custom fileName if wanted
      * @returns Void
-     */
+     
     static importFromJSON(container: HTMLElement): void {
         const input = document.createElement("input"); // Crée dynamiquement un élément <input type="file">
         input.type = "file"; // Définit le type comme fichier
@@ -142,7 +141,7 @@ export class UsersManager {
 
         input.click(); // Déclenche l’ouverture de la boîte de dialogue de sélection de fichier
     }
+
+*/
 }
-
-
 (window as any).UsersManager = UsersManager;

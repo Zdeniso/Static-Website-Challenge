@@ -3,11 +3,11 @@ import { formattedDate } from "./formattedDate";
 import { getEl } from "./helperQuerySelector";
 
 export function populateProjectEditForm(project: Project) {
-    (getEl("#project-name") as HTMLInputElement).value = project.name;
-    (getEl("#project-description") as HTMLTextAreaElement).value = project.description;
-    (getEl("#project-status") as HTMLSelectElement).value = project.status;
-    (getEl("#project-client") as HTMLInputElement).value = project.client;
-    (getEl("#project-cost") as HTMLInputElement).value = project.cost.toString();
-    (getEl("#project-finish-date") as HTMLInputElement).value = formattedDate(project.finishDate);
+    getEl<HTMLInputElement>("#edit-project-name").value = project.name;
+    getEl<HTMLTextAreaElement>("#edit-project-description").value = project.description;
+    getEl<HTMLSelectElement>("#edit-project-status").value = project.status;
+    getEl<HTMLInputElement>("#edit-project-client").value = project.client;
+    getEl<HTMLInputElement>("#edit-project-cost").value = project.cost.toString();
+    getEl<HTMLInputElement>("#edit-project-finish-date").value = formattedDate(project.finishDate);
 }
 

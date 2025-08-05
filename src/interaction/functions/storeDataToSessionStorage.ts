@@ -1,4 +1,4 @@
-export function storeData(key: string, data: any): void {
+export function storeDataToSessionStorage(key: string, data: any): void {
     const stringifiedData = stringify(data);
 
     if (!stringifiedData) {

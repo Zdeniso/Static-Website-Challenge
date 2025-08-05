@@ -3,6 +3,8 @@ import { Status } from "./type.ts";
 import { Todo } from "../classes/todo.ts";
 import { ProjectCard } from './projectcard.ts';
 import { User } from "./user.ts";
+import { vProjectDetailsTodoTable, vProjectUsersTable } from "./../assert-element.ts";
+import { addToDOM } from '../functions/addElementToDOM.ts';
 
 export interface IProject {
     name: string;
@@ -59,17 +61,25 @@ export class Project implements IProject {
         return (this.name.toLowerCase() === data.name.toLowerCase())
     };
 
-/*
-    addNewUser(userData: IUser): void {
-        const alreadyExists = this.users.some(u => u.hasSameEmail(userData));
+
+    addUser(user: User): void {
+        const alreadyExists = this.users.some(u => u.hasSameEmail(user));
         if (alreadyExists) {
-            console.warn(`L'adresse email ${userData.email} est déjà associé à ce projet.`);
+            console.warn(`Email adress ${user.email} is already associated to the project`);
         } else {
-            const newUser = new User(userData);
-            this.users.push(newUser);
-            addToDOM(newUser.ui.element);
-            console.log(`User ${newUser.name} has been added successfuly to the project`)            
+            this.users.push(user);
+            addToDOM(vProjectUsersTable, user.createClone());       
         }
     };
-*/
+    
+    addTodo(todo: Todo): void {
+        const alreadyExists = this.todos.some(t => t.hasSameName(todo));
+        if (alreadyExists) {
+            console.warn(`Name ${todo.name} is already associated to the project`);
+        } else {
+            this.todos.push(todo);
+            addToDOM(vProjectDetailsTodoTable, todo.ui.element);       
+        }
+    };
+
 }

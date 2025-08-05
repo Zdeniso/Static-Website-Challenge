@@ -21,6 +21,8 @@ export class User implements IUser {
     public id: string ;
     public ui: UserCard ;
 
+    private clones: HTMLElement[] = []; 
+
     /**
     * @param data Data with which the User will be create
     */
@@ -33,17 +35,37 @@ export class User implements IUser {
         this.ui = new UserCard(data)
     };
 
+    hasSameEmail(element: IUser): boolean {          
+        return (this.email.toLowerCase() === element.email.toLowerCase())
+    };
+
     update(data: IUser) {
         this.name = data.name;
         this.company = data.company;
         this.role = data.role;
         this.email = data.email;
         this.ui.updateUserContent(data)
+        this.updateClones();
     };   
 
-    hasSameEmail(element: IUser): boolean {          
-        return (this.email.toLowerCase() === element.email.toLowerCase())
-    };
+    /**
+     * Renvoie un clone de l'élément UserCard pour affichage multiple.
+     * Le clone est stocké pour pouvoir être mis à jour en cas de modification des données.
+     */
+    createClone(): HTMLElement {
+        const clone = this.ui.element.cloneNode(true) as HTMLElement;
+        this.clones.push(clone);
+        return clone;
+    }
+
+    /**
+     * Met à jour tous les clones dans le DOM en recollant le innerHTML à jour
+     */
+    private updateClones(): void {
+        for (const clone of this.clones) {
+            clone.innerHTML = this.ui.element.innerHTML;
+        }
+    }
 }
 
 

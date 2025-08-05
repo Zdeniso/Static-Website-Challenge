@@ -316,6 +316,8 @@
 
                 <section id="viewer3D">Viewer3D - WIP</section>              
             </div>
+
+
             <!-- Modal - Add Todo -->
             <dialog class="dialog-for-forms" id="add-todo-dialog">
                 <form class="common-form" id="add-todo-form">
@@ -387,10 +389,10 @@
                             <span class="material-icons">calendar_month</span>
                             <span class="label-title">Open by</span>
                         </div>
-                        <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
+                        
                         <select id="todo-open-by" name="todo-open-by" required>
-                            <option>User 1</option>
-                            <option>User 2</option>
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <!-- Dynamic list from Project.users list -->
                         </select>
                     </label>
 
@@ -399,10 +401,9 @@
                             <span class="material-icons">calendar_month</span>
                             <span class="label-title">Intended to</span>
                         </div>
-                        <!-- Il faudra ici faire apparaitre la liste des user référencé dynamiquement -->
                         <select id="todo-intended-to" name="todo-intended-to" required>
-                            <option>User 1</option>
-                            <option>User 2</option>
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <!-- Dynamic list from Project.users list -->
                         </select>
                     </label>
                     <div class="form-actions">
@@ -416,29 +417,29 @@
             <dialog class="dialog-for-forms" id="edit-project-dialog">
                 <form class="common-form" id="edit-project-form">
                     <h1>Edit project</h1>
-                    <label for="project-name">
+                    <label for="edit-project-name">
                         <div class="title-zone">
                             <span class="material-icons">apartment</span>
                             <span class="label-title">Name</span>
                         </div>
-                        <input id="project-name" name="project-name" type="text" placeholder="Hospital Center" required />
+                        <input id="edit-project-name" name="edit-project-name" type="text" placeholder="Hospital Center" required />
                         <small>TIP: Give it a short name.</small>
                     </label>
 
-                    <label for="project-description">
+                    <label for="edit-project-description">
                         <div class="title-zone">
                             <span class="material-icons">drive_file_rename_outline</span>
                             <span class="label-title">Description</span>
                         </div>
-                            <textarea id="project-description" name="project-description" type="text" required></textarea>
+                            <textarea id="edit-project-description" name="edit-project-description" type="text" required></textarea>
                     </label>
 
-                    <label for="project-status">
+                    <label for="edit-project-status">
                         <div class="title-zone">
                             <span class="material-icons">keyboard_double_arrow_right</span>
                             <span class="label-title">Status</span>
                         </div>
-                        <select id="project-status" name="project-status">
+                        <select id="edit-project-status" name="edit-project-status">
                             <option>Draft</option>
                             <option>On-hold</option>
                             <option>Under review</option>
@@ -447,28 +448,28 @@
                         </select>
                     </label>
 
-                    <label for="project-client">
+                    <label for="edit-project-client">
                         <div class="title-zone">
                             <span class="material-icons">assignment_ind</span>
                             <span class="label-title">Client</span>
                         </div>
-                        <input id="project-client" name="project-client" type="text" placeholder="Losinger-Marazzi SA" required />
+                        <input id="edit-project-client" name="edit-project-client" type="text" placeholder="Losinger-Marazzi SA" required />
                     </label>
 
-                    <label for="project-cost">
+                    <label for="edit-project-cost">
                         <div class="title-zone">
                             <span class="material-icons">attach_money</span>
                             <span class="label-title">Cost</span>
                         </div>
-                        <input id="project-cost" name="project-cost" type="number" placeholder="CHF" required />
+                        <input id="edit-project-cost" name="edit-project-cost" type="number" placeholder="CHF" required />
                     </label>
 
-                    <label for="project-finish-date">
+                    <label for="edit-project-finish-date">
                         <div class="title-zone">
                             <span class="material-icons">calendar_month</span>
                             <span class="label-title">Finish date</span>
                         </div>
-                        <input id="project-finish-date" name="project-finish-date" type="date"/>
+                        <input id="edit-project-finish-date" name="edit-project-finish-date" type="date"/>
                     </label>
 
                     <div class="form-actions">

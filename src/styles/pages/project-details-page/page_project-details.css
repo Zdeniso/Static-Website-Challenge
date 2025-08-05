@@ -61,7 +61,7 @@
     scale: 1.2;
 }
 
-#button_delete-project {
+#project-details-delete-button {
     padding: 1px;
     border-radius: 8px;
     border: 1px solid white;
@@ -69,12 +69,12 @@
     background-color: red;
 }
 
-#button_delete-project:hover {
+#project-details-delete-button:hover {
     scale: 1.1;
     cursor: pointer;
 }
 
-#button_delete-project:active {
+#project-details-delete-button:active {
     scale: 0.9;
 }
 

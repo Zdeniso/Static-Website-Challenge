@@ -58,7 +58,6 @@ export class ProjectsManager {
             const newProject = new Project(data);
             this.projectsList.push(newProject);
             addToDOM(vProjectsCardsTable, newProject.ui.element);
-            console.log(`Project ${newProject.name} added successfuly`)
         }
     };
 
@@ -74,7 +73,6 @@ export class ProjectsManager {
             return
         } else {
             project.update(data);
-            console.log("Project has been update successfuly") 
         }
     };
 

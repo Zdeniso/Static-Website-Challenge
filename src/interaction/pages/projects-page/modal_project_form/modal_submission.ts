@@ -29,6 +29,4 @@ vNewProjectForm.addEventListener("submit", (e) => {
     ProjectsManager.addProject(data);
     vNewProjectForm.reset();
     vNewProjectDialog.close()
-    
-    console.log("La liste des projets est maintenant :", ProjectsManager.projectsList )
 })

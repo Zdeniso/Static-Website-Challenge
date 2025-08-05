@@ -1,8 +1,8 @@
 import { vAddTodoDialog, vAddTodoForm } from "../../../assert-element";
+import { ProjectsManager } from "../../../classes/projectsmanager.ts";
 import { ITodo, Todo } from "../../../classes/todo.ts";
-import { TodoManager } from "../../../classes/todomanager.ts";
 import { Priority, TodoStatus, TodoType } from "../../../classes/type";
-import { User, IUser } from "../../../classes/user.ts"
+import { getProjectIDFromSessionStorage } from "../../../functions/getProjectIDFromSessionStorage.ts";
 
 vAddTodoForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -18,8 +18,15 @@ vAddTodoForm.addEventListener("submit", (e) => {
         intendedTo: rawData.get("todo-intended-to") as string,
     };
 
-    TodoManager.addTodo(data);
+    const newTodo = new Todo(data);
 
+    const projectID = getProjectIDFromSessionStorage();
+    const project = ProjectsManager.getProject(projectID);
+    if (!project) {
+        throw new Error("Cannot get a project from projectsList with this ID")
+    };
+
+    project.addTodo(newTodo);
     vAddTodoForm.reset();
     vAddTodoDialog.close()    
 })

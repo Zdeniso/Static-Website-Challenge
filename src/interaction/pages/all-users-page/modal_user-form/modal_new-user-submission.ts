@@ -13,7 +13,7 @@ vNewUserForm.addEventListener("submit", (e) => {
         email: rawData.get("new-user-email") as string
     };
 
-    UsersManager.addUser(userData);
+    UsersManager.newUser(userData);
     vNewUserForm.reset();
     vNewUserDialog.close()
 })

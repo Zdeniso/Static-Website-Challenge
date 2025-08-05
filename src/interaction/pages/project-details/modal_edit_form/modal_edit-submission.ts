@@ -10,12 +10,12 @@ vEditProjectForm.addEventListener("submit", (e) => {
     // Récupération des informations
     const projectRawData = new FormData(vEditProjectForm);
     const data: IProject = {
-        name: projectRawData.get("project-name") as string,
-        description: projectRawData.get("project-description") as string,
-        status: projectRawData.get("project-status") as Status,
-        client: projectRawData.get("project-client") as string,
-        cost: parseFloat(projectRawData.get("project-cost") as string),
-        finishDate: new Date(projectRawData.get("project-finish-date") as string)
+        name: projectRawData.get("edit-project-name") as string,
+        description: projectRawData.get("edit-project-description") as string,
+        status: projectRawData.get("edit-project-status") as Status,
+        client: projectRawData.get("edit-project-client") as string,
+        cost: parseFloat(projectRawData.get("edit-project-cost") as string),
+        finishDate: new Date(projectRawData.get("edit-project-finish-date") as string)
     };
 
     // TOC assignment , if name is less than 5 characters, throw an error + window ui
@@ -29,7 +29,15 @@ vEditProjectForm.addEventListener("submit", (e) => {
         data.finishDate = new Date("01/01/1999")
     }
 
-    const project = ProjectsManager.getProject(vProjectDetailsPage.getAttribute("data-id") as string) as Project;
+    const projectID = sessionStorage.getItem("projectID");
+    if (!projectID) {
+        throw new Error("Cannot find projectID item in sessionStorage")
+    };
+
+    const project = ProjectsManager.getProject(projectID);
+    if (!project) {
+        throw new Error("Cannot find project in projectList with this ID")
+    };
 
     ProjectsManager.editProject(project.id, data);
     vEditProjectForm.reset();

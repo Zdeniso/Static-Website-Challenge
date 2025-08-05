@@ -4,7 +4,7 @@ import { populateSecondaryPage } from "../../functions/populateSecondaryPage.ts"
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
 import { Project } from "../../classes/project.ts";
 import { vProjectsCardsTable } from "../../assert-element";
-import { storeData } from "../../functions/sessionStorage.ts";
+import { storeDataToSessionStorage } from "../../functions/storeDataToSessionStorage.ts";
 
 // Solution : Event Delegation
 // Plutôt que d’attacher un click sur chaque élément, tu mets un seul click sur le parent commun, 
@@ -18,9 +18,12 @@ vProjectsCardsTable.addEventListener('click', (event) => {
     
     if (!cardSelected) {
     } else {
-        const project = ProjectsManager.getProjectByUI(cardSelected) as Project;
+        const project = ProjectsManager.getProjectByUI(cardSelected);
+        if (!project) {
+            throw new Error("Cannot get a project with this ProjectCard")
+        };
         populateSecondaryPage(vProjectDetailsPage, project);
-        storeData("projectID", project.id)  // Store the projectID for further action (populate detailPage, getUsers from this project etc..)
+        storeDataToSessionStorage("projectID", project.id)  // Store the projectID for further action (populate detailPage, getUsers from this project etc..)
     };
     showPage(vProjectDetailsPage)
 })
