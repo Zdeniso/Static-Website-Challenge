@@ -39,46 +39,46 @@ import "./pages/pages-navigation.ts";
 import "./pages/open_all-users-page.ts";
 //  Projects Page
 // =========================
-import "./pages/projects-page/export_projects-list.ts";
-import "./pages/projects-page/import_projects-list.ts";
-import "./pages/projects-page/card-interaction_open-project-details-page.ts";
-import "./pages/projects-page/error_no-project-to-export.ts";
-import "./pages/projects-page/open_new-project-form.ts";
+import "./pages/Projects/export_projects-list.ts";
+import "./pages/Projects/import_projects-list.ts";
+import "./pages/Projects/open_project-details-page.ts";
+import "./pages/Projects/error_no-project-to-export.ts";
+import "./pages/Projects/open_new-project-form.ts";
 // Modal_Project_Form
-import "./pages/projects-page/modal_project_form/error_project-already-exist.ts";
-import "./pages/projects-page/modal_project_form/close.ts";
-import "./pages/projects-page/modal_project_form/submission.ts";
+import "./pages/Projects/modal_project_form/error_project-already-exist.ts";
+import "./pages/Projects/modal_project_form/close.ts";
+import "./pages/Projects/modal_project_form/submission.ts";
 
 
 // Projects Detail Page
 // =========================
-import "./pages/project-details/open_project-users-page.ts"
-import "./pages/project-details/open_project-edit-form.ts";
-import "./pages/project-details/open_add-todo-form.ts"
-import "./pages/project-details/delete_project.ts";
+import "./pages/Project_details/open_project-users-page.ts"
+import "./pages/Project_details/open_project-edit-form.ts";
+import "./pages/Project_details/open_add-todo-form.ts"
+import "./pages/Project_details/delete_project.ts";
 //  Modal Edit Form
-import "./pages/project-details/modal_edit-form/close.ts";
-import "./pages/project-details/modal_edit-form/submission.ts";
+import "./pages/Project_details/modal_edit-form/close.ts";
+import "./pages/Project_details/modal_edit-form/submission.ts";
 //  Modal Todo Form
-import "./pages/project-details/modal_todo_form/close.ts";
-import "./pages/project-details/modal_todo_form/submission.ts";
+import "./pages/Project_details/modal_todo-form/close.ts";
+import "./pages/Project_details/modal_todo-form/submission.ts";
 
 
 // Users Page
 // =========================
-import "./pages/user-page/export_users-list.ts";
-import "./pages/user-page/import_users-list.ts";
-import "./pages/user-page/error_no-user-to-export.ts";
+import "./pages/Project_users/export_users-list.ts";
+import "./pages/Project_users/import_users-list.ts";
+import "./pages/Project_users/error_no-user-to-export.ts";
 
 //  Modal User Form
-import "./pages/user-page/open_new-user-form.ts";
-import "./pages/user-page/modal_user-form/modal_submission.ts";
-import "./pages/user-page/modal_user-form/error_user-already-exist.ts";
+import "./pages/Project_users/open_new-user-form.ts";
+import "./pages/Project_users/modal_user-form/submission.ts";
+import "./pages/Project_users/modal_user-form/error_user-already-exist.ts";
 
 
 // All Users Page
 // =========================
-import "./pages/all-users-page/open_new-user-form.ts";
+import "./pages/All_users/open_new-user-form.ts";
 //  Modal User Form
-import "./pages/all-users-page/modal_new-user-form/close.ts";
-import "./pages/all-users-page/modal_new-user-form/submit.ts"
+import "./pages/All_users/modal_new-user-form/close.ts";
+import "./pages/All_users/modal_new-user-form/submit.ts"

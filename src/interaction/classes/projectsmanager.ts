@@ -1,6 +1,6 @@
 import { Project, IProject } from "./project.ts";
 import { ProjectCard } from "./projectcard.ts";
-import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
+import { showProjectError } from "../pages/Projects/modal_project_form/error_project-already-exist.ts";
 import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
 import { vProjectsCardsTable } from "../assert-element.ts";
 

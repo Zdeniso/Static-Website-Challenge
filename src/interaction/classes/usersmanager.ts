@@ -1,5 +1,5 @@
 import { User, IUser } from "./user.ts"
-import { showProjectError } from "../pages/projects-page/modal_project_form/error_project-already-exist.ts";
+import { showProjectError } from "../pages/Projects/modal_project_form/error_project-already-exist.ts";
 import { vAllUsersTable } from "../assert-element.ts";
 import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
 

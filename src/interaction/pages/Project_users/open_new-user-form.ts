@@ -1,4 +1,4 @@
-import { vProjectUsersAddButton, vAddUserCancelButton, vAddUserDialog } from "../../assert-element.ts";
+import { vProjectUsersAddButton, vAddUserDialog } from "../../assert-element.ts";
 import { populateHTMLSelectElementWithUsersList } from "../../functions/populateHTMLSelectElementWithUsersList.ts";
 import { UsersManager } from "../../classes/usersmanager.ts";
 import { getEl } from "../../functions/helperQuerySelector.ts";

@@ -2,7 +2,6 @@ import { vProjectDetailsPage } from "../../assert-element";
 import { showPage } from "../../functions/showPage";
 import { populateSecondaryPage } from "../../functions/populateSecondaryPage.ts";
 import { ProjectsManager } from "../../classes/projectsmanager.ts";
-import { Project } from "../../classes/project.ts";
 import { vProjectsCardsTable } from "../../assert-element";
 import { storeDataToSessionStorage } from "../../functions/storeDataToSessionStorage.ts";
 
