@@ -2,28 +2,28 @@
 @import url("./variables.css");
 
 /* Common Page */
-@import url("./pages/common/body.css");
-@import url("./pages/common/aside_navigation-area.css");
-@import url("./pages/common/main-area.css");
-@import url("./pages/common/header_secondary-page.css");
-@import url("./pages/common/main_secondary-page.css");
-@import url("./pages/common/header_primary-page.css");
-@import url("./pages/common/subheader_primary-page.css");
-@import url("./pages//common//users-table.css");
+@import url("./pages/Common/body.css");
+@import url("./pages/Common/aside_navigation-area.css");
+@import url("./pages/Common/main-area.css");
+@import url("./pages/Common/header_secondary-page.css");
+@import url("./pages/Common/main_secondary-page.css");
+@import url("./pages/Common/header_primary-page.css");
+@import url("./pages/Common/subheader_primary-page.css");
+@import url("./pages/Common//users-table.css");
 
-@import url("./pages/common/components/button_accept-cancel.css");
-@import url("./pages/common/components/button_import-export.css");
-@import url("./pages/common/components/button_add-element.css");
-@import url("./pages/common/components/form_add-element.css");
-@import url("./pages/common/components/modal_basic-error.css");
+@import url("./pages/Common/components/button_accept-cancel.css");
+@import url("./pages/Common/components/button_import-export.css");
+@import url("./pages/Common/components/button_add-element.css");
+@import url("./pages/Common/components/form_add-element.css");
+@import url("./pages/Common/components/modal_basic-error.css");
 
 /* Projects Cards Page */
-@import url("./pages/projects-cards-page/cards.css");
-@import url("./pages/projects-cards-page/page_projects-cards.css");
-@import url("./pages/projects-cards-page/content-area.css");
+@import url("./pages/Projects/cards.css");
+@import url("./pages/Projects/page_projects-cards.css");
+@import url("./pages/Projects/content-area.css");
 
 /* Detailed Projects Page */
-@import url("./pages/project-details-page/page_project-details.css");
+@import url("./pages/Project_details/page_project-details.css");
 
 /* Users Page */
-@import url("./pages/users-page/footer.css");
+@import url("./pages/Project_users/footer.css");
