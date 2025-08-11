@@ -2,6 +2,7 @@ import { Project, IProject } from "./project.ts";
 import { ProjectCard } from "./projectcard.ts";
 import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
 import { vProjectsCardsTable } from "../assert-element.ts";
+import { showCommonModal } from "../functions/showCommonModal.ts";
 
 /**
  * Represent the container of all Project referenced in the application
@@ -48,12 +49,18 @@ export class ProjectsManager {
     static addProject(data: IProject) : void {
         const existingProject = this.projectsList.some((p) => p.hasSameName(data));     
         if (existingProject) {
-            console.warn("Attempted to add project that already exists:", data.name);
-            return;
+            showCommonModal("Error", `Attempted to add project which already exists: ${data.name}`)
+            throw new Error(`Attempted to add project which already exists: ${data.name}`);
         } else {
-            const newProject = new Project(data);
-            this.projectsList.push(newProject);
-            addToDOM(vProjectsCardsTable, newProject.ui.element);
+            try {
+                const newProject = new Project(data);
+                this.projectsList.push(newProject);
+                addToDOM(vProjectsCardsTable, newProject.ui.element)
+                showCommonModal("Success", `${newProject.name} has been added successfuly to the project list`)
+            } catch (error) {
+                showCommonModal("Error", "Something went wrong trying to add this project" )
+                throw new Error(`Something went wrong trying to add this project : ${error}`)
+            }
         }
     };
 
@@ -68,7 +75,12 @@ export class ProjectsManager {
             console.warn("getProject: aucun projet trouvé avec cet ID :", id); 
             return
         } else {
-            project.update(data);
+            try {
+                project.update(data);
+                showCommonModal("Success", "Project informations have been edited successfuly")
+            } catch (error) {
+                showCommonModal("Error", "Something went wrong trying to edit the project informations")
+            }
         }
     };
 

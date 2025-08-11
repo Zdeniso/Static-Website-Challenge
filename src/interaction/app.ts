@@ -37,7 +37,6 @@ import "./functions/showCommonModal.ts";
 // PAGES
 // =========================
 import "./pages/pages-navigation.ts";
-import "./pages/open_all-users-page.ts";
 //  Projects Page
 // =========================
 import "./pages/Projects/export_projects-list.ts";
@@ -63,14 +62,15 @@ import "./pages/Project_details/modal_todo-form/close.ts";
 import "./pages/Project_details/modal_todo-form/submission.ts";
 
 
-// Users Page
+// Project Users Page
 // =========================
 import "./pages/Project_users/export_users-list.ts";
 import "./pages/Project_users/import_users-list.ts";
+import "./pages/Project_users/open_new-user-form.ts";
 
 //  Modal User Form
-import "./pages/Project_users/open_new-user-form.ts";
 import "./pages/Project_users/modal_user-form/submission.ts";
+import "./pages/Project_users/modal_user-form/close.ts";
 
 
 // All Users Page

@@ -14,12 +14,12 @@ vNewProjectForm.addEventListener("submit", (e) => {
         client: projectRawData.get("project-client") as string,
         cost: parseFloat(projectRawData.get("project-cost") as string),
         finishDate: new Date(projectRawData.get("project-finish-date") as string)
-    }
+    };
 
     // TOC assignment , if name is less than 5 characters, throw an error + window ui
     if (data.name.length < 5) {
-        console.error("Project name has less than 5 chars.");
-        return
+        showCommonModal("Error", "Project should be 5 chars minimum")
+        throw new Error("Project name has less than 5 chars.");
     }; 
 
     // TOC assignment , When creating the project based on the form information, give a default date in case user doesn’t specify one
@@ -27,13 +27,7 @@ vNewProjectForm.addEventListener("submit", (e) => {
         data.finishDate = new Date("01/01/1999")
     };
 
-    try {
-        ProjectsManager.addProject(data);
-        vNewProjectForm.reset();
-        vNewProjectDialog.close();
-        showCommonModal("Success", "Project has been added successfuly !")        
-    } catch (error) {
-        console.error("An error occured : ", error)
-        showCommonModal("Error", "An error occured. Project has not been added ")
-    }
+    ProjectsManager.addProject(data);
+    vNewProjectForm.reset();
+    vNewProjectDialog.close()
 })

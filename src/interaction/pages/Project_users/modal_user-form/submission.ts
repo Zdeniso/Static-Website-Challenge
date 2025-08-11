@@ -1,7 +1,9 @@
 import { vAddUserDialog, vAddUserForm } from "../../../assert-element.ts";
 import { ProjectsManager } from "../../../classes/projectsmanager.ts";
 import { UsersManager } from "../../../classes/usersmanager.ts";
+import { getProjectIDFromSessionStorage } from "../../../functions/getProjectIDFromSessionStorage.ts";
 import { getEl } from "../../../functions/helperQuerySelector.ts";
+import { showCommonModal } from "../../../functions/showCommonModal.ts";
 
 vAddUserForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -9,26 +11,21 @@ vAddUserForm.addEventListener("submit", (e) => {
     const selectEl = getEl<HTMLSelectElement>("select[name='existing-user']");
 
     if (!selectEl) {
-        console.error("Select element not found in the form");
-        return;
+        throw new Error("Select element not found in the form");
     };
 
     const selectedOption = selectEl.selectedOptions[0];
     if (!selectedOption) {
-        console.error("No user selected");
-        return;
+        throw new Error("No user selected");
     };
 
     const userId = selectedOption.dataset.id;
     if (!userId) {
-        console.error("Selected option does not contain a data-id");
-        return;
+        showCommonModal("Error", "Please select an existing user from the list")
+        throw new Error("Selected option does not contain a data-id");
     };
 
-    const projectID = sessionStorage.getItem("projectID");
-    if (!projectID) {
-        throw new Error("Cannot find projectID item in sessionStorage");
-    };
+    const projectID = getProjectIDFromSessionStorage()
 
     const project = ProjectsManager.getProject(projectID);
     if (!project) {
@@ -37,11 +34,11 @@ vAddUserForm.addEventListener("submit", (e) => {
 
     const user = UsersManager.getUser(userId);
     if (!user) {
-        console.error(`No user found with ID: ${userId}`);
-        return;
+        throw new Error(`No user found with ID: ${userId}`);
     };
 
     project.addUser(user);
     vAddUserForm.reset();
     vAddUserDialog.close();
+
 });

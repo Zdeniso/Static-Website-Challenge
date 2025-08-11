@@ -1,6 +1,7 @@
 import { User, IUser } from "./user.ts"
 import { vAllUsersTable } from "../assert-element.ts";
 import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
+import { showCommonModal } from "../functions/showCommonModal.ts";
 
 /**
  * Represent the container of all User referenced in the application
@@ -28,11 +29,18 @@ export class UsersManager {
         const existingUser = this.usersList.some((u) => u.hasSameEmail(data));     
         if (existingUser) {
             console.warn("Attempted to add user that already exists:", data.name);
+            showCommonModal("Error", "An user with this email already exist")
             return;
         } else {
-            const newUser = new User(data);
-            this.usersList.push(newUser);
-            addToDOM(vAllUsersTable, newUser.ui.element);
+            try {
+                const newUser = new User(data);
+                this.usersList.push(newUser);
+                addToDOM(vAllUsersTable, newUser.ui.element);
+                showCommonModal("Success", `${newUser.name} has been added to the global user list successfuly. You can now add him/her to projects `)
+            } catch (error) {
+                console.warn("Something went wrong trying to add the user to the global list and to the DOM:", error);
+                showCommonModal("Error", "Something went wrong trying to add the user to the global list and to the DOM")
+            }
         }
     };
 
