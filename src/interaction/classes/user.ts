@@ -52,10 +52,16 @@ export class User implements IUser {
      * Renvoie un clone de l'élément UserCard pour affichage multiple.
      * Le clone est stocké pour pouvoir être mis à jour en cas de modification des données.
      */
-    createClone(): HTMLElement {
+    createClone(): HTMLElement | undefined {
         const clone = this.ui.element.cloneNode(true) as HTMLElement;
-        this.clones.push(clone);
-        return clone;
+        const deleteButton = clone.querySelector('button[title="Edit"]');
+        if (!deleteButton) {
+            return
+        } else {  
+            deleteButton.remove();
+            this.clones.push(clone);
+            return clone;
+        }
     }
 
     /**

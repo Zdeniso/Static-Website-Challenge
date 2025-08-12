@@ -1,101 +1,81 @@
 import { showCommonModal } from "./showCommonModal";
 
 /**
- * Function to export an array of element to a JSON file
- * @param fileName We can give a custom fileName if wanted
- * @returns Void
+ * Generic function to export an array of objects to a JSON file
+ * @param list Array of objects to export
+ * @param fileName Name of the output file (without extension)
  */
-export function exportToJSON(list: Array<any>, fileName: string = "TOC_users-list"): void {        // More explication on CheatSheets Github
+export function exportToJSON<T>(list: T[], fileName: string = "data"): void {
     if (list.length === 0) {
-        console.warn("Aucun element à exporter.");
-        showCommonModal("Error", "There is no Project to export")
-        return
-    } else { 
-        try {      
-            const json = JSON.stringify(list, null, 2); // Sérialise la liste des éléments avec indentation
-            const blob = new Blob([json], { type: "application/json" }); // Crée un blob JSON à partir du texte
-            const url = URL.createObjectURL(blob); // Génère une URL temporaire pour le blob
-
-            const a = document.createElement('a'); // Crée un élément <a> pour déclencher le téléchargement
-            a.href = url; // Attribue l'URL blob au lien
-            a.download = `${fileName}.json`;; // Définit le nom du fichier téléchargé
-
-            document.body.appendChild(a); // nécessaire pour certains navigateurs
-            a.click(); // Simule un clic pour lancer le téléchargement
-            document.body.removeChild(a); // nettoyage
-
-            URL.revokeObjectURL(url); // Libère l'URL blob pour éviter les fuites mémoire
-
-            showCommonModal("Success", "Projects has been exported successfully in JSON file !")
-        
-        } catch (error) {
-            console.error("An error occured : ", error);
-            showCommonModal("Error", "An error occured : Export has not been done")            
-        }
+        console.warn("No element to export.");
+        showCommonModal("Error", `There is no ${fileName} to export`);
+        return;
     }
-};
+
+    try {
+        const json = JSON.stringify(list, null, 2); // Indentation
+        const blob = new Blob([json], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${fileName}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+
+        showCommonModal("Success", `${fileName} has been exported successfully in JSON file!`);
+    } catch (error) {
+        console.error("Export error:", error);
+        showCommonModal("Error", "An error occurred: Export has not been done");
+    }
+}
 
 
 /**
- * Function from ChatGPT WIP
- * @param targetList List in which we want to import our parsed element
- * @param targetClass Class in which we want our element to be parsed
+ * Generic function to import a JSON file and convert its content into instances of a given class
+ * @param ClassType The class constructor to use for creating instances
+ * @returns Promise that resolves to an array of class instances
  */
-export function importAndConvertFromJSON<T>(
-    targetList: T[],
-    targetClass: new (...args: any[]) => T
-    ): void {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "application/json";
+export function importFromJSON<T>( ClassType: { new (...args: any[]): T }): Promise<T[]> {
+    return new Promise((resolve, reject) => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "application/json";
 
-    input.addEventListener("change", () => {
-        const file = input.files?.[0];
-        if (!file) return;
+        input.onchange = () => {
+            const file = input.files?.[0];
+            if (!file) return reject(new Error("No file selected"));
 
-        const reader = new FileReader();
-        reader.onload = () => {
-        const content = reader.result;
-        if (!content) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    const rawArray = JSON.parse(reader.result as string);
 
-        try {
-            const parsed = JSON.parse(content as string);
-            if (!Array.isArray(parsed)) {
-            console.error("Le JSON importé n'est pas un tableau.");
-            return;
-            }
+                    if (!Array.isArray(rawArray)) {
+                        throw new Error("Invalid JSON: expected an array");
+                    }
 
-            const converted = parseJSONElementsToClass(parsed, targetClass);
-            targetList.push(...converted);
-            console.log(`${converted.length} éléments importés dans ${targetClass.name}.`);
+                    const items = rawArray.map(data => new ClassType(data));
 
-        } catch (error) {
-            console.error("Erreur lors de l'import JSON :", error);
-        }
+                    showCommonModal("Success", `${ClassType.name} objects have been imported successfully!`);
+                    resolve(items);
+                } catch (error) {
+                    console.error("Import error:", error);
+                    showCommonModal("Error", "Import failed: invalid JSON or structure");
+                    reject(error);
+                }
+            };
+
+            reader.onerror = () => {
+                console.error("File reading error:", reader.error);
+                showCommonModal("Error", "Unable to read file");
+                reject(reader.error);
+            };
+            reader.readAsText(file);
         };
-
-        reader.readAsText(file);
+        input.click();
     });
-
-    input.click();
-}
-
-// Transforme un tableau brut JSON en objets instanciés d'une classe donnée
-export function parseJSONElementsToClass<T>(
-    rawList: any[],
-    targetClass: new (...args: any[]) => T
-    ): T[] {
-    const result: T[] = [];
-
-    for (const item of rawList) {
-        try {
-        // On tente de créer une instance de la classe
-        const instance = new targetClass(...Object.values(item));
-        result.push(instance);
-        } catch (error) {
-        console.warn("Échec d’instanciation avec :", item, error);
-        }
-    }
-
-    return result;
 }

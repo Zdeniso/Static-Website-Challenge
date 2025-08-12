@@ -32,6 +32,7 @@ import "./functions/getProjectIDFromSessionStorage.ts";
 import "./functions/setProjectInitials.ts";
 import "./functions/showPage.ts";
 import "./functions/showCommonModal.ts";
+import "./functions/showAndGetAreYouSureToDeleteModal.ts";
 
 // =========================
 // PAGES
@@ -76,6 +77,7 @@ import "./pages/Project_users/modal_user-form/close.ts";
 // All Users Page
 // =========================
 import "./pages/All_users/open_new-user-form.ts";
+import "./pages/All_users/delete_user.ts"
 //  Modal User Form
 import "./pages/All_users/modal_new-user-form/close.ts";
 import "./pages/All_users/modal_new-user-form/submit.ts"

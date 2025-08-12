@@ -3,7 +3,10 @@ import { IProject } from "../../../classes/project";
 import { ProjectsManager } from "../../../classes/projectsmanager";
 import { Status } from "../../../classes/type";
 import { showPage } from "../../../functions/showPage";
-         
+import { populateSecondaryPage } from "../../../functions/populateSecondaryPage.ts";
+import { vProjectDetailsPage } from "../../../assert-element.ts";
+import { getProjectIDFromSessionStorage } from "../../../functions/getProjectIDFromSessionStorage.ts";
+
 vEditProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     // Récupération des informations
@@ -28,10 +31,7 @@ vEditProjectForm.addEventListener("submit", (e) => {
         data.finishDate = new Date("01/01/1999")
     }
 
-    const projectID = sessionStorage.getItem("projectID");
-    if (!projectID) {
-        throw new Error("Cannot find projectID item in sessionStorage")
-    };
+    const projectID = getProjectIDFromSessionStorage();
 
     const project = ProjectsManager.getProject(projectID);
     if (!project) {
@@ -39,10 +39,7 @@ vEditProjectForm.addEventListener("submit", (e) => {
     };
 
     ProjectsManager.editProject(project.id, data);
+    populateSecondaryPage(vProjectDetailsPage, project);
     vEditProjectForm.reset();
-    vEditProjectDialog.close();
-
-    // Ca nous quitte la page Details Project et nous ramène sur la page des projets. 
-    // Important car le detail Page ne se populate qu'en cliquant sur la card
-    showPage(vProjectsCardsPage) 
+    vEditProjectDialog.close()
 })

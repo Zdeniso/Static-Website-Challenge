@@ -1,4 +1,5 @@
-import { User, IUser } from "./user.ts"
+import { User, IUser } from "./user.ts";
+import { UserCard } from "./usercard.ts";
 import { vAllUsersTable } from "../assert-element.ts";
 import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
 import { showCommonModal } from "../functions/showCommonModal.ts";
@@ -75,6 +76,25 @@ export class UsersManager {
             console.log("User has been removed successfuly")
         }
     };
+
+    /**
+     * Method which try to point an user with its UI property
+     * @param ui UI (UserCard) of the wanted User
+     * @returns Return the User if found, null if not
+     */
+    static getUserByUI(ui: UserCard ) : User | null {
+        return this.usersList.find((e) => e.ui === ui) || null
+    };
+
+    /**
+     * Method which try to point a UserCard with its UI.element property (HTMLElement)
+     * @param element HTMLElement of the UserCard
+     * @returns Return the UserCard if found, null if not
+     */
+    static getUIByHTMLElement(element: HTMLElement ) : UserCard | null {
+        const user = this.usersList.find((e) => e.ui.element === element)
+        return user ? user.ui : null      // Ternary operator ( compact if-else statement)
+    };   
 
     /*
      * ==========================================================================================================
