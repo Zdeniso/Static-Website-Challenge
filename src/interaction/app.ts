@@ -26,6 +26,7 @@ import "./functions/helperQuerySelector.ts";
 import "./functions/export-importFromJSON.ts"
 import "./functions/populateHTMLSelectElementWithUsersList.ts";
 import "./functions/populateProjectEditForm.ts";
+import "./functions/populateUserEditForm.ts";
 import "./functions/populateSecondaryPage.ts";
 import "./functions/storeDataToSessionStorage.ts";
 import "./functions/getProjectIDFromSessionStorage.ts";
@@ -68,6 +69,7 @@ import "./pages/Project_details/modal_todo-form/submission.ts";
 import "./pages/Project_users/export_users-list.ts";
 import "./pages/Project_users/import_users-list.ts";
 import "./pages/Project_users/open_new-user-form.ts";
+import "./pages/Project_users/remove_user.ts";
 
 //  Modal User Form
 import "./pages/Project_users/modal_user-form/submission.ts";
@@ -77,7 +79,13 @@ import "./pages/Project_users/modal_user-form/close.ts";
 // All Users Page
 // =========================
 import "./pages/All_users/open_new-user-form.ts";
-import "./pages/All_users/delete_user.ts"
-//  Modal User Form
+import "./pages/All_users/delete_user.ts";
+import "./pages/All_users/edit_user.ts";
+//  Modal New User Form
 import "./pages/All_users/modal_new-user-form/close.ts";
-import "./pages/All_users/modal_new-user-form/submit.ts"
+import "./pages/All_users/modal_new-user-form/submit.ts";
+// Modal Edit User Form
+import "./pages/All_users/modal_edit-user-form/close.ts";
+import "./pages/All_users/modal_edit-user-form/submit.ts"
+
+

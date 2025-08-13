@@ -221,6 +221,58 @@
                 </form>
             </dialog>  
 
+            <!-- Modal - Edit user -->
+            <dialog class="dialog-for-forms" id="edit-user-dialog">
+                <form class="common-form" id="edit-user-form">
+                    <h1>Edit user's information</h1>
+                    <label for="edit-user-name">
+                        <div class="title-zone">
+                            <span class="material-icons">account_circle</span>
+                            <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
+                        </div>
+                        <input name="edit-user-name" id="edit-user-name" type="text" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+                    <label for="edit-user-company">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Company</span>
+                        </div>
+                        <select name="edit-user-company" id="edit-user-company">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Losinger-Marazzi</option>
+                            <option>Implenia</option>
+                            <option>Vinci-Construction</option>
+                        </select>
+                    </label>
+                    <label for="edit-user-role">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Role</span>
+                        </div>
+                        <select name="edit-user-role" id="edit-user-role">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Architect</option>
+                            <option>Electrical Engineer</option>
+                            <option>HVAC Engineer</option>
+                            <option>Structural Engineer</option>
+                            <option>BIM Manager</option>
+                            <option>Client</option>
+                        </select>
+                    </label>
+                    <label for="edit-user-email">
+                        <div class="title-zone">
+                            <span class="material-icons">alternate_email</span>
+                            <span class="label-title">Email</span>
+                        </div>
+                        <input name="edit-user-email" id="edit-user-email" type="text" placeholder="John.delaware@vinci-construction.com" required />
+                    </label>
+                    <div class="form-actions">
+                        <button type="button" class="btn cancel" id="edit-user-cancel-button"  >Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>  
 
             
         </div>  

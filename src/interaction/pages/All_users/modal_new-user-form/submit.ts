@@ -2,7 +2,7 @@ import { vNewUserDialog, vNewUserForm } from "../../../assert-element.ts";
 import { Company, Role } from "../../../classes/type.ts";
 import { IUser } from "../../../classes/user.ts";
 import { UsersManager } from "../../../classes/usersmanager.ts";
-import { showCommonModal } from "../../../functions/showCommonModal.ts";
+
 
 vNewUserForm.addEventListener("submit", (e) => {
     e.preventDefault();

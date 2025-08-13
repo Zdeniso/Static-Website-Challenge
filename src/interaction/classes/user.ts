@@ -39,7 +39,7 @@ export class User implements IUser {
         return (this.email.toLowerCase() === element.email.toLowerCase())
     };
 
-    update(data: IUser) {
+    update(data: IUser): void {
         this.name = data.name;
         this.company = data.company;
         this.role = data.role;

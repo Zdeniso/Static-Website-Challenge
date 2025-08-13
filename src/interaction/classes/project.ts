@@ -6,6 +6,8 @@ import { User } from "./user.ts";
 import { vProjectDetailsTodoTable, vProjectUsersTable } from "./../assert-element.ts";
 import { addToDOM } from '../functions/add-removeFromDOM.ts';
 import { showCommonModal } from '../functions/showCommonModal.ts';
+import { UserCard } from './usercard.ts';
+import { removeFromDOM } from '../functions/add-removeFromDOM.ts';
 
 export interface IProject {
     name: string;
@@ -13,7 +15,7 @@ export interface IProject {
     status: Status;
     client: string;
     cost: number;
-    finishDate: Date;
+    finishDate: Date
 };
 
 /**
@@ -71,7 +73,7 @@ export class Project implements IProject {
         } else {
             try {
                 this.users.push(user);
-                addToDOM(vProjectUsersTable, user.createClone()); 
+                addToDOM(vProjectUsersTable, user.createClone() as HTMLElement); 
                 showCommonModal("Success", `${user.name} has been added to the project successfuly`)  
             } catch (error){
                 showCommonModal("Error", "Something went wrong trying to add user to the project and to the DOM")
@@ -79,7 +81,55 @@ export class Project implements IProject {
             }    
         }
     };
+
+    /**
+     * Method which try to point an User with its ID property
+     * @param id ID of the wanted User
+     * @returns Return the User if found, null if not
+     */
+    getUser(id: string): User | null {
+        return this.users.find((e) => e.id === id) || null
+    };
+
+    /**
+     * Method which try to remove an user from the project
+     * @param id ID of the wanted User
+     */
+    deleteUser(id: string) : void {
+        const user = this.getUser(id);
+        if (!user) {
+            console.warn("getUser: aucun user trouvé avec cet ID :", id);
+        } else {
+            const newUsersList = this.users.filter((e) => e.id != id);
+            this.users = newUsersList;
+            console.log(`User has been removed successfuly from the project ${this.name}`)
+        }
+    };
+
+
+    /**
+     * Method which try to point an user from users Project property with its UI property
+     * @param ui UI (UserCard) of the wanted User
+     * @returns Return the User if found, null if not
+     */
+    getUserByUI(ui: UserCard ) : User | null {
+        return this.users.find((e) => e.ui === ui) || null
+    };
     
+    /**
+     * Method which tries to find the UserCard (UI) matching an HTMLElement.
+     * Works both with the original element and any clone stored in User.clones.
+     * @param element HTMLElement of the UserCard
+     * @returns Return the UserCard if found, null if not
+     */
+    getUIByHTMLElement(element: HTMLElement): UserCard | null {
+        const user = this.users.find((u) => u.ui.element === element || u["clones"]?.includes(element)
+        );
+        return user ? user.ui : null;
+    }
+
+
+
     addTodo(todo: Todo): void {
         const alreadyExists = this.todos.some(t => t.name === todo.name);
         if (alreadyExists) {

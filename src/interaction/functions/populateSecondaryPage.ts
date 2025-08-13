@@ -65,7 +65,7 @@ function populateTodo(project: Project): void {
 function populateProjectUsersTable(project: Project): void {
     vProjectUsersTable.innerHTML = "";
     project.users.forEach((u) => {
-        addToDOM(vProjectUsersTable, u.createClone())
+        addToDOM(vProjectUsersTable, u.createClone() as HTMLElement)
     });
 
 }

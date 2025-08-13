@@ -65,6 +65,10 @@ export const ID_ALL_USERS_NEW_USER_BUTTON: string = "all-users-new-user-button";
 export const ID_ALL_USERS_IMPORT_BUTTON: string = "all-users-import-button";
 export const ID_ALL_USERS_EXPORT_BUTTON: string = "all-users-export-button";
 
+// Modal - Edit User
+export const ID_EDIT_USER_DIALOG: string = "edit-user-dialog";
+export const ID_EDIT_USER_FORM: string = "edit-user-form";
+export const ID_EDIT_USER_CANCEL_BUTTON: string = "edit-user-cancel-button";
 
 // Modal - New User
 export const ID_NEW_USER_DIALOG: string = "new-user-dialog";

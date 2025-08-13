@@ -5,7 +5,6 @@ import { getProjectIDFromSessionStorage } from "../../functions/getProjectIDFrom
 import { showAndGetAreYouSureToDeleteModal } from "../../functions/showAndGetAreYouSureToDeleteModal.ts";
 import { showCommonModal } from "../../functions/showCommonModal.ts";
 import { showPage } from "../../functions/showPage.ts";
-import { getEl } from "../../functions/helperQuerySelector.ts";
 
 vProjectDetailsDeleteButton.addEventListener("click", () => {
     const projectID = getProjectIDFromSessionStorage()

@@ -12,6 +12,7 @@ export class UsersManager {
     static usersList: User[] = [];
 
     private constructor() {}
+    
     /**
      * Method which try to point an User with its ID property
      * @param id ID of the wanted User
@@ -56,8 +57,14 @@ export class UsersManager {
             console.warn("getUser: aucun user trouvé avec cet ID :", id); 
             return
         } else {
-            user.update(data);
-            console.log("User has been update successfuly") 
+            try {
+                user.update(data);
+                showCommonModal("Success", `User ${user.name} has been edited successfuly`)
+            } catch (error) {
+                showCommonModal("Error", `Something went wrong trying to edit the user ${user.name}`)
+                throw new Error(`Something went wrong trying to edit the user : ${error}`);
+                
+            }
         }
     };    
 
@@ -72,7 +79,6 @@ export class UsersManager {
         } else {
             const newUsersList = this.usersList.filter((e) => e.id != id);
             this.usersList = newUsersList;
-            removeFromDOM(user.ui.element);
             console.log("User has been removed successfuly")
         }
     };
