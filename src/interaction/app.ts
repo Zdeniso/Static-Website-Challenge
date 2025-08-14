@@ -28,6 +28,7 @@ import "./functions/populateHTMLSelectElementWithUsersList.ts";
 import "./functions/populateProjectEditForm.ts";
 import "./functions/populateUserEditForm.ts";
 import "./functions/populateSecondaryPage.ts";
+import "./functions/populateTodoEditForm.ts";
 import "./functions/storeDataToSessionStorage.ts";
 import "./functions/getProjectIDFromSessionStorage.ts";
 import "./functions/setProjectInitials.ts";
@@ -54,14 +55,19 @@ import "./pages/Projects/modal_project_form/submission.ts";
 // =========================
 import "./pages/Project_details/open_project-users-page.ts"
 import "./pages/Project_details/open_project-edit-form.ts";
-import "./pages/Project_details/open_add-todo-form.ts"
+import "./pages/Project_details/open_todo-add-form.ts";
 import "./pages/Project_details/delete_project.ts";
-//  Modal Edit Form
-import "./pages/Project_details/modal_edit-form/close.ts";
-import "./pages/Project_details/modal_edit-form/submission.ts";
-//  Modal Todo Form
-import "./pages/Project_details/modal_todo-form/close.ts";
-import "./pages/Project_details/modal_todo-form/submission.ts";
+import "./pages/Project_details/delete_todo.ts";
+import "./pages/Project_details/edit_todo.ts";
+//  Modal Edit Project Form
+import "./pages/Project_details/modal_edit-project-form/close.ts";
+import "./pages/Project_details/modal_edit-project-form/submission.ts";
+//  Modal Add Todo Form
+import "./pages/Project_details/modal_add-todo-form/close.ts";
+import "./pages/Project_details/modal_add-todo-form/submission.ts";
+//  Modal Edit Todo Form
+import "./pages/Project_details/modal_edit-todo-form/close.ts";
+import "./pages/Project_details/modal_edit-todo-form/submit.ts";
 
 
 // Project Users Page

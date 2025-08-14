@@ -7,6 +7,7 @@ import { vProjectDetailsTodoTable, vProjectUsersTable } from "./../assert-elemen
 import { addToDOM } from '../functions/add-removeFromDOM.ts';
 import { showCommonModal } from '../functions/showCommonModal.ts';
 import { UserCard } from './usercard.ts';
+import { TodoCard } from './todocard.ts';
 import { removeFromDOM } from '../functions/add-removeFromDOM.ts';
 
 export interface IProject {
@@ -91,6 +92,10 @@ export class Project implements IProject {
         return this.users.find((e) => e.id === id) || null
     };
 
+    getTodo(id: string): Todo | null {
+        return this.todos.find((e) => e.id === id) || null
+    };
+
     /**
      * Method which try to remove an user from the project
      * @param id ID of the wanted User
@@ -106,6 +111,16 @@ export class Project implements IProject {
         }
     };
 
+    deleteTodo(id: string) : void {
+        const todo = this.getTodo(id);
+        if (!todo) {
+            console.warn("getUser: aucun todo trouvé avec cet ID :", id);
+        } else {
+            const newTodosList = this.todos.filter((e) => e.id != id);
+            this.todos = newTodosList;
+            console.log(`Todo ${todo.name} has been removed successfuly from the project ${this.name}`)
+        }
+    };
 
     /**
      * Method which try to point an user from users Project property with its UI property
@@ -115,20 +130,27 @@ export class Project implements IProject {
     getUserByUI(ui: UserCard ) : User | null {
         return this.users.find((e) => e.ui === ui) || null
     };
-    
+
+    getTodoByUI(ui: TodoCard ) : Todo | null {
+        return this.todos.find((e) => e.ui === ui) || null
+    };
+
     /**
      * Method which tries to find the UserCard (UI) matching an HTMLElement.
      * Works both with the original element and any clone stored in User.clones.
      * @param element HTMLElement of the UserCard
      * @returns Return the UserCard if found, null if not
      */
-    getUIByHTMLElement(element: HTMLElement): UserCard | null {
+    getUserUIByHTMLElement(element: HTMLElement): UserCard | null {
         const user = this.users.find((u) => u.ui.element === element || u["clones"]?.includes(element)
         );
         return user ? user.ui : null;
     }
 
-
+    getTodoUIByHTMLElement(element: HTMLElement): TodoCard | null {
+        const todo = this.todos.find((u) => u.ui.element === element);
+        return todo ? todo.ui : null;
+    }
 
     addTodo(todo: Todo): void {
         const alreadyExists = this.todos.some(t => t.name === todo.name);

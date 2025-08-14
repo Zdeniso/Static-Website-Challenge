@@ -2,6 +2,7 @@ import { vEditUserForm, vEditUserDialog } from "../../../assert-element.ts";
 import { IUser } from "../../../classes/user.ts";
 import { UsersManager } from "../../../classes/usersmanager.ts";
 import { Company, Role } from "../../../classes/type.ts";
+import { showCommonModal } from "../../../functions/showCommonModal.ts";
 
 vEditUserForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -21,5 +22,5 @@ vEditUserForm.addEventListener("submit", (e) => {
 
     UsersManager.editUser(userId, data);
     vEditUserForm.reset();
-    vEditUserDialog.close()
+    vEditUserDialog.close();
 })

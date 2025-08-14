@@ -40,6 +40,11 @@ export const ID_ADD_TODO_DIALOG: string = "add-todo-dialog";
 export const ID_ADD_TODO_FORM: string = "add-todo-form";
 export const ID_ADD_TODO_CANCEL_BUTTON: string = "add-todo-cancel-button";
 
+// Modal - Edit Todo
+export const ID_EDIT_TODO_DIALOG: string = "edit-todo-dialog";
+export const ID_EDIT_TODO_FORM: string = "edit-todo-form";
+export const ID_EDIT_TODO_CANCEL_BUTTON: string = "edit-todo-cancel-button";
+
 
 // ==========================================================================================
 // Project's Users Page

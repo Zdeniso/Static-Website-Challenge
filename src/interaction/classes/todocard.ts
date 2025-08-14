@@ -1,10 +1,5 @@
-import { formattingDate } from "../functions/formattingValues.ts";
 import { ITodo } from "./todo.ts";
 
-/**
- * Represent and define TodoCard with Todo.ui property and add the element to the DOM for UI.
- * Should be instanciated
- */
 export class TodoCard {
     public element: HTMLElement;
     private data: ITodo;
@@ -26,7 +21,11 @@ export class TodoCard {
         this.element.innerHTML = `
             <span class="material-icons" style="background-color: ${backgroundColor}">construction</span>
             <p>${this.data.name}</p>
-            <p>${formattingDate(this.data.creationDate)}</p> 
+            <p>${this.data.type}</p>
+            <div class="actions">
+                <button title="Edit">✏️</button>
+                <button title="Delete">🗑️</button>
+            </div> 
         `;
     };
 
