@@ -6,7 +6,7 @@ import { addUserForm, addUserCancelButton, projectUsersAddButton, addUserDialog,
     projectDetailsTodoAddButton, addTodoForm, addTodoDialog, addTodoCancelButton, projectDetailsTodoTable, 
     allUsersPage, usersNav, allUsersNewUserButton, newUserDialog, newUserForm, allUsersTable, projectDetailsDeleteButton, 
     allUsersImportButton, allUsersExportButton, newUserCancelButton, editUserDialog, editUserForm, editUserCancelButton, 
-    editTodoDialog, editTodoForm, editTodoCancelButton
+    editTodoDialog, editTodoForm, editTodoCancelButton, projectUsersBackToProjectDetailsButton
 
 } from "./getelement.ts"
 
@@ -67,6 +67,7 @@ export const vProjectUsersTable = assertContainerElement(projectUsersTable);
 export const vProjectUsersAddButton = assertButtonElement(projectUsersAddButton);
 export const vExportUsersListButton = assertButtonElement(projectUsersExportButton);
 export const vImportUsersListButton = assertButtonElement(projectUsersImportButton);
+export const vProjectUsersBackToProjectDetailsButton = assertButtonElement(projectUsersBackToProjectDetailsButton);
 
 // Modal - Add User
 export const vAddUserDialog = assertDialogElement(addUserDialog);

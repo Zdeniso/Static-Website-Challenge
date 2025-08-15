@@ -2,7 +2,6 @@ import { vEditProjectDialog, vEditProjectForm, vProjectsCardsPage } from "../../
 import { IProject } from "../../../classes/project";
 import { ProjectsManager } from "../../../classes/projectsmanager";
 import { Status } from "../../../classes/type";
-import { showPage } from "../../../functions/showPage";
 import { populateSecondaryPage } from "../../../functions/populateSecondaryPage.ts";
 import { vProjectDetailsPage } from "../../../assert-element.ts";
 import { getProjectIDFromSessionStorage } from "../../../functions/getProjectIDFromSessionStorage.ts";

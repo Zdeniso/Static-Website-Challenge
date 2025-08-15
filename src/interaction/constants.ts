@@ -54,6 +54,7 @@ export const ID_PROJECT_USERS_TABLE: string = "project-users-table";
 export const ID_PROJECT_USERS_ADD_BUTTON: string = "project-users-add-button";
 export const ID_PROJECT_USERS_IMPORT_BUTTON: string = "project-users-import-button";
 export const ID_PROJECT_USERS_EXPORT_BUTTON: string = "project-users-export-button";
+export const ID_PROJECT_USERS_BACK_TO_PROJECT_DETAILS_BUTTON: string = "project-users-back-to-project-details-button";
 
 // Modal - Add User
 export const ID_ADD_USER_DIALOG: string = "add-user-dialog";

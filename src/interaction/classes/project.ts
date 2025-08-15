@@ -8,7 +8,6 @@ import { addToDOM } from '../functions/add-removeFromDOM.ts';
 import { showCommonModal } from '../functions/showCommonModal.ts';
 import { UserCard } from './usercard.ts';
 import { TodoCard } from './todocard.ts';
-import { removeFromDOM } from '../functions/add-removeFromDOM.ts';
 
 export interface IProject {
     name: string;
@@ -19,10 +18,6 @@ export interface IProject {
     finishDate: Date
 };
 
-/**
- * Represent and define Projects with method like update(), addUser(), deleteUser(), etc.
- * Should be instanciated
- */
 export class Project implements IProject {
     public name: string;
     public description: string;
@@ -35,9 +30,6 @@ export class Project implements IProject {
     public users: User[];    
     public todos: Todo[]; 
 
-    /**
-     * @param data Data with which the project will be create
-     */
     constructor(data: IProject) {
         this.name = data.name;
         this.description = data.description;
@@ -83,11 +75,6 @@ export class Project implements IProject {
         }
     };
 
-    /**
-     * Method which try to point an User with its ID property
-     * @param id ID of the wanted User
-     * @returns Return the User if found, null if not
-     */
     getUser(id: string): User | null {
         return this.users.find((e) => e.id === id) || null
     };
@@ -96,10 +83,6 @@ export class Project implements IProject {
         return this.todos.find((e) => e.id === id) || null
     };
 
-    /**
-     * Method which try to remove an user from the project
-     * @param id ID of the wanted User
-     */
     deleteUser(id: string) : void {
         const user = this.getUser(id);
         if (!user) {
@@ -118,15 +101,9 @@ export class Project implements IProject {
         } else {
             const newTodosList = this.todos.filter((e) => e.id != id);
             this.todos = newTodosList;
-            console.log(`Todo ${todo.name} has been removed successfuly from the project ${this.name}`)
         }
     };
 
-    /**
-     * Method which try to point an user from users Project property with its UI property
-     * @param ui UI (UserCard) of the wanted User
-     * @returns Return the User if found, null if not
-     */
     getUserByUI(ui: UserCard ) : User | null {
         return this.users.find((e) => e.ui === ui) || null
     };
@@ -135,12 +112,6 @@ export class Project implements IProject {
         return this.todos.find((e) => e.ui === ui) || null
     };
 
-    /**
-     * Method which tries to find the UserCard (UI) matching an HTMLElement.
-     * Works both with the original element and any clone stored in User.clones.
-     * @param element HTMLElement of the UserCard
-     * @returns Return the UserCard if found, null if not
-     */
     getUserUIByHTMLElement(element: HTMLElement): UserCard | null {
         const user = this.users.find((u) => u.ui.element === element || u["clones"]?.includes(element)
         );

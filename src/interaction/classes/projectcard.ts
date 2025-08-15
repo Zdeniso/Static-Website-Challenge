@@ -1,5 +1,5 @@
 import { IProject } from "./project";
-import { formattingCost, formattingDate } from "../functions/formattingValues";
+import { formattingCost, formatDateToJJMMAAAA } from "../functions/formattingValues";
 import { getRandomColor } from "../functions/setProjectInitials";
 import { getInitials } from "../functions/setProjectInitials";
 
@@ -47,7 +47,7 @@ export class ProjectCard {
                 </div>     
                 <div class="project-card__values" id="pcard-finish-date">
                     <p class="project-card__criteria">Finish Date</p>
-                    <p>${formattingDate(this.data.finishDate)}</p>
+                    <p>${formatDateToJJMMAAAA(this.data.finishDate)}</p>
                 </div>                             
             </div>
         `;

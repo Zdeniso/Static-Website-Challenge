@@ -3,9 +3,17 @@ export function formattingCost(cost: number): string {
     return formattedCost
 };
 
-export function formattingDate(date: Date): string {
-    const formattedDate = date.toLocaleDateString('fr-CH');
-    const ch = /\./g // Indicate that every "." of the string will be replace - g means global
-    const fDate = formattedDate.replace(ch, "/");
-    return fDate
+export function formatDateToJJMMAAAA(date: Date | string): string {
+    const d = typeof date === "string" ? new Date(date) : date;
+
+    const day = String(d.getDate()).padStart(2, "0");     
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();                         
+
+    return `${day}/${month}/${year}`;
 };
+
+export function formatDateToAAAAMMDD(date: Date | string): string {
+    const d = typeof date === "string" ? new Date(date) : date;
+    return d.toISOString().split("T")[0]; // 2025-08-07
+}

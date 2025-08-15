@@ -1,5 +1,5 @@
 import { Project } from "../classes/project";
-import { formattingCost, formattingDate } from "./formattingValues";
+import { formattingCost, formatDateToJJMMAAAA } from "./formattingValues";
 import { getInitials } from "./setProjectInitials";
 import { vProjectDetailsPage, vProjectDetailsTodoTable, vProjectUsersPage, vProjectUsersTable } from "../assert-element.ts";
 import { getEl } from "./helperQuerySelector";
@@ -52,7 +52,7 @@ function populateCardDetails(project: Project): void {
     cardStatus.textContent = project.status;
     cardClient.textContent = project.client;
     cardCost.textContent = formattingCost(project.cost);
-    cardFinishDate.textContent = formattingDate(project.finishDate)
+    cardFinishDate.textContent = formatDateToJJMMAAAA(project.finishDate)
 };
 
 function populateTodo(project: Project): void {
