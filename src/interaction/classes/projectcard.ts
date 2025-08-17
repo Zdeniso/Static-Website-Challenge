@@ -3,10 +3,6 @@ import { formattingCost, formatDateToJJMMAAAA } from "../functions/formattingVal
 import { getRandomColor } from "../functions/setProjectInitials";
 import { getInitials } from "../functions/setProjectInitials";
 
-/**
- * Represent and define ProjectCard with Project.ui property and add the element to the DOM for UI.
- * Should be instanciated
- */
 export class ProjectCard {
     public element: HTMLElement;
     private data: IProject;

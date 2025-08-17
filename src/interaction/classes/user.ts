@@ -57,6 +57,19 @@ export class User implements IUser {
             clone.innerHTML = this.ui.element.innerHTML;
         }
     }
+
+    static fromJSON(data: any): User {
+        const user = new User({
+            name: data.name,
+            company: data.company,
+            role: data.role,
+            email: data.email
+        });
+
+        user.id = data.id;
+
+        return user;
+    }
 }
 
 

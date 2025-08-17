@@ -1,10 +1,9 @@
 import { vProjectsCardsImportButton } from "../../assert-element.ts";
-import { Project } from "../../classes/project.ts";
-import { importFromJSON } from "../../functions/export-importFromJSON.ts";
+import { importProjectsFromJSONFile } from "../../functions/export-importFromJSON.ts";
 
 vProjectsCardsImportButton.addEventListener("click", () => {
     try {
-        importFromJSON(Project)
+        importProjectsFromJSONFile()
     } catch (error){
         console.error("Import could not be performed : ", error)
     }

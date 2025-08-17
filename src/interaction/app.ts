@@ -35,6 +35,8 @@ import "./functions/setProjectInitials.ts";
 import "./functions/showPage.ts";
 import "./functions/showCommonModal.ts";
 import "./functions/showAndGetAreYouSureToDeleteModal.ts";
+import "./functions/showAndGetAreYouSureToReplaceModal.ts";
+import "./functions/showAndGetDoYouWantToAddUserModal.ts";
 
 // =========================
 // PAGES

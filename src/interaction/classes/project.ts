@@ -8,6 +8,7 @@ import { addToDOM } from '../functions/add-removeFromDOM.ts';
 import { showCommonModal } from '../functions/showCommonModal.ts';
 import { UserCard } from './usercard.ts';
 import { TodoCard } from './todocard.ts';
+import { vProjectsCardsTable } from './../assert-element.ts';
 
 export interface IProject {
     name: string;
@@ -138,5 +139,23 @@ export class Project implements IProject {
                 throw new Error(`Something went wrong trying to add a todo item : ${error}`)
             }
         }
+    };
+
+    static fromJSON(data: any): Project {
+        const project = new Project({
+            name: data.name,
+            description: data.description,
+            status: data.status,
+            client: data.client,
+            cost: data.cost,
+            finishDate: new Date(data.finishDate)
+        });
+
+        project.ui = new ProjectCard(project);              
+        project.id = data.id;
+        project.users = (data.users || []).map((u: any) => User.fromJSON(u));
+        project.todos = (data.todos || []).map((t: any) => Todo.fromJSON(t));
+
+        return project;
     }
 }
