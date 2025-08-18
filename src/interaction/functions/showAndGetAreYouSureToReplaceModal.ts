@@ -8,10 +8,10 @@ export function showAndGetAreYouSureToReplaceModal(name: string): HTMLDialogElem
 
     dialogContainer.innerHTML = `
         <div>
-            <p>Project ${name} already exist. Do you really want to delete existing one and replace it with imported one ?</p>
+            <p>${name} already exist. Do you really want to delete existing one and replace it with imported one ?</p>
             <div>
-                <button class="btn cancel" id="cancel-replace-project">Cancel</button>
-                <button class="btn accept" id="yes-replace-project">Yes</button>
+                <button class="btn cancel" id="cancel-replace">Cancel</button>
+                <button class="btn accept" id="yes-replace">Yes</button>
             </div>
         </div>              
     `;

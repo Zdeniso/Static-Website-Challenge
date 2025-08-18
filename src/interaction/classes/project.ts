@@ -91,7 +91,6 @@ export class Project implements IProject {
         } else {
             const newUsersList = this.users.filter((e) => e.id != id);
             this.users = newUsersList;
-            console.log(`User has been removed successfuly from the project ${this.name}`)
         }
     };
 

@@ -1,7 +1,7 @@
-import { vAllUsersExportButton } from "../../assert-element";
-import { UsersManager } from "../../classes/usersmanager";
-import { exportToJSON } from "../../functions/export-importFromJSON";
+import { vAllUsersExportButton } from "../../assert-element.ts";
+import { UsersManager } from "../../classes/usersmanager.ts";
+import { exportDataToJSONFile } from "../../functions/exportDataToJSONFile.ts";
 
 vAllUsersExportButton.addEventListener("click", () => {
-    exportToJSON(UsersManager.usersList, "All_users_list")
+    exportDataToJSONFile(UsersManager.usersList, "All_users_list")
 })

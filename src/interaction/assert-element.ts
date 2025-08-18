@@ -65,8 +65,8 @@ export const vEditTodoCancelButton = assertButtonElement(editTodoCancelButton);
 export const vProjectUsersPage = assertContainerElement(projectUsersPage);
 export const vProjectUsersTable = assertContainerElement(projectUsersTable);
 export const vProjectUsersAddButton = assertButtonElement(projectUsersAddButton);
-export const vExportUsersListButton = assertButtonElement(projectUsersExportButton);
-export const vImportUsersListButton = assertButtonElement(projectUsersImportButton);
+export const vProjectUsersExportButton = assertButtonElement(projectUsersExportButton);
+export const vProjectUsersImportButton = assertButtonElement(projectUsersImportButton);
 export const vProjectUsersBackToProjectDetailsButton = assertButtonElement(projectUsersBackToProjectDetailsButton);
 
 // Modal - Add User

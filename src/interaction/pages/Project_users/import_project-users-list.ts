@@ -1,8 +1,10 @@
-import { vImportUsersListButton } from "../../assert-element.ts";
-import { User } from "../../classes/user.ts";
-//
-//import { importFromJSON } from "../../functions/export-importFromJSON.ts";
-//
-//vImportUsersListButton.addEventListener("click", () => {
-//    importFromJSON(User)
-//})
+import { vProjectUsersImportButton } from "../../assert-element.ts";
+import { importUsersToProjectFromJSONFile } from "../../functions/importUsersToProjectFromJSONFile.ts";
+
+vProjectUsersImportButton.addEventListener("click", () => {
+    try {
+        importUsersToProjectFromJSONFile()
+    } catch (error){
+        console.error("Import could not be performed : ", error)
+    }
+})

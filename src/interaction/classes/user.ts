@@ -66,6 +66,7 @@ export class User implements IUser {
             email: data.email
         });
 
+        user.ui = new UserCard(user)
         user.id = data.id;
 
         return user;

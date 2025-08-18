@@ -79,7 +79,6 @@ export class UsersManager {
         } else {
             const newUsersList = this.usersList.filter((e) => e.id != id);
             this.usersList = newUsersList;
-            console.log("User has been removed successfuly")
         }
     };
 
