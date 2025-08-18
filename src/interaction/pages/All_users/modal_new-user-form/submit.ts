@@ -3,6 +3,7 @@ import { Company, Role } from "../../../classes/type.ts";
 import { IUser } from "../../../classes/user.ts";
 import { UsersManager } from "../../../classes/usersmanager.ts";
 
+
 vNewUserForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const rawData = new FormData(vNewUserForm);
@@ -15,5 +16,5 @@ vNewUserForm.addEventListener("submit", (e) => {
 
     UsersManager.newUser(userData);
     vNewUserForm.reset();
-    vNewUserDialog.close()
+    vNewUserDialog.close();
 })

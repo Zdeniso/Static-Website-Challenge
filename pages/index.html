@@ -221,6 +221,58 @@
                 </form>
             </dialog>  
 
+            <!-- Modal - Edit user -->
+            <dialog class="dialog-for-forms" id="edit-user-dialog">
+                <form class="common-form" id="edit-user-form">
+                    <h1>Edit user's information</h1>
+                    <label for="edit-user-name">
+                        <div class="title-zone">
+                            <span class="material-icons">account_circle</span>
+                            <span class="label-title">Name  <span style="font-style: italic; font-size: 0.8rem">(name SURNAME)</span></span>
+                        </div>
+                        <input name="edit-user-name" id="edit-user-name" type="text" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+                    <label for="edit-user-company">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Company</span>
+                        </div>
+                        <select name="edit-user-company" id="edit-user-company">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Losinger-Marazzi</option>
+                            <option>Implenia</option>
+                            <option>Vinci-Construction</option>
+                        </select>
+                    </label>
+                    <label for="edit-user-role">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Role</span>
+                        </div>
+                        <select name="edit-user-role" id="edit-user-role">
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <option>Architect</option>
+                            <option>Electrical Engineer</option>
+                            <option>HVAC Engineer</option>
+                            <option>Structural Engineer</option>
+                            <option>BIM Manager</option>
+                            <option>Client</option>
+                        </select>
+                    </label>
+                    <label for="edit-user-email">
+                        <div class="title-zone">
+                            <span class="material-icons">alternate_email</span>
+                            <span class="label-title">Email</span>
+                        </div>
+                        <input name="edit-user-email" id="edit-user-email" type="text" placeholder="John.delaware@vinci-construction.com" required />
+                    </label>
+                    <div class="form-actions">
+                        <button type="button" class="btn cancel" id="edit-user-cancel-button"  >Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>  
 
             
         </div>  
@@ -391,7 +443,104 @@
                     </div>
                 </form>
             </dialog>                
-            
+
+
+            <!-- Modal - Edit Todo -->
+            <dialog class="dialog-for-forms" id="edit-todo-dialog">
+                <form class="common-form" id="edit-todo-form">
+                    <h1>Edit Todo Item</h1>
+                    <label for="edit-todo-name">
+                        <div class="title-zone">
+                            <span class="material-icons">apartment</span>
+                            <span class="label-title">Name</span>
+                        </div>
+                        <input id="edit-todo-name" name="edit-todo-name" type="text" placeholder="At least 5 characters" required />
+                        <small>TIP: Give it a short name.</small>
+                    </label>
+
+                    <label for="edit-todo-description">
+                        <div class="title-zone">
+                            <span class="material-icons">drive_file_rename_outline</span>
+                            <span class="label-title">Description</span>
+                        </div>
+                            <textarea id="edit-todo-description" name="edit-todo-description" type="text" required></textarea>
+                    </label>
+
+                    <label for="edit-todo-status">
+                        <div class="title-zone">
+                            <span class="material-icons">keyboard_double_arrow_right</span>
+                            <span class="label-title">Status</span>
+                        </div>
+                        <select id="edit-todo-status" name="edit-todo-status">
+                            <option>Open</option>
+                            <option>Close</option>
+                        </select>
+                    </label>
+
+                    <label for="edit-todo-priority">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Priority</span>
+                        </div>
+                        <select id="edit-todo-priority" name="edit-todo-priority" required>
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </label>
+
+                    <label for="edit-todo-type">
+                        <div class="title-zone">
+                            <span class="material-icons">assignment_ind</span>
+                            <span class="label-title">Type</span>
+                        </div>
+                        <select id="edit-todo-type" name="edit-todo-type" required>
+                            <option>Clash</option>
+                            <option>Information</option>
+                            <option>Question</option>
+                            <option>Error</option>
+                            <option>Suggestion</option>
+                        </select>
+                    </label>
+
+                    <label for="edit-todo-creation-date">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Creation</span>
+                        </div>
+                        <input id="edit-todo-creation-date" name="edit-todo-creation-date" type="date" required />
+                    </label>
+
+                    <label for="edit-todo-open-by">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Open by</span>
+                        </div>
+                        
+                        <select id="edit-todo-open-by" name="edit-todo-open-by" required>
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <!-- Dynamic list from Project.users list -->
+                        </select>
+                    </label>
+
+                    <label for="edit-todo-intended-to">
+                        <div class="title-zone">
+                            <span class="material-icons">calendar_month</span>
+                            <span class="label-title">Intended to</span>
+                        </div>
+                        <select id="edit-todo-intended-to" name="edit-todo-intended-to" required>
+                            <option value="" disabled selected>-- Choose an option --</option>
+                            <!-- Dynamic list from Project.users list -->
+                        </select>
+                    </label>
+                    <div class="form-actions">
+                        <button id="edit-todo-cancel-button" type="button" class="btn cancel">Cancel</button>
+                        <button type="submit" class="btn accept">Accept</button>
+                    </div>
+                </form>
+            </dialog>                
+
+
             <!-- Modal - Edit project -->
             <dialog class="dialog-for-forms" id="edit-project-dialog">
                 <form class="common-form" id="edit-project-form">
@@ -480,8 +629,9 @@
 
             <!-- Main area -->  
             <div class="subheader_primary-page">
-                <button class="import-export-btn" id="project-users-import-button">Import<span class="material-icons">download</span></button>
-                <button class="import-export-btn" id="project-users-export-button">Export<span class="material-icons">download</span></button>                   
+                <button class="import-export-btn" id="project-users-import-button">Import<span class="material-icons">publish</span></button>
+                <button class="import-export-btn" id="project-users-export-button">Export<span class="material-icons">download</span></button>
+                <button class="import-export-btn" id ="project-users-back-to-project-details-button"><span class="material-icons">undo</span>Project details</button>                
                 <button class="button_add-element" id="project-users-add-button">+ Add user</button>  
             </div>
             
@@ -501,7 +651,6 @@
 
                 </div>
             </div>
-
 
             <!-- Footer area-->
             <footer id="footer-users-page-area">

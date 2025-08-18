@@ -27,7 +27,7 @@ export function showCommonModal(type: MessageType, message: string ): void {
     dialogContainer.showModal();
 
     // Close
-    const gotIt = getEl<HTMLButtonElement>("#common-button");
+    const gotIt = dialogContainer.querySelector("#common-button") as HTMLDialogElement;
     gotIt.addEventListener("click", () => {
         dialogContainer.close();
         dialogContainer.remove()

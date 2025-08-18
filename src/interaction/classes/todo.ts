@@ -60,4 +60,22 @@ export class Todo implements ITodo {
         this.intendedTo = data.intendedTo;
         this.ui.updateTodoContent(data)
     };
+
+    static fromJSON(data: any): Todo {
+        const todo = new Todo({
+            name: data.name,
+            description: data.description,
+            status: data.status,
+            priority: data.priority,
+            type: data.type,
+            creationDate: new Date(data.creationDate),
+            openBy: data.openBy,
+            intendedTo: data.intendedTo
+        });
+
+        todo.ui = new TodoCard(todo)
+        todo.id = data.id;
+
+        return todo;
+    }
 }

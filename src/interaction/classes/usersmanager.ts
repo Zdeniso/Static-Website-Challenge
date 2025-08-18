@@ -1,6 +1,8 @@
-import { User, IUser } from "./user.ts"
+import { User, IUser } from "./user.ts";
+import { UserCard } from "./usercard.ts";
 import { vAllUsersTable } from "../assert-element.ts";
 import { addToDOM, removeFromDOM } from "../functions/add-removeFromDOM.ts";
+import { showCommonModal } from "../functions/showCommonModal.ts";
 
 /**
  * Represent the container of all User referenced in the application
@@ -10,6 +12,7 @@ export class UsersManager {
     static usersList: User[] = [];
 
     private constructor() {}
+    
     /**
      * Method which try to point an User with its ID property
      * @param id ID of the wanted User
@@ -28,11 +31,18 @@ export class UsersManager {
         const existingUser = this.usersList.some((u) => u.hasSameEmail(data));     
         if (existingUser) {
             console.warn("Attempted to add user that already exists:", data.name);
+            showCommonModal("Error", "An user with this email already exist")
             return;
         } else {
-            const newUser = new User(data);
-            this.usersList.push(newUser);
-            addToDOM(vAllUsersTable, newUser.ui.element);
+            try {
+                const newUser = new User(data);
+                this.usersList.push(newUser);
+                addToDOM(vAllUsersTable, newUser.ui.element);
+                showCommonModal("Success", `${newUser.name} has been added to the global user list successfuly. You can now add him/her to projects `)
+            } catch (error) {
+                console.warn("Something went wrong trying to add the user to the global list and to the DOM:", error);
+                showCommonModal("Error", "Something went wrong trying to add the user to the global list and to the DOM")
+            }
         }
     };
 
@@ -47,8 +57,14 @@ export class UsersManager {
             console.warn("getUser: aucun user trouvé avec cet ID :", id); 
             return
         } else {
-            user.update(data);
-            console.log("User has been update successfuly") 
+            try {
+                user.update(data);
+                showCommonModal("Success", `User ${user.name} has been edited successfuly`)
+            } catch (error) {
+                showCommonModal("Error", `Something went wrong trying to edit the user ${user.name}`)
+                throw new Error(`Something went wrong trying to edit the user : ${error}`);
+                
+            }
         }
     };    
 
@@ -63,10 +79,27 @@ export class UsersManager {
         } else {
             const newUsersList = this.usersList.filter((e) => e.id != id);
             this.usersList = newUsersList;
-            removeFromDOM(user.ui.element);
-            console.log("User has been removed successfuly")
         }
     };
+
+    /**
+     * Method which try to point an user with its UI property
+     * @param ui UI (UserCard) of the wanted User
+     * @returns Return the User if found, null if not
+     */
+    static getUserByUI(ui: UserCard ) : User | null {
+        return this.usersList.find((e) => e.ui === ui) || null
+    };
+
+    /**
+     * Method which try to point a UserCard with its UI.element property (HTMLElement)
+     * @param element HTMLElement of the UserCard
+     * @returns Return the UserCard if found, null if not
+     */
+    static getUIByHTMLElement(element: HTMLElement ) : UserCard | null {
+        const user = this.usersList.find((e) => e.ui.element === element)
+        return user ? user.ui : null      // Ternary operator ( compact if-else statement)
+    };   
 
     /*
      * ==========================================================================================================

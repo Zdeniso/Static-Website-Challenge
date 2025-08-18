@@ -23,21 +23,32 @@ import "./functions/add-removeFromDOM.ts";
 import "./functions/assertHTMLElement.ts";
 import "./functions/formattingValues.ts";
 import "./functions/helperQuerySelector.ts";
-import "./functions/export-importFromJSON.ts"
+import "./functions/importProjectsFromJSONFile.ts";
+import "./functions/importUsersToGlobalListFromJSONFile.ts";
+import "./functions/importUsersToProjectFromJSONFile.ts";
+import "./functions/exportDataToJSONFile.ts";
+import "./functions/parseJSONString.ts";
 import "./functions/populateHTMLSelectElementWithUsersList.ts";
 import "./functions/populateProjectEditForm.ts";
+import "./functions/populateUserEditForm.ts";
 import "./functions/populateSecondaryPage.ts";
+import "./functions/populateTodoEditForm.ts";
 import "./functions/storeDataToSessionStorage.ts";
 import "./functions/getProjectIDFromSessionStorage.ts";
+import "./functions/readFileAsString.ts";
 import "./functions/setProjectInitials.ts";
 import "./functions/showPage.ts";
 import "./functions/showCommonModal.ts";
+import "./functions/showAndGetAreYouSureToDeleteModal.ts";
+import "./functions/showAndGetAreYouSureToDeleteUserModal.ts";
+import "./functions/showAndGetAreYouSureToReplaceModal.ts";
+import "./functions/checkUsers.ts";
+import "./functions/triggerFileSelection.ts";
 
 // =========================
 // PAGES
 // =========================
 import "./pages/pages-navigation.ts";
-import "./pages/open_all-users-page.ts";
 //  Projects Page
 // =========================
 import "./pages/Projects/export_projects-list.ts";
@@ -53,29 +64,46 @@ import "./pages/Projects/modal_project_form/submission.ts";
 // =========================
 import "./pages/Project_details/open_project-users-page.ts"
 import "./pages/Project_details/open_project-edit-form.ts";
-import "./pages/Project_details/open_add-todo-form.ts"
+import "./pages/Project_details/open_todo-add-form.ts";
 import "./pages/Project_details/delete_project.ts";
-//  Modal Edit Form
-import "./pages/Project_details/modal_edit-form/close.ts";
-import "./pages/Project_details/modal_edit-form/submission.ts";
-//  Modal Todo Form
-import "./pages/Project_details/modal_todo-form/close.ts";
-import "./pages/Project_details/modal_todo-form/submission.ts";
+import "./pages/Project_details/delete_todo.ts";
+import "./pages/Project_details/edit_todo.ts";
+//  Modal Edit Project Form
+import "./pages/Project_details/modal_edit-project-form/close.ts";
+import "./pages/Project_details/modal_edit-project-form/submission.ts";
+//  Modal Add Todo Form
+import "./pages/Project_details/modal_add-todo-form/close.ts";
+import "./pages/Project_details/modal_add-todo-form/submission.ts";
+//  Modal Edit Todo Form
+import "./pages/Project_details/modal_edit-todo-form/close.ts";
+import "./pages/Project_details/modal_edit-todo-form/submit.ts";
 
 
-// Users Page
+// Project Users Page
 // =========================
-import "./pages/Project_users/export_users-list.ts";
-import "./pages/Project_users/import_users-list.ts";
+import "./pages/Project_users/export_project-users-list.ts";
+import "./pages/Project_users/import_project-users-list.ts";
+import "./pages/Project_users/open_new-user-form.ts";
+import "./pages/Project_users/remove_user.ts";
+import "./pages/Project_users/open_project-details.ts";
 
 //  Modal User Form
-import "./pages/Project_users/open_new-user-form.ts";
 import "./pages/Project_users/modal_user-form/submission.ts";
+import "./pages/Project_users/modal_user-form/close.ts";
 
 
 // All Users Page
 // =========================
 import "./pages/All_users/open_new-user-form.ts";
-//  Modal User Form
+import "./pages/All_users/delete_user.ts";
+import "./pages/All_users/edit_user.ts";
+import "./pages/All_users/export_users-list.ts";
+import "./pages/All_users/import_users-list.ts";
+//  Modal New User Form
 import "./pages/All_users/modal_new-user-form/close.ts";
-import "./pages/All_users/modal_new-user-form/submit.ts"
+import "./pages/All_users/modal_new-user-form/submit.ts";
+// Modal Edit User Form
+import "./pages/All_users/modal_edit-user-form/close.ts";
+import "./pages/All_users/modal_edit-user-form/submit.ts"
+
+

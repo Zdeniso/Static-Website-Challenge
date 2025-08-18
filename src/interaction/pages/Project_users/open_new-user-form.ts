@@ -10,7 +10,6 @@ vProjectUsersAddButton.addEventListener("click", () => {
         populateHTMLSelectElementWithUsersList(UsersManager.usersList, container);
         vAddUserDialog.showModal()
     } catch (error) {
-        console.error("An error occured : ", error)
-        throw new Error("An unexpected error occured while trying to populate Select Element and show Add User form")
+        console.error("Add user form failed to open : ", error)
     }
 });

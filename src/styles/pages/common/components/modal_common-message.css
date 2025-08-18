@@ -11,7 +11,7 @@
     backdrop-filter: blur(6px); /* flou sur l’arrière-plan */
 }
 
-.common-message > div {
+.common-message > div:first-child {
     display: flex;
     flex-direction: column;
     gap: 1.2rem; /* espace entre chaque champ */
@@ -22,13 +22,20 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* ombre portée pour surélever */
 }
 
-.common-message > div button {
+.common-message > div:last-child {
     display: flex;
+}
+
+.common-message > button {
+    display: flex;
+    margin-left: auto;
     justify-content: center;
-    width: 8rem;
+    gap: 1rem;
+    width: auto;
 }
 
 .common-message > div p {
     font-size: 1.2rem;
 }
+
 

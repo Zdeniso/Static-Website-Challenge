@@ -9,10 +9,6 @@ export interface IUser {
     email: string, 
 };
 
-/**
- * Represent and define Users with method like update() etc.
- * Should be instanciated
- */
 export class User implements IUser {
     public name: string;
     public company: Company;
@@ -20,12 +16,8 @@ export class User implements IUser {
     public email: string;
     public id: string ;
     public ui: UserCard ;
-
     private clones: HTMLElement[] = []; 
 
-    /**
-    * @param data Data with which the User will be create
-    */
     constructor(data: IUser) {
         this.name = data.name;
         this.company = data.company;
@@ -39,7 +31,7 @@ export class User implements IUser {
         return (this.email.toLowerCase() === element.email.toLowerCase())
     };
 
-    update(data: IUser) {
+    update(data: IUser): void {
         this.name = data.name;
         this.company = data.company;
         this.role = data.role;
@@ -48,23 +40,36 @@ export class User implements IUser {
         this.updateClones();
     };   
 
-    /**
-     * Renvoie un clone de l'élément UserCard pour affichage multiple.
-     * Le clone est stocké pour pouvoir être mis à jour en cas de modification des données.
-     */
-    createClone(): HTMLElement {
+    createClone(): HTMLElement | undefined {
         const clone = this.ui.element.cloneNode(true) as HTMLElement;
-        this.clones.push(clone);
-        return clone;
+        const deleteButton = clone.querySelector('button[title="Edit"]');
+        if (!deleteButton) {
+            return
+        } else {  
+            deleteButton.remove();
+            this.clones.push(clone);
+            return clone;
+        }
     }
 
-    /**
-     * Met à jour tous les clones dans le DOM en recollant le innerHTML à jour
-     */
     private updateClones(): void {
         for (const clone of this.clones) {
             clone.innerHTML = this.ui.element.innerHTML;
         }
+    }
+
+    static fromJSON(data: any): User {
+        const user = new User({
+            name: data.name,
+            company: data.company,
+            role: data.role,
+            email: data.email
+        });
+
+        user.ui = new UserCard(user)
+        user.id = data.id;
+
+        return user;
     }
 }
 

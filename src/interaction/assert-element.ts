@@ -5,7 +5,8 @@ import { addUserForm, addUserCancelButton, projectUsersAddButton, addUserDialog,
     projectsCardsImportButton, projectDetailsEditButton, editProjectDialog, editProjectForm, editProjectCancelButton, 
     projectDetailsTodoAddButton, addTodoForm, addTodoDialog, addTodoCancelButton, projectDetailsTodoTable, 
     allUsersPage, usersNav, allUsersNewUserButton, newUserDialog, newUserForm, allUsersTable, projectDetailsDeleteButton, 
-    allUsersImportButton, allUsersExportButton, newUserCancelButton
+    allUsersImportButton, allUsersExportButton, newUserCancelButton, editUserDialog, editUserForm, editUserCancelButton, 
+    editTodoDialog, editTodoForm, editTodoCancelButton, projectUsersBackToProjectDetailsButton
 
 } from "./getelement.ts"
 
@@ -52,6 +53,11 @@ export const vAddTodoDialog = assertDialogElement(addTodoDialog);
 export const vAddTodoForm = assertFormElement(addTodoForm);
 export const vAddTodoCancelButton = assertButtonElement(addTodoCancelButton);
 
+// Modal - Edit Todo
+export const vEditTodoDialog = assertDialogElement(editTodoDialog);
+export const vEditTodoForm = assertFormElement(editTodoForm);
+export const vEditTodoCancelButton = assertButtonElement(editTodoCancelButton);
+
 
 // ==========================================================================================
 // Project's Users Page
@@ -59,13 +65,19 @@ export const vAddTodoCancelButton = assertButtonElement(addTodoCancelButton);
 export const vProjectUsersPage = assertContainerElement(projectUsersPage);
 export const vProjectUsersTable = assertContainerElement(projectUsersTable);
 export const vProjectUsersAddButton = assertButtonElement(projectUsersAddButton);
-export const vExportUsersListButton = assertButtonElement(projectUsersExportButton);
-export const vImportUsersListButton = assertButtonElement(projectUsersImportButton);
+export const vProjectUsersExportButton = assertButtonElement(projectUsersExportButton);
+export const vProjectUsersImportButton = assertButtonElement(projectUsersImportButton);
+export const vProjectUsersBackToProjectDetailsButton = assertButtonElement(projectUsersBackToProjectDetailsButton);
 
 // Modal - Add User
 export const vAddUserDialog = assertDialogElement(addUserDialog);
 export const vAddUserForm = assertFormElement(addUserForm);
 export const vAddUserCancelButton = assertButtonElement(addUserCancelButton);
+
+// Modal - Edit User
+export const vEditUserDialog = assertDialogElement(editUserDialog);
+export const vEditUserForm = assertFormElement(editUserForm);
+export const vEditUserCancelButton = assertButtonElement(editUserCancelButton);
 
 
 // ==========================================================================================

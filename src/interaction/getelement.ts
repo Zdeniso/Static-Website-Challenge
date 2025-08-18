@@ -6,7 +6,8 @@ import { ID_ADD_USER_FORM, ID_ADD_USER_CANCEL_BUTTON, ID_PROJECT_USERS_ADD_BUTTO
   ID_ALL_USERS_PAGE, ID_USERS_NAV, ID_ALL_USERS_NEW_USER_BUTTON, ID_NEW_USER_DIALOG, ID_NEW_USER_FORM, 
   ID_ALL_USERS_TABLE, ID_PROJECT_DETAILS_USERS_BUTTON, ID_PROJECT_DETAILS_EDIT_BUTTON, ID_PROJECT_DETAILS_DELETE_BUTTON, 
   ID_PROJECT_DETAILS_TODO_TABLE, ID_PROJECT_DETAILS_TODO_ADD_BUTTON, ID_ALL_USERS_IMPORT_BUTTON, ID_ALL_USERS_EXPORT_BUTTON,
-  ID_NEW_USER_CANCEL_BUTTON
+  ID_NEW_USER_CANCEL_BUTTON, ID_EDIT_USER_DIALOG, ID_EDIT_USER_FORM, ID_EDIT_USER_CANCEL_BUTTON, ID_EDIT_TODO_DIALOG,
+  ID_EDIT_TODO_FORM, ID_EDIT_TODO_CANCEL_BUTTON, ID_PROJECT_USERS_BACK_TO_PROJECT_DETAILS_BUTTON
 
 } from "./constants"
 
@@ -51,6 +52,11 @@ export const addTodoDialog = document.getElementById(ID_ADD_TODO_DIALOG) as HTML
 export const addTodoForm = document.getElementById(ID_ADD_TODO_FORM) as HTMLFormElement | null ;
 export const addTodoCancelButton = document.getElementById(ID_ADD_TODO_CANCEL_BUTTON) as HTMLButtonElement | null;
 
+// Modal - Edit Todo
+export const editTodoDialog = document.getElementById(ID_EDIT_TODO_DIALOG) as HTMLDialogElement | null;
+export const editTodoForm = document.getElementById(ID_EDIT_TODO_FORM) as HTMLFormElement | null;
+export const editTodoCancelButton = document.getElementById(ID_EDIT_TODO_CANCEL_BUTTON) as HTMLButtonElement | null;
+
 // ==========================================================================================
 // Project's Users Page
 // ==========================================================================================
@@ -59,12 +65,17 @@ export const projectUsersTable = document.getElementById(ID_PROJECT_USERS_TABLE)
 export const projectUsersAddButton = document.getElementById(ID_PROJECT_USERS_ADD_BUTTON) as HTMLButtonElement | null;
 export const projectUsersImportButton = document.getElementById(ID_PROJECT_USERS_IMPORT_BUTTON) as HTMLButtonElement | null;
 export const projectUsersExportButton = document.getElementById(ID_PROJECT_USERS_EXPORT_BUTTON) as HTMLButtonElement | null;
+export const projectUsersBackToProjectDetailsButton = document.getElementById(ID_PROJECT_USERS_BACK_TO_PROJECT_DETAILS_BUTTON) as HTMLButtonElement | null;
 
 // Modal - Add User
 export const addUserDialog = document.getElementById(ID_ADD_USER_DIALOG) as HTMLDialogElement | null;
 export const addUserForm = document.getElementById(ID_ADD_USER_FORM) as HTMLFormElement | null;
 export const addUserCancelButton = document.getElementById(ID_ADD_USER_CANCEL_BUTTON) as HTMLButtonElement | null;
 
+// Modal - Edit User
+export const editUserDialog = document.getElementById(ID_EDIT_USER_DIALOG) as HTMLDialogElement | null;
+export const editUserForm = document.getElementById(ID_EDIT_USER_FORM) as HTMLFormElement | null;
+export const editUserCancelButton = document.getElementById(ID_EDIT_USER_CANCEL_BUTTON) as HTMLButtonElement | null;
 
 // ==========================================================================================
 // All Users' Page

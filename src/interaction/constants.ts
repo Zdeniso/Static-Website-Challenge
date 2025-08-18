@@ -40,6 +40,11 @@ export const ID_ADD_TODO_DIALOG: string = "add-todo-dialog";
 export const ID_ADD_TODO_FORM: string = "add-todo-form";
 export const ID_ADD_TODO_CANCEL_BUTTON: string = "add-todo-cancel-button";
 
+// Modal - Edit Todo
+export const ID_EDIT_TODO_DIALOG: string = "edit-todo-dialog";
+export const ID_EDIT_TODO_FORM: string = "edit-todo-form";
+export const ID_EDIT_TODO_CANCEL_BUTTON: string = "edit-todo-cancel-button";
+
 
 // ==========================================================================================
 // Project's Users Page
@@ -49,6 +54,7 @@ export const ID_PROJECT_USERS_TABLE: string = "project-users-table";
 export const ID_PROJECT_USERS_ADD_BUTTON: string = "project-users-add-button";
 export const ID_PROJECT_USERS_IMPORT_BUTTON: string = "project-users-import-button";
 export const ID_PROJECT_USERS_EXPORT_BUTTON: string = "project-users-export-button";
+export const ID_PROJECT_USERS_BACK_TO_PROJECT_DETAILS_BUTTON: string = "project-users-back-to-project-details-button";
 
 // Modal - Add User
 export const ID_ADD_USER_DIALOG: string = "add-user-dialog";
@@ -65,6 +71,10 @@ export const ID_ALL_USERS_NEW_USER_BUTTON: string = "all-users-new-user-button";
 export const ID_ALL_USERS_IMPORT_BUTTON: string = "all-users-import-button";
 export const ID_ALL_USERS_EXPORT_BUTTON: string = "all-users-export-button";
 
+// Modal - Edit User
+export const ID_EDIT_USER_DIALOG: string = "edit-user-dialog";
+export const ID_EDIT_USER_FORM: string = "edit-user-form";
+export const ID_EDIT_USER_CANCEL_BUTTON: string = "edit-user-cancel-button";
 
 // Modal - New User
 export const ID_NEW_USER_DIALOG: string = "new-user-dialog";

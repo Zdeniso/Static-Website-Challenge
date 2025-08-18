@@ -1,9 +1,5 @@
 import { IUser } from "./user.ts";
 
-/**
- * Represent and define UserCard with User.ui property and add the element to the DOM for UI.
- * Should be instanciated
- */
 export class UserCard {
     public element: HTMLElement;
     private data: IUser;
