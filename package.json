@@ -18,10 +18,12 @@
   "homepage": "https://github.com/Zdeniso/Static-Website-Challenge#readme",
   "description": "",
   "devDependencies": {
+    "@types/three": "0.156.0",
     "typescript": "^5.8.3",
     "vite": "^7.0.4"
   },
   "dependencies": {
+    "three": "0.152.2",
     "tsc": "^2.0.4",
     "uuid": "^11.1.0"
   }
